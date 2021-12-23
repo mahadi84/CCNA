@@ -1,0 +1,40 @@
+Switch>en   (enable switch)
+Switch#show ?  (all available command)
+Esc (return to main window)
+
+
+TO CHECK (configuration):
+-----------------------
+Switch#sh int fa 0/1
+Switch#sh int tr/show interface trunk   ( if TRUNK is avaiable)
+Switch#sh vlan bri/brief
+
+
+TO CONFIGURE:
+-------------
+Switch#config t                        (configure terminal)
+Switch(config)#exit                    (exit from config mode)
+
+Switch(config)# int f 0/1              (interface fastEthernet)
+Switch(config)# int range f 0/1-4
+
+Switch(config-if)#switchport mode access      (create access port)
+Switch(config-if)#switchport access vlan 10(vlan access)
+
+
+Switch(config-if)# switchport mode trunk/dynamic/trunk
+	
+  *trunk	Set trunking mode to ACCESS unconditionally
+	dynamic	Set trunking mode to dynamically negotiate trunk or trunk mode
+	trunk	Set trunking mode to TRUNK unconditionally
+
+
+ROUTER(STICK):
+-------------
+Router(config)#int f 0/0.1             (access imaginary Ethernet port)
+Router(config-subif)#encapsulation dotlq 20(Vlan No)
+Router(config-subif)#ip address 192.168.20.1 255.255.255.0
+
+
+
+
