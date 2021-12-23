@@ -40,6 +40,12 @@ Router(config)#int f 0/0.1             (access imaginary Ethernet port)
 Router(config-subif)#encapsulation dot1Q 20(Vlan No)
 Router(config-subif)#ip address 192.168.20.1 255.255.255.0
 
+TO DELETE VLAN and ACCESS:
+--------------------------
+Switch(config)# int f 0/1 	Enter in Interface configuration mode
+Switch(config-if)#no switchport access vlan 10	Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1
+Switch(config)#no vlan 10	Delete VLAN 10 from VLAN database
+
 
 
 
