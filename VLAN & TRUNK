@@ -1,19 +1,24 @@
+
+
+TO CHECK:
+--------
 Switch>en   (enable switch)
-Switch#show ?  (all available command)
 Esc (return to main window)
 
-
-TO CHECK (configuration):
------------------------
+Switch>show ip interface brief
 Switch#sh int fa 0/1
 Switch#sh int tr/show interface trunk   ( if TRUNK is avaiable)
 Switch#sh vlan bri/brief
+
+Switch#show ?  (all available command)
+
 
 
 TO CREATE and CONFIGURE:
 ------------------------
 Switch#config t                        (configure terminal)
-Switch(config)#exit                    (exit from config mode)
+Switch#hostname switch01
+switch01(config)#exit                    (exit from config mode)
 
 Switch(config)# int f 0/1              (interface fastEthernet)
 Switch(config)# int range f 0/1-4
