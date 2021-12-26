@@ -6,6 +6,7 @@ Switch>en   (enable switch)
 Esc (return to main window)
 
 Switch>show ip interface brief
+Switch>show interface status
 Switch#sh int fa 0/1
 Switch#sh int tr/show interface trunk   ( if TRUNK is avaiable)
 Switch#sh vlan bri/brief
@@ -26,6 +27,7 @@ Switch(config)# int range f 0/1-4
 ACCESS PORT and VLAN:--
 Switch(config-if)#switchport mode access      (create access port)
 
+------create vlan in switch---------
 Switch(config)#vlan 10                 (create vlan)
 Switch(config-vlan)#name HR            (create name)
 
@@ -39,11 +41,21 @@ Switch(config-if)# switchport mode trunk/dynamic/trunk
   trunk	Set trunking mode to TRUNK unconditionally
 
 
-ROUTER(STICK):
--------------
-Router(config)#int f 0/0.1             (access imaginary Ethernet port)
+VLAN CREATE and STICK In ROUTER:
+-------------------------------
+Router#vlan database
+Router(vlan)#vlan 40 name SALES
+Router#show vlan brief
+
+
+Router(config)#int f 0/0.1             (can name anything, imaginary Ethernet port)
 Router(config-subif)#encapsulation dot1Q 20(Vlan No)
 Router(config-subif)#ip address 192.168.20.1 255.255.255.0
+
+Router(config)#int f 0/0
+Router(config)#no shutdown / shutdown
+
+
 
 TO DELETE VLAN and ACCESS:
 --------------------------
