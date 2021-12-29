@@ -21,8 +21,8 @@ switch01(config)#exit                    (exit from config mode)
 Switch(config)# int f 0/1              (interface fastEthernet)
 Switch(config)# int range f 0/1-4
 
-VLAN and ACCESS PORT/TRUNK and Assign PORT to VLAN:
----------------------------------------------------
+VLAN (CREATE/NAME) and CREATE ACCESS (PORT/TRUNK) and Assign PORT(to VLAN):
+--------------------------------------------------------------------------
 Switch(config)#vlan 10                 (create vlan)
 Switch(config-vlan)#name HR            (create name)
 
@@ -54,7 +54,6 @@ Router(config-subif)#ip address 192.168.20.1 255.255.255.0
 
 Router(config)#int f 0/0
 Router(config)#no shutdown / shutdown
-
 
 
 
