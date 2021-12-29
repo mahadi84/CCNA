@@ -1,22 +1,19 @@
 
-
-TO CHECK:
---------
 Switch>en   (enable switch)
 Esc (return to main window)
+Switch#show ?  (all available command)
 
+TO CHECK: (interface,port,vlan,trunk,ip configuration)
+-------------------------------------------------------
 Switch>show ip interface brief
 Switch>show interface status
 Switch#sh int fa 0/1
 Switch#sh int tr/show interface trunk   ( if TRUNK is avaiable)
 Switch#sh vlan bri/brief
 
-Switch#show ?  (all available command)
 
-
-
-TO CREATE and CONFIGURE:
-------------------------
+TO CREATE/CONFIGURE:
+--------------------
 Switch#config t                        (configure terminal)
 Switch#hostname switch01
 switch01(config)#exit                    (exit from config mode)
@@ -24,31 +21,34 @@ switch01(config)#exit                    (exit from config mode)
 Switch(config)# int f 0/1              (interface fastEthernet)
 Switch(config)# int range f 0/1-4
 
-ACCESS PORT and VLAN:--
-Switch(config-if)#switchport mode access      (create access port)
-
-------create vlan in switch---------
+VLAN and ACCESS PORT/TRUNK and Assign PORT to VLAN:
+---------------------------------------------------
 Switch(config)#vlan 10                 (create vlan)
 Switch(config-vlan)#name HR            (create name)
 
-Switch(config-if)#switchport access vlan 10(vlan access)   (assign a VLAN to access port)
-
-
-Switch(config-if)# switchport mode trunk/dynamic/trunk
-	
+Switch(config-if)#switchport mode access      (create access port)
+Switch(config-if)# switchport mode trunk/dynamic/trunk	
   *trunk	Set trunking mode to ACCESS unconditionally
   dynamic	Set trunking mode to dynamically negotiate trunk or trunk mode
   trunk	Set trunking mode to TRUNK unconditionally
 
+Switch(config-if)#switchport access vlan 10(vlan access)   (assign a VLAN to access port)
 
+TO DELETE VLAN and ACCESS:
+--------------------------
+Switch(config)# int f 0/1 	Enter in Interface configuration mode
+Switch(config-if)#no switchport access vlan 10	Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1
+Switch(config)#no vlan 10	Delete VLAN 10 from VLAN database
+
+
+----:ROUTER:---
 VLAN CREATE and STICK In ROUTER:
 -------------------------------
 Router#vlan database
 Router(vlan)#vlan 40 name SALES
 Router#show vlan brief
 
-
-Router(config)#int f 0/0.1             (can name anything, imaginary Ethernet port)
+Router(config)#int f 0/0.1             (can name anything ex: 0/0.10, imaginary Ethernet port)
 Router(config-subif)#encapsulation dot1Q 20(Vlan No)
 Router(config-subif)#ip address 192.168.20.1 255.255.255.0
 
@@ -57,11 +57,7 @@ Router(config)#no shutdown / shutdown
 
 
 
-TO DELETE VLAN and ACCESS:
---------------------------
-Switch(config)# int f 0/1 	Enter in Interface configuration mode
-Switch(config-if)#no switchport access vlan 10	Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1
-Switch(config)#no vlan 10	Delete VLAN 10 from VLAN database
+
 
 
 
