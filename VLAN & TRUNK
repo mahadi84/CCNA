@@ -3,7 +3,7 @@ Switch>en   (enable switch)
 Esc (return to main window)
 Switch#show ?  (all available command)
 
-TO CHECK: (interface,port,vlan,trunk,ip configuration)
+TO CHECK: (interface/port,ip,vlan and trunk configuration)
 -------------------------------------------------------
 Switch>show ip interface brief
 Switch>show interface status
