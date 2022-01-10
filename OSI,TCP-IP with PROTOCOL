@@ -1,0 +1,14 @@
+OSI                                                                         TCP/IP
+----                                                                     -------------
+
+01.APPLICATION    --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, SNMP
+02.PRESENTATION   --------|SSL, TLS, MIME,                               01.APPLICATION
+03.SESSION        --------|NetBIOS
+
+04.TRANSPORT      --------|TCP, UDP                                       02.TRANSPORT
+
+05.NETWORK        --------|IPv4, IPv6, ICMP                               03.INTERNET
+
+06.DATALINK       --------|PPP, HDLC (MAC)                                04.NETWORK
+07.PHYSICAL       --------|ETHERNET
+
