@@ -3,9 +3,8 @@
 OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
 TCP/IP model was created in the 1970s by the Defense Advance Research Project Agency (DARPA) as an open, vendor-neutral, public networking model.
 
-OSI                                                                         TCP/IP
-----                                                                     -------------
-
+OSI                                                                      TCP/IP
+----                                                                     ----------
 01.APPLICATION    --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, SNMP
 02.PRESENTATION   --------|SSL, TLS, MIME,                               01.APPLICATION
 03.SESSION        --------|NetBIOS
@@ -30,7 +29,7 @@ UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Si
 Telnet (Telecommunications Network) – used to connect/login and issue commands on a remote computer/device. All data sent via an SSH connection is NOT encrypted.
 SSH "Secure Shell." is a method of securely communicating(connect/login) with another computer/device. All data sent via an SSH connection is encrypted.
 
-Encapsulation:
+ENCAPSULATION:
 --------------
 The term encapsulation is used to describe a process of adding headers and trailers around some data.
 
