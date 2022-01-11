@@ -1,0 +1,73 @@
+
+
+OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
+TCP/IP model was created in the 1970s by the Defense Advance Research Project Agency (DARPA) as an open, vendor-neutral, public networking model.
+
+OSI                                                                      TCP/IP
+----                                                                     ----------
+01.APPLICATION    --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, SNMP
+02.PRESENTATION   --------|SSL, TLS, MIME,                               01.APPLICATION
+03.SESSION        --------|NetBIOS
+
+04.TRANSPORT      --------|TCP, UDP  (PORT)                              02.TRANSPORT
+
+05.NETWORK        --------|IPv4, IPv6, ARP, ICMP  (IP)                   03.INTERNET
+
+06.DATALINK       --------|PPP, HDLC (MAC)                               04.NETWORK
+07.PHYSICAL       --------|ETHERNET
+
+
+PROTOCOLS:
+----------
+ARP(Address Resolution Protocol) broadcasts a request packet to all the machines on the LAN and asks if any of the machines are using that particular IP address. 
+When a machine recognizes the IP address as its own, it sends a reply so ARP can update the cache for future reference and proceed with the communication.
+ICMP (Internet Control Message Protocol) – used to detects and reports network error conditions. Used in ping.
+
+TCP (Transmission Control Protocol) – a connection-oriented protocol that enables reliable data transfer between two computers.
+UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Since a session is not created before the data transfer, there is no guarantee of data delivery.
+
+Telnet (Telecommunications Network) – used to connect/login and issue commands on a remote computer/device. All data sent via an SSH connection is NOT encrypted.
+SSH "Secure Shell." is a method of securely communicating(connect/login) with another computer/device. All data sent via an SSH connection is encrypted.
+
+ENCAPSULATION:
+--------------
+The term encapsulation is used to describe a process of adding headers and trailers around some data.
+
+The TCP/IP model uses terms like segment, packet and frame to refer to a data packet defined by a particular layer. 
+Whereas OSI model uses a different term: protocol data unit (PDU). A PDU represent a unit of data with headers and trailers for the particular layer, 
+as well as the encapsulated data.
+
+
+
+PORT:
+-----
+A port is a 16-bit number used to identify specific applications and services.
+Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by certain privileged services:
+
+PORTNUMBER	TRANSPORT            PROTOCOL	SERVICE NAME                              	        RFC
+----------  ---------            ---------------------                                        ---
+20, 21	       TCP	             File Transfer Protocol (FTP)	                                RFC 959
+22	           TCP and UDP	     Secure Shell (SSH)	                                          RFC 4250-4256
+23	           TCP	             Telnet	                                                      RFC 854
+25	           TCP	             Simple Mail Transfer Protocol (SMTP)	                        RFC 5321
+53	           TCP and UDP	     Domain Name Server (DNS)	                                    RFC 1034-1035
+67, 68	       UDP	             Dynamic Host Configuration Protocol (DHCP)	                  RFC 2131
+69	           UDP	             Trivial File Transfer Protocol (TFTP)	                      RFC 1350
+80	           TCP	             HyperText Transfer Protocol (HTTP)	                          RFC 2616
+110	           TCP	             Post Office Protocol (POP3)	                                RFC 1939
+119	           TCP	             Network News Transport Protocol (NNTP)	                      RFC 8977
+123            UDP	             Network Time Protocol (NTP)	                                RFC 5905
+135-139	       TCP and UDP	     NetBIOS	                                                    RFC 1001-1002
+143	           TCP and UDP	     Internet Message Access Protocol (IMAP4)	                    RFC 3501
+161, 162	     TCP and UDP	     Simple Network Management Protocol (SNMP)	                  RFC 1901-1908, 3411-3418
+179	           TCP	             Border Gateway Protocol (BGP)	                              RFC 4271
+389	           TCP and UDP	     Lightweight Directory Access Protocol	                      RFC 4510
+443	           TCP and UDP	     HTTP with Secure Sockets Layer (SSL)	                        RFC 2818
+500	           UDP	             Internet Security Association and Key Management Protocol (ISAKMP) / Internet Key Exchange (IKE)	RFC 2408 - 2409
+636	           TCP and UDP	     Lightweight Directory Access Protocol over TLS/SSL (LDAPS	  RFC 4513
+989/990	       TCP	             FTP over TLS/SSL	                                            RFC 4217
+
+
+
+
+
