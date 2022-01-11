@@ -1,0 +1,17 @@
+
+
+
+Special IP address ranges that are used for special purposes are:
+------------------
+0.0.0.0/8 – addresses used to communicate with the local network
+127.0.0.0/8 – loopback addresses
+169.254.0.0/16 – link-local addresses (APIPA)
+
+
+Broadcast Domain
+----------------
+In networking, a broadcast means that we send something that everyone receives, whether they need/want it or not. 
+Switches will forward broadcast traffic on all their interfaces, except the one they received the broadcast on.
+
+There are a number of applications and protocols that use broadcast traffic. A good example is ARP (Address Resolution Protocol). 
+Switches will recognize it as broadcast traffic by looking at the destination MAC address.
