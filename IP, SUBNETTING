@@ -12,8 +12,8 @@ IP:   32bit
 MAC:  48bit (Example: 00-1B-63-84-45-E6)
 
 
-Classification of IP:
---------------------
+IP-ClassificatiON:
+------------------
 Class-A: 1-127**  (1.0.0.0-126.255.255.255)   Default Subnet Mask: 255.0.0.0      Total Host: 2^24= 16,777,214 
 Class-B: 128-191  (128.0.0.0-191.255.255.255) Default Subnet Mask: 255.255.0.0    Total Host: 2^16=65,534
 Class-C: 192-223  (1.0.0.0-126.255.255.255)   Default Subnet Mask: 255.255.255.0  Total Host: 2^8=254
@@ -39,13 +39,16 @@ Subnetting is the practice of dividing a network into two or more smaller networ
 It increases routing efficiency, enhances the security of the network and reduces the size of the broadcast domain.
 
 
-Broadcast Domain
+BROADCAST DOMAIN:
 ----------------
 In networking, a broadcast means that we send something that everyone receives, whether they need/want it or not. 
 Switches will forward broadcast traffic on all their interfaces, except the one they received the broadcast on.
 
 There are a number of applications and protocols that use broadcast traffic. A good example is ARP (Address Resolution Protocol). 
 Switches will recognize it as broadcast traffic by looking at the destination MAC address.
+
+
+
 
 
 
