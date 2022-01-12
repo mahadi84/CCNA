@@ -45,29 +45,21 @@ PORT:
 A port is a 16-bit number used to identify specific applications and services.
 Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by certain privileged services:
 
-PORTNUMBER	TRANSPORT            PROTOCOL	SERVICE NAME                              	        RFC
-----------  ---------            ---------------------                                        ---
-20, 21	       TCP	             File Transfer Protocol (FTP)	                                RFC 959
-22	           TCP and UDP	     Secure Shell (SSH)	                                          RFC 4250-4256
-23	           TCP	             Telnet	                                                      RFC 854
-25	           TCP	             Simple Mail Transfer Protocol (SMTP)	                        RFC 5321
-53	           TCP and UDP	     Domain Name Server (DNS)	                                    RFC 1034-1035
-67, 68	       UDP	             Dynamic Host Configuration Protocol (DHCP)	                  RFC 2131
-69	           UDP	             Trivial File Transfer Protocol (TFTP)	                      RFC 1350
-80	           TCP	             HyperText Transfer Protocol (HTTP)	                          RFC 2616
-110	           TCP	             Post Office Protocol (POP3)	                                RFC 1939
-119	           TCP	             Network News Transport Protocol (NNTP)	                      RFC 8977
-123            UDP	             Network Time Protocol (NTP)	                                RFC 5905
-135-139	       TCP and UDP	     NetBIOS	                                                    RFC 1001-1002
-143	           TCP and UDP	     Internet Message Access Protocol (IMAP4)	                    RFC 3501
-161, 162	     TCP and UDP	     Simple Network Management Protocol (SNMP)	                  RFC 1901-1908, 3411-3418
-179	           TCP	             Border Gateway Protocol (BGP)	                              RFC 4271
-389	           TCP and UDP	     Lightweight Directory Access Protocol	                      RFC 4510
-443	           TCP and UDP	     HTTP with Secure Sockets Layer (SSL)	                        RFC 2818
-500	           UDP	             Internet Security Association and Key Management Protocol (ISAKMP) / Internet Key Exchange (IKE)	RFC 2408 - 2409
-636	           TCP and UDP	     Lightweight Directory Access Protocol over TLS/SSL (LDAPS	  RFC 4513
-989/990	       TCP	             FTP over TLS/SSL	                                            RFC 4217
 
+Protocols     Ports        Description
+---------     ------       -------------
+FTP           20/21        File Transfer Protocol. Allows transfer of files between computers/host
+TFTP           69          Trivial File Transfer Protocol
+SSH            22          Secure Shell. Provides a SECURE or unencrypted connection between host systems (for LOGIN/CONFIGURE)
+TELNET         23          Provides INSECURE connection to remote hosts  (for LOGIN/CONFIGURE)
+HTTP           80          HyperText Transfer Protocol. Allows access to web servers
+HTTPS         443          This is the secure or encrypted version of HTTP. Provides secure access to web servers.
+SMTP           25          Simple Mail Transfer Protocol. Facilitates delivery of mail
+DNS            53          Domain Name System. Resolves domain names to IP addresses
+POP3          110          Post Office Protocol. Allows the download of mail from mail servers
+IMAP          143          Internet Message Access Protocol. It Allows access to mail stored on a mail server.
+SNMP          161          Simple Network Management Protocol. Allows you to monitor network devices.
+DHCP         67,68         Dynamic Host Configuration Protocol (DHCP)
 
 
 
