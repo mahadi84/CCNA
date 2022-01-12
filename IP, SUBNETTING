@@ -1,11 +1,42 @@
 
 
+IP(Internet Protocol)
+---------------------
+An IP address  is a numerical representation that uniquely identifies a specific interface on the network.
+Addresses in IPv4 are 32-bits long. This allows for a maximum of 4,294,967,296 (232) unique addresses. 
+Addresses in IPv6 are 128-bits, which allows for 3.4 x 1038 (2128) unique addresses.
 
-Special IP address ranges that are used for special purposes are:
-------------------
-0.0.0.0/8 – addresses used to communicate with the local network
-127.0.0.0/8 – loopback addresses
-169.254.0.0/16 – link-local addresses (APIPA)
+PORT: 16bit
+IP:   32bit
+      -----
+MAC:  48bit (Example: 00-1B-63-84-45-E6)
+
+
+Classification of IP:
+--------------------
+Class-A: 1-127**  (1.0.0.0-126.255.255.255)   Default Subnet Mask: 255.0.0.0      Total Host: 2^24= 16,777,214 
+Class-B: 128-191  (128.0.0.0-191.255.255.255) Default Subnet Mask: 255.255.0.0    Total Host: 2^16=65,534
+Class-C: 192-223  (1.0.0.0-126.255.255.255)   Default Subnet Mask: 255.255.255.0  Total Host: 2^8=254
+
+
+Special IPs:
+-----------
+0.0.0.0/8       – addresses used to communicate with the local network
+**127.0.0.0/8   – loopback addresses(To check whether LAN card and TCP/IP is working) 
+169.254.0.0/16  – link-local addresses (APIPA)
+
+
+Private IP addresses range:
+---------------------------
+10.0.0.0      –   10.255.255.255 
+172.16.0.0    –   172.31.255.255 
+192.168.0.0   –   192.168.255.255
+
+
+SUBNETTING:
+-----------
+Subnetting is the practice of dividing a network into two or more smaller networks. 
+It increases routing efficiency, enhances the security of the network and reduces the size of the broadcast domain.
 
 
 Broadcast Domain
@@ -15,3 +46,7 @@ Switches will forward broadcast traffic on all their interfaces, except the one 
 
 There are a number of applications and protocols that use broadcast traffic. A good example is ARP (Address Resolution Protocol). 
 Switches will recognize it as broadcast traffic by looking at the destination MAC address.
+
+
+
+
