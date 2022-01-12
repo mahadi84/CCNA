@@ -48,6 +48,87 @@ There are a number of applications and protocols that use broadcast traffic. A g
 Switches will recognize it as broadcast traffic by looking at the destination MAC address.
 
 
+PROBLEM 01:
+-----------
+IP: 192.168.10.0
+SM: 255.255.255.224
+
+Find out:
+---------
+1) Subnet Mask
+2) Block Size
+3) Number of Subnets
+4) Number of hosts(valid)
+5) What are the subnet ID's
+6) First and Last valid host
+7) What's the Broadcast address
+
+**8) NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS
+
+Solution:
+---------
+
+   		                       255   .   255  .  255   .  254
+1) Subnet mask(Binary Value):    11111111.11111111.11111111.11100000
+2) Block Size:   256(Octac Value=2^8)-224=32
+3) Number of Subnetworks: 2^x= 2^3=8    (here x=total 1's value of classless octec)
+4) Number of valid hosts: 2^y-2=2^5-2=30 (here y=total 0's value of classless octec)
+5,6,7) 
+
+0,1,2,3----9, 10(2-digit), 11(2-digit)
+
+SUBNET/NETWORK ADDRESS/ID  |0 | 32 | 64 |---| 128 |
+FIRST VALID ADDRESS        |1 | 33 | 65 |---| 129 |
+LAST VALID ADDRESS         |30| 62 | 94 |---| 158 |
+BROADCAST ADDRESS          |31| 63 | 95 |---| 159 |
+
+8)  
+NETWORK ADDRESS=192.168.0.0
+FIRST VALID HOST= 192.168.0.1
+LAST VALID HOST= 192.168.0.30
+BROADCAST ADDRESS= 192.168.0.31
+
+
+
+
+PROBLEM 02:
+-----------
+IP: 22.204.134.249/20
+
+Find out:
+---------
+1) Subnet Mask
+2) Block Size
+3) Number of Subnets
+4) Number of hosts(valid)
+5) What are the subnet ID's
+6) First and Last valid host
+7) What's the Broadcast address
+**8) NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS
+
+Solution:
+---------
+
+   		          22   .   204  .  134   .  249     /20
+0) Binary Value:   11111111.11111111.11110000.00000000
+1) Subnet Mask:    255.255.240.0
+2) Block Size:   256(Octac Value=2^8)-240=16
+3) Number of Subnetworks: 2^x= 2^4=16    (here x=total 1's value of classless octec)
+4) Number of valid hosts: 2^y-2=2^4-2=14 (here y=total 0's value of classless octec)
+5,6,7) 
+
+0,1,2,3----9, 10(2-digit), 11(2-digit)
+
+NETWORK/SUBNET ADDRESS/ID  |  0.0 | 16.0  | 32.0  |---|128.0  |---|240.0
+FIRST VALID ADDRESS        |  0.1 | 16.1  | 32.1  |---|128.1  |---|240.1
+LAST VALID ADDRESS         |15.254| 31.254| 46.254|---|143.254|---|260.254
+BROADCAST ADDRESS          |25.255| 31.255| 47.255|---|143.255|---|260.255
+
+8)  
+NETWORK ADDRESS=22.204.128.0
+FIRST VALID HOST= 22.204.128.1
+LAST VALID HOST= 22.204.143.254
+BROADCAST ADDRESS= 22.204.143.255
 
 
 
