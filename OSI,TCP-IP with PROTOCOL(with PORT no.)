@@ -26,8 +26,6 @@ ICMP (Internet Control Message Protocol) – used to detects and reports network
 TCP (Transmission Control Protocol) – a connection-oriented protocol that enables reliable data transfer between two computers.
 UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Since a session is not created before the data transfer, there is no guarantee of data delivery.
 
-Telnet (Telecommunications Network) – used to connect/login and issue commands on a remote computer/device. All data sent via an SSH connection is NOT encrypted.
-SSH "Secure Shell." is a method of securely communicating(connect/login) with another computer/device. All data sent via an SSH connection is encrypted.
 
 ENCAPSULATION:
 --------------
@@ -51,7 +49,7 @@ Protocols     Ports        Description
 FTP           20/21        File Transfer Protocol. Allows transfer of files between computers/host
 TFTP           69          Trivial File Transfer Protocol
 SSH            22          Secure Shell. Provides a SECURE or unencrypted connection between host systems (for LOGIN/CONFIGURE)
-TELNET         23          Provides INSECURE connection to remote hosts  (for LOGIN/CONFIGURE)
+TELNET         23          Provides INSECURE connection to remote computer/hosts  (for LOGIN/CONFIGURE)
 HTTP           80          HyperText Transfer Protocol. Allows access to web servers
 HTTPS         443          This is the secure or encrypted version of HTTP. Provides secure access to web servers.
 SMTP           25          Simple Mail Transfer Protocol. Facilitates delivery of mail
