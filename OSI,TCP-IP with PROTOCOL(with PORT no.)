@@ -13,8 +13,8 @@ OSI                                                                             
 
 05.NETWORK (Breaks up segments into network packets and discover best path)      --------|IPv4, IPv6, ARP, ICMP  (IP)                   03.INTERNET
 
-06.DATALINK (Establishes physicall node connection, 01.LLC-iden. protocol 02.MAC)--------|PPP, HDLC (MAC)                               04.NETWORK
-07.PHYSICAL (Transmit raw(0,1) data, through physical cable or wireless connection)------|ETHERNET
+06.DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC) -------|PPP, HDLC (MAC)                               04.NETWORK
+07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)--|ETHERNET
 
 
 PROTOCOLS:
