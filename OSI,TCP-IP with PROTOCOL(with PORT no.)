@@ -58,6 +58,7 @@ POP3          110          Post Office Protocol. Allows the download of mail fro
 IMAP          143          Internet Message Access Protocol. It Allows access to mail stored on a mail server.
 SNMP          161          Simple Network Management Protocol. Allows you to monitor network devices.
 DHCP         67,68         Dynamic Host Configuration Protocol (DHCP)
+SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer
 
 
 
