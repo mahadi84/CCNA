@@ -3,18 +3,18 @@
 OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
 TCP/IP model was created in the 1970s by the Defense Advance Research Project Agency (DARPA) as an open, vendor-neutral, public networking model.
 
-OSI                                                                      TCP/IP
-----                                                                     ----------
-01.APPLICATION    --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, SNMP
-02.PRESENTATION   --------|SSL, TLS, MIME,                               01.APPLICATION
-03.SESSION        --------|NetBIOS
+OSI                                                                                     USED PROTOCOL                                     TCP/IP
+----                                                                                   --------------                                  ------------
+01.APPLICATION  (Data Access(SEND/RECEIVE))                                      --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, SNMP
+02.PRESENTATION (Encode, encrypt, and compress data)                             --------|SSL, TLS, MIME,                               01.APPLICATION
+03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS
 
-04.TRANSPORT      --------|TCP, UDP  (PORT)                              02.TRANSPORT
+04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP  (PORT)                              02.TRANSPORT
 
-05.NETWORK        --------|IPv4, IPv6, ARP, ICMP  (IP)                   03.INTERNET
+05.NETWORK (Breaks up segments into network packets and discover best path)      --------|IPv4, IPv6, ARP, ICMP  (IP)                   03.INTERNET
 
-06.DATALINK       --------|PPP, HDLC (MAC)                               04.NETWORK
-07.PHYSICAL       --------|ETHERNET
+06.DATALINK (Establishes physicall node connection, 01.LLC-iden. protocol 02.MAC)--------|PPP, HDLC (MAC)                               04.NETWORK
+07.PHYSICAL (Transmit raw(0,1) data, through physical cable or wireless connection)------|ETHERNET
 
 
 PROTOCOLS:
