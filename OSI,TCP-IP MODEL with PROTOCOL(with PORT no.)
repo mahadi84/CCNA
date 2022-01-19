@@ -17,7 +17,6 @@ OSI                                                                             
 07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)--|ETHERNET                                      | 04.NETWORK ACCESS
 
 
-
 ENCAPSULATION:
 --------------
 A process of adding headers and trailers to a raw data for sending.
