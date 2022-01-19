@@ -17,15 +17,6 @@ OSI                                                                             
 07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)--|ETHERNET                                      | 04.NETWORK ACCESS
 
 
-PROTOCOLS:
-----------
-ARP(Address Resolution Protocol) broadcasts a request packet to all the machines on the LAN and asks if any of the machines are using that particular IP address. 
-When a machine recognizes the IP address as its own, it sends a reply so ARP can update the cache for future reference and proceed with the communication.
-ICMP (Internet Control Message Protocol) – used to detects and reports network error conditions. Used in ping.
-
-TCP (Transmission Control Protocol) – a connection-oriented protocol that enables reliable data transfer between two computers.
-UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Since a session is not created before the data transfer, there is no guarantee of data delivery.
-
 
 ENCAPSULATION:
 --------------
@@ -36,7 +27,7 @@ Whereas OSI model uses a different term: protocol data unit (PDU). A PDU represe
 as well as the encapsulated data.
 
 
-=================== PROTOCOL with PORT =================================
+===================  PORT and PROTOCOL  =================================
 
 PORT:
 -----
@@ -61,6 +52,13 @@ DHCP         67,68         Dynamic Host Configuration Protocol (DHCP), provide a
 SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer.
 TLS           443          TLS(Transport Layer Security) is a cryptographic protocol that provides end-to-end security of data sent between applications over the Internet.
 NetBIOS    137,138,139     Allow applications on separate computers to communicate and establish sessions to access shared resources. Ex:files and printers ovar a LAN.
+
+ARP(Address Resolution Protocol) is a network protocol used to find out the hardware (MAC) address of a device from an IP address. 
+                          broadcasts a request packet to all the machines on the LAN and asks if any of the machines are using that particular IP address. 
+                          When a machine recognizes the IP address as its own, it sends a reply so ARP can update the cache for future reference and proceed with the communication.
+ICMP(Internet Control Message Protocol) – used to detects and reports network error conditions. Used while ping.
+TCP (Transmission Control Protocol) – a connection-oriented protocol that enables reliable data transfer between two computers.
+UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Since a session is not created before the data transfer, there is no guarantee of data delivery.
 
 
 
