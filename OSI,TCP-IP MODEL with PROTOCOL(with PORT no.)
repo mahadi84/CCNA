@@ -9,7 +9,7 @@ OSI                                                                             
 02.PRESENTATION (Encode, encrypt and compress data)                              --------|SSL, TLS                                      | 
 03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS                                       | 01.APPLICATION
 
-04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP  (PORT)                              | 02.TRANSPORT
+04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP                                      | 02.TRANSPORT
 
 05.NETWORK (Breaks up segments into network packets and discover best path)      --------|IPv4, IPv6, ARP, ICMP  (IP)                   | 03.INTERNET
 
