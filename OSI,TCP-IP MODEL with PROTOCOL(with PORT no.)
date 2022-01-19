@@ -60,4 +60,9 @@ SNMP          161          Simple Network Management Protocol. Allows you to mon
 DHCP         67,68         Dynamic Host Configuration Protocol (DHCP), provide automatic IP to host.
 SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer.
 TLS           443          TLS(Transport Layer Security) is a cryptographic protocol that provides end-to-end security of data sent between applications over the Internet.
-NetBIOS    137,138,139     NetBIOS is to allow applications on separate computers to communicate and establish sessions to access shared resources. Ex:files and printers ovar a LAN
+NetBIOS    137,138,139     NetBIOS is to allow applications on separate computers to communicate and establish sessions to access shared resources. Ex:files and printers ovar a LAN.
+
+
+
+
+
