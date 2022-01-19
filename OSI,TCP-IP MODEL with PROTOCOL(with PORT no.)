@@ -46,24 +46,18 @@ Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by c
 
 Protocols     Ports        Description
 ---------     ------       -------------
-FTP           20/21        File Transfer Protocol. Allows transfer of files between computers/host
-TFTP           69          Trivial File Transfer Protocol
-SSH            22          Secure Shell. Provides a SECURE or unencrypted connection between host systems (for LOGIN/CONFIGURE)
-TELNET         23          Provides INSECURE connection to remote computer/hosts  (for LOGIN/CONFIGURE)
-HTTP           80          HyperText Transfer Protocol. Allows access to web servers
+FTP           20/21        File Transfer Protocol. Allows transfer of files between computers/host.
+TFTP           69          Trivial File Transfer Protocol.
+SSH            22          Secure Shell. Provides a SECURE or unencrypted connection between host systems (for LOGIN/CONFIGURE).
+TELNET         23          Provides INSECURE connection to remote computer/hosts  (for LOGIN/CONFIGURE).
+HTTP           80          HyperText Transfer Protocol. Allows access to web servers.
 HTTPS         443          This is the secure or encrypted version of HTTP. Provides secure access to web servers.
 SMTP/SMTPS   25/465        Simple Mail Transfer Protocol. Facilitates delivery of mail. S=Secure
-DNS            53          Domain Name System. Resolves domain names to IP addresses
-POP3          110          Post Office Protocol. Allows the download of mail from mail servers
+DNS            53          Domain Name System. Resolves domain names to IP addresses.
+POP3          110          Post Office Protocol. Allows the download of mail from mail servers.
 IMAP          143          Internet Message Access Protocol. It Allows access to mail stored on a mail server.
 SNMP          161          Simple Network Management Protocol. Allows you to monitor network devices.
-DHCP         67,68         Dynamic Host Configuration Protocol (DHCP)
-SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer
+DHCP         67,68         Dynamic Host Configuration Protocol (DHCP), provide automatic IP to host.
+SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer.
 TLS           443          TLS(Transport Layer Security) is a cryptographic protocol that provides end-to-end security of data sent between applications over the Internet.
-
-
-
-
-
-
-
+NetBIOS    137,138,139     NetBIOS is to allow applications on separate computers to communicate and establish sessions to access shared resources. Ex:files and printers ovar a LAN
