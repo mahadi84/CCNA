@@ -5,16 +5,16 @@ TCP/IP model was created in the 1970s by the Defense Advance Research Project Ag
 
 OSI                                                                                     USED PROTOCOL                                     TCP/IP
 ----                                                                                   --------------                                  ------------
-01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))             --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP
-02.PRESENTATION (Encode, encrypt and compress data)                              --------|SSL, TLS, MIME,                               01.APPLICATION
-03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS
+01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))             --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
+02.PRESENTATION (Encode, encrypt and compress data)                              --------|SSL, TLS                                      | 
+03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS                                       | 01.APPLICATION
 
-04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP  (PORT)                              02.TRANSPORT
+04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP  (PORT)                              | 02.TRANSPORT
 
-05.NETWORK (Breaks up segments into network packets and discover best path)      --------|IPv4, IPv6, ARP, ICMP  (IP)                   03.INTERNET
+05.NETWORK (Breaks up segments into network packets and discover best path)      --------|IPv4, IPv6, ARP, ICMP  (IP)                   | 03.INTERNET
 
-06.DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC) -------|PPP, HDLC (MAC)                               04.NETWORK
-07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)--|ETHERNET
+06.DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC) -------|PPP, HDLC (MAC)                               | 
+07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)--|ETHERNET                                      | 04.NETWORK ACCESS
 
 
 PROTOCOLS:
@@ -29,7 +29,7 @@ UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Si
 
 ENCAPSULATION:
 --------------
-A process of adding headers and trailers to a raw data.
+A process of adding headers and trailers to a raw data for sending.
 
 The TCP/IP model uses terms like segment, packet and frame to refer to a data packet defined by a particular layer. 
 Whereas OSI model uses a different term: protocol data unit (PDU). A PDU represent a unit of data with headers and trailers for the particular layer, 
@@ -52,13 +52,14 @@ SSH            22          Secure Shell. Provides a SECURE or unencrypted connec
 TELNET         23          Provides INSECURE connection to remote computer/hosts  (for LOGIN/CONFIGURE)
 HTTP           80          HyperText Transfer Protocol. Allows access to web servers
 HTTPS         443          This is the secure or encrypted version of HTTP. Provides secure access to web servers.
-SMTP           25          Simple Mail Transfer Protocol. Facilitates delivery of mail
+SMTP/SMTPS   25/465        Simple Mail Transfer Protocol. Facilitates delivery of mail. S=Secure
 DNS            53          Domain Name System. Resolves domain names to IP addresses
 POP3          110          Post Office Protocol. Allows the download of mail from mail servers
 IMAP          143          Internet Message Access Protocol. It Allows access to mail stored on a mail server.
 SNMP          161          Simple Network Management Protocol. Allows you to monitor network devices.
 DHCP         67,68         Dynamic Host Configuration Protocol (DHCP)
 SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer
+TLS           443          TLS(Transport Layer Security) is a cryptographic protocol that provides end-to-end security of data sent between applications over the Internet.
 
 
 
