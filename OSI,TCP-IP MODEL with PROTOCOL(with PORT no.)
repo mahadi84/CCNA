@@ -26,6 +26,7 @@ Whereas OSI model uses a different term: protocol data unit (PDU). A PDU represe
 as well as the encapsulated data.
 
 
+
 ===================  PORT and PROTOCOL  =================================
 
 PORT:
@@ -61,6 +62,9 @@ UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Si
 PAP Password Authentication Protocol
 PPTP Point-to-Point Tunneling Protocol
 HDLC (High-Level Data Link Control) is a bit-oriented protocol that is used for communication over the point-to-point and multipoint links.
+
+
+
 
 
 
