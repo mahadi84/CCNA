@@ -1,0 +1,30 @@
+
+IP ROUTING:
+-----------
+Is the process of sending packets from a host on one network to another host on a different remote network.
+This process is usually done by routers. Routers examine the destination IP address of a packet , determine the next-hop address, and forward the packet.
+Routers use routing tables to determine the next hop address to which the packet should be forwarded.
+
+
+ROUTING TABLE:
+--------------
+A routing table is used by routers to determine the path to the destination network. 
+Each router maintains a routing table and stores it in RAM. 
+Each routing table consists of the following entries:
+
+01. Network destination and subnet mask – specifies a range of IP addresses.
+02. Remote router – IP address of the router used to reach that network.
+03. Outgoing interface – outgoing interface the packet should go out to reach the destination network.
+ 
+
+Populating a routing table:
+---------------------------
+There are three different methods:
+
+01. Directly connected subnets
+02. Using static routing
+03. Using dynamic routing
+
+
+
+
