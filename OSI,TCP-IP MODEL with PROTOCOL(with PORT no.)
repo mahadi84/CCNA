@@ -62,10 +62,8 @@ PAP Password Authentication Protocol
 PPTP Point-to-Point Tunneling Protocol
 HDLC (High-Level Data Link Control) is a bit-oriented protocol that is used for communication over the point-to-point and multipoint links.
 
-Ping (Packet Internet Groper) is the most commonly used tool to troubleshoot a network. 
-It is invoked using a ping command and uses ICMP (Internet Control Message Protocol).
-A ping command usually outputs some other information about a network performance, 
-e.g. a round-trip time, a time to send an ICMP request packetand receive an ICMP reply packet.
+Ping (Packet Internet Groper) is the most commonly used tool to troubleshoot a network. PING uses ICMP (Internet Control Message Protocol).
+It outputs some other information about a network performance, e.g. a round-trip time, a time to send an ICMP request packetand receive an ICMP reply packet.
 
 
 
