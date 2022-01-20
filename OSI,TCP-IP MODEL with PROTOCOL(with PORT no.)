@@ -21,9 +21,8 @@ ENCAPSULATION:
 --------------
 A process of adding headers and trailers to a raw data for sending.
 
-The TCP/IP model uses terms like segment, packet and frame to refer to a data packet defined by a particular layer. 
-Whereas OSI model uses a different term: protocol data unit (PDU). A PDU represent a unit of data with headers and trailers for the particular layer, 
-as well as the encapsulated data.
+A PDU (protocol data unit) in OSI Model represent a unit of data with headers and trailers for the particular layer, as well as the encapsulated data.
+Whereas  TCP/IP model uses terms like segment, packet and frame to refer to a data packet defined by a particular layer. 
 
 
 
