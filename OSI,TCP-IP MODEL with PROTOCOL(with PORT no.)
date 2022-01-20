@@ -7,7 +7,7 @@ OSI                                                                             
 ----                                                                                   --------------                                  ------------
 01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))             --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
 02.PRESENTATION (Encode, encrypt and compress data)                              --------|SSL, TLS                                      | 
-03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS                                       | 01.APPLICATION
+03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS, PAP, PPTP                            | 01.APPLICATION
 
 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP                                      | 02.TRANSPORT
 
@@ -58,6 +58,8 @@ ARP(Address Resolution Protocol) is a network protocol used to find out the hard
 ICMP(Internet Control Message Protocol) – used to detects and reports network error conditions. Used while ping.
 TCP (Transmission Control Protocol) – a connection-oriented protocol that enables reliable data transfer between two computers.
 UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Since a session is not created before the data transfer, there is no guarantee of data delivery.
+PAP Password Authentication Protocol
+PPTP Point-to-Point Tunneling Protocol
 
 
 
