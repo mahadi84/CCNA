@@ -22,9 +22,22 @@ Populating a routing table:
 There are three different methods:
 
 01. Directly connected subnets
-02. Using static routing
-03. Using dynamic routing
+02. Static routing
+03. Dynamic routing
 
 
+STATING ROUTING:
+---------------
+Static routes are manually added to a routing table through direct configuration. 
+Using a static route, a router can learn about a route to a remote network that is not directly attached to one of its interfaces. 
+Note that, however, static routes are not widely used today, since you have to configure each static route manually on each router in the network.
+
+Configuration:
+--------------
+Static routes are configured in the global configuration mode using the ip route DESTINATION_NETWORK SUBNET_MASK NEXT_HOP_IP_ADDRESS command. 
+The NEXT_HOP_IP_ADDRESS parameter is the IP address of the next-hop router that will receive packets and forward them to the remote network. 
+The router with the next-hop IP address must be on a directly connected network.
+
+LAN(200.0.0.1/24)<--------Fa0/0>ROUTER(10.0.0.1/30)<Fa0/1-----------Fa0/1>ROUTER(20.0.0.1/30)<Fa0/0----------->LAN(192.168.0.1/24)
 
 
