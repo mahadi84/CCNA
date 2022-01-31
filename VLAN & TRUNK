@@ -1,4 +1,15 @@
 
+Short-Code to configure interface:
+----------------------------------
+
+ROUTER/SWITCH:
+--------------
+en
+config t
+int fa 0/0
+ip address 20.0.0.1 255.0.0.0
+
+---------------------------
 Switch>en   (enable switch)
 Esc (return to main window)
 Switch#show ?  (all available command)
