@@ -40,10 +40,34 @@ Adv. of STATIC ROUTING TABLE:
 
 Configuration: ( https://www.tutorialandexample.com/static-routing/ )
 --------------
-Static routes are configured in the global configuration mode using the ip route DESTINATION_NETWORK SUBNET_MASK NEXT_HOP_IP_ADDRESS command. 
-The NEXT_HOP_IP_ADDRESS parameter is the IP address of the next-hop router that will receive packets and forward them to the remote network. 
-The router with the next-hop IP address must be on a directly connected network.
+show ip route
 
-LAN(200.0.0.1/24)<--------Fa0/0>ROUTER(10.0.0.1/30)<Fa0/1-----------Fa0/1>ROUTER(20.0.0.1/30)<Fa0/0----------->LAN(192.168.0.1/24)
+PC(10.0.0.2/8)<--------(10.0.0.1/8)Fa0/0>ROUTER(192.168.10.1/24)<S2/0-----------S2/0(192.168.10.2/24)>ROUTER<Fa0/0(20.0.0.1/8)----------->PC(20.0.0.2)
 
+ROUTER:01:
+----------
+en
+config t
+hostname R01
+int serial 2/0
+ip address 192.168.10.1 255.255.255.0
+no shutdown
+
+int fa 0/0
+ip address 10.0.0.1 255.0.0.0
+no shutdown
+
+ip route 20.0.0.0 255.255.255.0 192.168.10.2        (configure static route
+        Dst LAN N/W--Dst.Router SM--Dst. Router IP
+
+
+ROUTER:02:
+----------
+ip route 10.0.0.0 255.255.255.0 192.168.10.1
+         Dst LAN N/W--Dst.Router SM--Dst. Router IP
+         
+         
+         
+         
+         
 
