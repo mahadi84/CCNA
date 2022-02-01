@@ -26,13 +26,19 @@ There are three different methods:
 03. Dynamic routing
 
 
-STATING ROUTING:
+STATING ROUTING: 
 ---------------
 Static routes are manually added to a routing table through direct configuration. 
-Using a static route, a router can learn about a route to a remote network that is not directly attached to one of its interfaces. 
-Note that, however, static routes are not widely used today, since you have to configure each static route manually on each router in the network.
+Note that, static routes are not widely used today, since you have to configure each static route manually on each router in the network.
 
-Configuration:
+Adv. of STATIC ROUTING TABLE:
+-----------------------------
+> Very little load on the CPU of the router, and Bandwidth is not used for sending the routing updates.
+> Leaves the network administrator with full control over the routing behavior of the network.
+> Very easy to configure on small networks.
+
+
+Configuration: ( https://www.tutorialandexample.com/static-routing/ )
 --------------
 Static routes are configured in the global configuration mode using the ip route DESTINATION_NETWORK SUBNET_MASK NEXT_HOP_IP_ADDRESS command. 
 The NEXT_HOP_IP_ADDRESS parameter is the IP address of the next-hop router that will receive packets and forward them to the remote network. 
