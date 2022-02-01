@@ -1,0 +1,27 @@
+
+
+INTERFACE:
+----------
+There are two type of interface:
+
+01. Parallel Interface:
+-----------------------
+The Ethernet transmits the data parallel and hence achieves high speed. 
+It has a limitation that the Ethernet cannot transmit data over long distances.
+
+02. Serial Interface:
+---------------------
+To overcome the problem of transmitting data over long distances, serial interfaces are used. Ex: 1841 Router
+Serial interfaces can be connected using the cable V.35 DTE and DCE cables.
+
+CLOCK SPEED:
+------------
+The clock rate serves to synchronize the receiver on the other side of the link.
+Each clock pulse signals the transmission of a bit.
+Note that it is mainly used in lab setups. In the real world, network providers almost always deliver the clock signal.
+
+Configuration:
+router# conf t
+router(config)# interface serial 1/0
+router(config-if)# clock rate 64000 (represented in BITS per second)
+
