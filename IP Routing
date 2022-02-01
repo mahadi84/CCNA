@@ -40,7 +40,8 @@ Adv. of STATIC ROUTING TABLE:
 
 Configuration: ( https://www.tutorialandexample.com/static-routing/ )
 --------------
-show ip route     (cmd to check static(S) route )
+Router#show ip route     (cmd to check static(S) route )
+Router(config)#ip route [destination_network][subnet_mask of next-hop][next-hop_address or exitinterface]   (need info. to config. Static route)
 
 PC(10.0.0.2/8)<--------(10.0.0.1/8)Fa0/0>ROUTER(192.168.10.1/24)<S2/0-----------S2/0(192.168.10.2/24)>ROUTER<Fa0/0(20.0.0.1/8)----------->PC(20.0.0.2)
 
