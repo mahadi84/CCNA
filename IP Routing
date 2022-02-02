@@ -1,8 +1,11 @@
+ 
+ 
  Static Routing Table Tutorial:
  ------------------------------
  Very Basic: https://www.tutorialandexample.com/static-routing/
  Basic:      https://www.timigate.com/2018/04/ipv4-routing-how-to-configure-static.html
  Advance:    https://www.computernetworkingnotes.com/ccna-study-guide/static-routing-configuration-guide-with-examples.html
+ 
  
 01. What is IP Routing?
 02. What is Routing Table, types of routing  and what a Routing Table contains?
