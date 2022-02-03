@@ -1,12 +1,70 @@
 
+
+
+
 Type of Dynamic Routing Protocols:
 A)IGP: 
-    01) Distance Vector
-	>>RIP   (Routing Information Protocol(RIP)
-	>>EIGRP (Enhanced Interior Gateway Routing Protoco)
-    02) Link State
-	>>OSPF  (Open Shortest Path First)
-	>>IS-IS (Intermediate System to Intermediate System)
+    01) Distance Vector: 
+        The routers only learn the 'distance'(metric) and 'vector'(direction, the next-hop router) for each route.
+        It only learn/know the information that its neighbors tell it('routing by rumor').
+	  a> RIP   (Routing Information Protocol)
+	  b> EIGRP (Enhanced Interior Gateway Routing Protocol)
+    02) Link State: 
+        Each router creates a independently 'connectivity map' to calculate the best routes to each destination of the network 
+        and advertises this information until all neighbors develop the same map of the network. 
+	-Faster than Distance Vector protocol but Use more resources(CPU) because more information is shared.
+	a> OSPF  (Open Shortest Path First)
+	b> IS-IS (Intermediate System to Intermediate System)
 B)EGP
-    Path Vector
-        >>BGP(Border Gateway Protocol)  
+    1)Path Vector
+        a> BGP(Border Gateway Protocol)  
+
+
+ROUTING INFORMATION PROTOCOL(RIP)
+=================================
+All Routers and LANs networke Addess have to include in a ROUTER that we configuring.
+
+ROUTER: 0
+----------
+en
+config t
+router rip
+network 20.0.0.0       (Router 1 Network/Address)
+network 30.0.0.0       (Router 2 N/A)
+network 192.168.1.0    (OWN LAN N/A)
+network 192.168.2.0    (Router 1 LAN N/A)
+network 192.168.3.0    (Router 2 LAN N/A)
+
+ROUTER: 01
+----------
+en
+config t
+router rip
+network 10.0.0.0      (Router 0 N/A)
+network 30.0.0.0
+network 192.168.1.0
+network 192.168.2.0
+network 192.168.3.0
+
+
+ROUTER: 02
+----------
+en
+config t
+router rip
+network 10.0.0.0
+network 20.0.0.0
+network 192.168.1.0
+network 192.168.2.0
+network 192.168.3.0
+
+
+ENHANCED INTERIOR GATEWAY ROUTING PROTOCOL(EIGRP):
+--------------------------------------------------
+
+
+
+
+
+
+
