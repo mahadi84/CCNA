@@ -6,8 +6,8 @@
 03. How to : 
     a) SEE static router address    b) ADD static router address
 04. What are:
-    a) Routing Protocol MATRIX   b) Administrative Distance (AD)     c) Next Hop
-    d) Routing Protocol CODE     e) Gateway of Last Resort
+    a) Routing Protocol MATRIC   b) Administrative Distance (AD)   c) Admin Distance VS Matric
+    d) Next Hop     e) Routing Protocol CODE     f) Gateway of Last Resort
 
 IP ROUTING:
 -----------
@@ -70,12 +70,24 @@ Static route-1, EIGRP (summary route)-5, BGP- 20, Internal EIGRP- 90, IGRP- 100,
 EGP- 140, External EIGRP-170, Internal BGP-200
 
 
-C) NEXT HOP:
+C)----------ADMIN DISTANCE------VS------METRICS-----------------------
+>>ADMIN DISTANCE - Is a number denoting how believable an entire routing protocol is on a single router
+(This is useful when a router is running many routing protocols and cant decide which to use)
+(The lower it is, the more believable it is)
+
+>>METRICS - A number denoting the best route (to reach a subnet) in a single routing protocol on a single router
+(Useful when a routing protocl has many routes to a single network and cant decide which to use)
+(The lower it is, the more believable it is)
+
+
+
+
+D) NEXT HOP:
 ============
 It refers to the next closest router, a packet can go through. 
 
 
-D) ROUTING PROTOCOL CODE:
+E) ROUTING PROTOCOL CODE:
 =========================
 Identifies by which routing protocol each route was learned.
 
@@ -84,7 +96,7 @@ R - RIP         B - BGP       D - EIGRP
 EX  -EIGRP external  O - OSPF
 
 
-E) GATEWAY OF LAST RESORT:
+F) GATEWAY OF LAST RESORT:
 ==========================
 A Gateway of Last Resort or Default gateway is a route used by the router when no other known route exists to transmit the IP packet. 
 Known routes are present in the routing table. Hence, any route not known by the routing table is forwarded to the default route.
