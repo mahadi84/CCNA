@@ -23,11 +23,12 @@ B)EGP (Exterior Gateway Protocol)
 ROUTING INFORMATION PROTOCOL(RIP)
 =================================
 -Send routing table's contents and network topology information to each of its adjacent routers every 30 seconds.. 
--Used in  small to medium-sized networks. 
--The max. hop count allowed 15 and a hop count of 16 is considered as network unreachable.
--When a route is removed from the routing table, 
-it is flagged as unusable by the receiving routers after 180sec/3min, and removed from their tables after an additional 120sec/+2min.
+-Used in  small to medium-sized networks.
 -Administrative Distance for RIP is 120.
+-The max. hop count allowed 15 and a hop count of 16 is considered as network unreachable.
+-When a route is removed from the routing table: 
+	>It is flagged as unusable by the receiving routers after 180sec/3min, and 
+	>Removed from their tables after an additional 120sec/+2min.
 
 There are two versions of RIP (the managed switch supports both):
 
@@ -39,6 +40,9 @@ There are two versions of RIP (the managed switch supports both):
    The routing table is sent to a multicast address, reducing network traffic.
    Authentication is used for security.
 
+CONFIGURATION:
+--------------
+Includes all Router and LAN's Network Address including its own LAN Net/Add except it own Net/Add. 
 
 ROUTER: 0
 ----------
