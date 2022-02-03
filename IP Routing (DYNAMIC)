@@ -1,0 +1,12 @@
+
+Type of Dynamic Routing Protocols:
+A)IGP: 
+    01) Distance Vector
+	>>RIP   (Routing Information Protocol(RIP)
+	>>EIGRP (Enhanced Interior Gateway Routing Protoco)
+    02) Link State
+	>>OSPF  (Open Shortest Path First)
+	>>IS-IS (Intermediate System to Intermediate System)
+B)EGP
+    Path Vector
+        >>BGP(Border Gateway Protocol)  
