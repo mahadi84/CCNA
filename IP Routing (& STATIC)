@@ -84,12 +84,39 @@ ROUTER:02:
 ip route 10.0.0.0 255.255.255.0 192.168.10.1
          Dst LAN N/W--Dst.Router SM--Dst. Router IP
          
-         
+ 
+ROUTER MATRIC:
+==============
+If a routers learns about multiple different paths to the same network from the same routing protocol, 
+a measure called metric is used to decide which route will be placed in the routing table. 
+Just like with the administrative distance, the lower number represents the better route.
 
- AD value of Static Routing Table:
- ---------------------------------
- It is an integer value ranging from 0 to 255 where 0 shows that the route is most trusted and 255 means that no traffic will be passed through that route 
- or that route is never installed in the routing table.
+Each routing protocol has its own way to calculate the metric; 
+RIP uses hop counts, OSPF uses a parameter called cost, 
+EIGRP uses bandwidth and the delay to compute the metrics, etc. 
+Note that metrics of different routing protocols can not be directly compared – 
+an EIGRP route might have a metric of 4.042.334, while a RIP route can have a metric of 3. 
+ 
+
+ADMINISTRATIVE DISTANCE (AD):
+============================
+AD is the first criterion that a router uses to determine which routing protocol to use if two protocols provide route information for the same destination.
+AD is a measure of the trustworthiness of the source of the routing information.
+AD has only local significance, and is not advertised in routing updates.
+
+Note: The smaller the AD value, the more reliable the protocol. 
+For example, if a router receives a route to a certain network from both Open Shortest Path First (OSPF, default AD-110) 
+and Interior Gateway Routing Protocol (IGRP, default AD-100), the router chooses IGRP because IGRP is more reliable. 
+This means the router adds the IGRP version of the route to the routing table.
+
+If you lose the source of the IGRP-derived information (for example, due to a power shutdown), 
+the software uses the OSPF-derived information until the IGRP-derived information reappears.
+
+AD value for Routing Protocol:
+------------------------------
+Static route-1, EIGRP (summary route)-5, BGP- 20, Internal EIGRP- 90, IGRP- 100, OSPF- 110, IS-IS- 115, RIP- 120,
+EGP- 140, External EIGRP-170, Internal BGP-200
+
  
  
          
