@@ -4,19 +4,19 @@
 
 Type of Dynamic Routing Protocols:
 A)IGP: 
-    01) Distance Vector: 
+    01) DISTANCE VECTOR: 
         The routers only learn the 'distance'(metric) and 'vector'(direction, the next-hop router) for each route.
         It only learn/know the information that its neighbors tell it('routing by rumor').
 	  a> RIP   (Routing Information Protocol)
 	  b> EIGRP (Enhanced Interior Gateway Routing Protocol)
-    02) Link State: 
+    02) LINK STATE: 
         Each router creates a independently 'connectivity map' to calculate the best routes to each destination of the network 
         and advertises this information until all neighbors develop the same map of the network. 
-	-Faster than Distance Vector protocol but Use more resources(CPU) because more information is shared.
+	--Faster than Distance Vector protocol but Use more resources(CPU) because more information is shared.
 	a> OSPF  (Open Shortest Path First)
 	b> IS-IS (Intermediate System to Intermediate System)
 B)EGP
-    1)Path Vector
+    01) PATH VECTOR
         a> BGP(Border Gateway Protocol)  
 
 
