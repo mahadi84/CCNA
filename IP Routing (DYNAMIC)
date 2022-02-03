@@ -22,7 +22,22 @@ B)EGP (Exterior Gateway Protocol)
 
 ROUTING INFORMATION PROTOCOL(RIP)
 =================================
-All Routers and LANs networke Addess have to include in a ROUTER that we configuring.
+Is a protocol that routers can use to exchange network topology information. 
+It is typically used in  small to medium-sized networks. 
+A router running RIP sends the contents of its routing table to each of its adjacent routers every 30 seconds. 
+When a route is removed from the routing table, 
+it is flagged as unusable by the receiving routers after 180 seconds, and removed from their tables after an additional 120 seconds.
+
+There are two versions of RIP (the managed switch supports both):
+
+01> RIPv1 defined in RFC 1058.
+    Routes are specified by IP destination network and hop count.
+    The routing table is broadcast to all stations on the attached network.
+02>RIPv2 defined in RFC 1723.
+   Route specification also includes subnet mask and gateway.
+   The routing table is sent to a multicast address, reducing network traffic.
+   Authentication is used for security.
+
 
 ROUTER: 0
 ----------
