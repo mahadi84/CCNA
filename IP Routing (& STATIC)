@@ -1,12 +1,6 @@
  
  
- Static Routing Table Tutorial:
- ------------------------------
- Very Basic: https://www.tutorialandexample.com/static-routing/
- Basic:      https://www.timigate.com/2018/04/ipv4-routing-how-to-configure-static.html
- Advance:    https://www.computernetworkingnotes.com/ccna-study-guide/static-routing-configuration-guide-with-examples.html
- 
- 
+  
 01. What is IP Routing?
 02. What is Routing Table, types of routing  and what a Routing Table contains?
 03. How to : 
@@ -98,6 +92,14 @@ Known routes are present in the routing table. Hence, any route not known by the
 
 ==========================: STATIC ROUTING: ============================
 
+Static Routing Table Tutorial:
+ ------------------------------
+ Very Basic: https://www.tutorialandexample.com/static-routing/
+ Basic:      https://www.timigate.com/2018/04/ipv4-routing-how-to-configure-static.html
+ Advance:    https://www.computernetworkingnotes.com/ccna-study-guide/static-routing-configuration-guide-with-examples.html
+
+STATIC ROUTING:
+--------------
 Static routes are manually added to a routing table through direct configuration. 
 Note that, static routes are not widely used today, since you have to configure each static route manually on each router in the network.
 
