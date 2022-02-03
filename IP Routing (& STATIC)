@@ -71,13 +71,16 @@ EGP- 140, External EIGRP-170, Internal BGP-200
 
 
 C)----------ADMIN DISTANCE------VS------METRICS-----------------------
->>ADMIN DISTANCE - Is a number denoting how believable an entire routing protocol is on a single router
-(This is useful when a router is running many routing protocols and cant decide which to use)
-(The lower it is, the more believable it is)
+>>ADMIN DISTANCE - Is a number denoting how believable an entire routing protocol is on a single router.
+                   Administrative Distance is locally significant, it is not advertised anywhere
+                   (This is useful when a router is running many routing protocols and cant decide which to use)
+                   (The lower it is, the more believable it is)
+
 
 >>METRICS - A number denoting the best route (to reach a subnet) in a single routing protocol on a single router
-(Useful when a routing protocl has many routes to a single network and cant decide which to use)
-(The lower it is, the more believable it is)
+            A Metric is dependent on the other routers (neighbors) along the path, and it is advertised between neighbors.
+           (Useful when a routing protocl has many routes to a single network and cant decide which to use)
+           (The lower it is, the more believable it is)
 
 
 
