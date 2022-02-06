@@ -1,4 +1,7 @@
 
+
+---------------------------------------------------------------------------
+
 01. What is Dynamic Routing Protocol and Adv. of Dynamic Routing Protocol?
 02. What is the difference between/among: 
      a> IGP vs EGP 
@@ -6,7 +9,7 @@
 03. Whar are and how to Configure?
      >RIP >EIGRP >OSPF >IS-IS >BGP
 
-
+-----------------------------------------------------------------
 
 
 Type of Dynamic Routing Protocols:
