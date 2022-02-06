@@ -44,8 +44,8 @@ B)EGP (Exterior Gateway Protocol)
         a> BGP(Border Gateway Protocol)  
 
 
-ROUTING INFORMATION PROTOCOL(RIP)
-=================================
+-------------------ROUTING INFORMATION PROTOCOL(RIP)----------------------------------------
+                   =================================
 -Send routing table's contents and network topology information to each of its adjacent routers every 30 seconds.. 
 -Used in  small to medium-sized networks.
 - Administrative Distance, Default Value is 120.
@@ -103,8 +103,23 @@ network 192.168.2.0
 network 192.168.3.0
 
 
-ENHANCED INTERIOR GATEWAY ROUTING PROTOCOL(EIGRP):
---------------------------------------------------
+-------------------------: ENHANCED INTERIOR GATEWAY ROUTING PROTOCOL(EIGRP) :-----------------------------
+                           =================================================
+			   
+
+EIGRP (DEFINATION and ADVANTAGE):
+---------------------------------
+EIGRP Protocol is one of the most used Dynamic (Hybrid) Routing Protocol as IGP
+that show both Distance Vector and Link-State Routing Protocol properties.
+It was developed by Cisco as an enhancement to IGRP (Interior Gateway Routing Protocol)
+BUT Now it is OPEN Protocol.
+
+EIGRP uses DUAL (Diffusing Update Algorithm) for routing calculations. 
+Periodic Updates are not used but if a change occurs in the network like up/down links, update messages are sent.
+
+It is a Fast Converged Routing Protocol.
+It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
+So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
 
 
 
