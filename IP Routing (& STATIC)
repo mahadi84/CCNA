@@ -4,7 +4,7 @@
 01. What is IP Routing?
 02. What is Routing Table, what a Routing Table contains and Types of routing?
 03. What are:
-    a) Routing Protocol MATRIC   b) Administrative Distance (AD)   c) Admin Distance VS Matric
+    a) Routing Protocol MATRIC(for RIP,OSPF, EIGRP)  b) Administrative Distance (AD)(for RIP,OSPF,EIGRP)   c) Admin Distance VS Matric
     d) Next Hop     e) Routing Protocol CODE     f) Gateway of Last Resort
 04. What is STATIC ROUTING and how to configure it?
     a) SEE static router address    b) ADD static router address
