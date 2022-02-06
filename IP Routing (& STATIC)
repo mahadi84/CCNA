@@ -151,7 +151,7 @@ ip route 20.0.0.0 255.255.255.0 192.168.10.2        (configure static route
 ROUTER:02:
 ----------
 ip route 10.0.0.0 255.255.255.0 192.168.10.1
-         Dst LAN N/W--Dst.Router SM--Dst. Router IP
+         Dst LAN N/W--Dst.Router SM--Dst. Next-Router IP
  
          
          
