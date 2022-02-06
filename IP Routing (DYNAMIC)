@@ -1,8 +1,10 @@
+
 01. What is Dynamic Routing Protocol and Adv. of Dynamic Routing Protocol?
-02. What is the difference between: 
+02. What is the difference between/among: 
      a> IGP vs EGP 
-     b> Distance Vector vs Link State vs Path Vector
-03. Whar are:  >RIP >EIGRP >OSPF >IS-IS >BGP
+     b> Distance Vector vs Link State vs Path Vector Algorithom
+03. Whar are and how to Configure?
+     >RIP >EIGRP >OSPF >IS-IS >BGP
 
 
 
@@ -21,7 +23,7 @@ A)IGP(Interior Gateway Protocol):
 	a> OSPF  (Open Shortest Path First)
 	b> IS-IS (Intermediate System to Intermediate System)
 B)EGP (Exterior Gateway Protocol)
-    01) PATH VECTOR (Algorithom Type)
+    01) PATH VECTOR (Algorithom Type): Analysis the path to reach the destination to learn if it is loop free or not. 
         a> BGP(Border Gateway Protocol)  
 
 
