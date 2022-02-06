@@ -42,7 +42,7 @@ There are two versions of RIP (the managed switch supports both):
 
 CONFIGURATION:
 --------------
-Includes all Router and LAN's Network Address including its own LAN Net/Add except it own Net/Add. 
+Includes all Router(except itself) and All LANs' (including own) Network Address.
 
 ROUTER: 0
 ----------
