@@ -12,7 +12,21 @@
 --------------------------------------------------------------------------
 
 
+
+DYNAMIC ROUTING:
+----------------
+Dynamic routing protocols, dynamically learn network destinations and how to get to them and also advertise those destinations to other routers. 
+
+
+ADV of DYNAMIC ROUTING TABLE:
+-----------------------------
+> Widely used.
+> Used in Large network
+> No need to configure, routing table update automaticaly.
+
+
 Type of Dynamic Routing Protocols:
+----------------------------------
 A)IGP(Interior Gateway Protocol): 
     01) DISTANCE VECTOR (Algorithom Type): 
         The routers only learn the 'distance'(metric) and 'vector'(direction, the next-hop router) for each route.
