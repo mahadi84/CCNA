@@ -64,8 +64,9 @@ the software uses the OSPF-derived information until the IGRP-derived informatio
 
 AD value for Routing Protocol:
 ------------------------------
-Static route-1, EIGRP (summary route)-5, BGP- 20, Internal EIGRP- 90, IGRP- 100, OSPF- 110, IS-IS- 115, RIP- 120,
-EGP- 140, External EIGRP-170, Internal BGP-200
+Static route-1, OSPF-110, IS-IS-115, RIP-120, EIGRP(summary route)-5, EIGRP(internal)-90, EIGRP(external)-170, 
+BGP-20, BGP(internal)-200, IGRP-100, EGP-140.
+
 
 
 C)----------ADMIN DISTANCE------VS------METRICS-----------------------
