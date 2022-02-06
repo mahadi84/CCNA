@@ -112,7 +112,7 @@ EIGRP (DEFINATION and ADVANTAGE):
 EIGRP Protocol is one of the most used Dynamic (Hybrid) Routing Protocol as IGP
 that show both Distance Vector and Link-State Routing Protocol properties.
 It was developed by Cisco as an enhancement to IGRP (Interior Gateway Routing Protocol)
-BUT Now it is OPEN Protocol.
+BUT Now it is OPEN Protocol. Works with IPv4, IPv6, IPX and AppleTalk Routed Protocols.
 
 EIGRP uses DUAL (Diffusing Update Algorithm) for routing calculations. 
 Periodic Updates are not used but if a change occurs in the network like up/down links, update messages are sent.
@@ -121,6 +121,33 @@ It is a Fast Converged Routing Protocol.
 It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
 So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
 
+Is a Classless Routing Protocol supports VLSM (Variable Length Subnet Mask). It sends the subnet masks in the Update Packets.
+
+
+
+EIGRP Messages:
+---------------
+EIGRP uses different types of messages to build neighbourship, to keep the connection and for the updates. These main messages are :
+
+ 01> Hello: Packets are used to establish and maintain EIGRP Neighbourship.
+ 02> Update: Packets are used to send routing updates.
+ 03> Query: Packets are used to ask for any routing update, requests an update.
+ 04> Reply: Packets are used as a response to the Query Packets.
+ 05> ACK: Packets are used as a feedback to the Update, Query or Reply packets as a feedback mechanism.
+
+ 
+EIGRP Tables:
+------------
+Enhanced Interior Gateway Routing Protocol has three tables. These tables are used on Routing Operation. The EIGRP Tables are given below:
+
+ 01> Neighbor Table: is the table that keeps All EIGRP Neighbour Routers.
+ 02> Topology Table: is the table that keeps All Routes to all the destinations
+ 03> Routing Table: is the table that keeps the Best Routes to any destinations.
+
+
+EIGRP Metrics:
+--------------
+Uses a very complex metric by using bandwith, delay, load, reliability and MTU values.
 
 
 
