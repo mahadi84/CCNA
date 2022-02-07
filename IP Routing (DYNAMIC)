@@ -35,7 +35,8 @@ A)IGP(Interior Gateway Protocol):
 	  b> EIGRP (Enhanced Interior Gateway Routing Protocol)
     02) LINK STATE (Algorithom Type): 
         Each router creates a independently 'connectivity map' to calculate the best routes to each destination of the network 
-        and advertises this information until all neighbors develop the same map of the network. 
+        and advertises this information until all neighbors develop the same map of the network.
+	--This protocol shares only the NETWORK TOPOLOGY information instead of advertising the entire routing table.
 	--Faster than Distance Vector protocol but Use more resources(CPU) because more information is shared.
 	a> OSPF  (Open Shortest Path First)
 	b> IS-IS (Intermediate System to Intermediate System)
@@ -154,6 +155,9 @@ Enhanced Interior Gateway Routing Protocol has three tables. These tables are us
 EIGRP Metrics:
 --------------
 Uses a very complex metric by using bandwith, delay, load, reliability and MTU values.
+
+*Reported Distance: The metric for a route as advertised by a neighbouring router.
+*Feasible Distance: The metric for a route from the local router. This includes the RD+1.
 
 
 
