@@ -6,7 +6,7 @@
 02. What is the difference between/among: 
      a> IGP vs EGP 
      b> Distance Vector vs Link State vs Path Vector Algorithom
-03. Whar are and how to Configure?
+03. What are and how to Configure?
      >RIP >EIGRP >OSPF >IS-IS >BGP
 
 --------------------------------------------------------------------------
@@ -109,19 +109,20 @@ network 192.168.3.0
 
 EIGRP (DEFINATION and ADVANTAGE):
 ---------------------------------
-EIGRP Protocol is one of the most used Dynamic (Hybrid) Routing Protocol as IGP
+1> EIGRP Protocol is one of the most used Dynamic (Hybrid) Routing Protocol as IGP
 that show both Distance Vector and Link-State Routing Protocol properties.
-It was developed by Cisco as an enhancement to IGRP (Interior Gateway Routing Protocol)
+
+2> It was developed by Cisco as an enhancement to IGRP (Interior Gateway Routing Protocol)
 BUT Now it is OPEN Protocol. Works with IPv4, IPv6, IPX and AppleTalk Routed Protocols.
 
-EIGRP uses DUAL (Diffusing Update Algorithm) for routing calculations. 
+3> EIGRP uses DUAL (Diffusing Update Algorithm) for routing calculations. 
 Periodic Updates are not used but if a change occurs in the network like up/down links, update messages are sent.
 
-It is a Fast Converged Routing Protocol.
+4> It is a Fast Converged Routing Protocol.
 It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
 So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
 
-Is a Classless Routing Protocol supports VLSM (Variable Length Subnet Mask). It sends the subnet masks in the Update Packets.
+5> Supports VLSM (Variable Length Subnet Mask) (Classless Subnet mask). It sends the subnet masks in the Update Packets.
 
 
 
