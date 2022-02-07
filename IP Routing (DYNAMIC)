@@ -159,6 +159,9 @@ Uses a very complex metric by using bandwith, delay, load, reliability and MTU v
 *Reported Distance: The metric for a route as advertised by a neighbouring router.
 *Feasible Distance: The metric for a route from the local router. This includes the RD+1.
 
+**Successor:- The route with the best metric to the destination.
+**Feasible Successor: A backup route if the successor fails. The FS must have a RD that is LESS than the Successor FD.
+
 
 
 
