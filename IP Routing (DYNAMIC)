@@ -116,13 +116,17 @@ that show both Distance Vector and Link-State Routing Protocol properties.
 BUT Now it is OPEN Protocol. Works with IPv4, IPv6, IPX and AppleTalk Routed Protocols.
 
 3> EIGRP uses DUAL (Diffusing Update Algorithm) for routing calculations. 
-Periodic Updates are not used but if a change occurs in the network like up/down links, update messages are sent.
+when a change occurs like router up/down, only routing table changes are propagated, not the entire routing table; 
+this reduces the load the routing protocol itself places on the network
 
 4> It is a Fast Converged Routing Protocol.
 It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
 So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
 
 5> Supports VLSM (Variable Length Subnet Mask) (Classless Subnet mask). It sends the subnet masks in the Update Packets.
+
+6> Very low usage of network resources during normal operation; only hello packets are transmitted on a stable network
+
 
 
 
@@ -131,6 +135,7 @@ EIGRP Messages:
 EIGRP uses different types of messages to build neighbourship, to keep the connection and for the updates. These main messages are :
 
  01> Hello: Packets are used to establish and maintain EIGRP Neighbourship.
+     **It is possible for two routers to become EIGRP neighbors even though the hello and hold timers do not match.
  02> Update: Packets are used to send routing updates.
  03> Query: Packets are used to ask for any routing update, requests an update.
  04> Reply: Packets are used as a response to the Query Packets.
