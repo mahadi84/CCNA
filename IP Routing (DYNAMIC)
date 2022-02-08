@@ -172,7 +172,7 @@ Router(config-router)# network IP_network_# [subnet_mask]
 **We have two options while defining the range of addresses with network command 01> Without wildcard mask 02> With wildcard 
 
 Router(config)#router eigrp 1
-Router(config-router)# network 192.168.1.0 0.0.0.3 (WILD CARD MASK= Opposite of 255.255.255.252)
+Router(config-router)# network 192.168.1.0 0.0.0.3 (WILDCARD-MASK= Opposite of 255.255.255.252)
 **Configure router for all Router and LAN's network address with subnet mask(wild card)
  
 Router(config-router)#passive-interface g0/0    (configure all routers its own LAN interface to not advertise EIGRP updates for security)
