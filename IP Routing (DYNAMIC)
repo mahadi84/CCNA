@@ -172,7 +172,7 @@ Router(config-router)# network IP_network_# [subnet_mask]
 **We have two options while defining the range of addresses with network command 01> Without wildcard mask 02> With wildcard 
 
 Router(config)#router eigrp 1
-Router(config-router)#network 192.168.1.0 0.0.0.3 (Configure router for all Router and LAN's network address with WILDCARD MAST=opposite of 255.255.255.252))
+Router(config-router)#network 192.168.1.0 0.0.0.3 (Configure ROUTER with direct neigher(s)'s Router and own LAN's network address with WILDCARD MAST=opposite of 255.255.255.252)
 Router(config-router)#passive-interface g0/0    (configure all routers its own LAN interface to not advertise EIGRP updates for security)
 
 Router(config-router)# no network 10.10.0.0 0.0.255.255	(Disable EIGRP on interfaces which belongs to network 10.10.0.0/16.)
@@ -183,7 +183,16 @@ Router#show ip eigrp interfaces	 (Display information about all EIGRP interfaces
 Router#show ip route eigrp       (To see eigrp configured Network Address)
 Router#show ip eigrp neighbors   (To see eigrp neighbors)
 
+ROUTER:01 
+---------
+***Configure ROUTER with ONLY direct neigher(s)'s Router and own LAN's network address with WILDCARD MAST=opposite of 255.255.255.252) 
+   And passive interface for security
 
+router eigrp 1
+network 10.0.0.0 0.0.0.3
+network 20.0.0.0 0.0.0.3
+network 192.168.0.0 0.0.0.8
+passive-interface f0/0
 
 
 
