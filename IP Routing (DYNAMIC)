@@ -163,6 +163,24 @@ Uses a very complex metric by using bandwith, delay, load, reliability and MTU v
 
 
 
+CONFIGURATION:
+-------------
+Tut-Link: https://www.computernetworkingnotes.com/ccna-study-guide/eigrp-configuration-step-by-step-guide.html
+
+Router(config)# router eigrp autonomous_system_#  (ASN (Autonomous System Number) from 1 to 65,535)
+Router(config-router)# network IP_network_# [subnet_mask] 
+**We have two options while defining the range of addresses with network command 01> Without wildcard mask 02> With wildcard 
+
+Router(config)#router eigrp 1
+Router(config-router)# network 192.168.1.0 0.0.0.3 (WILD CARD MASK= Opposite of 255.255.255.252)
+**Configure router for all Router and LAN's network address with subnet mask(wild card)
+ 
+Router(config-router)#passive-interface g0/0    (configure all routers its own LAN interface to not advertise EIGRP updates for security)
+Router(config-router)#no auto-summary           (disable the auto-summary command on all routers.)
+Router(config-router)#show ip eigrp neighbors   (To see eigrp neighbors)
+
+
+
 
 
 
