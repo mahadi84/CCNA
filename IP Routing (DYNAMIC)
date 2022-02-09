@@ -67,41 +67,27 @@ There are two versions of RIP (the managed switch supports both):
 
 CONFIGURATION:
 --------------
-Includes all Router(except itself) and All LANs' (including own) Network Address.
+Tut-Link: https://www.computernetworkingnotes.com/ccna-study-guide/rip-protocol-configuration-guide-with-examples.html
+
+Router(config)#router rip	                (Enable RIP routing protocol)
+Router(config)#no router rip	                (Disable RIP routing protocol)
+Router(config-router)#network 10.0.0.0          (Add 10.0.0.0 network from RIP routing advertisement)
+Router(config-router)#no network 10.0.0.0       (Remove 10.0.0.0 network from RIP routing advertisement)
+Router(config-router)#passive-interface s0/0/0	(RIP will not broadcast routing update from this interface)
+
+Router#show ip rip database	                (Display RIP database including routes)
 
 ROUTER: 0
 ----------
+***We only need to specify the NETWORKS which are directly connected(including LAN) with the router.
+***Network command allows us to specify the networks which we want to ADVERTISE.
+
 en
 config t
 router rip
-network 20.0.0.0       (Router 1 Network/Address)
-network 30.0.0.0       (Router 2 N/A)
+network 20.0.0.0       (Router Link Net Add(S))(Add a.b.c.d network in RIP routing advertisement)
 network 192.168.1.0    (OWN LAN N/A)
-network 192.168.2.0    (Router 1 LAN N/A)
-network 192.168.3.0    (Router 2 LAN N/A)
 
-ROUTER: 01
-----------
-en
-config t
-router rip
-network 10.0.0.0      (Router 0 N/A)
-network 30.0.0.0
-network 192.168.1.0
-network 192.168.2.0
-network 192.168.3.0
-
-
-ROUTER: 02
-----------
-en
-config t
-router rip
-network 10.0.0.0
-network 20.0.0.0
-network 192.168.1.0
-network 192.168.2.0
-network 192.168.3.0
 
 
 -------------------------: ENHANCED INTERIOR GATEWAY ROUTING PROTOCOL(EIGRP) :-----------------------------
@@ -167,25 +153,25 @@ CONFIGURATION:
 -------------
 Tut-Link: https://www.computernetworkingnotes.com/ccna-study-guide/eigrp-configuration-step-by-step-guide.html
 
-Router(config)# router eigrp autonomous_system_#  (ASN (Autonomous System Number) from 1 to 65,535)
+Router(config)# router eigrp autonomous_system_#        (ASN (Autonomous System Number) from 1 to 65,535)
 Router(config-router)# network IP_network_# [subnet_mask] 
 **We have two options while defining the range of addresses with network command 01> Without wildcard mask 02> With wildcard 
 
-Router(config)#router eigrp 1
-Router(config-router)#network 192.168.1.0 0.0.0.3 (Configure ROUTER with direct neigher(s)'s Router and own LAN's network address with WILDCARD MAST=opposite of 255.255.255.252)
-Router(config-router)#passive-interface g0/0    (configure all routers its own LAN interface to not advertise EIGRP updates for security)
+Router(config)#router eigrp 1                           (configure eigrp with AS number)
+Router(config-router)#network 192.168.1.0 0.0.0.3       (Network address to advertise)
+Router(config-router)#passive-interface g0/0            (configure routers NOT to advertise its own LAN interface to neighbours for security)
 
 Router(config-router)# no network 10.10.0.0 0.0.255.255	(Disable EIGRP on interfaces which belongs to network 10.10.0.0/16.)
-Router(config)#no router eigrp 1 (Disable EIGRP routing process 1)
-Router(config-router)#no auto-summary           (disable the auto-summary command on all routers.)
+Router(config)#no router eigrp 1                        (Disable EIGRP routing process 1)
+Router(config-router)#no auto-summary                   (disable the auto-summary command on all routers.)
 
-Router#show ip eigrp interfaces	 (Display information about all EIGRP interfaces.)
-Router#show ip route eigrp       (To see eigrp configured Network Address)
-Router#show ip eigrp neighbors   (To see eigrp neighbors)
+Router#show ip eigrp interfaces	                        (Display information about all EIGRP interfaces.)
+Router#show ip route eigrp                              (To see eigrp configured Network Address)
+Router#show ip eigrp neighbors                          (To see eigrp neighbors)
 
 ROUTER:01 
 ---------
-***Configure ROUTER with ONLY direct neigher(s)'s Router and own LAN's network address with WILDCARD MAST=opposite of 255.255.255.252) 
+***Configure ROUTER with ONLY direct neigher(s)'s Router and own LAN's network address with WILDCARD MASK ex. 0.0.0.3 (Sub M 255.255.255.252) 
    And passive interface for security
 
 router eigrp 1
