@@ -6,7 +6,7 @@
 02. What is Routing Table, what a Routing Table contains and Types of routing?
 03. What are:
     a) Routing Protocol MATRIC(for RIP,OSPF, EIGRP)  b) Administrative Distance (AD)(for RIP,OSPF,EIGRP)   
-    c) Admin Distance VS Matric    d) Next Hop     e) Routing Protocol CODE     f) Gateway of Last Resort
+    c) Admin Distance VS Matric    d) Next Hop     e) Routing Protocol CODE     f) Gateway of Last Resort g) Wildcard Mask
 04. What is STATIC ROUTING and how to configure it?
     a) SEE static router address    b) ADD static router address
     
@@ -107,6 +107,12 @@ F) GATEWAY OF LAST RESORT:
 ==========================
 A Gateway of Last Resort or Default gateway is a route used by the router when no other known route exists to transmit the IP packet. 
 Known routes are present in the routing table. Hence, any route not known by the routing table is forwarded to the default route.
+
+
+WILDCARD MASK:
+-------------
+With wildcard mask we can easily filter Subnetted networks, We are no longer limited with default boundaries.
+We can match Subnetted networks as well as default networks. Ex: 0.0.0.3(wildcard of of subment mask:255.255.255.253)
 
 
 ==========================: STATIC ROUTING: ============================
