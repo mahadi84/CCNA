@@ -112,7 +112,8 @@ Known routes are present in the routing table. Hence, any route not known by the
 WILDCARD MASK:
 -------------
 With wildcard mask we can easily filter Subnetted networks, We are no longer limited with default boundaries.
-We can match Subnetted networks as well as default networks. Ex: 0.0.0.3(wildcard of of subment mask:255.255.255.253)
+We can match Subnetted networks as well as default networks. 
+Example: We can use a wildcard mask of 0.0.0.255 to match the subnet mask of /24.
 
 
 ==========================: STATIC ROUTING: ============================
