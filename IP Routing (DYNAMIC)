@@ -53,29 +53,29 @@ B)EGP (Exterior Gateway Protocol)
 RIP vs OSPF vs IGRP vs EIGRP
 ----------------------------                                                                                         
 RIP-The metrics used Is hop. -Used in  small to medium-sized networks.
-OSPF-The metrics used are bandwidth and delay.	
 IGRP-The metrics used are bandwidth, load, delay, MTU, and reliability.	
 EIGRP-The metrics used are bandwidth, delay, load and reliability
+OSPF-The metrics used are bandwidth and delay.	
 
 RIP uses Distance vector algorithm to calculate the best path
-OSPF uses the SPF algorithm to calculate the best path.	
 IGRP uses the distance vector algorithm to calculate the best path and the variance mechanism to support unequal-cost load balancing.	
 EIGRP uses Diffusing update algorithm to calculate the best path.
+OSPF uses the SPF algorithm to calculate the best path.	
 
-In RIP, networks are not divided into areas or tables.	
-Routing with OSPF is done in Autonomous System, Areas, Stub Areas and Backbone areas.	
+In RIP, networks are not divided into areas or tables.		
 IGRP does not support areas or tables but supports multi-part routing.	
 Routing with EIGRP is done in Neighbour Tables, Topology tables, and Routing tables.
+Routing with OSPF is done in Autonomous System, Areas, Stub Areas and Backbone areas.
 
-RIP-Maximum hop count is 15 16 is considered as network unreachable. 
-OSPF-No hop count.	
+RIP-Maximum hop count is 15 16 is considered as network unreachable. 	
 IGRP-Maximum hop count for IGRP-routed packets is 255 and the default is 100.	
 EIGRP-Maximum hop count is 255.
+OSPF-No hop count.
 
 RIP- Administrative Distance, Default Value is 120.
-OSPF- Administrative Distance, Default Value is 110
 IGRP- Administrative Distance, Default Value is 100
-EIGRP- Administrative Distance, Default Value is EIGRP(summary route)-5, EIGRP(internal)-90, EIGRP(external)-170, 
+EIGRP- Administrative Distance, Default Value is EIGRP(summary route)-5, EIGRP(internal)-90, EIGRP(external)-170,
+OSPF- Administrative Distance, Default Value is 110
 
 
 
@@ -215,6 +215,43 @@ network 192.168.0.0 0.0.0.8
 passive-interface f0/0
 
 
+-------------------------: OPEN SHORTEST PATH FIRST (OSPF) :-----------------------------
+                          =================================
 
+Features and advantage of OSPF:-------
+It supports both IPv4 and IPv6 routed protocols.
+It supports load balancing with equal cost routes for same destination.
+Since it is based on open standards, it will run on most routers.
+It provides a loop free topology using SPF algorithm.
+It is a classless protocol.
+It supports VLSM and route summarization.
+It supports unlimited hop counts.
+It scales enterprise size network easily with area concept.
+It supports trigger updates for fast convergence.
+Just like other routing protocols, OSPF also has its negatives.
+
+Disadvantage of OSPF:------
+It requires extra CPU process to run SPF algorithm.
+It requires more RAM to store adjacency topology.
+It is more complex to setup and hard to troubleshoot.
+
+
+OSPF Neighborship Requirement:----
+In order to become OSPF neighbor following values must be match on both routers.
+Area ID
+Authentication
+Hello and Dead Intervals
+Stub Flag
+MTU Size
+
+OSPF Neighborship states:---------
+OSPF routers go through the seven states while building neighborship with other routers.
+Down state
+Attempt/Init state
+Two ways state
+Exstart state
+Exchange state
+Loading state
+Full state
 
 
