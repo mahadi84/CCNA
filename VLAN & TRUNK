@@ -1,6 +1,24 @@
+Types of VLANs:
+---------------
+Types of VLANs include Protocol based, static and dynamic VLANs.
+A Protocol VLAN- which has traffic handled based on its protocol. A switch will segregate or forward traffic based on the traffics protocol.  
+Static VLAN- also referred to as port-based VLAN, needs a network administrator to assign the ports on a network switch to a virtual network; while:
+Dynamic VLAN- allows a network administrator just to define network membership based on device characteristics, as opposed to switch port location.
+
+Advantages and Disadvantages of VLAN:
+-------------------------------------
+Advantages to VLAN include reduced broadcast traffic, security, ease of administration and broadcast domain confinement.
+However, a disadvantage of VLANs includes the limitation of 4,096 VLANs per switching domain creates problems for large hosting providers,
+which often need to allocate tens or hundreds of VLANs for each customer. 
+To address this limitation, other protocols, like VXLAN(Virtual Extensible LAN), NVGRE (Network Virtualization using Generic Routing Encapsulation) 
+and Geneve, support larger tags and the ability to tunnel Layer 2 frames within Layer 3 (network) packets.
+
+
 
 Short-Code to configure interface:
 ----------------------------------
+Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
+
 
 ROUTER/SWITCH:
 --------------
