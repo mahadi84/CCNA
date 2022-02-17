@@ -115,8 +115,9 @@ Known routes are present in the routing table. Hence, any route not known by the
 
 G) WILDCARD MASK:
 -------------
-With wildcard mask we can easily filter Subnetted networks, We are no longer limited with default boundaries.
-We can match Subnetted networks as well as default networks. 
+Wildcard mask are used with network ID to filter the interfaces. Wildcard mask is different from subnet mask. 
+Subnet mask is used to separate the network portion and host portion in IP address.
+While wildcard mask is used to match corresponding octet in network portion. 
 Example: We can use a wildcard mask of 0.0.0.255 to match the subnet mask of /24.
 
 
