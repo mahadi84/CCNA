@@ -219,7 +219,6 @@ passive-interface f0/0
 
 -------------------------: OPEN SHORTEST PATH FIRST (OSPF) :-----------------------------
                           =================================
-Tut: https://www.computernetworkingnotes.com/ccna-study-guide/ospf-configuration-step-by-step-guide.html
 
 Features and advantage of OSPF:-------
 It supports both IPv4 and IPv6 routed protocols.
@@ -259,6 +258,8 @@ Full state
 
 CONFIGURATION:
 --------------
+Tut: https://www.computernetworkingnotes.com/ccna-study-guide/ospf-configuration-step-by-step-guide.html
+
 Enabling OSPF is a two steps process:-
 >>Enable OSPF routing protocol from global configuration mode.
 >>Tell OSPF which interfaces we want to include.
