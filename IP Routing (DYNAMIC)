@@ -257,4 +257,19 @@ Exchange state
 Loading state
 Full state
 
+CONFIGURATION:
+--------------
+Enabling OSPF is a two steps process:-
+>>Enable OSPF routing protocol from global configuration mode.
+>>Tell OSPF which interfaces we want to include.
 
+***Process ID is a positive integer. We can use any number from 1 to 65,535. 
+Process ID is locally significant. We can run multiple OSPF process on same router. 
+Process ID is used to differentiate between them. Process ID need not to match on all routers.
+
+For these steps following commands are used respectively.
+Router(config)# router ospf process_ID
+Router(config-router)# network IP_network_# [wild card mask] Area Number area number
+
+R2(config)#router ospf 1
+R2(config-router)#network 192.168.23.0 0.0.0.255 area 0
