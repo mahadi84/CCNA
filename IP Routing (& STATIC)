@@ -120,6 +120,10 @@ Subnet mask is used to separate the network portion and host portion in IP addre
 While wildcard mask is used to match corresponding octet in network portion. 
 Example: We can use a wildcard mask of 0.0.0.255 to match the subnet mask of /24.
 
+Key points:--
+0 (Decimal – octet format) Wildcard mask indicates that corresponding octet in network address must be matched exactly.
+255 (Decimal – octet format) Wildcard mask indicates that we don’t care about corresponding octet in network address.
+
 
 H) MTU:
 -------
