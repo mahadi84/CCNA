@@ -125,6 +125,14 @@ Key points:--
 0 (Decimal – octet format) Wildcard mask indicates that corresponding octet in network address must be matched exactly.
 255 (Decimal – octet format) Wildcard mask indicates that we don’t care about corresponding octet in network address.
 
+Subnetmask        255        255      255         0
+               11111111   11111111  11111111   00000000
+
+Wildcardmask      0         0         0         255
+               00000000  00000000  00000000   11111111
+               
+**** The binary 1s and 0s of the wildcard mask are flipped compared to the subnet mask.
+     A subnet mask of 255.255.255.0 is the same as wildcard mask 0.0.0.255.
 
 H) MTU:
 -------
