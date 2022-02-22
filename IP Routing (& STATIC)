@@ -146,6 +146,13 @@ OSPF allows certain areas to be configured as stub areas. External networks, suc
 are not allowed to be flooded into a stub area. Routing from these areas to the outside world is based on a default route. 
 Configuring a stub area reduces the topological database size inside an area and reduces the memory requirements of routers inside that area.
 
+J) Loopback Interface in OSPF:
+-----------------------------
+Loopback interfaces are logical interfaces, which are virtual, software-only interfaces; they are not real router interfaces. 
+
+**It ensures that an interface is always active for OSPF processes.
+They can be used for OSPF configuration  as well as  diagnostic purposes . 
+
 
 04) CMD TO ADD IP TO INTERFACE:
 ================================
