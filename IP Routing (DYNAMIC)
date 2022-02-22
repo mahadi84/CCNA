@@ -110,8 +110,13 @@ Router(config)#no router rip	                (Disable RIP routing protocol)
 Router(config-router)#network 10.0.0.0          (Add 10.0.0.0 network from RIP routing advertisement)
 Router(config-router)#no network 10.0.0.0       (Remove 10.0.0.0 network from RIP routing advertisement)
 Router(config-router)#passive-interface s0/0/0	(RIP will not broadcast routing update from this interface)
+Router(config-router)#auto-summary       	(Summarize ip address range)
+Router(config-router)#no auto-summary
 
 Router#show ip rip database	                (Display RIP database including routes)
+
+
+
 
 ROUTER: 0
 ----------
