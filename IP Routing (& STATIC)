@@ -8,8 +8,8 @@
 
 03. What are:
     a) Routing Protocol MATRIC(for RIP,OSPF, EIGRP)  b) Administrative Distance (AD)(for RIP,OSPF,EIGRP)   
-    c) Admin Distance VS Matric    d) Next Hop     e) Routing Protocol CODE     f) Gateway of Last Resort 
-    g) Wildcard Mask h) MTU i) Stub Area   
+    c) Admin Distance VS Matric   d) Next Hop    e) Routing Protocol CODE     f) Gateway of Last Resort 
+    g) Wildcard Mask h) MTU  i) Stub Area   j) Loopback Interface in OSPF
 
 04. How to add IP to INTERFACE?
 
