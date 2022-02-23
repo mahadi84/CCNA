@@ -113,6 +113,10 @@ Router(config-router)#passive-interface s0/0/0	(RIP will not broadcast routing u
 Router(config-router)#auto-summary       	(Summarize ip address range)
 Router(config-router)#no auto-summary
 
+Router(config-router)#debug ip rip
+Router(config-router)#no debug ip rip/undebug all
+
+
 Router#show ip rip database	                (Display RIP database including routes)
 
 
