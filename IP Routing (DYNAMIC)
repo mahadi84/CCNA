@@ -130,8 +130,9 @@ ROUTER: 0
 en
 config t
 router rip
-network 20.0.0.0       (Router Link Net Add(S))(Add a.b.c.d network in RIP routing advertisement)
-network 192.168.1.0    (OWN LAN N/A)
+no auto-summary
+network 20.0.0.0   
+network 192.168.1.0
 
 
 
