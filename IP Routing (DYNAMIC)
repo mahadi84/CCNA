@@ -148,12 +148,11 @@ EIGRP (DEFINATION and ADVANTAGE):
 2> When a change occurs like router up/down, only routing table changes are propagated, not the entire routing table; 
    this reduces the load the routing protocol itself places on the network
 
-4> It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
+3> It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
    So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
 
-5> Supports VLSM (Variable Length Subnet Mask) (Classless Subnet mask). It sends the subnet masks in the Update Packets.
-6> Very low usage of network resources during normal operation; only hello packets are transmitted on a stable network
-7> Prevents routing loops on the network
+4> Supports VLSM (Variable Length Subnet Mask) (Classless Subnet mask). It sends the subnet masks in the Update Packets.
+5> Prevents routing loops on the network
 
  
 EIGRP Tables:
