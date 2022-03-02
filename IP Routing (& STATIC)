@@ -152,7 +152,11 @@ J) Loopback Interface in OSPF:
 Loopback interfaces are logical interfaces, which are virtual, software-only interfaces; they are not real router interfaces. 
 
 **It ensures that an interface is always active for OSPF processes.
-They can be used for OSPF configuration  as well as  diagnostic purposes . 
+They can be used for OSPF configuration  as well as  diagnostic purposes.
+
+CONFIGURE: 
+interface loopback0
+ip address 192.168.0.1 255.255.255.255
 
 K)  Auto Summary:
 -----------------
