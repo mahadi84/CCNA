@@ -9,7 +9,7 @@
 03. What are:
     a) Routing Protocol MATRIC(for RIP,OSPF, EIGRP)  b) Administrative Distance (AD)(for RIP,OSPF,EIGRP)   
     c) Admin Distance VS Matric   d) Next Hop    e) Routing Protocol CODE     f) Gateway of Last Resort 
-    g) Wildcard Mask   h) MTU   i) Stub Area   j) Loopback Interface in OSPF    k) Auto Summary
+    g) Wildcard Mask   h) MTU   i) Stub Area   j) Loopback Interface    k) Auto Summary
     l) Broadcast vs Multicast IP Address 
 
 04. How to add IP to INTERFACE?
@@ -147,16 +147,20 @@ OSPF allows certain areas to be configured as stub areas. External networks, suc
 are not allowed to be flooded into a stub area. Routing from these areas to the outside world is based on a default route. 
 Configuring a stub area reduces the topological database size inside an area and reduces the memory requirements of routers inside that area.
 
-J) Loopback Interface in OSPF:
+J) Loopback Interface:
 -----------------------------
 Loopback interfaces are logical interfaces, which are virtual, software-only interfaces; they are not real router interfaces. 
 
-**It ensures that an interface is always active for OSPF processes.
-They can be used for OSPF configuration  as well as  diagnostic purposes.
+**It ensures that an interface is always active for EIGRP/OSPF processes.
+They can be used for EIGRP/OSPF configuration  as well as  diagnostic purposes.
 
 CONFIGURE: 
 interface loopback0
 ip address 192.168.0.1 255.255.255.255
+
+router eigrp 100
+passive-interface loopback0
+passive-interface fa 1/1
 
 K)  Auto Summary:
 -----------------
