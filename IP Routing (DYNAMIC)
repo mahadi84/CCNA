@@ -11,6 +11,14 @@
      
 03. What are and how to Configure?
      >RIP >EIGRP >OSPF >IS-IS >BGP
+     
+04. EIGRP Metrics:  
+    a) Reported Distance b) Feasible Distance 
+    c) Successor d) Feasible Successor
+    e) ASN (Autonomous System Number)
+
+05. OSPF Config: 
+    a) Process ID b) Area ID c) Router ID
 
 --------------------------------------------------------------------------
 
@@ -168,12 +176,6 @@ EIGRP Metrics:
 --------------
 Uses a very complex metric by using bandwith, delay, load, reliability and MTU values.
 
-*Reported Distance: The metric for a route as advertised by a neighbouring router.
-*Feasible Distance: The metric for a route from the local router. This includes the RD+1.
-
-**Successor:- The route with the best metric to the destination.
-**Feasible Successor: A backup route if the successor fails. The FS must have a RD that is LESS than the Successor FD.
-
 
 
 CONFIGURATION:
@@ -255,9 +257,7 @@ Enabling OSPF is a two steps process:-
 >>Enable OSPF routing protocol from global configuration mode.
 >>Tell OSPF which interfaces we want to include.
 
-***Process ID is a positive integer. We can use any number from 1 to 65,535. 
-Process ID is locally significant. We can run multiple OSPF process on same router. 
-Process ID is used to differentiate between them. Process ID need not to match on all routers.
+
 
 For these steps following commands are used respectively.
 Router(config)# router ospf process_ID
@@ -267,4 +267,62 @@ R2(config)# router ospf 1
 R2(config-router)# network 192.168.23.0 0.0.0.255 area 0
 R2(config)# end
 
+=========================================
 
+04) 
+   a) Reported Distance: The metric for a route as advertised by a neighbouring router.
+      -----------------
+   b) Feasible Distance: The metric for a route from the local router. This includes the RD+1.
+      ------------------
+   c) Successor: The route with the best metric to the destination.
+      ----------
+   d) Feasible Successor: A backup route if the successor fails. The FS must have a RD that is LESS than the Successor FD.
+      -------------------
+   
+   e) ASN: Autonomous System Number:
+   --------------------------------
+   The autonomous system number used for EIGRP configuration is only significant to the EIGRP routing domain. 
+   It functions as a process ID to help routers keep track of multiple, running instances of EIGRP. 
+   This is required because it is possible to have more than one instance of EIGRP running on a network.
+   ASN is from 1 to 65,535.
+
+
+05) 
+   a) Process ID:
+   --------------
+   Process ID is a positive integer. We can use any number from 1 to 65,535. 
+   The Process ID is locally significant. It does not have to match on the neighbour router to form an adjacency.
+   Only one instance is typically configured on OSPF routers – multiple Process IDs are very rarely used on same router. 
+   
+   b) Area ID:
+   -----------
+   Every router learns the full picture of the network including every router, its interfaces and what they connect to
+   This can cause issues in large networks:
+   Too many routes can use up too much router memory
+   Network changes cause all routers to reconverge which takes time and CPU resources
+   OSPF supports a hierarchical design which segments large networks into smaller areas to solve this problem
+   Each router maintains full information about its own area, but only summary information about other areas
+   
+   A two level hierarchy is used:
+   Transit area (backbone or area 0). Does not generally contain end users.
+   Regular areas (nonbackbone areas). Used to connect end users to the Transit area. By default, all transit traffic goes through the Transit area.
+   Small networks do not require a hierarchical design and all routers can be in Area 0
+
+
+   
+   c) Router ID:
+   -------------
+   Router ID which is in the form of an IP address. 
+   ** OSPF routers identify themselves using an OSPF router id
+   This will default to being the highest(ex: network 192.168.0.0 255.255.255.255) IP address of any loopback interfaces configured on the router, 
+   or the highest other IP address if a loopback does not exist.
+   Loopback interfaces never go down so the Router ID will not change. You can also manually specify the Router ID.
+   *If a loopback or higher IP address is configured, the Router ID will change on OSPF process restart.
+   *Best practice is to use a Loopback or manually set the Router ID.
+   Example: router ospf 1 
+            router-id 2.2.2.2
+	    
+	    
+ 
+ 
+  
