@@ -13,7 +13,7 @@
     l) Broadcast vs Multicast m) passive-interface 
 
 04. How to:
-    a) Add IP to a INTERFACE
+    a) Add IP/ROUTE to a INTERFACE
     b) Add cost(bandwidth) to a Protocol/ auto cost reference bandwidth
     c) Load Balance
     d) Watch Routing table
@@ -193,8 +193,8 @@ if the first byte is between 224 and 239 (included), it's a multicast address, w
 
 
 
-04) 
-=====
+===================) 04 (===================
+
   a) Add IP to a INTERFACE:  >int serial 2/0 OR fa 0/0 >ip address 192.168.10.1 255.255.255.0  >no shutdown  
   b) Add cost(bandwidth) to a Protocol/ auto cost reference bandwidth:
      >int fa 1/1  >ip ospf cost 1500  /  >router ospf 1 >auto-cost reference-bandwidth 100000 (100GB)
