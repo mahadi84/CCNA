@@ -18,7 +18,7 @@
     e) ASN (Autonomous System Number)
 
 05. OSPF Config: 
-    a) Process ID b) Area ID c) Router ID
+    a) Process ID b) Area ID c) Router ID d) ABR
 
 --------------------------------------------------------------------------
 
@@ -321,6 +321,11 @@ R2(config)# end
    *Best practice is to use a Loopback or manually set the Router ID.
    Example: router ospf 1 
             router-id 2.2.2.2
+	    
+	    
+   d) ABR(Area border router) router:
+   ----------------------------------
+   A router that connects one or more areas to the OSPF backbone.
 	    
 	    
  
