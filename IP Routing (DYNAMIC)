@@ -344,7 +344,7 @@ R2(config)# end
   f) ABR(Area border router) router:
    ----------------------------------
    A router that connects one or more areas to the OSPF backbone.
-	    
+   - Store both link-interface for Area 0 and Area 1 with Summary(it can't summary automaticaly)	    
 	    
 
    g) Backbone Router: Routers which have all their OSPF interface in Area 0 are BACKBONE Router
