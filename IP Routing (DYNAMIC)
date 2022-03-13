@@ -19,9 +19,11 @@
     a) Process ID b) Area ID c) Router ID 
     d) Route Injection Meaning e) How NOT to advertise a interface 
     f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
-    j) DR and BDR k) Why multi-area concept l) How to do Manual Summary
+    j) Why multi-area concept k) How to do Manual Summary
     
 06. Connect to internet NOT advertising internal routes.
+07. What are DR and BDR, what these do in OSPF?
+
 
     
 
@@ -341,14 +343,8 @@ R2(config)# end
    g) Backbone Router: Routers which have all their OSPF interface in Area 0 are BACKBONE Router
    h) Transit Router: Transit Router is Backbone router.
    i) Inter Area Route: Routes to other areas appear as Inter Area (IA) routes
-   j) DR and BDR: The Designated Router and Back-Up DR establish FULL neighbor state with all routers on the network segment. 
-                   > DR is highest priority becomes and router with the 2nd highest priority becomes BDR
-		   > Defaul priority is 1, The higher the better(0-255)
-		     #interface fa 0/0
-		     #ip ospf priority 100
-		   
-   k) Why multi-area concept: Too many routes can use up too much router memory To solve this problem Large networks segments into smaller area.
-   l) How to do Manual Summary: #router ospf 1 #network 10.1.0.0 0.0.255.255 area 0 #area 0 range 10.1.0.0 255.255.0.0
+   j) Why multi-area concept: Too many routes can use up too much router memory To solve this problem Large networks segments into smaller area.
+   k) How to do Manual Summary: #router ospf 1 #network 10.1.0.0 0.0.255.255 area 0 #area 0 range 10.1.0.0 255.255.0.0
     
 
 
@@ -358,6 +354,18 @@ R2(config)# end
      #router ospf 1
      #default-information originate
     -that's it.
+    
+
+07. DR and BDR: The Designated Router and Back-Up DR establish FULL neighbor state with all routers on the network segment. 
+                   > DR is highest priority becomes and router with the 2nd highest priority becomes BDR
+		   > Defaul priority is 1, The higher the better(0-255)
+		     #interface fa 0/0
+		     #ip ospf priority 100
+      What DR and BDR do in OSPF:
+      --------------------------
+      DR and BDR serve as the central point for exchanging OSPF routing information. 
+      Each non-DR or non-BDR router will exchange routing information only with the DR and BDR, 
+      instead of exchanging updates with every router on the network segment.
     
     
     
