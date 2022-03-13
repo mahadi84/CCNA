@@ -29,6 +29,8 @@
            > Adjancencies Routers
     See	   > Protocol
            > All info about OSPF
+    
+07. Connect  to internet NOT advertising internal routes.
 
     
 
@@ -365,3 +367,14 @@ R2(config)# end
            > All info about OSPF: #sh run | section ospf
  
   
+07.  > Configure the default static route first for the backbone router: 
+     #ip route 0.0.0.0 0.0.0.0 10.2.0.0(Outgoing Interface)
+     #router ospf 1
+     #default-information originate
+    that's it.
+    
+    
+    
+    
+    
+    
