@@ -18,7 +18,20 @@
     e) ASN (Autonomous System Number)
 
 05. OSPF Config: 
-    a) Process ID b) Area ID c) Router ID d) ABR
+    a) Process ID b) Area ID c) Router ID 
+    d) Route Injection Meaning e) How NOT to advertise a interface 
+    f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
+    j) DR and BDR k) Why multi-area concept l) How to do Manual Summary
+    
+
+06. How to:
+    Check: > Router Interface  
+           > Adjancencies Routers
+    See	   > Protocol
+           > All info about OSPF
+
+    
+
 
 --------------------------------------------------------------------------
 
@@ -323,11 +336,32 @@ R2(config)# end
             router-id 2.2.2.2
 	    
 	    
-   d) ABR(Area border router) router:
+   d) Route Injection Meaning: create static ip route and originate for internet access
+   e) How NOT to advertise a interface: passive the interface that's it.
+  
+  f) ABR(Area border router) router:
    ----------------------------------
    A router that connects one or more areas to the OSPF backbone.
 	    
 	    
- 
+
+   g) Backbone Router: Routers which have all their OSPF interface in Area 0 are BACKBONE Router
+   h) Transit Router: Transit Router is Backbone router.
+   i) Inter Area Route: Routes to other areas appear as Inter Area (IA) routes
+   j) DR and BDR: The Designated Router and Back-Up DR establish FULL neighbor state with all routers on the network segment. 
+                   > DR is highest priority becomes and router with the 2nd highest priority becomes BDR
+		   > Defaul priority is 1, The higher the better(0-255)
+		     #interface fa 0/0
+		     #ip ospf priority 100
+		   
+   k) Why multi-area concept: Too many routes can use up too much router memory To solve this problem Large networks segments into smaller area.
+   l) How to do Manual Summary: #router ospf 1 #network 10.1.0.0 0.0.255.255 area 0 #area 0 range 10.1.0.0 255.255.0.0
+    
+
+06. How to:
+    Check: > Router Interface:      #sh ip ospf interface  OR   #sh ip ospf interface fa 0/0 
+           > Adjancencies Routers:  #sh ospf neighbor
+    See :  > Protocol: #sh ip protocols
+           > All info about OSPF: #sh run | section ospf
  
   
