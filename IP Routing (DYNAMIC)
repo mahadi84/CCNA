@@ -3,12 +3,10 @@
 ---------------------------------------------------------------------------
 
 01. What is Dynamic Routing Protocol and Adv. of Dynamic Routing Protocol?
-
 02. What is the difference between/among: 
      a> IGP vs EGP 
      b> Distance Vector vs Link State vs Path Vector Algorithom
      c> RIP vs IGRP vs EIGRP vs OSPF 
-     
 03. What are and how to Configure?
      >RIP >EIGRP >OSPF >IS-IS >BGP
      
@@ -23,7 +21,6 @@
     f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
     j) DR and BDR k) Why multi-area concept l) How to do Manual Summary
     
-
 06. Connect to internet NOT advertising internal routes.
 
     
