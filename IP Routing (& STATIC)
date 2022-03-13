@@ -189,7 +189,10 @@ Broadcast: Less Secure, More traffic, Slower Exam:255.255.255.255 , old technolo
 Multicast: More Secure, Less Traffic, Faster
 if the first byte is between 224 and 239 (included), it's a multicast address, within the class D. Exambple: 224.0.0.9
 
-
+M) Passive Interface:
+---------------------
+  Is used NOT to advertise a interface to other router.
+  Configuration: #passive-interface fa 1/1
 
 ===================) 04 (===================
 
