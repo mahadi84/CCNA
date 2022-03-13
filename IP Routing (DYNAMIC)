@@ -357,8 +357,12 @@ R2(config)# end
 07. DR and BDR: The Designated Router and Back-Up DR establish FULL neighbor state with all routers on the network segment. 
                    > DR is highest priority becomes and router with the 2nd highest priority becomes BDR
 		   > Defaul priority is 1, The higher the better(0-255)
+		     configuration:
 		     #interface fa 0/0
 		     #ip ospf priority 100
+		     
+		     #sh ip ospf interface fa 0/0
+		     
       What DR and BDR do in OSPF:
       --------------------------
       DR and BDR serve as the central point for exchanging OSPF routing information. 
