@@ -15,10 +15,12 @@
 04. How to:
     a) Add IP/ROUTE to a INTERFACE
     b) Add cost(bandwidth) to a Protocol/ auto cost reference bandwidth
-    c) Load Balance
+    c) Load Balance (RIP vs EIGRP vs OSPF)
     d) Watch Routing table
-    e) Watch Neighbor
+    e) Watch Neighbor/Adjancencies 
     f) Watch Protocol
+    g) Router Interface  
+    h) All info about OSPF
 
 05. What is STATIC ROUTING and how to configure it?
     a) SEE static router address    b) ADD static router address
@@ -198,10 +200,12 @@ if the first byte is between 224 and 239 (included), it's a multicast address, w
   a) Add IP to a INTERFACE:  >int serial 2/0 OR fa 0/0 >ip address 192.168.10.1 255.255.255.0  >no shutdown  
   b) Add cost(bandwidth) to a Protocol/ auto cost reference bandwidth:
      >int fa 1/1  >ip ospf cost 1500  /  >router ospf 1 >auto-cost reference-bandwidth 100000 (100GB)
-  c) Load Balance:
-  d) Watch Routing table: ip route
-  e) Watch Neighbor: ip ospf/eigrp/rip neighbour
-  f) Watch Protocol : ip protocols
+  c) Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
+  d) Watch Routing table: #ip route
+  e) Watch Neighbor: #ip ospf/eigrp/rip neighbour
+  f) Watch Protocol : #ip protocols
+  g) Router Interface:      #sh ip ospf interface  OR   #sh ip ospf interface fa 0/0 
+  h) All info about OSPF: #sh run | section ospf
 
 
 
