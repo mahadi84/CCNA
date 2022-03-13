@@ -17,10 +17,10 @@
     e) ASN (Autonomous System Number)
 
 05. OSPF Config: 
-    a) Process ID b) Area ID c) Router ID 
+    a) Process ID b) Area ID   c) Router ID 
     d) Route Injection Meaning e) How NOT to advertise a interface 
     f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
-    j) Why multi-area concept k) How to do Manual Summary
+    j) Why multi-area concept  k) How to do Manual Summary
     
 06. Connect to internet NOT advertising internal routes.
 07. What are DR and BDR, what these do in OSPF?
