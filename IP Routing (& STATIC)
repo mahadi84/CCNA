@@ -159,10 +159,11 @@ Configuring a stub area reduces the topological database size inside an area and
 
 J) Loopback Interface:
 -----------------------------
-Loopback interfaces are logical interfaces, which are virtual, software-only interfaces; they are not real router interfaces. 
+Loopback interfaces are logical interfaces, it configure virtully.
 
 **It ensures that an interface is always active for EIGRP/OSPF processes.
 They can be used for EIGRP/OSPF configuration  as well as  diagnostic purposes.
+It also used and ROUTER ID in OSPF.
 
 CONFIGURE: 
 interface loopback0
@@ -189,7 +190,7 @@ L) BROADCAST vs MULTICAST IP address:
 in broadcasting, the message or packets go to all the connected devices on the network 
 while, in multicasting, the packets go to a required set of devices on the network.
 
-Broadcast: Less Secure, More traffic, Slower Exam:255.255.255.255
+Broadcast: Less Secure, More traffic, Slower Exam:255.255.255.255 , old technology router use this.
 Multicast: More Secure, Less Traffic, Faster
 if the first byte is between 224 and 239 (included), it's a multicast address, within the class D. Exambple: 224.0.0.9
 
@@ -202,9 +203,9 @@ if the first byte is between 224 and 239 (included), it's a multicast address, w
      >int fa 1/1  >ip ospf cost 1500  /  >router ospf 1 >auto-cost reference-bandwidth 100000 (100GB)
   c) Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
   d) Watch Routing table: #ip route
-  e) Watch Neighbor: #ip ospf/eigrp/rip neighbour
-  f) Watch Protocol : #ip protocols
-  g) Router Interface:      #sh ip ospf interface  OR   #sh ip ospf interface fa 0/0 
+  e) Watch Neighbor:      #ip ospf/eigrp/rip neighbour
+  f) Watch Protocol :     #ip protocols
+  g) Router Interface:    #sh ip ospf interface  OR   #sh ip ospf interface fa 0/0 
   h) All info about OSPF: #sh run | section ospf
 
 
