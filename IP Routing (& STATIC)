@@ -144,32 +144,29 @@ Wildcardmask      0         0         0         255
 **** The binary 1s and 0s of the wildcard mask are flipped compared to the subnet mask.
      A subnet mask of 255.255.255.0 is the same as wildcard mask 0.0.0.255.
 
-H) MTU:
--------
-Maximum Transmission unit, is the largest size packet that can be delivered in bytes without fragmentation.
+H) MTU: (Maximum Transmission unit)
+-----------------------------------
+ Is the largest size packet that can be delivered in bytes without fragmentation.
 
 
 I) STUB AREA:
 -------------
-OSPF allows certain areas to be configured as stub areas. External networks, such as those redistributed from other protocols into OSPF, 
+OSPF allows Certain areas to be configured as stub areas. External networks, such as those redistributed from other protocols into OSPF, 
 are not allowed to be flooded into a stub area. Routing from these areas to the outside world is based on a default route. 
 Configuring a stub area reduces the topological database size inside an area and reduces the memory requirements of routers inside that area.
 
 J) Loopback Interface:
 -----------------------------
-Loopback interfaces are logical interfaces, it configure virtully.
-
-**It ensures that an interface is always active for EIGRP/OSPF processes.
+Loopback interfaces are logical/virtual interfaces.
+It ensures that an interface is always active for EIGRP/OSPF processes.
 They can be used for EIGRP/OSPF configuration  as well as  diagnostic purposes.
-It also used and ROUTER ID in OSPF.
+It also used as an ROUTER ID in OSPF.
 
-CONFIGURE: 
+
+CONFIGURE: (*it configure with highst ip with network address)
 interface loopback0
 ip address 192.168.0.1 255.255.255.255
 
-router eigrp 100
-passive-interface loopback0
-passive-interface fa 1/1
 
 K)  Auto Summary:
 -----------------
