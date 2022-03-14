@@ -1,5 +1,17 @@
-Latest ROUTER in packet tracer: 829
-Latest SWITCH in packet tracer: 2960 (modarate)
+**ROUTER and SWITCH  we use in Packet Tracer.
+
+What is Cisco ROUTER 2811 ?
+--------------------------
+The Cisco 2811 is an integrated services router designed by Cisco to support multiple WAN interfaces. 
+The Cisco 2811 supports multiple T1 / E1 / xDSL connections and has built in support for over 90 Cisco modules. 
+Four high speed WAN slots are available in addition to an enhanced network module slot.
+
+What is a SWITCH 2960?
+----------------------
+Cisco Catalyst 2960 Series Switches are a family of fixed-configuration, standalone intelligent Ethernet devices with Power Over Ethernet (PoE) 
+or non-PoE configurations that provide desktop Fast Ethernet and Gigabit Ethernet connectivity, enabling enhanced LAN services 
+for entry-level enterprise, midmarket, and branch.
+
 
 INTERFACE:
 ----------
