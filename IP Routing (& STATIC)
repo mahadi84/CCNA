@@ -78,11 +78,11 @@ There are three different methods:
                                 #router ospf 1 
                                 #auto-cost reference-bandwidth 100000 (for 100GB)
   c) Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
-  d) Watch Routing table:       #ip route
-  e) Watch Neighbor:            #ip ospf/eigrp/rip neighbour
-  f) Watch Protocol :           #ip protocols
-  g) Router Interface:          #sh ip ospf interface  OR   #sh ip ospf interface fa 0/0 
-  h) All info about OSPF:       #sh run | section ospf
+  d) Watch Routing table:       #show ip route
+  e) Watch Neighbor:            #show ip ospf/eigrp/rip neighbour
+  f) Watch Protocol :           #show ip protocols
+  g) Router Interface:          #show ip ospf interface  OR   #sh ip ospf interface fa 0/0 
+  h) All info about OSPF:       #show run | section ospf
 
 
 =====================) 04 (=======================
