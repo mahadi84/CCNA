@@ -138,8 +138,7 @@ Router#show ip rip database	                (Display RIP database including rout
 
 ROUTER: 0
 ----------
-***We only need to specify the NETWORKS which are directly connected(including LAN) with the router.
-***Network command allows us to specify the networks which we want to ADVERTISE.
+***Network command allows to specify the networks(own interfaces) which we want to ADVERTISE.
 
 en
 config t
