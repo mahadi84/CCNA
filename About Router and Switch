@@ -1,4 +1,5 @@
-**ROUTER and SWITCH  we use in Packet Tracer.
+Which ROUTER and SWITCH  we use in Packet Tracer?
+How get extra FastEthernet or Serial port in Cisco Packet Tracer? what is the meaning of NM, WIC?
 
 What is Cisco ROUTER 2811 ?
 --------------------------
@@ -11,6 +12,18 @@ What is a SWITCH 2960?
 Cisco Catalyst 2960 Series Switches are a family of fixed-configuration, standalone intelligent Ethernet devices with Power Over Ethernet (PoE) 
 or non-PoE configurations that provide desktop Fast Ethernet and Gigabit Ethernet connectivity, enabling enhanced LAN services 
 for entry-level enterprise, midmarket, and branch.
+
+
+Get extra FastEthernet or Serial port in Cisco Packet Tracer:
+------------------------------------------------------------
+>Click on Router
+>Than Physical
+
+>Go to NM-2FE2W (For getting extra 2 FastEthernet)
+>Go to WIC-27   (For getting extra 2 Serial Port)
+
+NM: Network Analysis Module
+WIC: WAN Interface Card
 
 
 INTERFACE:
