@@ -14,7 +14,7 @@
     c) Load Balance (RIP vs EIGRP vs OSPF)
     d) Watch Routing table for RIP/EIGRP/OSPF
     e) Watch Neighbor/Adjancencies 
-    f) Watch Protocol
+    f) Watch Protocol/Database
     g) Router Interface  
     h) All info about OSPF
 
@@ -79,8 +79,8 @@ There are three different methods:
                                 #auto-cost reference-bandwidth 100000 (for 100GB)
   c) Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
   d) Watch Routing table:       #show ip route RIP/EIGRP/OSPF
-  e) Watch Neighbor:            #show ip ospf/eigrp/rip neighbour
-  f) Watch Protocol :           #show ip protocols
+  e) Watch Neighbor:            #show ip rip/eigrp/ospf/ neighbour
+  f) Watch Protocol/database:   #show ip protocols #show ip rip/eigrp/ospf database
   g) Router Interface:          #show ip ospf interface  OR   #sh ip ospf interface fa 0/0 
   h) All info about OSPF:       #show run | section ospf
 
