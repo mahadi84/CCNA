@@ -8,27 +8,29 @@
      a> IGP vs EGP 
      b> Distance Vector vs Link State vs Path Vector Algorithom
      c> RIP vs IGRP vs EIGRP vs OSPF 
-03. What are and how to Configure?
-     >RIP >EIGRP >OSPF >IS-IS >BGP
      
-04. EIGRP Metrics:  
+03. EIGRP Metrics:  
     a) Reported Distance b) Feasible Distance 
     c) Successor d) Feasible Successor
     e) ASN (Autonomous System Number)
 
-05. OSPF Config: 
+04. OSPF Config: 
     a) Process ID b) Area ID   c) Router ID 
     d) Route Injection Meaning e) How NOT to advertise a interface 
     f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
     j) Why multi-area concept  k) How to do Manual Summary
     
-06. Connect to internet NOT advertising internal routes.
-07. What are DR and BDR, what these do in OSPF?
+05. Connect to internet NOT advertising internal routes.
+06. What are DR and BDR, what these do in OSPF?
+
+
+07. How to Configure?
+     >RIP >EIGRP >OSPF >IS-IS >BGP
 
 
 --------------------------------------------------------------------------
 
-
+ ======================================) 01 (=================================================
 
 DYNAMIC ROUTING:
 ----------------
@@ -65,6 +67,7 @@ B)EGP (Exterior Gateway Protocol)
     01) PATH VECTOR (Algorithom Type): Analysis the path to reach the destination to learn if it is loop free or not. 
         a> BGP(Border Gateway Protocol)  
 
+=========================================) 02 (==============================================================
 
 RIP vs EIGRP vs OSPF
 --------------------     
@@ -125,8 +128,106 @@ It requires more RAM to store adjacency topology.
 It is more complex to setup and hard to troubleshoot.
 
 
+=========================================) 03 (======================================================
+
+   a) Reported Distance: The metric for a route as advertised by a neighbouring router.
+      -----------------
+   b) Feasible Distance: The metric for a route from the local router. This includes the RD+1.
+      ------------------
+   c) Successor: The route with the best metric to the destination.
+      ----------
+   d) Feasible Successor: A backup route if the successor fails. The FS must have a RD that is LESS than the Successor FD.
+      -------------------
+   
+   e) ASN: Autonomous System Number:
+   --------------------------------
+   The autonomous system number used for EIGRP configuration is only significant to the EIGRP routing domain. 
+   It functions as a process ID to help routers keep track of multiple, running instances of EIGRP. 
+   This is required because it is possible to have more than one instance of EIGRP running on a network.
+   ASN is from 1 to 65,535.
 
 
+================================= ====) 04 (======================================================== 
+   a) Process ID:
+   --------------
+   Process ID is a positive integer. We can use any number from 1 to 65,535. 
+   The Process ID is locally significant. It does not have to match on the neighbour router to form an adjacency.
+   Only one instance is typically configured on OSPF routers – multiple Process IDs are very rarely used on same router. 
+   
+   b) Area ID:
+   -----------
+   Every router learns the full picture of the network including every router, its interfaces and what they connect to
+   This can cause issues in large networks:
+   Too many routes can use up too much router memory
+   Network changes cause all routers to reconverge which takes time and CPU resources
+   OSPF supports a hierarchical design which segments large networks into smaller areas to solve this problem
+   Each router maintains full information about its own area, but only summary information about other areas
+   
+   A two level hierarchy is used:
+   Transit area (backbone or area 0). Does not generally contain end users.
+   Regular areas (nonbackbone areas). Used to connect end users to the Transit area. By default, all transit traffic goes through the Transit area.
+   Small networks do not require a hierarchical design and all routers can be in Area 0
+
+
+   
+   c) Router ID:
+   -------------
+   Router ID which is in the form of an IP address. 
+   ** OSPF routers identify themselves using an OSPF router id
+   This will default to being the highest(ex: network 192.168.0.0 255.255.255.255) IP address of any loopback interfaces configured on the router, 
+   or the highest other IP address if a loopback does not exist.
+   Loopback interfaces never go down so the Router ID will not change. You can also manually specify the Router ID.
+   *If a loopback or higher IP address is configured, the Router ID will change on OSPF process restart.
+   *Best practice is to use a Loopback or manually set the Router ID.
+   Example: router ospf 1 
+            router-id 2.2.2.2
+	    
+	    
+   d) Route Injection Meaning: create static ip route and originate for internet access
+   e) How NOT to advertise a interface: passive the interface that's it.
+  
+  f) ABR(Area border router) router:
+   ----------------------------------
+   A router that connects one or more areas to the OSPF backbone.
+   - Store both link-interface for Area 0 and Area 1 with Summary(it can't summary automaticaly)	    
+	    
+
+   g) Backbone Router: Routers which have all their OSPF interface in Area 0 are BACKBONE Router
+   h) Transit Router: Transit Router is Backbone router.
+   i) Inter Area Route: Routes to other areas appear as Inter Area (IA) routes
+   j) Why multi-area concept: Too many routes can use up too much router memory To solve this problem Large networks segments into smaller area.
+   k) How to do Manual Summary: #router ospf 1 #network 10.1.0.0 0.0.255.255 area 0 #area 0 range 10.1.0.0 255.255.0.0
+    
+
+
+  
+===================================) 05 (=========================================
+
+> Configure the default static route first for the backbone router: 
+     #ip route 0.0.0.0 0.0.0.0 10.2.0.0(Outgoing Interface)
+     #router ospf 1
+     #default-information originate
+    -that's it.
+    
+==================================) 06 (====================================
+
+DR and BDR: The Designated Router and Back-Up DR establish FULL neighbor state with all routers on the network segment. 
+                   > DR is highest priority becomes and router with the 2nd highest priority becomes BDR
+		   > Defaul priority is 1, The higher the better(0-255)
+		     configuration:
+		     #interface fa 0/0
+		     #ip ospf priority 100
+		     
+		     #sh ip ospf interface fa 0/0
+		     
+      What DR and BDR do in OSPF:
+      --------------------------
+      DR and BDR serve as the central point for exchanging OSPF routing information. 
+      Each non-DR or non-BDR router will exchange routing information only with the DR and BDR, 
+      instead of exchanging updates with every router on the network segment.
+    
+    
+==========================================) 07 (==========================================
 
 -------------------ROUTING INFORMATION PROTOCOL(RIP)----------------------------------------
                    =================================
@@ -146,10 +247,7 @@ Router(config-router)#no auto-summary
 Router(config-router)#debug ip rip
 Router(config-router)#no debug ip rip/undebug all
 
-
 Router#show ip rip database	                (Display RIP database including routes)
-
-
 
 
 ROUTER: 0
@@ -213,7 +311,6 @@ Enabling OSPF is a two steps process:-
 >>Tell OSPF which interfaces we want to include.
 
 
-
 For these steps following commands are used respectively.
 Router(config)# router ospf process_ID
 Router(config-router)# network IP_network_# [wild card mask] Area Number area number
@@ -222,104 +319,5 @@ R2(config)# router ospf 1
 R2(config-router)# network 192.168.23.0 0.0.0.255 area 0
 R2(config)# end
 
-=========================================
-
-04) 
-   a) Reported Distance: The metric for a route as advertised by a neighbouring router.
-      -----------------
-   b) Feasible Distance: The metric for a route from the local router. This includes the RD+1.
-      ------------------
-   c) Successor: The route with the best metric to the destination.
-      ----------
-   d) Feasible Successor: A backup route if the successor fails. The FS must have a RD that is LESS than the Successor FD.
-      -------------------
-   
-   e) ASN: Autonomous System Number:
-   --------------------------------
-   The autonomous system number used for EIGRP configuration is only significant to the EIGRP routing domain. 
-   It functions as a process ID to help routers keep track of multiple, running instances of EIGRP. 
-   This is required because it is possible to have more than one instance of EIGRP running on a network.
-   ASN is from 1 to 65,535.
-
-
-05) 
-   a) Process ID:
-   --------------
-   Process ID is a positive integer. We can use any number from 1 to 65,535. 
-   The Process ID is locally significant. It does not have to match on the neighbour router to form an adjacency.
-   Only one instance is typically configured on OSPF routers – multiple Process IDs are very rarely used on same router. 
-   
-   b) Area ID:
-   -----------
-   Every router learns the full picture of the network including every router, its interfaces and what they connect to
-   This can cause issues in large networks:
-   Too many routes can use up too much router memory
-   Network changes cause all routers to reconverge which takes time and CPU resources
-   OSPF supports a hierarchical design which segments large networks into smaller areas to solve this problem
-   Each router maintains full information about its own area, but only summary information about other areas
-   
-   A two level hierarchy is used:
-   Transit area (backbone or area 0). Does not generally contain end users.
-   Regular areas (nonbackbone areas). Used to connect end users to the Transit area. By default, all transit traffic goes through the Transit area.
-   Small networks do not require a hierarchical design and all routers can be in Area 0
-
-
-   
-   c) Router ID:
-   -------------
-   Router ID which is in the form of an IP address. 
-   ** OSPF routers identify themselves using an OSPF router id
-   This will default to being the highest(ex: network 192.168.0.0 255.255.255.255) IP address of any loopback interfaces configured on the router, 
-   or the highest other IP address if a loopback does not exist.
-   Loopback interfaces never go down so the Router ID will not change. You can also manually specify the Router ID.
-   *If a loopback or higher IP address is configured, the Router ID will change on OSPF process restart.
-   *Best practice is to use a Loopback or manually set the Router ID.
-   Example: router ospf 1 
-            router-id 2.2.2.2
-	    
-	    
-   d) Route Injection Meaning: create static ip route and originate for internet access
-   e) How NOT to advertise a interface: passive the interface that's it.
-  
-  f) ABR(Area border router) router:
-   ----------------------------------
-   A router that connects one or more areas to the OSPF backbone.
-   - Store both link-interface for Area 0 and Area 1 with Summary(it can't summary automaticaly)	    
-	    
-
-   g) Backbone Router: Routers which have all their OSPF interface in Area 0 are BACKBONE Router
-   h) Transit Router: Transit Router is Backbone router.
-   i) Inter Area Route: Routes to other areas appear as Inter Area (IA) routes
-   j) Why multi-area concept: Too many routes can use up too much router memory To solve this problem Large networks segments into smaller area.
-   k) How to do Manual Summary: #router ospf 1 #network 10.1.0.0 0.0.255.255 area 0 #area 0 range 10.1.0.0 255.255.0.0
-    
-
-
-  
-06.  > Configure the default static route first for the backbone router: 
-     #ip route 0.0.0.0 0.0.0.0 10.2.0.0(Outgoing Interface)
-     #router ospf 1
-     #default-information originate
-    -that's it.
-    
-
-07. DR and BDR: The Designated Router and Back-Up DR establish FULL neighbor state with all routers on the network segment. 
-                   > DR is highest priority becomes and router with the 2nd highest priority becomes BDR
-		   > Defaul priority is 1, The higher the better(0-255)
-		     configuration:
-		     #interface fa 0/0
-		     #ip ospf priority 100
-		     
-		     #sh ip ospf interface fa 0/0
-		     
-      What DR and BDR do in OSPF:
-      --------------------------
-      DR and BDR serve as the central point for exchanging OSPF routing information. 
-      Each non-DR or non-BDR router will exchange routing information only with the DR and BDR, 
-      instead of exchanging updates with every router on the network segment.
-    
-    
-    
-    
     
     
