@@ -17,6 +17,7 @@
     f) Watch Protocol/Database
     g) Watch OSPF Interface  
     h) All info about OSPF
+    k) Delete any Routing Protocol and IP from advertise network
 
 
 
@@ -62,7 +63,7 @@ There are three different methods:
 03. Dynamic routing
 
 
-=======================) 03 (===================
+=======================================================) 03 (========================================================================
 
   a) Add IP to a INTERFACE:     #int serial 2/0 OR fa 0/0 OR gi 0 
                                 #ip address 192.168.10.1 255.255.255.0  
@@ -83,9 +84,10 @@ There are three different methods:
   f) Watch Protocol/database:   #show ip protocols #show ip rip/eigrp/ospf database
   g) Watch OSPF Interface:      #show ip ospf interface  OR   #sh ip ospf interface fa 0/0 
   h) All info about OSPF:       #show run | section ospf
+  k) Delete Protocol & Network: #no rip/eigrp/ospf and #no network 10.0.0.2 (with wildcard for eigrp and ospf) 
 
 
-=====================) 04 (=======================
+========================================================) 04 (=========================================================================
  
 A) ROUTER MATRIC:
 =================
@@ -228,7 +230,7 @@ M) Passive Interface:
 
 
 
-==========================: 05. STATIC ROUTING: ============================
+====================================================: 05. STATIC ROUTING: ===============================================================
 
 Static Routing Table Tutorial:
  ------------------------------
@@ -261,7 +263,7 @@ PC(10.0.0.2/8)<--------(10.0.0.1/8)Fa0/0>ROUTER(192.168.10.1/24)<S2/0-----------
 ROUTER:01:
 ----------
 
-ip route 20.0.0.0 255.255.255.0 192.168.10.2        (configure static route
+ip route 20.0.0.0 255.255.255.0 192.168.10.2        (configure static route)
         Dst LAN N/W--Dst.Router SM--Next-Router IP
 
 
