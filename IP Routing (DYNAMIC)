@@ -20,15 +20,14 @@
     f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
     j) Why multi-area concept  k) How to do Manual Summary
     
-05. Connect to internet NOT advertising internal routes.
+05. How to Connect to the internet NOT advertising internal routes.
 06. What are DR and BDR, what these do in OSPF?
-
 
 07. How to Configure?
      >RIP >EIGRP >OSPF >IS-IS >BGP
 
 
---------------------------------------------------------------------------
+
 
  ======================================) 01 (=================================================
 
