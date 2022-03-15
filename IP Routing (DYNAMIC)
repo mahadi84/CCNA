@@ -66,8 +66,8 @@ B)EGP (Exterior Gateway Protocol)
         a> BGP(Border Gateway Protocol)  
 
 
-RIP vs OSPF vs IGRP vs EIGRP
-----------------------------     
+RIP vs EIGRP vs OSPF
+--------------------     
 In RIP, networks are not divided into areas or tables.		
 Routing with EIGRP is done in Neighbour Tables, Topology tables, and Routing tables.
 Routing with OSPF is done in Autonomous System, Areas, Stub Areas and Backbone areas.
