@@ -69,12 +69,12 @@ B)EGP (Exterior Gateway Protocol)
 RIP vs EIGRP vs OSPF
 --------------------     
 In RIP, networks are not divided into areas or tables.		
-Routing with EIGRP is done in Neighbour Tables, Topology tables, and Routing tables.
+Routing with EIGRP is done in Neighbour Tables, Topology tables, and Routing tables (Most used Hybride protocol with Distance Vector and Link-State Routing Protocol).
 Routing with OSPF is done in Autonomous System, Areas, Stub Areas and Backbone areas.
 
 RIP-The metrics used Is hop(Maximum hop count is 15, 16 is considered as network unreachable.). -Used in  small to medium-sized networks.	
 EIGRP-The metrics used are bandwidth, delay, load and reliability
-OSPF-The metrics used are bandwidth and delay.
+OSPF-The metrics used are bandwidth and delay. It supports unlimited hop counts.
 
 RIP- Administrative Distance, Default Value is 120.
 EIGRP- Administrative Distance, Default Value is EIGRP(summary route)-5, EIGRP(internal)-90, EIGRP(external)-170,
@@ -82,23 +82,26 @@ OSPF- Administrative Distance, Default Value is 110
 
 RIP uses Distance vector algorithm to calculate the best path
 EIGRP uses Diffusing update algorithm to calculate the best path.
-OSPF uses the SPF algorithm to calculate the best path.	
+OSPF uses the SPF algorithm to calculate the best path.
+
+RIP   - No VLSM support 
+EIGRP - Supports VLSM (Variable Length Subnet Mask) (Classless Subnet mask)
+OSPF  - It is a classless protocol. It supports VLSM and route summarization.
 
 
+RIP   -It supports load balancing with equal cost routes for same destination.
+EIGRP -It supports load balancing with UN-Equal cost routes for same destination.
+OSPF  -It supports load balancing with equal cost routes for same destination.
 
 
-
-
--------------------ROUTING INFORMATION PROTOCOL(RIP)----------------------------------------
-                   =================================
--Send routing table's contents and network topology information to each of its adjacent routers every 30 seconds.. 
-
+FEATURES OF RIP:
+----------------
+Send routing table's contents and network topology information to each of its adjacent routers every 30 seconds.. 
 -When a route is removed from the routing table: 
 	>It is flagged as unusable by the receiving routers after 180sec/3min, and 
 	>Removed from their tables after an additional 120sec/+2min.
 
 There are two versions of RIP (the managed switch supports both):
-
 01> RIPv1 defined in RFC 1058.
     Routes are specified by IP destination network and hop count.
     The routing table is broadcast to all stations on the attached network.
@@ -106,6 +109,27 @@ There are two versions of RIP (the managed switch supports both):
    Route specification also includes subnet mask and gateway.
    The routing table is sent to a multicast address, reducing network traffic.
    Authentication is used for security.
+
+FEATURES OF EIGRP:
+------------------
+1> When a change occurs like router up/down, only routing table changes are propagated, not the entire routing table; 
+   this reduces the load the routing protocol itself places on the network
+2> It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
+   So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
+
+
+DISADVANTAGE OF OSPF:
+---------------------
+It requires extra CPU process to run SPF algorithm.
+It requires more RAM to store adjacency topology.
+It is more complex to setup and hard to troubleshoot.
+
+
+
+
+
+-------------------ROUTING INFORMATION PROTOCOL(RIP)----------------------------------------
+                   =================================
 
 CONFIGURATION:
 --------------
@@ -145,36 +169,6 @@ network 192.168.1.0
                            =================================================
 			   
 
-EIGRP (DEFINATION and ADVANTAGE):
----------------------------------
-1> Most used Dynamic Hybrid Routing Protocol
-   -Show both Distance Vector and Link-State Routing Protocol properties.
-
-2> When a change occurs like router up/down, only routing table changes are propagated, not the entire routing table; 
-   this reduces the load the routing protocol itself places on the network
-
-3> It keeps the “Backup Routes” beside the “Best Route” to a destination in the Topology table.
-   So, during a failure, it does not need to calculate a new route. Instead, it uses the Backup Route towards the destination.
-
-4> Supports VLSM (Variable Length Subnet Mask) (Classless Subnet mask). It sends the subnet masks in the Update Packets.
-5> Prevents routing loops on the network
-
- 
-EIGRP Tables:
-------------
-Enhanced Interior Gateway Routing Protocol has three tables. These tables are used on Routing Operation. The EIGRP Tables are given below:
-
- 01> Neighbor Table: is the table that keeps All EIGRP Neighbour Routers.
- 02> Topology Table: is the table that keeps All Routes to all the destinations
- 03> Routing Table: is the table that keeps the Best Routes to any destinations.
-
-
-EIGRP Metrics:
---------------
-Uses a very complex metric by using bandwith, delay, load, reliability and MTU values.
-
-
-
 CONFIGURATION:
 -------------
 Tut-Link: https://www.computernetworkingnotes.com/ccna-study-guide/eigrp-configuration-step-by-step-guide.html
@@ -209,42 +203,6 @@ passive-interface f0/0
 
 -------------------------: OPEN SHORTEST PATH FIRST (OSPF) :-----------------------------
                           =================================
-
-Features and advantage of OSPF:-------
-It supports both IPv4 and IPv6 routed protocols.
-It supports load balancing with equal cost routes for same destination.
-Since it is based on open standards, it will run on most routers.
-It provides a loop free topology using SPF algorithm.
-It is a classless protocol.
-It supports VLSM and route summarization.
-It supports unlimited hop counts.
-It scales enterprise size network easily with area concept.
-It supports trigger updates for fast convergence.
-Just like other routing protocols, OSPF also has its negatives.
-
-Disadvantage of OSPF:------
-It requires extra CPU process to run SPF algorithm.
-It requires more RAM to store adjacency topology.
-It is more complex to setup and hard to troubleshoot.
-
-
-OSPF Neighborship Requirement:----
-In order to become OSPF neighbor following values must be match on both routers.
-Area ID
-Authentication
-Hello and Dead Intervals
-Stub Flag
-MTU Size
-
-OSPF Neighborship states:---------
-OSPF routers go through the seven states while building neighborship with other routers.
-Down state
-Attempt/Init state
-Two ways state
-Exstart state
-Exchange state
-Loading state
-Full state
 
 CONFIGURATION:
 --------------
