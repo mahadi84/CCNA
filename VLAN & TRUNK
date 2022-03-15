@@ -1,4 +1,7 @@
 
+
+
+0) Name, Types of SWITCH used in Network?
 1) What/Why is VLAN? Adv and Disadv of VLAN? How to remove disadvantage of VLAN?
 2) Command to check: a> VLAN name and assign interface
                      b> VLAN interface info 
@@ -11,6 +14,34 @@
 5) What/Why Stick on ROUTER?
 
 
+===================================================) 00 (==========================================
+
+Types of Network Switch:
+------------------------
+    01. Access Layer Switches:
+    --------------------------
+    - End hosts such as desktop computers, servers and IP phones connect into the network at the access layer
+    - It is designed to have a high port count at an affordable cost
+    - Desktops typically have only one Network Interface Card (NIC) so they connect into one switch or Wireless Access Point
+    - Servers will often have dual NICs and connect to a pair of redundant switches
+    - Client access security measures are enabled at the Access Layer
+
+    02. Distributed Layer Switches:
+    -------------------------------
+    - Access Layer switches uplink to Distribution Layer switches
+    - The Distribution Layer switches serve as an aggregation point for the 
+    - Distribution Layer switches are typically deployed in redundant pairs, with downstream Access Layer switches connected to both
+    - End hosts are not typically connected here
+    - Most software policy such as QoS is enabled at this layer
+    
+    03. Core Layer Switches:
+    ------------------------
+    - Distribution Layer switches uplink to Core Layer switches
+    - Core Layer switches are typically deployed in redundant pairs, with downstream Distribution Layer switches connected to both
+    - Traffic between different parts of the campus travels through the core  so it is designed for speed and resiliency
+    - Software policy slows the switch down so should be avoided in the Core Layer
+
+===================================================) 01 (==========================================
 Advantages and Disadvantages of VLAN:
 -------------------------------------
 Advantages to VLAN include reduced broadcast traffic, security, ease of administration and broadcast domain confinement.
