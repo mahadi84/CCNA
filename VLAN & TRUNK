@@ -1,11 +1,21 @@
 
+1) What/Why is VLAN? Adv and Disadv of VLAN? How to remove disadvantage of VLAN?
+2) Command to check: a> VLAN name and assign interface
+                     b> VLAN interface info 
+                     c> TRUNK interface/info.
+3) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
+
+4) An access port carries traffic for one specific VLAN,
+   -How to carry traffice between SWITCHES for MULTIPLE VLANS?
+   
+5) What/Why Stick on ROUTER?
 
 
 Advantages and Disadvantages of VLAN:
 -------------------------------------
 Advantages to VLAN include reduced broadcast traffic, security, ease of administration and broadcast domain confinement.
 
-However, a disadvantage of VLANs includes the limitation of 4,096 VLANs per switching domain creates problems for large hosting providers,
+Disadvantage of VLANs includes the limitation of 4,096 VLANs per switching domain creates problems for large hosting providers,
 which often need to allocate tens or hundreds of VLANs for each customer. 
 
 To address this limitation, other protocols, like The Spanning Tree Protocol (STP) is used to create loop-free topology, 
@@ -14,10 +24,11 @@ and Geneve, support larger tags and the ability to tunnel Layer 2 frames within 
 
 
 
-Configure interface:
-----------------------------------
-Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
+=======================================================================
 
+Check and Configure VLAN:
+-------------------------
+Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
 
 
 TO CHECK: (interface/port,ip,vlan and trunk configuration)
@@ -54,6 +65,18 @@ TO DELETE VLAN and ACCESS:
 Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
 Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
 Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
+
+==========================================================
+DOT1Q TRUNKS
+------------
+> An access port carries traffic for one specific VLAN
+> Dot1Q trunks are configured on the links between switches where we need to carry traffic for multiple VLANs
+> ISL (Inter-Switch Link) was a Cisco proprietary trunking protocol which is now obsolete
+> When the switch forwards traffic to another switch, it tags the layer 2 Dot1Q header with the correct VLAN
+> The receiving switch will only forward the traffic out ports that are in that VLAN
+> The switch removes the Dot1Q tag from the Ethernet frame when it sends it to the end host
+
+===========================================================
 
 
 ----:ON ROUTER:---
