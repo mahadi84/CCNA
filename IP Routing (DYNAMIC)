@@ -148,6 +148,7 @@ It is more complex to setup and hard to troubleshoot.
 
 
 ================================= ====) 04 (======================================================== 
+
    a) Process ID:
    --------------
    Process ID is a positive integer. We can use any number from 1 to 65,535. 
@@ -199,8 +200,6 @@ It is more complex to setup and hard to troubleshoot.
    k) How to do Manual Summary: #router ospf 1 #network 10.1.0.0 0.0.255.255 area 0 #area 0 range 10.1.0.0 255.255.0.0
     
 
-
-  
 ===================================) 05 (=========================================
 
 > Configure the default static route first for the backbone router: 
