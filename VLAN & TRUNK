@@ -95,7 +95,7 @@ VLAN TRUNING PROTOCOL VTP:
 
 >> Be careful if using VTP – if you accidentally introduce a switch with a higher VLAN database revision number into the domain 
 it can wipe out all your production VLANs
-> If using both DTP and VTP, the VTP domain name has to match on neighbour switches for trunks to be formed by DTP
+>> If using both DTP and VTP, the VTP domain name has to match on neighbour switches for trunks to be formed by DTP
  
 VTP MODES:
 -----------
@@ -103,6 +103,19 @@ VTP MODES:
 > VTP Client: Cannot add, edit or delete VLANs. A VTP Client will synchronise its VLAN database from the Server with the highest revision number.
 > VTP Transparent: Does not participate in the VTP domain. Does not advertise or learn VLAN information but will pass it on. 
     Can add, edit or delete VLANs in its own local VLAN database.
+    
+CONFIGURATION:-----------    
+SW1(config)#vtp domain Flackbox 
+SW1(config)#vtp mode server
+or
+SW1(config)#vtp mode client
+or
+SW1(config)#vtp mode transparent
+SW1(config)#vlan 20 
+SW1(config-vlan)#name sales
+(Cannot add VLAN if VTP Client)
+
+SW1#show vtp status
 
 ==================================) 04. CONFIGURE (=====================================
 
