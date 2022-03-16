@@ -97,9 +97,9 @@ Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
 Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
 Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 
-==========================================================
-DOT1Q TRUNKS
-------------
+=========================) DOT1Q TRUNKS (=================================
+
+
 > An access port carries traffic for one specific VLAN
 > Dot1Q trunks are configured on the links between switches where we need to carry traffic for multiple VLANs
 > ISL (Inter-Switch Link) was a Cisco proprietary trunking protocol which is now obsolete
@@ -107,23 +107,81 @@ DOT1Q TRUNKS
 > The receiving switch will only forward the traffic out ports that are in that VLAN
 > The switch removes the Dot1Q tag from the Ethernet frame when it sends it to the end host
 
-===========================================================
+
+================================) INTER VLAN ROUTING (=============================
+
+There are 3 methodes used for INTER-VLAN-ROUTING:
+
+01. ROUTER WITH SEPARATE INTERFACES (Router must have as many PHYSICAL INTERFACES as no. of VLANs) 
+02. ROUTER ON A STICK (Router's LOGICAL interface are configured and used) 
+03. LAYER 3 SWITCH
 
 
-----:ON ROUTER:---
-VLAN CREATE and STICK In ROUTER:
--------------------------------
+01. ROUTER WITH SEPARATE INTERFACES
+------------------------------------
+You need a separate physical interface for every VLAN you are liable to RUN OUT of interfaces
+
+R1(config)#interface FastEthernet 0/1 
+R1(config-interface)#ip address 10.10.10.1 255.255.255.0 
+R1(config)#interface FastEthernet 0/2 
+R1(config-interface)#ip address 10.10.20.1 255.255.255.0 
+R1(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2
+
+SW1(config)#interface FastEthernet 0/1 
+SW1(config-if)#switchport mode access 
+SW1(config-if)#switchport access vlan 10 
+SW1(config)#interface FastEthernet 0/2 
+SW1(config-if)#switchport mode access 
+SW1(config-if)#switchport access vlan 20
+
+02. ROUTER ON STICK:
+--------------------
 Router#vlan database
 Router(vlan)#vlan 40 name SALES
 Router#show vlan brief
 
-Router(config)#int f 0/0.1             (can name anything ex: 0/0.10, imaginary Ethernet port)
-Router(config-subif)#encapsulation dot1Q 20(Vlan No)
-Router(config-subif)#ip address 192.168.20.1 255.255.255.0
 
-Router(config)#int f 0/0
-Router(config)#no shutdown / shutdown
+R1(config)#interface FastEthernet 0/1 
+R1(config-interface)#no ip address 
+R1(config-interface)#no shutdown
 
+R1(config)#interface FastEthernet 0/1.10  (Logical Extended Ethernet port 0/1)
+R1(config-interface)#encapsulation dot1q 10 
+R1(config-interface)#ip address 10.10.10.1 255.255.255.0 
+
+R1(config)#interface FastEthernet 0/1.20   (Logical Extended Ethernet port 0/1)
+R1(config-interface)#encapsulation dot1q 20 
+R1(config-interface)#ip address 10.10.20.1 255.255.255.0 
+
+R1(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2  (To connect to internet)
+
+SW1(config)#interface FastEthernet 0/1 
+SW1(config-if)#switchport mode trunk
+
+03. LAYER 3 SWITCH
+------------------
+
+> Traffic being routed within the campus is routed across the switch backplane, it does not need to travel over physical cables to an external router
+> You may still need an external router for WAN connectivity and services
+
+
+SW1(config)#ip routing
+SW1(config)#interface vlan 10
+SW1(config-if)#ip address 10.10.10.1 255.255.255.0 
+SW1(config)#interface vlan 20
+SW1(config-if)#ip address 10.10.20.1 255.255.255.0
+
+FOR WAN Configuration:
+SW1(config)#interface FastEthernet 0/1
+SW1(config-if)#no switchport
+SW1(config-if)#ip address 10.10.100.1 255.255.255.0 
+SW1(config)#ip route 0.0.0.0 0.0.0.0 10.10.100.2
+R1(config)#interface FastEthernet 0/1 
+R1(config-interface)#ip address 10.10.100.2 255.255.255.0 
+R1(config)#interface FastEthernet 0/2 
+R1(config-interface)#ip address 203.0.113.1 255.255.255.0 
+R1(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2 
+R1(config)#ip route 10.10.0.0 255.255.0.0 10.10.100.1
 
 
 
