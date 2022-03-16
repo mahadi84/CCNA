@@ -136,6 +136,8 @@ SW1(config-if)#switchport access vlan 20
 
 02. ROUTER ON STICK:
 --------------------
+**Router's LOGICAL interface are create, configured and used.
+
 Router#vlan database
 Router(vlan)#vlan 40 name SALES
 Router#show vlan brief
