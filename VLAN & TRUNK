@@ -97,7 +97,7 @@ Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
 Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
 Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 
-=========================) DOT1Q TRUNKS (=================================
+=========================) 04. DOT1Q TRUNKS (=================================
 
 
 > An access port carries traffic for one specific VLAN
@@ -108,7 +108,7 @@ Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 > The switch removes the Dot1Q tag from the Ethernet frame when it sends it to the end host
 
 
-================================) INTER VLAN ROUTING (=============================
+================================) 05. INTER VLAN ROUTING (=============================
 
 There are 3 methodes used for INTER-VLAN-ROUTING:
 
