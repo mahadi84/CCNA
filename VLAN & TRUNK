@@ -214,18 +214,19 @@ SW1(config-if)#switchport mode trunk
 > Traffic being routed within the campus is routed across the switch backplane, it does not need to travel over physical cables to an external router
 > You may still need an external router for WAN connectivity and services
 
-
+Global Configuration for SWITCH:-------
 SW1(config)#ip routing
 SW1(config)#interface vlan 10
 SW1(config-if)#ip address 10.10.10.1 255.255.255.0 
 SW1(config)#interface vlan 20
 SW1(config-if)#ip address 10.10.20.1 255.255.255.0
 
-FOR WAN Configuration:
+FOR WAN Configuration:----
 SW1(config)#interface FastEthernet 0/1
 SW1(config-if)#no switchport
 SW1(config-if)#ip address 10.10.100.1 255.255.255.0 
 SW1(config)#ip route 0.0.0.0 0.0.0.0 10.10.100.2
+
 R1(config)#interface FastEthernet 0/1 
 R1(config-interface)#ip address 10.10.100.2 255.255.255.0 
 R1(config)#interface FastEthernet 0/2 
