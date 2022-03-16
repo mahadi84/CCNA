@@ -6,15 +6,16 @@
 2) Command to check: a> VLAN name and assign interface
                      b> VLAN interface info 
                      c> TRUNK interface/info.
-3) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
+3) What/Why DTP and VTP, how to configure?
+4) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
 
-4) An access port carries traffic for one specific VLAN,
+5) An access port carries traffic for one specific VLAN,
    -How to carry traffice between SWITCHES for MULTIPLE VLANS?
    
-5) Why inter-vlan-routing? Methods to configure INTER-VLAN-ROUTING?
+6) Why inter-vlan-routing? Methods to configure INTER-VLAN-ROUTING?
 
 
-===================================================) 00 (==========================================
+===================================================) 00 TYPE OF SWITCH (==========================================
 
 Types of Network Switch:
 ------------------------
@@ -41,7 +42,7 @@ Types of Network Switch:
     - Traffic between different parts of the campus travels through the core  so it is designed for speed and resiliency
     - Software policy slows the switch down so should be avoided in the Core Layer
 
-===================================================) 01 (==========================================
+===================================================) 01 ADV and DADV VLAN(==========================================
 Advantages and Disadvantages of VLAN:
 -------------------------------------
 Advantages to VLAN include reduced broadcast traffic, security, ease of administration and broadcast domain confinement.
@@ -55,12 +56,7 @@ and Geneve, support larger tags and the ability to tunnel Layer 2 frames within 
 
 
 
-=======================================================================
-
-Check and Configure VLAN:
--------------------------
-Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
-
+==================================) 02. TO CHECK (=====================================
 
 TO CHECK: (interface/port,ip,vlan and trunk configuration)
 ----------------------------------------------------------
@@ -73,8 +69,47 @@ Switch#show interface trunk   ( if TRUNK is avaiable)
 Switch#sh vlan brief
 
 
+==================================) 03. DTP and VTP(=====================================
+
+DYNAMIC TRUNKING PROTOCOL:
+--------------------------
+If two Cisco switches are cabled together they can negotiate a trunk connection using Cisco’s Dynamic Trunking Protocol DTP
+It is however recommended to manually configure switch ports 
+
+Manual configuration:
+#switchport mode access 
+#switchport mode trunk
+
+DTP configuration:
+>Switchport mode dynamic auto: will form a trunk if the neighbour switch port is set to trunk or desirable.
+                               Trunk will not be formed if both sides are set to auto. Default on newer switches.
+>Switchport mode dynamic desirable: will form a trunk if the neighbour switch port is set to trunk, desirable or auto. Default on older switches.
+>Switchport nonegotiate: disables DTP
+
+VLAN TRUNING PROTOCOL VTP:
+--------------------------
+> The VLAN Trunking Protocol (VTP) allows you to add, edit or delete, VLANs on switches configured as VTP Servers, 
+  and have other switches configured as VTP Clients synchronise their VLAN database with them
+> This can be convenient if you manage a large campus
+> You will still need to perform port level VLAN configuration on the switches
+
+>> Be careful if using VTP – if you accidentally introduce a switch with a higher VLAN database revision number into the domain 
+it can wipe out all your production VLANs
+> If using both DTP and VTP, the VTP domain name has to match on neighbour switches for trunks to be formed by DTP
+ 
+VTP MODES:
+-----------
+> VTP Server: Can add, edit or delete VLANs. A VTP Server will synchronise its VLAN database from another Server with a higher revision number.
+> VTP Client: Cannot add, edit or delete VLANs. A VTP Client will synchronise its VLAN database from the Server with the highest revision number.
+> VTP Transparent: Does not participate in the VTP domain. Does not advertise or learn VLAN information but will pass it on. 
+    Can add, edit or delete VLANs in its own local VLAN database.
+
+==================================) 04. CONFIGURE (=====================================
+
 VLAN CREATE, CONFIGURE, ASSIGN to INTERFACE On SWITCH:
 -----------------------------------------------------
+Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
+
 SW1(config)#vlan 10                     (create vlan)
 SW1(config-vlan)#name Eng               (create name of the vlan)
 SW1(config)#interface FastEthernet 0/1 
@@ -97,7 +132,7 @@ Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
 Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
 Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 
-=========================) 04. DOT1Q TRUNKS (=================================
+=========================) 05. DOT1Q TRUNKS (=================================
 
 
 > An access port carries traffic for one specific VLAN
@@ -108,7 +143,7 @@ Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 > The switch removes the Dot1Q tag from the Ethernet frame when it sends it to the end host
 
 
-================================) 05. INTER VLAN ROUTING (=============================
+================================) 06. INTER VLAN ROUTING (=============================
 
 There are 3 methodes used for INTER-VLAN-ROUTING:
 
