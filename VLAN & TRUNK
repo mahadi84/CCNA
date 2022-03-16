@@ -61,12 +61,13 @@ and Geneve, support larger tags and the ability to tunnel Layer 2 frames within 
 TO CHECK: (interface/port,ip,vlan and trunk configuration)
 ----------------------------------------------------------
 Switch#show ?  (all available command)
-Switch>show ip interface brief
-Switch#show interface FastEthernet 0/1 switchport 
-Switch>show interface status
-Switch#sh int fa 0/1
+Switch#show ip interface brief
+Switch#show int fa 0/1
+Switch#show interface FastEthernet 0/1 switchport
+Switch#show interface status
+Switch#show interface switchport 
 Switch#show interface trunk   ( if TRUNK is avaiable)
-Switch#sh vlan brief
+Switch#show vlan brief
 
 
 ==================================) 03. DTP and VTP(=====================================
