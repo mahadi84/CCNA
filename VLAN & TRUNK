@@ -12,7 +12,7 @@
 5) An access port carries traffic for one specific VLAN,
    -How to carry traffice between SWITCHES for MULTIPLE VLANS?
    
-6) Why inter-vlan-routing? Methods to configure INTER-VLAN-ROUTING?
+6) How to send/receive data one VLAN to Another? what is inter-vlan-routing? Methods to configure INTER-VLAN-ROUTING?
 
 
 ===================================================) 00 TYPE OF SWITCH (==========================================
