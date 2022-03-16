@@ -5,7 +5,8 @@
 1) What/Why is VLAN? Adv and Disadv of VLAN? How to remove disadvantage of VLAN?
 2) Command to check: a> VLAN name and assign interface
                      b> VLAN interface info 
-                     c> TRUNK interface/info.
+                     c> TRUNK interface/info
+                     d> Switchport status
 3) What/Why DTP and VTP, how to configure?
 4) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
 
