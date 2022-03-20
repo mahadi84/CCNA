@@ -8,7 +8,7 @@
                      c> TRUNK interface/info
                      d> Switchport status
 3) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
-4) What/Why DTP and VTP, how to configure?
+4) What/Why DTP and VTP, how to check and configure?
 
 5) An access port carries traffic for one specific VLAN,
    -How to carry traffice between SWITCHES for MULTIPLE VLANS?
