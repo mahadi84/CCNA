@@ -7,8 +7,8 @@
                      b> VLAN interface info 
                      c> TRUNK interface/info
                      d> Switchport status
-3) What/Why DTP and VTP, how to configure?
-4) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
+3) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
+4) What/Why DTP and VTP, how to configure?
 
 5) An access port carries traffic for one specific VLAN,
    -How to carry traffice between SWITCHES for MULTIPLE VLANS?
@@ -71,7 +71,36 @@ Switch#show interface trunk   ( if TRUNK is avaiable)
 Switch#show vlan brief
 
 
-==================================) 03. DTP and VTP(=====================================
+==================================) 03. CONFIGURE (=====================================
+
+VLAN CREATE, CONFIGURE, ASSIGN to INTERFACE On SWITCH:
+-----------------------------------------------------
+Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
+
+SW1(config)#vlan 10                     (create vlan)
+SW1(config-vlan)#name Eng               (create name of the vlan)
+SW1(config)#interface FastEthernet 0/1 
+SW1(config-if)#switchport mode access 
+SW1(config-if)#switchport access vlan 10 
+
+SW1(config)#interface range FastEthernet 0/3-5 
+SW1(config-if)#switchport mode access 
+SW1(config-if)#switchport access vlan 10
+
+Switch(config-if)# switchport mode trunk/dynamic/trunk	
+  *trunk	Set trunking mode to ACCESS unconditionally
+  dynamic	Set trunking mode to dynamically negotiate trunk or trunk mode
+  trunk	Set trunking mode to TRUNK unconditionally
+
+
+TO DELETE VLAN and ACCESS:
+--------------------------
+Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
+Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
+Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
+
+
+==================================) 04. DTP and VTP(=====================================
 
 DYNAMIC TRUNKING PROTOCOL:
 --------------------------
@@ -119,33 +148,7 @@ SW1(config-vlan)#name sales
 
 SW1#show vtp status
 
-==================================) 04. CONFIGURE (=====================================
 
-VLAN CREATE, CONFIGURE, ASSIGN to INTERFACE On SWITCH:
------------------------------------------------------
-Tut: https://www.computernetworkingnotes.com/ccna-study-guide/configure-dhcp-server-for-multiple-vlans-on-the-switch.html
-
-SW1(config)#vlan 10                     (create vlan)
-SW1(config-vlan)#name Eng               (create name of the vlan)
-SW1(config)#interface FastEthernet 0/1 
-SW1(config-if)#switchport mode access 
-SW1(config-if)#switchport access vlan 10 
-
-SW1(config)#interface range FastEthernet 0/3-5 
-SW1(config-if)#switchport mode access 
-SW1(config-if)#switchport access vlan 10
-
-Switch(config-if)# switchport mode trunk/dynamic/trunk	
-  *trunk	Set trunking mode to ACCESS unconditionally
-  dynamic	Set trunking mode to dynamically negotiate trunk or trunk mode
-  trunk	Set trunking mode to TRUNK unconditionally
-
-
-TO DELETE VLAN and ACCESS:
---------------------------
-Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
-Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
-Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 
 =========================) 05. DOT1Q TRUNKS (=================================
 
