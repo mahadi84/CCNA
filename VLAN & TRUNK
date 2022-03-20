@@ -104,6 +104,10 @@ Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
 
 DYNAMIC TRUNKING PROTOCOL:
 --------------------------
+
+DTP tries to make sure that on a link that interconnects two switches, both ports operate in the same mode - either access or trunk. 
+In other words, DTP allows two interconnected switches to negotiate the operating mode of a link - either an access link or a trunk.
+
 If two Cisco switches are cabled together they can negotiate a trunk connection using Cisco’s Dynamic Trunking Protocol DTP
 It is however recommended to manually configure switch ports 
 
@@ -119,6 +123,13 @@ DTP configuration:
 
 VLAN TRUNING PROTOCOL VTP:
 --------------------------
+
+When we create, rename, delete a VLAN or change its state (active or suspended) on a single switch,
+VTP will propagate this change across all switches in a VTP domain.
+VTP is responsible for synchronizing the VLAN database across multiple switches. 
+So in other words, VTP tries to make sure that all switches in a VTP domain have an identical VLAN database and propagates any changes to it.
+
+
 > The VLAN Trunking Protocol (VTP) allows you to add, edit or delete, VLANs on switches configured as VTP Servers, 
   and have other switches configured as VTP Clients synchronise their VLAN database with them
 > This can be convenient if you manage a large campus
