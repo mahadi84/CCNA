@@ -111,6 +111,11 @@ In other words, DTP allows two interconnected switches to negotiate the operatin
 If two Cisco switches are cabled together they can negotiate a trunk connection using Cisco’s Dynamic Trunking Protocol DTP
 It is however recommended to manually configure switch ports 
 
+How to check configuration:
+--------------------------
+#show dtp interface f0/1
+
+
 Manual configuration:
 #switchport mode access 
 #switchport mode trunk
@@ -121,8 +126,24 @@ DTP configuration:
 >Switchport mode dynamic desirable: will form a trunk if the neighbour switch port is set to trunk, desirable or auto. Default on older switches.
 >Switchport nonegotiate: disables DTP
 
+The resulting operating mode of a link between two ports as negotiated by DTP (if possible) would be:
+dynamic desirable + dynamic desirable = trunk
+dynamic desirable + dynamic auto = trunk
+dynamic auto + dynamic auto = access
+trunk (on) + dynamic (either desirable or auto) = trunk
+access (off) + dynamic (either desirable or auto) = access
+trunk with nonegotiate (off) + dynamic (either desirable or auto) = access on the dynamic side - MODE MISMATCH
+
+Of course, DTP is not capable of correcting mode mismatches if it does not run or if the ports are statically set to different operating modes.
+
+
 VLAN TRUNING PROTOCOL VTP:
 --------------------------
+
+How to check configuration:
+----------------------------
+#show vtp status
+#show interface fastethernet 1/0/23 trunk
 
 When we create, rename, delete a VLAN or change its state (active or suspended) on a single switch,
 VTP will propagate this change across all switches in a VTP domain.
