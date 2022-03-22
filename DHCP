@@ -1,0 +1,33 @@
+
+01. Why DHCP?
+02. How to Configure:
+    a) Router Configure DHCP server that will distribute DHCP info to PCs connected with.
+    b) DHCP server to connected to ROUTER will dritibute IP, SM,  DG, DNS to the PCs connected to ./External DHCP Configuration
+    c) CISCO ROUTER  as DHCP client
+    
+    
+    
+ 
+02. A) 
+R1(config)#ip dhcp excluded-address 10.10.10.1 10.10.10.10 
+R1(config)#ip dhcp pool 10.10.10.0_Clients 
+R1(dhcp-config)#network 10.10.10.0 255.255.255.0 
+R1(dhcp-config)#default-router 10.10.10.1 
+R1(dhcp-config)#dns-server 10.10.20.10
+
+CHECK: 
+R1# show ip dhcp pool       //Details about dhcp configuration
+R1# show ip dhcp binding   //how many PCs got info from DHCP
+
+
+02. B)
+R1(config)#interface f0/1
+R1(config-if)#ip helper-address 10.10.20.10
+
+03. C)
+R1(config)# interface f0/0 
+R1(config-if)# ip address dhcp 
+R1(config-if)# no shutdown
+
+CHECK:
+R1#show dhcp lease
