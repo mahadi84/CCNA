@@ -1,0 +1,88 @@
+
+
+
+01. What is the alternative if Gatway Router is down /
+    How to use one of two Routers as Gateway for Load Balancing?
+    which swich is best for core/distribution? 
+02. How does a HSRP works, and Configure(CMD) it?
+03. Can I prioritise one router over other and HOW, Example: One goes down and come back to online?
+04. Should HSRP version be same during configuration?
+05. Code to check: 
+            a) standby router info b) 
+
+
+01. What is the alternative if Gatway Router is down?
+ =================================================
+-If alternative Gatway Router is down we ca use other router as load balancing.
+-HSRP (Hot Standby Router Protocol) comes to play
+-HSRP is a Cisco proprietary redundancy protocol for establishing a fault-tolerant default gateway.
+
+**In a real world network the core/distribution layer switches would typically be Layer 3 switches
+**I’m using Layer 2 switches in the example to aid learning
+
+
+02. How does a HSRP works, and Configure it?
+============================================
+  
+CONFIGURATION:
+-------------
+If a physical gateway fails, another gateway will take over
+
+Both routers have a normal physical IP address and MAC address on their HSRP interface. Unique addresses are used on both routers.
+They both also have the HSRP virtual IP and MAC address configured on the interface. The same addresses are used on both routers.
+
+When they come online, one is elected the HSRP active router, the other is the standby.
+The active router owns the virtual IP and MAC address and responds to ARP requests All traffic for the VIP goes through the active router.
+
+ROUTER 01.
+----------
+R1(config)#interface g0/1
+R1(config-if)#ip address 10.10.10.2 255.255.255.0 
+R1(config-if)#no shutdown
+
+ROUTER 02.
+----------
+R2(config)#interface g0/1
+R2(config-if)#ip address 10.10.10.3 255.255.255.0 
+R2(config-if)#no shutdown
+
+
+
+
+03. Can I prioritise one router over other and HOW?
+===================================================
+
+You can choose which router will be the active by setting priority on the routers
+The router with the higher priority will be preferred (default is 100) 
+In the event of a tie the highest IP address winsIf pre-emption is also enabled, when a higher priority router comes back 
+online after a failure it will transition back to active
+If pre-emption is not enabled (default), the lower priority router will remain active when the failed router comes back online
+This can be more stable if a higher priority router is flapping
+
+ROUTER 01.
+----------
+R1(config)#interface g0/1
+R1(config-if)#ip address 10.10.10.2 255.255.255.0 
+R1(config-if)#no shutdown
+R1(config-if)#standby 1 ip 10.10.10.1 
+R1(config-if)#standby 1 priority 110 
+R1(config-if)#standby 1 preempt
+
+ROUTER 02.
+----------
+R2(config)#interface g0/1
+R2(config-if)#ip address 10.10.10.3 255.255.255.0 
+R2(config-if)#no shutdown
+R2(config-if)#standby 1 ip 10.10.10.1 
+R2(config-if)#standby 1 priority 90
+
+
+04. Should HSRP version be same?
+================================
+Yes, HSRP version should be for both router while configur.
+
+05.
+========================
+a) show standby
+
+
