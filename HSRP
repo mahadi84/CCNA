@@ -6,8 +6,9 @@
     which switch is best for core/distribution layer? 
 02. How does a HSRP works, and Configure(CMD) it?
 03. Can I prioritise one router over other and HOW, Example: One goes down and come back to online?
-04. Should HSRP version be same during configuration?
-05. Code to check: 
+04. What are FHR?
+05. Should HSRP version be same during configuration?
+06. Code to check: 
             a) standby router info b) Tracerout Command
 
 
@@ -74,11 +75,19 @@ R2(config-if)#standby 1 ip 10.10.10.1
 R2(config-if)#standby 1 priority 90
 
 
-04. Should HSRP version be same?
+04.First Hop Redundancy Protocols (FHR)
+=======================================
+Hot Standby Router Protocol (HSRP): Cisco proprietary. Deployed in active/standby pair.
+Virtual Router Redundancy Protocol (VRRP): Open standard. Deployed in active/standby pair. Very similar to HSRP.
+Gateway Load Balancing Protocol (GLBP): Cisco proprietary. Supports active/active load balancing across multiple routers.
+
+
+
+05. Should HSRP version be same?
 ================================
 Yes, HSRP version should be for both router while configur.
 
-05.
+06.
 ========================
 a) show standby
 b) tracert IP
