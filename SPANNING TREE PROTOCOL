@@ -7,11 +7,10 @@
 04. Versions of Spanning Tree Protocol and Adv. of this?
 
 01.
-Broadcast traffic:
+Broadcast traffic: is a message that is sent out to every node on the network or a portion of the network (LAN segment).
 ------------------
-is a message that is sent out to every node on the network or a portion of the network (LAN segment).
 
-Broadcast Storm and  Its causes:
+Broadcast Storm and It causes:
 -------------------------------
 Extreme amounts of broadcast traffic/ARP request constitute a "broadcast storm". 
 It can consume sufficient network resources and the network crash.
@@ -36,7 +35,6 @@ Spanning Tree is a necessary evil because a broadcast storm would be a far worse
 
 Spanning Tree automates failover as well as performing loop prevention. If an Access Layer switch’s uplink to CD1 fails, the link to CD2 will 
 transition from a blocking to a forwarding state. Legacy Spanning Tree can take up to 50 seconds to converge.
-
 
 
 04.Version of Spanning Tree Protocol and Adv of them:
