@@ -3,7 +3,7 @@
 
 01. What is the alternative if Gatway Router is down /
     How to use one of two Routers as Gateway for Load Balancing?
-    which swich is best for core/distribution? 
+    which switch is best for core/distribution layer? 
 02. How does a HSRP works, and Configure(CMD) it?
 03. Can I prioritise one router over other and HOW, Example: One goes down and come back to online?
 04. Should HSRP version be same during configuration?
