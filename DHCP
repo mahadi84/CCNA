@@ -2,10 +2,10 @@
 
 01. Why DHCP?
 
-02. What are:   a) exludeed-address     b) pool    
+02. What are:   a) exludeed-address     b) Network   
                 c) default-router       d) dns-server
                 e) helper-address       f) binding
-                g) lease
+                g) lease                h) pool
 
 03. How to Configure:
     a) ROUTER as DHCP SERVER that will distribute DHCP info (IP,SM,DG,DNS) to PCs connected with.
