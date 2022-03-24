@@ -1,9 +1,9 @@
 
 01. Why DHCP?
 02. How to Configure:
-    a) ROUTER as DHCP SERVER that will distribute DHCP info to PCs connected with.
+    a) ROUTER as DHCP SERVER that will distribute DHCP info (IP,SM,DG,DNS) to PCs connected with.
     b) ROUTER to bypass EXTERNAL DHCP SERVER info to the PCs connected to.
-    c) ROUTER as DHCP CLIENT
+    c) ROUTER as DHCP CLIENT (Receive IP,SM,DG,DNS info from other server/router)
     
     
     
