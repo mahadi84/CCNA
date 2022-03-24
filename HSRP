@@ -13,7 +13,7 @@
 
 01. What is the alternative if Gatway Router is down?
  =================================================
--If alternative Gatway Router is down we ca use other router as load balancing.
+-If a physical gateway fails, another gateway will take over
 -HSRP (Hot Standby Router Protocol) comes to play
 -HSRP is a Cisco proprietary redundancy protocol for establishing a fault-tolerant default gateway.
 
@@ -23,10 +23,6 @@
 
 02. How does a HSRP works, and Configure it?
 ============================================
-  
-CONFIGURATION:
--------------
-If a physical gateway fails, another gateway will take over
 
 Both routers have a normal physical IP address and MAC address on their HSRP interface. Unique addresses are used on both routers.
 They both also have the HSRP virtual IP and MAC address configured on the interface. The same addresses are used on both routers.
@@ -45,7 +41,6 @@ ROUTER 02.
 R2(config)#interface g0/1
 R2(config-if)#ip address 10.10.10.3 255.255.255.0 
 R2(config-if)#no shutdown
-
 
 
 
