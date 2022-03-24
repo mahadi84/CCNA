@@ -1,9 +1,9 @@
 
 01. Why DHCP?
 02. How to Configure:
-    a) Router Configure DHCP server that will distribute DHCP info to PCs connected with.
-    b) DHCP server to connected to ROUTER will dritibute IP, SM,  DG, DNS to the PCs connected to ./External DHCP Configuration
-    c) CISCO ROUTER  as DHCP client
+    a) ROUTER as DHCP SERVER that will distribute DHCP info to PCs connected with.
+    b) ROUTER to bypass EXTERNAL DHCP SERVER info to the PCs connected to.
+    c) ROUTER as DHCP CLIENT
     
     
     
