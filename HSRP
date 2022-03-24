@@ -8,7 +8,7 @@
 03. Can I prioritise one router over other and HOW, Example: One goes down and come back to online?
 04. Should HSRP version be same during configuration?
 05. Code to check: 
-            a) standby router info b) 
+            a) standby router info b) Tracerout Command
 
 
 01. What is the alternative if Gatway Router is down?
@@ -81,5 +81,6 @@ Yes, HSRP version should be for both router while configur.
 05.
 ========================
 a) show standby
+b) tracert IP
 
 
