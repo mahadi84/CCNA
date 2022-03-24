@@ -42,16 +42,13 @@ transition from a blocking to a forwarding state. Legacy Spanning Tree can take 
 04.Version of Spanning Tree Protocol and Adv of them:
 =====================================================
 Spanning Tree Protocol (STP):- 
-The original Spanning Tree 
-implementation. Uses one Spanning Tree for all VLANs in the LAN.
+The original Spanning Tree implementation. Uses one Spanning Tree for all VLANs in the LAN.
 
 Rapid Spanning Tree Protocol (RSTP):-
-Significantly improved 
-convergence time. Uses one Spanning Tree for all VLANs in the LAN.
+Significantly improved convergence time. Uses one Spanning Tree for all VLANs in the LAN.
 
 Multiple Spanning Tree Protocol (MSTP):-
-Enables grouping and 
-mapping VLANs into different spanning tree instances for load balancing.
+Enables grouping and mapping VLANs into different spanning tree instances for load balancing.
 
 
 
