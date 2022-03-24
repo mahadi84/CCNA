@@ -1,14 +1,20 @@
 
+
 01. Why DHCP?
-02. How to Configure:
+
+02. What are:   a) exludeed-address     b) pool    
+                c) default-router       d) dns-server
+                e) helper-address       f) binding
+                g) lease
+
+03. How to Configure:
     a) ROUTER as DHCP SERVER that will distribute DHCP info (IP,SM,DG,DNS) to PCs connected with.
     b) ROUTER to bypass EXTERNAL DHCP SERVER info to the PCs connected to.
     c) ROUTER as DHCP CLIENT (Receive IP,SM,DG,DNS info from other server/router)
-    
-    
-    
+
+
  
-02. A) 
+03. A) 
 R1(config)#ip dhcp excluded-address 10.10.10.1 10.10.10.10 
 R1(config)#ip dhcp pool 10.10.10.0_Clients 
 R1(dhcp-config)#network 10.10.10.0 255.255.255.0 
@@ -20,7 +26,7 @@ R1# show ip dhcp pool       //Details about dhcp configuration
 R1# show ip dhcp binding   //how many PCs got info from DHCP
 
 
-02. B)
+03. B)
 R1(config)#interface f0/1
 R1(config-if)#ip helper-address 10.10.20.10
 
@@ -31,3 +37,6 @@ R1(config-if)# no shutdown
 
 CHECK:
 R1#show dhcp lease
+
+
+
