@@ -42,7 +42,7 @@ ROUTER 02.
 R2(config)#interface g0/1
 R2(config-if)#ip address 10.10.10.3 255.255.255.0 
 R2(config-if)#no shutdown
-R1(config-if)#standby 1 ip 10.10.10.1
+R2(config-if)#standby 1 ip 10.10.10.1
 
 
 
