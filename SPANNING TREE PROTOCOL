@@ -1,0 +1,20 @@
+
+01. What is braodcast traffic and strom? What cause broadcast strom in a computer network?
+02. How does a ROUTER/Layer 3/2 switch take care of Braodcast Strom? 
+02. What and Why is STP?
+02. 
+
+
+
+
+There will be more broadcast traffic on a production network than a single ARP request We now have a broadcast storm The network will crash because the 
+amount of looping broadcast traffic will quickly overwhelm the switch’s CPU and bandwidth.
+
+A broadcast storm is disastrous for the LAN and must be avoided at all costs. The Spanning Tree Protocol is used to prevent Layer 2 loops.
+It does this by detecting potential loops and blocking ports to prevent them.
+
+The access layer switches can only use half of their physically cabled uplink bandwidth. 
+Spanning Tree is a necessary evil because a broadcast storm would be a far worse scenario.
+
+Spanning Tree automates failover as well as performing loop prevention. If an Access Layer switch’s uplink to CD1 fails, the link to CD2 will 
+transition from a blocking to a forwarding state. Legacy Spanning Tree can take up to 50 seconds to converge.
