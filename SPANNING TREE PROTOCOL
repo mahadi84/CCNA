@@ -85,39 +85,27 @@ Enables grouping and mapping VLANs into different spanning tree instances for lo
 > If R2 was the HSRP active router, traffic would have to transit via an extra device over the CD1>CD2 link
 
 
-R1(config)#interface g0/1.10
-R1(config)#encap dot1 vlan 10
-R1(config-if)#ip address 10.10.10.2 255.255.255.0 
-R1(config-if)#no shutdown
-R1(config-if)#standby 1 ip 10.10.10.1 
-R1(config-if)#standby 1 priority 110 
+R1(config)#interface g0/1.10                            R2(config)#interface g0/1.10        
+R1(config)#encap dot1 vlan 10                           R2(config)#encap dot1 vlan 10
+R1(config-if)#ip address 10.10.10.2 255.255.255.0       R2(config-if)#ip address 10.10.10.3 255.255.255.0 
+R1(config-if)#no shutdown                               R2(config-if)#no shutdown
+R1(config-if)#standby 1 ip 10.10.10.1                   R2(config-if)#standby 1 ip 10.10.10.1 
+R1(config-if)#standby 1 priority 110                    R2(config-if)#standby 1 priority 90
 R1(config-if)#standby 1 pre-empt
 
-R2(config)#interface g0/1.10
-R2(config)#encap dot1 vlan 10
-R2(config-if)#ip address 10.10.10.3 255.255.255.0 
-R2(config-if)#no shutdown
-R2(config-if)#standby 1 ip 10.10.10.1 
-R2(config-if)#standby 1 priority 90
 =========================================
 CD1(config)#spanning-tree vlan 10 root primary 
 CD1(config)#spanning-tree vlan 20 root secondary
 
 
-R1(config)#interface g0/1.20
-R1(config)#encap dot1 vlan 20
-R1(config-if)#ip address 10.10.20.2 255.255.255.0 
-R1(config-if)#no shutdown
-R1(config-if)#standby 1 ip 10.10.20.1 
-R1(config-if)#standby 1 priority 90
+R1(config)#interface g0/1.20                            R2(config)#interface g0/1.20
+R1(config)#encap dot1 vlan 20                           R2(config)#encap dot1 vlan 20
+R1(config-if)#ip address 10.10.20.2 255.255.255.0       R2(config-if)#ip address 10.10.20.3 255.255.255.0 
+R1(config-if)#no shutdown                               R2(config-if)#no shutdown
+R1(config-if)#standby 1 ip 10.10.20.1                   R2(config-if)#standby 1 ip 10.10.20.1 
+R1(config-if)#standby 1 priority 90                     R2(config-if)#standby 1 priority 110 
+                                                        R2(config-if)#standby 1 pre-empt
 
-R2(config)#interface g0/1.20
-R2(config)#encap dot1 vlan 20
-R2(config-if)#ip address 10.10.20.3 255.255.255.0 
-R2(config-if)#no shutdown
-R2(config-if)#standby 1 ip 10.10.20.1 
-R2(config-if)#standby 1 priority 110 
-R2(config-if)#standby 1 pre-empt
 =============================================
 CD2(config)#spanning-tree vlan 20 root primary 
 CD2(config)#spanning-tree vlan 10 root secondary
