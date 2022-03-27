@@ -7,6 +7,7 @@
 04. What and Why is STP? How it works?
 05. Versions of Spanning Tree Protocol and Adv. of this?
 06. What is the Relationship between STP and HSRP? How to configure it?
+07. What is most directed Path?
 
 ========================================================================
 
@@ -108,6 +109,12 @@ R1(config-if)#standby 1 priority 90                     R2(config-if)#standby 1 
 =============================================
 CD2(config)#spanning-tree vlan 20 root primary 
 CD2(config)#spanning-tree vlan 10 root secondary
+
+
+
+07. What is most directed Path?
+===============================
+Router/Switch with most priority and pre-empt is call most directed path.
 
 
 
