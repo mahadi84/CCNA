@@ -4,7 +4,7 @@
 01. What is the alternative if Gatway Router is down /
     How to use one of two Routers as Gateway for Load Balancing?
     which switch is best for core/distribution layer? 
-02. How does a HSRP works, and Configure(CMD) it?
+02. What is HSRP and How does a HSRP works, and Configure(CMD) it?
 03. Can I prioritise one router over other and HOW, Example: One goes down and come back to online?
 04. What are FHR?
 05. Should HSRP version be same during configuration?
@@ -22,8 +22,11 @@
 **I’m using Layer 2 switches in the example to aid learning
 
 
-02. How does a HSRP works, and Configure it?
-============================================
+02. What is HSRP, How does a HSRP works, and Configure it?
+==========================================================
+Hot Standby Router Protocol (HSRP) prioritizes a series of routers as the primary and standbys for a group of devices on a subnet. 
+If the primary router fails, the protocol will automatically connect to the router assigned the next-highest priority. 
+Importantly, redundancy is initialized from the router, which means devices don't need to be configured individually.
 
 Both routers have a normal physical IP address and MAC address on their HSRP interface. Unique addresses are used on both routers.
 They both also have the HSRP virtual IP and MAC address configured on the interface. The same addresses are used on both routers.
