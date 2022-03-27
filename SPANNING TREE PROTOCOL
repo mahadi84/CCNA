@@ -3,7 +3,7 @@
 01. What is braodcast traffic and strom? What cause broadcast strom in a computer network?
 02. How does a ROUTER/Layer 3/2 switch take care of Braodcast Strom?
     How to get a ROUTER/SWITCH MAC address?
-03. What/Why is Route Bridge? How system Elect a Route Bridge?
+03. What/Why is Route Bridge? How system Elect a Route Bridge? How to Check "Route Priority" and "Spanning tree vlan" info ?
 04. What and Why is STP? How it works?
 05. Versions of Spanning Tree Protocol and Adv. of this?
 06. What is the Relationship between STP and HSRP? How to configure it?
@@ -34,8 +34,8 @@ R1#show interface g0/1
 SW#show mac address-table
 
 
-03. What is Root Bridge? and How to Elect it?
-=============================================
+03. What is Root Bridge? and How to Elect it? How to Check Priority?
+====================================================================
 Root bridge  acts as a centre point of the LAN. 
 Best practice is to ensure a pair of high-end core switches are selected as the 1st and 2nd most preferred Root Bridge
 
@@ -46,6 +46,11 @@ Best practice is to ensure a pair of high-end core switches are selected as the 
 -The default value is 32768, with the lowest number being most preferred
 -In the case of a tie the switch with the lowest MAC address will be selected
 -This is liable to be the oldest switch
+
+CHECK PRIORITY: 
+            SW/R1# show run | include priority
+            SW/R1# show spanning-tree valn 10
+
 
 
 04. What and Why is STP?
