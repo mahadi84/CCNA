@@ -11,6 +11,7 @@
 06. Code to check: 
             a) standby router info b) Tracerout Command
 
+============================================================
 
 01. What is the alternative if Gatway Router is down?
  =================================================
@@ -34,20 +35,12 @@ They both also have the HSRP virtual IP and MAC address configured on the interf
 When they come online, one is elected the HSRP active router, the other is the standby.
 The active router owns the virtual IP and MAC address and responds to ARP requests All traffic for the VIP goes through the active router.
 
-ROUTER 01.
-----------
-R1(config)#interface g0/1
-R1(config-if)#ip address 10.10.10.2 255.255.255.0 
-R1(config-if)#no shutdown
-R1(config-if)#standby 1 ip 10.10.10.1
-
-ROUTER 02.
-----------
-R2(config)#interface g0/1
-R2(config-if)#ip address 10.10.10.3 255.255.255.0 
-R2(config-if)#no shutdown
-R2(config-if)#standby 1 ip 10.10.10.1
-
+ROUTER 01.                                              ROUTER 02.
+----------                                              --------------
+R1(config)#interface g0/1                               R2(config)#interface g0/1
+R1(config-if)#ip address 10.10.10.2 255.255.255.0       R2(config-if)#ip address 10.10.10.3 255.255.255.0 
+R1(config-if)#no shutdown                               R2(config-if)#no shutdown
+R1(config-if)#standby 1 ip 10.10.10.1                   R2(config-if)#standby 1 ip 10.10.10.1
 
 
 03. Can I prioritise one router over other and HOW?
@@ -60,22 +53,14 @@ online after a failure it will transition back to active
 If pre-emption is not enabled (default), the lower priority router will remain active when the failed router comes back online
 This can be more stable if a higher priority router is flapping
 
-ROUTER 01.
-----------
-R1(config)#interface g0/1
-R1(config-if)#ip address 10.10.10.2 255.255.255.0 
-R1(config-if)#no shutdown
-R1(config-if)#standby 1 ip 10.10.10.1 
-R1(config-if)#standby 1 priority 110 
+ROUTER 01.                                              ROUTER 02.
+----------                                              --------------
+R1(config)#interface g0/1                               R2(config)#interface g0/1
+R1(config-if)#ip address 10.10.10.2 255.255.255.0       R2(config-if)#ip address 10.10.10.3 255.255.255.0 
+R1(config-if)#no shutdown                               R2(config-if)#no shutdown
+R1(config-if)#standby 1 ip 10.10.10.1                   R2(config-if)#standby 1 ip 10.10.10.1
+R1(config-if)#standby 1 priority 110                    R2(config-if)#standby 1 priority 90
 R1(config-if)#standby 1 preempt
-
-ROUTER 02.
-----------
-R2(config)#interface g0/1
-R2(config-if)#ip address 10.10.10.3 255.255.255.0 
-R2(config-if)#no shutdown
-R2(config-if)#standby 1 ip 10.10.10.1 
-R2(config-if)#standby 1 priority 90
 
 
 04.First Hop Redundancy Protocols (FHR)
@@ -83,7 +68,6 @@ R2(config-if)#standby 1 priority 90
 Hot Standby Router Protocol (HSRP): Cisco proprietary. Deployed in active/standby pair.
 Virtual Router Redundancy Protocol (VRRP): Open standard. Deployed in active/standby pair. Very similar to HSRP.
 Gateway Load Balancing Protocol (GLBP): Cisco proprietary. Supports active/active load balancing across multiple routers.
-
 
 
 05. Should HSRP version be same?
@@ -94,5 +78,7 @@ Yes, HSRP version should be for both router while configur.
 ========================
 a) show standby
 b) tracert IP
+
+
 
 
