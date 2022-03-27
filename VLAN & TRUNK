@@ -180,7 +180,8 @@ SW1#show vtp status
 =========================) 05. DOT1Q TRUNKS (=================================
 
 
-> An access port carries traffic for one specific VLAN
+-An access port carries traffic for one specific VLAN, But If need to carry traffic for Multiple VLAN?
+
 > Dot1Q trunks are configured on the links between switches where we need to carry traffic for multiple VLANs
 > ISL (Inter-Switch Link) was a Cisco proprietary trunking protocol which is now obsolete
 > When the switch forwards traffic to another switch, it tags the layer 2 Dot1Q header with the correct VLAN
