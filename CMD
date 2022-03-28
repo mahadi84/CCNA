@@ -20,7 +20,8 @@ ANSWER:
 
 01. router# configure terminal
 02. Add IP to a INTERFACE:     #int serial serial/fa/gi 2/0
-                                #ip address 192.168.10.1 255.255.255.0  
+                                #ip address 192.168.10.1 255.255.255.0
+                                #ip route 192.168.10.1 255.255.255.0 10.0.0.2(Outgoing Interface)
                                 #no shutdown
 03. Rename Router/Switch:      #hostname router_name
 04. Show IP 4 all interfaces   #show IP interface brief 
