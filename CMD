@@ -14,14 +14,19 @@ COMMANDs to:
 11. All info about OSPF
 12. Delete any Routing Protocol and IP from advertise network
 
+DHCP:
 13. Configure ROuter DHCP as server and Client and EXTERNAL DHCP SERVER
 14. CHECK Details about dhcp SERVER, CLIENT and external DHCP
 
+HSRP:
+15. Configure, prioritise
+16. Check HSRP info.
 
 
 
-ANSWER:
--------
+
+
+----------------------ANSWER:--------------------------
 
 01. router# configure terminal
 02. Add IP to a INTERFACE:     #int serial serial/fa/gi 2/0
@@ -75,6 +80,22 @@ ANSWER:
     CLIENT       R1# show ip dhcp binding   
     EXTERNAL     R1#show dhcp lease
 
-
-
+15. HSRP:
+   
+   configure:------
+       
+       ROUTER 01.                                              ROUTER 02.
+    ---------------                                              --------------
+    R1(config)#interface g0/1                               R2(config)#interface g0/1
+    R1(config-if)#ip address 10.10.10.2 255.255.255.0       R2(config-if)#ip address 10.10.10.3 255.255.255.0 
+    R1(config-if)#no shutdown                               R2(config-if)#no shutdown
+    R1(config-if)#standby 1 ip 10.10.10.1                   R2(config-if)#standby 1 ip 10.10.10.1
+    
+    prioritise:-----
+    
+    R1(config-if)#standby 1 ip 10.10.10.1                   R2(config-if)#standby 1 ip 10.10.10.1
+    R1(config-if)#standby 1 priority 110                    R2(config-if)#standby 1 priority 90
+    R1(config-if)#standby 1 preempt
+    
+16. Check HSRP info: show standby
 
