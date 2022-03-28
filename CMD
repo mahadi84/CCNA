@@ -32,21 +32,17 @@ ANSWER:
                                 #router ospf 1 
                                 #auto-cost reference-bandwidth 100000 (for 100GB)
 
-06. Configrue(RIP,EIGRP,OSPF)  #Router(config)#router rip	                (Enable RIP routing protocol)
-                               #Router(config-router)#network 10.0.0.0    (Add 10.0.0.0 network from RIP routing advertisement)
-                               #Router(config)#no router rip	            (Disable RIP routing protocol)
+06. Configrue(RIP,EIGRP,OSPF)  RIP---
+                               #Router(config)#router rip	                
+                               #Router(config-router)#network 10.0.0.0
                                
-                               -----EIGRP----
-                               Router(config)#router eigrp 1                        (configure eigrp with AS number)
-                               Router(config-router)#network 192.168.1.0 0.0.0.3    (Network address to advertise)                           
-                               Router(config-router)# no network 192.168.1.0 0.0.0.3 (Disable EIGRP on interfaces which belongs to network 10.10.0.0/16.)
+                               EIGRP----
+                               Router(config)#router eigrp 1                      
+                               Router(config-router)#network 192.168.1.0 0.0.0.3                             
                                
-                               ----OSPF------
+                               OSPF------
                                R2(config)# router ospf 1
-                               R2(config-router)# network 192.168.23.0 0.0.0.255 area 0
-                               R2(config)# end
-                               
-                               
+                               R2(config-router)# network 192.168.23.0 0.0.0.255 area 0                      
                                
 07. Watch Routing table:       #show ip route RIP/EIGRP/OSPF
 08. Watch Neighbor:            #show ip rip/eigrp/ospf/ neighbour
