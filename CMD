@@ -15,9 +15,8 @@ COMMANDs to:
 12. Delete any Routing Protocol and IP from advertise network
 
 13. Configure ROuter DHCP as server and Client and EXTERNAL DHCP SERVER
-14. Details about dhcp configuration AND 
-    How many PCs got info from DHCP
-    DHCP Lease
+14. CHECK Details about dhcp SERVER, CLIENT and external DHCP
+
 
 
 
@@ -72,9 +71,9 @@ ANSWER:
     #ip helper-address 10.10.20.10
     
 14.CHECK: 
-DHCP configuration:              R1# show ip dhcp pool       
-PCs got info from DHCP Server    R1# show ip dhcp binding   
-R1#show dhcp lease
+    SERVER       R1# show ip dhcp pool       
+    CLIENT       R1# show ip dhcp binding   
+    EXTERNAL     R1#show dhcp lease
 
 
 
