@@ -23,7 +23,7 @@ ANSWER:
                                 #ip address 192.168.10.1 255.255.255.0
                                 #ip route 192.168.10.1 255.255.255.0 10.0.0.2(Outgoing Interface)
                                 #no shutdown
-03. Rename Router/Switch:      #hostname router_name
+03. Rename Router/Switch:      #hostname router_name/switch_name
 04. Show IP 4 all interfaces   #show IP interface brief 
 05. Add cost(bandwidth) to a Port   
                                 #int fa 1/1  
