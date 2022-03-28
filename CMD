@@ -14,6 +14,12 @@ COMMANDs to:
 11. All info about OSPF
 12. Delete any Routing Protocol and IP from advertise network
 
+13. Configure ROuter DHCP as server and Client and EXTERNAL DHCP SERVER
+14. Details about dhcp configuration AND 
+    How many PCs got info from DHCP
+    DHCP Lease
+
+
 
 ANSWER:
 -------
@@ -51,6 +57,24 @@ ANSWER:
 10. Watch OSPF Interface:      #show ip ospf interface  OR   #sh ip ospf interface fa 0/0 
 11. All info about OSPF:       #show run | section ospf
 12. Delete Protocol & Network: #no rip/eigrp/ospf and #no network 10.0.0.2 (with wildcard for eigrp and ospf) 
+
+13. Router DHCP AS server:---
+    R1(config)#ip dhcp excluded-address 10.10.10.1 10.10.10.10 
+    R1(config)#ip dhcp pool 10.10.10.0_Clients 
+    R1(dhcp-config)#network 10.10.10.0 255.255.255.0 
+    R1(dhcp-config)#default-router 10.10.10.1 
+    R1(dhcp-config)#dns-server 10.10.20.10
+   
+    Router DHCP AS CLIENT:-----
+    R1(config-if)# ip address dhcp
+    
+    External DHCP server: R1(config-if)  
+    #ip helper-address 10.10.20.10
+    
+14.CHECK: 
+DHCP configuration:              R1# show ip dhcp pool       
+PCs got info from DHCP Server    R1# show ip dhcp binding   
+R1#show dhcp lease
 
 
 
