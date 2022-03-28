@@ -6,7 +6,6 @@ COMMANDs:
 03. RENAME router/switch
 04. Show ip for all interfaces in a router/switch
 05. Add cost(bandwidth) to a Port AND add auto cost reference bandwidth to a Protocol
-
 06. Load Balance (RIP vs EIGRP vs OSPF)
 07. Watch Routing table for RIP/EIGRP/OSPF
 08. Watch Neighbor/Adjancencies 
@@ -17,6 +16,7 @@ COMMANDs:
 
 
 ANSWER:
+-------
 
 01. router# configure terminal
 02. Add IP to a INTERFACE:     #int serial serial/fa/gi 2/0
