@@ -1,0 +1,43 @@
+
+COMMANDs:
+---------
+01. To configure interface of Router/Switch
+02. Add IP/ROUTE to a INTERFACE of Router/Switch
+03. RENAME router/switch
+04. Show ip for all interfaces in a router/switch
+05. Add cost(bandwidth) to a Port AND add auto cost reference bandwidth to a Protocol
+
+06. Load Balance (RIP vs EIGRP vs OSPF)
+07. Watch Routing table for RIP/EIGRP/OSPF
+08. Watch Neighbor/Adjancencies 
+09. Watch Protocol/Database
+10. Watch OSPF Interface  
+11. All info about OSPF
+12. Delete any Routing Protocol and IP from advertise network
+
+
+ANSWER:
+
+01. router# configure terminal
+02. Add IP to a INTERFACE:     #int serial serial/fa/gi 2/0
+                                #ip address 192.168.10.1 255.255.255.0  
+                                #no shutdown
+03. Rename Router/Switch:      #hostname router_name
+04. Show IP 4 all interfaces   #show IP interface brief 
+05. Add cost(bandwidth) to a Port   
+                                #int fa 1/1  
+                                #ip ospf cost 1500  
+    Add auto cost reference bandwidth to Protocol:
+                                #router ospf 1 
+                                #auto-cost reference-bandwidth 100000 (for 100GB)
+06. Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
+07. Watch Routing table:       #show ip route RIP/EIGRP/OSPF
+08. Watch Neighbor:            #show ip rip/eigrp/ospf/ neighbour
+09. Watch Protocol/database:   #show ip protocols #show ip rip/eigrp/ospf database
+10. Watch OSPF Interface:      #show ip ospf interface  OR   #sh ip ospf interface fa 0/0 
+11. All info about OSPF:       #show run | section ospf
+12. Delete Protocol & Network: #no rip/eigrp/ospf and #no network 10.0.0.2 (with wildcard for eigrp and ospf) 
+
+
+
+
