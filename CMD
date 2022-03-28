@@ -6,7 +6,7 @@ COMMANDs to:
 03. RENAME router/switch
 04. Show ip for all interfaces in a router/switch
 05. Add cost(bandwidth) to a Port AND add auto cost reference bandwidth to a Protocol
-06. Configure RIP,EIGRP, OSPF
+06. Configure RIP,EIGRP, OSPF with passive interface
 07. Watch Routing table for RIP/EIGRP/OSPF
 08. Watch Neighbor/Adjancencies 
 09. Watch Protocol/Database
@@ -33,16 +33,17 @@ ANSWER:
                                 #auto-cost reference-bandwidth 100000 (for 100GB)
 
 06. Configrue(RIP,EIGRP,OSPF)  RIP---
-                               #Router(config)#router rip	                
-                               #Router(config-router)#network 10.0.0.0
+                               R1(config)#router rip                              
+                               R1(config-router)#network 10.0.0.0
+                                R1(config)#passive-interface fa/gi 0/1
                                
                                EIGRP----
-                               Router(config)#router eigrp 1                      
-                               Router(config-router)#network 192.168.1.0 0.0.0.3                             
+                               R1(config)#router eigrp 1                      
+                               R1(config-router)#network 192.168.1.0 0.0.0.3                             
                                
                                OSPF------
-                               R2(config)# router ospf 1
-                               R2(config-router)# network 192.168.23.0 0.0.0.255 area 0                      
+                               R1(config)# router ospf 1
+                               R1(config-router)# network 192.168.23.0 0.0.0.255 area 0                      
                                
 07. Watch Routing table:       #show ip route RIP/EIGRP/OSPF
 08. Watch Neighbor:            #show ip rip/eigrp/ospf/ neighbour
