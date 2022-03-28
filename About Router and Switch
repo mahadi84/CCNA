@@ -1,21 +1,27 @@
 
 
-01. Which model of ROUTER and SWITCH, we use in Packet Tracer?
-02. How get extra FastEthernet or Serial port in Cisco Packet Tracer? what is the meaning of NM, WIC?
+01. Which model of ROUTER and SWITCH, we use in Packet Tracer and what are these?
+02. How to get extra FastEthernet or Serial port in Cisco Packet Tracer? what is the meaning of NM, WIC?
 03. What is Serial and Parallel Interface?
 04. What is Clock speed?
 
 
+
+Router: 2811 and Switch: 2960
+
 What is Cisco ROUTER 2811 ?
 --------------------------
-The Cisco 2811 is an integrated services router designed by Cisco to support multiple WAN interfaces. 
-The Cisco 2811 supports multiple T1 / E1 / xDSL connections and has built in support for over 90 Cisco modules. 
-Four high speed WAN slots are available in addition to an enhanced network module slot.
+The Cisco 2811 Router supports multiple WAN interfaces as well as over 90 Cisco modules. 
 
 What is a SWITCH 2960?
 ----------------------
-Cisco Catalyst 2960 Series Switches are a family of fixed-configuration, standalone intelligent Ethernet devices with Power Over Ethernet (PoE) 
-or non-PoE configurations that provide desktop Fast Ethernet and Gigabit Ethernet connectivity, enabling enhanced LAN services 
+Cisco 2960 Series Switches are 
+-Fixed-configuration, 
+-Standalone intelligent Ethernet devices with Power Over Ethernet (PoE) 
+Non-PoE configurations that provide Desktop 
+-Fast Ethernet and 
+-Gigabit Ethernet connectivity, 
+-Enhanced LAN services 
 for entry-level enterprise, midmarket, and branch.
 
 
@@ -31,19 +37,20 @@ NM: Network Analysis Module
 WIC: WAN Interface Card
 
 
-INTERFACE:
-----------
+Router and Switch INTERFACE:
+---------------------------
 There are two type of interface:
 
 01. Parallel Interface:
 -----------------------
-The Ethernet transmits the data parallel and hence achieves high speed. 
-It has a limitation that the Ethernet cannot transmit data over long distances.
+-High speed. 
+-Cannot transmit data over long distances.
 
 02. Serial Interface:
 ---------------------
-To overcome the problem of transmitting data over long distances, serial interfaces are used. Ex: 1841 Router
-Serial interfaces can be connected using the cable V.35 DTE and DCE cables.
+-Can transmit data over long distances.
+-Lower speed 
+-Connect Router using the cable V.35 DTE and DCE cables.
 
 CLOCK SPEED:
 ------------
@@ -55,4 +62,7 @@ Configuration:
 router# conf t
 router(config)# interface serial 1/0
 router(config-if)# clock rate 64000 (represented in BITS per second)
+
+
+
 
