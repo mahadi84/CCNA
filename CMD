@@ -1,12 +1,12 @@
 
-COMMANDs:
----------
-01. To configure interface of Router/Switch
+COMMANDs to:
+------------
+01. Configure interface of Router/Switch
 02. Add IP/ROUTE to a INTERFACE of Router/Switch
 03. RENAME router/switch
 04. Show ip for all interfaces in a router/switch
 05. Add cost(bandwidth) to a Port AND add auto cost reference bandwidth to a Protocol
-06. Load Balance (RIP vs EIGRP vs OSPF)
+06. Configure RIP,EIGRP, OSPF
 07. Watch Routing table for RIP/EIGRP/OSPF
 08. Watch Neighbor/Adjancencies 
 09. Watch Protocol/Database
@@ -31,7 +31,23 @@ ANSWER:
     Add auto cost reference bandwidth to Protocol:
                                 #router ospf 1 
                                 #auto-cost reference-bandwidth 100000 (for 100GB)
-06. Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
+
+06. Configrue(RIP,EIGRP,OSPF)  #Router(config)#router rip	                (Enable RIP routing protocol)
+                               #Router(config-router)#network 10.0.0.0    (Add 10.0.0.0 network from RIP routing advertisement)
+                               #Router(config)#no router rip	            (Disable RIP routing protocol)
+                               
+                               -----EIGRP----
+                               Router(config)#router eigrp 1                        (configure eigrp with AS number)
+                               Router(config-router)#network 192.168.1.0 0.0.0.3    (Network address to advertise)                           
+                               Router(config-router)# no network 192.168.1.0 0.0.0.3 (Disable EIGRP on interfaces which belongs to network 10.10.0.0/16.)
+                               
+                               ----OSPF------
+                               R2(config)# router ospf 1
+                               R2(config-router)# network 192.168.23.0 0.0.0.255 area 0
+                               R2(config)# end
+                               
+                               
+                               
 07. Watch Routing table:       #show ip route RIP/EIGRP/OSPF
 08. Watch Neighbor:            #show ip rip/eigrp/ospf/ neighbour
 09. Watch Protocol/database:   #show ip protocols #show ip rip/eigrp/ospf database
