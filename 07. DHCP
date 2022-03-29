@@ -12,7 +12,7 @@
     b) ROUTER to bypass EXTERNAL DHCP SERVER info to the PCs connected to.
     c) ROUTER as DHCP CLIENT (Receive IP,SM,DG,DNS info from other server/router)
 
-
+===========================================
  
 03. A) 
 R1(config)#ip dhcp excluded-address 10.10.10.1 10.10.10.10 
