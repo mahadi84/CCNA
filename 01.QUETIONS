@@ -1,0 +1,27 @@
+
+02. About Router and Switch
+-----------------------------------------
+
+01. Which model of ROUTER and SWITCH, we use in Packet Tracer and 
+    What are About Interface, Extensionibility, Module, Power and Configuration of these router and switch?
+02. How to get extra FastEthernet or Serial port in Cisco Packet Tracer? what is the meaning of NM, WIC?
+03. What is Serial and Parallel Interface?
+04. What is Clock speed?
+
+
+
+03.OSI,TCP-IP MODEL with PROTOCOL(with PORT no.)
+------------------------------------------------
+01. What is ISO and TCP/IP?
+02. What does and name of protocols they use:
+              A. Application Layer  B. Presentation Layer
+              C. Session Layer      D. Transport Layer
+              E. Network Layer      F. Datalink Layer  
+                        G. Physical Layer
+03. What are: A) Encapsulation & PDU
+                 SNMP, NetBIOS, ARP, ICMP, PAP, PPTP
+                 PING, TCP, UDP, SSL, TLS, HDLC 
+
+
+
+
