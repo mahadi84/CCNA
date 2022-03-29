@@ -3,7 +3,8 @@
 01. What is braodcast traffic and strom? What cause broadcast strom in a computer network?
 02. How does a ROUTER/Layer 3/2 switch take care of Braodcast Strom?
     How to get a ROUTER/SWITCH MAC address?
-03. What/Why is Route Bridge? How system Elect a Route Bridge? How to Check "Route Priority" and "Spanning tree vlan" info ?
+03. What/Why is Route Bridge? How system Elect a Route Bridge? 
+    How to Check "Route Priority" and "Spanning tree vlan" info ?
 04. What and Why is STP? How it works?
 05. Versions of Spanning Tree Protocol and Adv. of this?
 06. What is the Relationship between STP and HSRP? How to configure it?
