@@ -1,4 +1,19 @@
 
+01. Explain IP-ClassificatioN with Special IPs for local network, loopback and link local-address?
+02. What is BROADCAST DOMAIN?
+
+03. PROBLEM 01:  IP: 192.168.10.0 SM: 255.255.255.224
+            Find out:
+            ---------
+            1) Subnet Mask                    2) Block Size
+            3) Number of Subnets              4) Number of hosts(valid)
+            5) What are the subnet ID's       6) First and Last valid host
+            7) What's the Broadcast address   
+            **8) NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS
+
+
+
+
 
 IP(Internet Protocol)
 ---------------------
@@ -11,8 +26,9 @@ IP:   32bit
       -----
 MAC:  48bit (Example: 00-1B-63-84-45-E6)
 
+============01. Explain IP-ClassificatioN with Special IPs for local network, loopback and link local-address?=============
 
-IP-ClassificatiON:
+IP-ClassificatioN:
 ------------------
 Class-A: 1-127**  (1.0.0.0-126.255.255.255)   Default Subnet Mask: 255.0.0.0      Total Host: 2^24= 16,777,214 
 Class-B: 128-191  (128.0.0.0-191.255.255.255) Default Subnet Mask: 255.255.0.0    Total Host: 2^16=65,534
@@ -48,10 +64,7 @@ There are a number of applications and protocols that use broadcast traffic. A g
 Switches will recognize it as broadcast traffic by looking at the destination MAC address.
 
 
-PROBLEM 01:
------------
-IP: 192.168.10.0
-SM: 255.255.255.224
+============= 03. PROBLEM 01:  IP: 192.168.10.0 SM: 255.255.255.224 ======================
 
 Find out:
 ---------
