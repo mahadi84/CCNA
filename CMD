@@ -27,7 +27,17 @@ HSRP:
 16. Check "standby/HSRP info" and 
           "Route Priority" and 
           "Spanning tree for any vlan".
+17. Configure Relationship between HSRP and STP.
 
+
+VLAN:
+18.Command to check: a> VLAN name and assign interface
+                     b> VLAN interface info ACCESS/TRUNK
+                     c> TRUNK interface/info
+                     d> Switchport status
+19. CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE
+20. CHECK and CONFIGURE DTP and VTP and VTP as server, client and transparent.
+21. V
 
 
 
@@ -106,9 +116,152 @@ HSRP:
     R1(config-if)#standby 1 preempt
    
     
-16.  HSRP:
+16. HSRP:
     Check stand by/HSRP info: SW/R1# show standby
     Check priority router   : SW/R1# show run | include priority
     Check stp for any vlan  : SW/R1# show spanning-tree valn 10
 
+17.  HSRP should be configured to match the Spanning Tree path:
+     CoreDevice1(config)#spanning-tree vlan 10 root primary  (most priority and pre-empt )
+     CoreDevive1(config)#spanning-tree vlan 20 root secondary
+     
+     CoreDevice2(config)#spanning-tree vlan 20 root primary  (most priority and pre-empt)
+     CoreDevice2(config)#spanning-tree vlan 10 root secondary
+     
+     
+     
+ ============================VLAN================================
+18.
+        Switch#show int fa 0/1
+        Switch#show interface FastEthernet 0/1 switchport
+        Switch#show interface status
+        Switch#show interface switchport 
+        Switch#show interface trunk   ( if TRUNK is avaiable)
+        Switch#show vlan brief
 
+
+19. VLAN CREATE, CONFIGURE, ASSIGN to INTERFACE On SWITCH:
+----------------------------------------------------------
+
+        SW1(config)#vlan 10                     (create vlan)
+        SW1(config-vlan)#name Eng               (create name of the vlan)
+        SW1(config)#interface FastEthernet 0/1 
+        SW1(config-if)#switchport mode access 
+        SW1(config-if)#switchport access vlan 10 
+
+        SW1(config)#interface range FastEthernet 0/3-5 
+        SW1(config-if)#switchport mode access 
+        SW1(config-if)#switchport access vlan 10
+
+        Switch(config-if)# switchport mode trunk/dynamic/trunk	
+         *trunk	Set trunking mode to ACCESS unconditionally
+         dynamic	Set trunking mode to dynamically negotiate trunk or trunk mode
+         trunk	Set trunking mode to TRUNK unconditionally
+
+
+        TO DELETE VLAN and ACCESS:
+        --------------------------
+        Switch(config)# int f 0/1 	(Enter in Interface configuration mode)
+        Switch(config-if)#no switchport access vlan 10	(Removes interface from VLAN 10 and reassigns it to the default VLAN – VLAN 1)
+        Switch(config)#no vlan 10	 (Delete VLAN 10 from VLAN database)
+
+
+
+20.
+Check configuration:  #show dtp interface f0/1
+Manual configuration: #switchport mode access 
+                      #switchport mode trunk
+
+VTP:
+----
+#show vtp status
+#show interface fastethernet 1/0/23 trunk
+
+VTP MODES server, client and transparent:
+----------------------------------------
+CONFIGURATION:
+SW1(config)#vtp domain Flackbox 
+SW1(config)#vtp mode server
+or
+SW1(config)#vtp mode client
+or
+SW1(config)#vtp mode transparent
+SW1(config)#vlan 20 
+SW1(config-vlan)#name sales
+(Cannot add VLAN if VTP Client)
+
+
+
+
+
+01. ROUTER WITH SEPARATE INTERFACES
+------------------------------------
+You need a separate physical interface for every VLAN you are liable to RUN OUT of interfaces
+
+R1(config)#interface FastEthernet 0/1 
+R1(config-interface)#ip address 10.10.10.1 255.255.255.0 
+R1(config)#interface FastEthernet 0/2 
+R1(config-interface)#ip address 10.10.20.1 255.255.255.0 
+R1(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2
+
+SW1(config)#interface FastEthernet 0/1 
+SW1(config-if)#switchport mode access 
+SW1(config-if)#switchport access vlan 10 
+SW1(config)#interface FastEthernet 0/2 
+SW1(config-if)#switchport mode access 
+SW1(config-if)#switchport access vlan 20
+
+02. ROUTER ON STICK:
+--------------------
+**Router's LOGICAL interface are create, configured and used.
+
+Router#vlan database
+Router(vlan)#vlan 40 name SALES
+Router#show vlan brief
+
+
+R1(config)#interface FastEthernet 0/1 
+R1(config-interface)#no ip address 
+R1(config-interface)#no shutdown
+
+R1(config)#interface FastEthernet 0/1.10  (Logical Extended Ethernet port 0/1)
+R1(config-interface)#encapsulation dot1q 10 
+R1(config-interface)#ip address 10.10.10.1 255.255.255.0 
+
+R1(config)#interface FastEthernet 0/1.20   (Logical Extended Ethernet port 0/1)
+R1(config-interface)#encapsulation dot1q 20 
+R1(config-interface)#ip address 10.10.20.1 255.255.255.0 
+
+R1(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2  (To connect to internet)
+
+SW1(config)#interface FastEthernet 0/1 
+SW1(config-if)#switchport mode trunk
+
+03. LAYER 3 SWITCH
+------------------
+
+> Traffic being routed within the campus is routed across the switch backplane, it does not need to travel over physical cables to an external router
+> You may still need an external router for WAN connectivity and services
+
+Global Configuration for SWITCH:-------
+SW1(config)#ip routing
+SW1(config)#interface vlan 10
+SW1(config-if)#ip address 10.10.10.1 255.255.255.0 
+SW1(config)#interface vlan 20
+SW1(config-if)#ip address 10.10.20.1 255.255.255.0
+
+FOR WAN Configuration:----
+SW1(config)#interface FastEthernet 0/1
+SW1(config-if)#no switchport
+SW1(config-if)#ip address 10.10.100.1 255.255.255.0 
+SW1(config)#ip route 0.0.0.0 0.0.0.0 10.10.100.2
+
+R1(config)#interface FastEthernet 0/1 
+R1(config-interface)#ip address 10.10.100.2 255.255.255.0 
+R1(config)#interface FastEthernet 0/2 
+R1(config-interface)#ip address 203.0.113.1 255.255.255.0 
+R1(config)#ip route 0.0.0.0 0.0.0.0 203.0.113.2 
+R1(config)#ip route 10.10.0.0 255.255.0.0 10.10.100.1
+
+     
+     
