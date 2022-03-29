@@ -3,7 +3,7 @@
 
 
 02. About Router and Switch
-===========================
+================================================
 
 01. Which model of ROUTER and SWITCH, we use in Packet Tracer and 
     What are About Interface, Extensionibility, Module, Power and Configuration of these router and switch?
@@ -42,7 +42,7 @@
 
 
 05.1 IP Routing (& STATIC) 
-====================================================
+========================================================
             
 01. What is IP Routing?
 02. What is Routing Table, what a Routing Table contains and Types of routing?
@@ -99,7 +99,7 @@
 
 
 06. VLAN & TRUNK
- ======================================
+ =============================================
 
 0) Name, Types of SWITCH used in Network?
 1) What/Why is VLAN? Adv and Disadv of VLAN? How to remove disadvantage of VLAN?
