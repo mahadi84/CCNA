@@ -43,8 +43,6 @@
             
 01. What is IP Routing?
 02. What is Routing Table, what a Routing Table contains and Types of routing?
-
-
 03. How to:
     a) Add IP/ROUTE to a INTERFACE
        RENAME router/switch
@@ -58,17 +56,102 @@
     h) All info about OSPF
     k) Delete any Routing Protocol and IP from advertise network
 
-
-
 04. What are:
     a) Routing Protocol MATRIC(for RIP,OSPF, EIGRP)  b) Administrative Distance (AD)(for RIP,OSPF,EIGRP)   
     c) Admin Distance VS Matric   d) Next Hop    e) Routing Protocol CODE     f) Gateway of Last Resort 
     g) Wildcard Mask   h) MTU   i) Stub Area   j) Loopback Interface    k) Auto Summary
     l) Broadcast vs Multicast m) Passive-interface 
 
-
-
 05. What is STATIC ROUTING and how to configure it?
     a) SEE static router address    b) ADD static router address
+    
+    
+ 
+05.2 IP Routing (DYNAMIC)
+===================================================================
+ 
+01. What is Dynamic Routing Protocol and Adv. of Dynamic Routing Protocol?
+02. What is the difference between/among: 
+     a> IGP vs EGP 
+     b> Distance Vector vs Link State vs Path Vector Algorithom
+     c> RIP vs IGRP vs EIGRP vs OSPF 
+     
+03. EIGRP Metrics:  
+    a) Reported Distance b) Feasible Distance 
+    c) Successor d) Feasible Successor
+    e) ASN (Autonomous System Number)
 
+04. OSPF Config: 
+    a) Process ID b) Area ID   c) Router ID 
+    d) Route Injection Meaning e) How NOT to advertise a interface 
+    f) ABR  g) Backbone Router h) Transit Router i) Inter Area Router
+    j) Why multi-area concept  k) How to do Manual Summary
+    
+05. How to Connect to the internet NOT advertising internal routes.
+06. What are DR and BDR, what these do in OSPF?
+
+07. How to Configure?
+     >RIP >EIGRP >OSPF >IS-IS >BGP
+
+
+
+06. VLAN & TRUNK
+ ======================================
+
+0) Name, Types of SWITCH used in Network?
+1) What/Why is VLAN? Adv and Disadv of VLAN? How to remove disadvantage of VLAN?
+2) Command to check: a> VLAN name and assign interface
+                     b> VLAN interface info 
+                     c> TRUNK interface/info
+                     d> Switchport status
+3) How to CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE?
+4) What/Why DTP and VTP, how to check and configure?
+
+5) An access port carries traffic for one specific VLAN,
+   -How to carry traffice between SWITCHES for MULTIPLE VLANS?
+   
+6) How to send/receive data one VLAN to Another? what is inter-vlan-routing? Methods to configure INTER-VLAN-ROUTING?
+
+
+07. DHCP
+==================================================
+01. Why DHCP?
+02. What are:   a) exludeed-address     b) Network   
+                c) default-router       d) dns-server
+                e) helper-address       f) binding
+                g) lease                h) pool
+
+03. How to Configure:
+    a) ROUTER as DHCP SERVER that will distribute DHCP info (IP,SM,DG,DNS) to PCs connected with.
+    b) ROUTER to bypass EXTERNAL DHCP SERVER info to the PCs connected to.
+    c) ROUTER as DHCP CLIENT (Receive IP,SM,DG,DNS info from other server/router)
+  
+  
+  
+08. HSRP (Hot Spanning Routing Protocol)
+============================================== 
+
+01. What is the alternative if Gatway Router is down /
+    How to use one of two Routers as Gateway for Load Balancing?
+    which switch is best for core/distribution layer? 
+02. What is HSRP and How does a HSRP works, and Configure(CMD) it?
+03. Can I prioritise one router over other and HOW, Example: One goes down and come back to online?
+04. What are FHR?
+05. Should HSRP version be same during configuration?
+06. Code to check: 
+            a) standby router info b) Tracerout Command
+            
+            
+09. STP (SPANNING TREE PROTOCOL)       
+==========================================================
+
+01. What is braodcast traffic and strom? What cause broadcast strom in a computer network?
+02. How does a ROUTER/Layer 3/2 switch take care of Braodcast Strom?
+    How to get a ROUTER/SWITCH MAC address?
+03. What/Why is Route Bridge? How system Elect a Route Bridge? 
+    How to Check "Route Priority" and "Spanning tree vlan" info ?
+04. What and Why is STP? How it works?
+05. Versions of Spanning Tree Protocol and Adv. of this?
+06. What is the Relationship between STP and HSRP? How to configure it?
+07. What is most directed Path?
             
