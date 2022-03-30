@@ -1,4 +1,6 @@
 
+
+
 COMMANDs to:
 ------------
 00. Get a ROUTER/SWITCH MAC address
@@ -18,17 +20,12 @@ ROUTING PROTOCOL:
 12. Delete any Routing Protocol and IP from advertise network
 
 DHCP:
-13. Configure ROuter DHCP as SERVER and 
-    CLIENT and EXTERNAL DHCP SERVER
-14. CHECK Details about DHCP
-    SERVER and CLIENT 
-    and EXTERNAL DHCP server
+13. Configure ROuter DHCP as SERVER and  CLIENT and EXTERNAL DHCP SERVER
+14. CHECK Details about DHCP SERVER and CLIENT  and EXTERNAL DHCP server
 
 HSRP:
 15. Configure, Check prioritise
-16. Check "standby/HSRP info" and 
-          "Route Priority" and 
-          "Spanning tree for any vlan".
+16. Check "standby/HSRP info" and  "Route Priority" and  "Spanning tree for any vlan".
 17. Configure Relationship between HSRP and STP.
 
 
