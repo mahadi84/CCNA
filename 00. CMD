@@ -33,10 +33,11 @@ HSRP:
 
 
 VLAN:
-18.Command to check: a> VLAN  info like name and assign interface
-                     b> VLAN interface info ACCESS/TRUNK
-                     c> TRUNK interface/info
-                     d> Switchport status
+18.Command to CHECK: 
+              a> Total VLANs in a Switch/Router
+              b> Interface Configured as  ACCESS/TRUNK?
+              c> Specific (Ex: fa 0/1) infterface connected to which VLAN.
+
 19. CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE
 20. CHECK and CONFIGURE DTP and VTP and VTP as server, client and transparent.
 21. Configure  INTER-VLAN-ROUTING 3 ways (Router interface, sub-interface and Layer 3 switch)
@@ -135,12 +136,8 @@ VLAN:
  ============================VLAN================================
 18.
         Switch#show vlan brief
-        Switch#show int fa 0/1
         Switch#show interface FastEthernet 0/1 switchport
-        Switch#show interface status 
-        Switch#show interface switchport 
-        Switch#show interface trunk   ( if TRUNK is avaiable)
-        
+        Switch#show interface FastEthernet 0/1 status        
 
 
 19. VLAN CREATE, CONFIGURE, ASSIGN to INTERFACE On SWITCH:
