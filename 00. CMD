@@ -28,7 +28,6 @@ HSRP:
 16. Check "standby/HSRP info" and  "Route Priority" and  "Spanning tree for any vlan".
 17. Configure Relationship between HSRP and STP.
 
-
 VLAN:
 18.Command to CHECK: 
               a> Total VLANs in a Switch/Router
