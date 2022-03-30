@@ -9,6 +9,7 @@
 
 
 01.
+============
 Router: 2811 and Switch: 2960
 
 What is Cisco ROUTER 2811 ?
@@ -27,8 +28,8 @@ Non-PoE configurations that provide Desktop
 for entry-level enterprise, midmarket, and branch.
 
 
-Get extra FastEthernet or Serial port in Cisco Packet Tracer:
-------------------------------------------------------------
+02. How to get extra FastEthernet or Serial port in Cisco Packet Tracer? what is the meaning of NM, WIC?
+=======================================================================================================
 >Click on Router
 >Than Physical
 
@@ -39,23 +40,21 @@ NM: Network Analysis Module
 WIC: WAN Interface Card
 
 
+03. What is Serial and Parallel Interface?
+=========================================================
 Router and Switch INTERFACE:
 ---------------------------
 There are two type of interface:
 
-01. Parallel Interface:
------------------------
--High speed. 
--Cannot transmit data over long distances.
+01. Parallel Interface:                             02. Serial Interface:
+-----------------------                             ---------------------
+-High speed.                                        -Can transmit data over long distances.  -Lower speed
+-Cannot transmit data over long distances.          -Connect Router using the cable V.35 DTE and DCE cables.
+                                                    
 
-02. Serial Interface:
----------------------
--Can transmit data over long distances.
--Lower speed 
--Connect Router using the cable V.35 DTE and DCE cables.
+04. What is CLOCK SPEED:?
+========================================
 
-CLOCK SPEED:
-------------
 The clock rate serves to synchronize the receiver on the other side of the link.
 Each clock pulse signals the transmission of a bit.
 Note that it is mainly used in lab setups. In the real world, network providers almost always deliver the clock signal.
@@ -67,7 +66,7 @@ router(config-if)# clock rate 64000 (represented in BITS per second)
 
 
 05. Types of Router/Switch Command:
-===================================
+===================================================
 There are 4 types of Command:
 
 01.A.User EXEC Commands:
