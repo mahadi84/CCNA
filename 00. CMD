@@ -10,7 +10,7 @@ COMMANDs to:
 ROUTING PROTOCOL:
 05. Add bandwidth(cost) to a Interface as well as add auto cost reference bandwidth to a Protocol
 06. Configure RIP,EIGRP, OSPF with passive interface
-07. Watch Routing table for RIP/EIGRP/OSPF
+07. Watch Routing table info for RIP/EIGRP/OSPF
 08. Watch Neighbor/Adjancencies 
 09. Watch Protocol/Database
 10. Watch OSPF Interface  
