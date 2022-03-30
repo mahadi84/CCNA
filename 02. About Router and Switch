@@ -71,40 +71,27 @@ There are 4 types of Command:
 
 01.A.User EXEC Commands:
 -----------------------
-Router> ping, show (limited), enable.
+Router>enable/show (limited)/ping. 
 
 01.B. Privileged EXEC Commands/Router all User EXEC commands:
 ------------------------------------------------------------
-Router(config)# debug commands
-Router(config)#reload
-Router(config)#configure (hostname , enable secret, ip route )
+Router(config)# debug commands/reload/configure (hostname , enable secret, ip route )
 
 03. INTERFACE
 -------------
 Router(config-if)# interface ethernet(ip address, ipx address, encapsulation, shutdown / no shutdown)
-Router(config-if)# serial
-Router(config-if)# bri
+Router(config-if)# serial/bri
 
 04. ROUTER
 -----------
-Router(config-router)#router rip
-Router(config-router)#router ospf
-Router(config-router)#router igrp
-
-Routing Engine Commands - 
-Router(config-router)# network 
-Router(config-router)# version 
-Router(config-router)# auto-summary
+Router(config-router)#router rip/eigrp/ospf
+Router(config-router)# network/version/auto-summary (Routing Engine Commands)
 
 04. LINE
 --------
-Router(config-line): vty 
-Router(config-line): console
+Router(config-line): vty/console
+Router(config-line): password/login/modem
 
-Line Commands - 
-Router(config-line): password
-Router(config-line): login 
-Router(config-line): modem
 
 
 
