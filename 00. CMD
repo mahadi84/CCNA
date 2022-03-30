@@ -29,10 +29,9 @@ HSRP:
 17. Configure Relationship between HSRP and STP.
 
 VLAN:
-18.Command to CHECK: 
-              a> Total VLANs in a Switch/Router
-              b> Interface Configured as  ACCESS/TRUNK?
-              c> Specific (Ex: fa 0/1) infterface connected to which VLAN.
+18.  a> CHECK: Total VLANs in a Switch/Router
+     b> CHECK: Interface Configured as  ACCESS/TRUNK?
+     c> CHECK: Specific (Ex: fa 0/1) infterface connected to which VLAN.
 
 19. CREATE, DELETE, CONFIGURE two VLANs and assign to SWITCH-INTERFACE
 20. CHECK and CONFIGURE DTP and VTP and VTP as server, client and transparent.
