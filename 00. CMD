@@ -6,7 +6,7 @@ COMMANDs to:
 02. Add IP/ROUTE to a INTERFACE of Router/Switch
 03. RENAME router/switch
 04. Show ip for all interfaces in a router/switch
-05. Add cost(bandwidth) to a Interface AND add auto cost reference bandwidth to a Protocol
+05. Add cost(bandwidth) to a Interface as well as add auto cost reference bandwidth to a Protocol
 06. Configure RIP,EIGRP, OSPF with passive interface
 07. Watch Routing table for RIP/EIGRP/OSPF
 08. Watch Neighbor/Adjancencies 
