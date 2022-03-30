@@ -5,6 +5,7 @@
 02. How to get extra FastEthernet or Serial port in Cisco Packet Tracer? what is the meaning of NM, WIC?
 03. What is Serial and Parallel Interface?
 04. What is Clock speed?
+05. Types of Router/Switch Command.
 
 
 01.
@@ -63,6 +64,49 @@ Configuration:
 router# conf t
 router(config)# interface serial 1/0
 router(config-if)# clock rate 64000 (represented in BITS per second)
+
+
+05. Types of Router/Switch Command:
+===================================
+There are 4 types of Command:
+
+01.A.User EXEC Commands:
+-----------------------
+Router> ping, show (limited), enable.
+
+01.B. Privileged EXEC Commands/Router all User EXEC commands:
+------------------------------------------------------------
+Router(config)# debug commands
+Router(config)#reload
+Router(config)#configure (hostname , enable secret, ip route )
+
+03. INTERFACE
+-------------
+Router(config-if)# interface ethernet(ip address, ipx address, encapsulation, shutdown / no shutdown)
+Router(config-if)# serial
+Router(config-if)# bri
+
+04. ROUTER
+-----------
+Router(config-router)#router rip
+Router(config-router)#router ospf
+Router(config-router)#router igrp
+
+Routing Engine Commands - 
+Router(config-router)# network 
+Router(config-router)# version 
+Router(config-router)# auto-summary
+
+04. LINE
+--------
+Router(config-line): vty 
+Router(config-line): console
+
+Line Commands - 
+Router(config-line): password
+Router(config-line): login 
+Router(config-line): modem
+
 
 
 
