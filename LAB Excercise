@@ -108,14 +108,15 @@ Adjacencies and Passive Interfaces
 
 43) Enter the command below to verify that R1 has established EIGRP 
 adjacencies with R2 and R5.
-
 R1#show ip eigrp neighbors
  
 EIGRP-IPv4 Neighbors for AS(100)
- H                  Address           Interface   Hold Uptime SRTT RTO Q Seq(sec)         1 10.0.3.2 0 10.0.0.2
- Fa1/1 Fa0/0  (ms) Cnt Num
-    14 00:17:21 33 198 0 16
-    11 00:19:21 36 216 0 32
+ H     Address     Interface   Hold     Uptime      SRTT       RTO    Q       Seq         
+                               (sec)                (ms)             cnt      NUM
+1     10.0.3.2      Fa1/1       14       00:17:21   33         198    0        16
+0     10.0.0.2      Fa0/0       11       00:19:21   36         216    0        32
+
+    
 44) Verify that traffic from R5 to the directly connected interfaces on R1 goes via the FastEthernet 0/1 interface.
 
 45) Enter the commands below to configure the loopback interface and the link to R5 as passive interfaces on R1.
@@ -125,5 +126,4 @@ EIGRP-IPv4 Neighbors for AS(100)
       
 46) What changes do you expect to see in the routing table on R5 and why?
 47) Verify the expected changes to the routing table on R5.
-
 
