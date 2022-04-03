@@ -6,22 +6,7 @@
 02. What is Routing Table, what a Routing Table contains and Types of routing?
 
 
-03. How to:
-    a) Add IP/ROUTE to a INTERFACE
-       RENAME router/switch
-       Show ip for all interfaces in a router/switch
-    b) Add cost(bandwidth) to a Port AND add auto cost reference bandwidth to a Protocol
-    c) Load Balance (RIP vs EIGRP vs OSPF)
-    d) Watch Routing table for RIP/EIGRP/OSPF
-    e) Watch Neighbor/Adjancencies 
-    f) Watch Protocol/Database
-    g) Watch OSPF Interface  
-    h) All info about OSPF
-    k) Delete any Routing Protocol and IP from advertise network
-
-
-
-04. What are:
+03. What are:
     a) Routing Protocol MATRIC(for RIP,OSPF, EIGRP)  b) Administrative Distance (AD)(for RIP,OSPF,EIGRP)   
     c) Admin Distance VS Matric   d) Next Hop    e) Routing Protocol CODE     f) Gateway of Last Resort 
     g) Wildcard Mask   h) MTU   i) Stub Area   j) Loopback Interface    k) Auto Summary
@@ -29,7 +14,7 @@
 
 
 
-05. What is STATIC ROUTING and how to configure it?
+04. What is STATIC ROUTING and how to configure it?
     a) SEE static router address    b) ADD static router address
 
 
@@ -63,31 +48,8 @@ There are three different methods:
 03. Dynamic routing
 
 
-=======================================================) 03 (========================================================================
 
-  a) Add IP to a INTERFACE:     #int serial 2/0 OR fa 0/0 OR gi 0 
-                                #ip address 192.168.10.1 255.255.255.0  
-                                #no shutdown
-     Rename Router/Switch:      #hostname router_name
-     Show IP 4 all interfaces   #show IP interface brief 
- 
- b) Add cost(bandwidth) to a Port
-   
-                                #int fa 1/1  
-                                #ip ospf cost 1500  
-    Add auto cost reference bandwidth to Protocol:
-                                #router ospf 1 
-                                #auto-cost reference-bandwidth 100000 (for 100GB)
-  c) Load Balance: RIP and OSPF use two or more link with same MATRIC for load balance BUT EIGRP can use link with different matric for load Balance.
-  d) Watch Routing table:       #show ip route RIP/EIGRP/OSPF
-  e) Watch Neighbor:            #show ip rip/eigrp/ospf/ neighbour
-  f) Watch Protocol/database:   #show ip protocols #show ip rip/eigrp/ospf database
-  g) Watch OSPF Interface:      #show ip ospf interface  OR   #sh ip ospf interface fa 0/0 
-  h) All info about OSPF:       #show run | section ospf
-  k) Delete Protocol & Network: #no rip/eigrp/ospf and #no network 10.0.0.2 (with wildcard for eigrp and ospf) 
-
-
-========================================================) 04 (=========================================================================
+========================================================) 03 (=========================================================================
  
 A) ROUTER MATRIC:
 =================
@@ -230,7 +192,7 @@ M) Passive Interface:
 
 
 
-====================================================: 05. STATIC ROUTING: ===============================================================
+====================================================: 04. STATIC ROUTING: ===============================================================
 
 Static Routing Table Tutorial:
  ------------------------------
