@@ -12,7 +12,6 @@ Routing Protocol Updates
 
 2) Debug the routing protocol updates on R1 with the ‘debug ip rip’ command. 
    Observe the updates being sent and received. What kind of traffic is used (unicast, broadcast or multicast)?
-
 3) Enter the commands below to enable RIPv2 on every router.
     router rip 
     version 2
@@ -22,30 +21,23 @@ Routing Protocol Updates
 6) Check that RIP routes have been added to R1 and it has a route to every subnet in the lab.
 7) Why are there two routes to the 10.1.1.0/24 network in the routing table?
 
-
 Comparing Routing Protocols
 ---------------------------
 8) View the RIP database on R1.
-
 9) Enter the commands below on each router to provision a basic OSPF configuration and enable OSPF on every interface.
    router ospf 1
    network 10.0.0.0 0.255.255.255 area 0
 
 10) Give OSPF time to converge. Are RIP routes included in the routing table on R1 now? Why or why not?
 11) Why is there now only one route to the 10.1.1.0/24 network?
-
 12) Disable interface FastEthernet 0/0 on R2. What do you expect to happen to R1’s routing table?
-
 13) Verify your expected changes to R1’s routing table.
-
 14) Aside from the next hop address, what else has changed on the routing table?
-
 15) View the OSPF database on R1 with the ‘show ip ospf database’ command. 
     What is different between it and the RIP database? Why?
 
 Routing Protocol Metrics and Administrative Distance
-----------------------------------------------------
-
+------------------------------------------------------
 16) Enter the command below to remove OSPF on every router no router ospf 1
 17) Will R1 still have connectivity to R4?
 18) What is the metric to the 10.1.1.0/24 network on R1?
@@ -63,39 +55,29 @@ Routing Protocol Metrics and Administrative Distance
 26) Disable RIP and EIGRP on R5 with the commands below.
      R5(config)#no router rip 
      R5(config)#no router eigrp 100
+     
 27) Configure the network so that there is still connectivity between all subnets if the link between R1 and R2 goes down. 
     Accomplish this with six commands.
     Do not enable EIGRP on R5 but note that the routing protocol is expected to be enabled there in the future.
 
 28) What changes do you expect to see to the routing table on R1?
-
 29) Verify the changes to the routing table on R1.
-
 30) Verify that traffic from PC1 to PC3 still goes via R2.
-
 31) Shut down interface FastEthernet 0/0 on R2.
-
 32) What changes do you expect to see on R1’s routing table?
-
 33) Verify the changes to the routing table on R1.
-
 34) Verify connectivity between PC1 and PC3.
-
 35) Verify the traffic goes via R5.
-
 36) Bring interface FastEthernet 0/0 on R2 back up.
-
 37) Enter the commands below on R5 to provision a basic EIGRP configuration and enable EIGRP on every interface.
-
     R5(config)#router eigrp 100
     R5(config-router)#no auto-summary 
     R5(config-router)#network 10.0.0.0 0.255.255.255
     
-Loopback Interfaces
-
+Loopback interface
+--------------------------
 38) Configure loopback interface 0 on each router. Assign the IP address 
     192.168.0.x/32, where ‘x’ is the router number (for example 192.168.0.3/32 on R3.)
-
 39) Is there connectivity to the loopback interfaces from the PCs? Why or why not?
 40) Enter the commands below on each router to include the loopback interfaces in EIGRP.
     R1(config)#router eigrp 100 
@@ -105,7 +87,6 @@ Loopback Interfaces
 
 Adjacencies and Passive Interfaces
 ------------------------------------
-
 43) Enter the command below to verify that R1 has established EIGRP 
 adjacencies with R2 and R5.
 R1#show ip eigrp neighbors
@@ -118,7 +99,6 @@ EIGRP-IPv4 Neighbors for AS(100)
 
     
 44) Verify that traffic from R5 to the directly connected interfaces on R1 goes via the FastEthernet 0/1 interface.
-
 45) Enter the commands below to configure the loopback interface and the link to R5 as passive interfaces on R1.
       R1(config-if)#router eigrp 100 
       R1(config-router)#passive-interface loopback0 
@@ -126,4 +106,8 @@ EIGRP-IPv4 Neighbors for AS(100)
       
 46) What changes do you expect to see in the routing table on R5 and why?
 47) Verify the expected changes to the routing table on R5.
+
+
+
+
 
