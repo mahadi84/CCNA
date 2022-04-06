@@ -1,0 +1,172 @@
+QUESTION: 01
+ 
+
+
+
+
+
+
+Refer to the exhibit. Which type of route does R1 use to reach host 10.10.13.10/32?
+A. default route
+B. network route
+C. host route
+D. floating static route
+
+
+
+
+
+
+
+
+
+
+
+QUESTION: 02
+ 
+Refer to the exhibit. Which prefix does Router1 use for traffic to Host A?
+A. 10.10.10.0/28
+B. 10.10.13.0/25
+C. 10.10.13.144/28
+D. 10.10.13.208/29
+
+
+
+
+
+
+
+
+QUESTION: 03
+DRAG DROP -
+Drag and drop the descriptions of file-transfer protocols from the left onto the correct protocols on the right.
+Select and Place:
+ 
+QUESTION: 04
+A frame that enters a switch fails the Frame Check Sequence. Which two interface counters are incremented? (Choose two.)
+A. input errors
+B. frame
+C. giants
+D. CRC
+E. runts
+
+
+
+
+QUESTION: 05
+DRAG DROP -
+Drag and drop the IPv4 network subnets from the left onto the correct usable host ranges on the right.
+Select and Place:
+ 
+
+QUESTION: 06
+
+How do TCP and UDP differ in the way that they establish a connection between two endpoints?
+A. TCP uses the three-way handshake, and UDP does not guarantee message delivery.
+B. TCP uses synchronization packets, and UDP uses acknowledgment packets.
+C. UDP provides reliable message transfer, and TCP is a connectionless protocol.
+D. UDP uses SYN, SYN ACK, and FIN bits in the frame header while TCP uses SYN, SYN ACK, and ACK bits.
+
+QUESTION: 07
+Which 802.11 frame type is Association Response?
+A. management
+B. protected frame
+C. action
+D. control
+
+QUESTION: 08
+In which way does a spine-and-leaf architecture allow for scalability in a network when additional access ports are required?
+A. A spine switch and a leaf switch can be added with redundant connections between them.
+B. A spine switch can be added with at least 40 GB uplinks.
+C. A leaf switch can be added with connections to every spine switch.
+D. A leaf switch can be added with a single connection to a core spine switch.
+
+QUESTION: 09
+What identifies the functionality of virtual machines?
+A. The hypervisor communicates on Layer 3 without the need for additional resources.
+B. Each hypervisor supports a single virtual machine and a single software switch.
+C. The hypervisor virtualizes physical components including CPU, memory, and storage.
+D. Virtualized servers run efficiently when physically connected to a switch that is separate from the hypervisor.
+
+QUESTION: 10
+Which command automatically generates an IPv6 address from a specified IPv6 prefix and MAC address of an interface?
+A. ipv6 address dhcp
+B. ipv6 address 2001:DB8:5:112::/64 eui-64
+C. ipv6 address autoconfig
+D. ipv6 address 2001:DB8:5:112::2/64 link-local
+
+Question # 11
+When configuring IPv6 on an interface, which two IPv6 multicast groups are joined? (Choose two.)
+A. 2000::/3
+B. 2002::5
+C. FC00::/7
+D. FF02::1
+E. FF02::2
+Question #12
+DRAG DROP -
+ 
+Refer to the exhibit. Drag and drop the networking parameters from the left onto the correct values on the right.
+Select and Place:
+ 
+
+Question #13
+What is the default behavior of a Layer 2 switch when a frame with an unknown destination MAC address is received?
+A. The Layer 2 switch forwards the packet and adds the destination MAC address to its MAC address table.
+B. The Layer 2 switch sends a copy of a packet to CPU for destination MAC address learning.
+C. The Layer 2 switch floods packets to all ports except the receiving port in the given VLAN.
+D. The Layer 2 switch drops the received frame.
+
+
+Question #14
+An engineer must configure a /30 subnet between two routes. Which usable IP address and subnet mask combination meets this criteria?
+A. interface e0/0 description to XX-AXXX:XXXXX ip address 10.2.1.3 255.255.255.252
+B. interface e0/0 description to XX-AXXX:XXXXX ip address 192.168.1.1 255.255.255.248
+C. interface e0/0 description to XX-AXXX:XXXXX ip address 172.16.1.4 255.255.255.248
+D. interface e0/0 description to XX-AXXX:XXXXX ip address 209.165.201.2 225.255.255.252
+
+
+Question #15
+Which network allows devices to communicate without the need to access the Internet?
+A. 172.9.0.0/16
+B. 172.28.0.0/16
+C. 192.0.0.0/8
+D. 209.165.201.0/24
+
+Question #16
+ 
+Refer to the exhibit. Which statement explains the configuration error message that is received?
+A. It belongs to a private IP address range.
+B. The router does not support /28 mask.
+C. It is a network IP address.
+D. It is a broadcast IP address.
+
+
+Question #17
+Which IPv6 address type provides communication between subnets and cannot route on the Internet?
+A. link-local
+B. unique local
+C. multicast
+D. global unicast
+
+Question #18
+Which IPv6 address block sends packets to a group address rather than a single address?
+A. 2000::/3
+B. FC00::/7
+C. FE80::/10
+D. FF00::/8
+
+Question #19
+What are two reasons that cause late collisions to increment on an Ethernet interface? (Choose two.)
+A. when Carrier Sense Multiple Access/Collision Detection is used
+B. when one side of the connection is configured for half-duplex
+C. when the sending device waits 15 seconds before sending the frame again
+D. when a collision occurs after the 32nd byte of a frame has been transmitted
+E. when the cable length limits are exceeded
+
+Question #20
+What is a benefit of using a Cisco Wireless LAN Controller?
+A. It eliminates the need to configure each access point individually.
+B. Central AP management requires more complex configurations.
+C. Unique SSIDs cannot use the same authentication method.
+D. It supports autonomous and lightweight APs.
+
