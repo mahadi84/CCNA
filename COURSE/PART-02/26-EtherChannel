@@ -2,6 +2,10 @@
 01. What/Why is EtherChannel configuration?
 03. Explain Methode of EtherChannel
 
+
+
+Tutorial: https://www.sunsetlearning.com/etherchannel-lacp-pagp-static-protocols/
+
 There are 3 methods to configure EtherChannel in your network: the PAgP and LACP negotiating protocols, or Static mode. 
 The first step is assigning the physical interfaces to the Etherchannel, with different keywords indicating which protocol is to be used. 
 Let’s examine the 3 methods and their differences.
