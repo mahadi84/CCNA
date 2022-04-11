@@ -1,0 +1,51 @@
+
+01. What/Why is EtherChannel configuration?
+03. Explain Methode of EtherChannel
+
+There are 3 methods to configure EtherChannel in your network: the PAgP and LACP negotiating protocols, or Static mode. 
+The first step is assigning the physical interfaces to the Etherchannel, with different keywords indicating which protocol is to be used. 
+Let’s examine the 3 methods and their differences.
+
+ 
+STATIC:
+-------
+A sample static EtherChannel configuration for Figure 1 would be:
+
+SW1(config)#interface range e0/0-1
+SW1(config-if-range)#channel-group 1 mode on
+SW1(config-if-range)#interface port-channel 1
+SW1(config-if)#switchport mode trunk
+
+
+PAgP(Port-Aggregation Protocol (PAgP)
+-------------------------------------
+
+The Port-Aggregation Protocol (PAgP) is Cisco proprietary. It uses the multicast address of
+01-00-0C-CC-CC-CC. A sample config for using PAgP for Figure 1 would be:
+
+SW1(config)#interface range e0/0-1
+SW1(config-if-range)#channel-group 1 mode (desirable/auto)
+SW1(config-if-range)#interface port-channel 1
+SW1(config-if)#switchport mode trunk
+
+So if you have auto on both sides, you will never get an Etherchannel. 
+You need at least one side using desirable, or both.
+
+
+LACP(Link Aggregation Control Protocol):
+----------------------------------------
+
+LACP is an open protocol
+It uses the multicast address of 01-80-c2-00-00-02.
+
+SW1(config)#interface range e0/0-1
+SW1(config-if-range)#channel-group 1 mode (active/passive)
+SW1(config-if-range)#interface port-channel 1
+SW1(config-if)#switchport mode trunk
+
+The active means 'form an Etherchannel'  passive is only responding to requests, not sending any/FORMING.
+
+
+
+
+
