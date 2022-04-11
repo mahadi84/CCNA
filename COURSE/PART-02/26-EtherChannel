@@ -1,10 +1,30 @@
 
-01. What/Why is EtherChannel configuration?
-03. Explain Methode of EtherChannel
+01. What/Why is EtherChannel?
+02. Explain Methode of EtherChannels with  configuration?
 
 
 
 Tutorial: https://www.sunsetlearning.com/etherchannel-lacp-pagp-static-protocols/
+
+============================== 01: What/Why is EtherChannel? =======================
+
+EtherChannel is multiple physical switch interfaces, bundled together, behaving for all intents and purposes as one logical interface. 
+
+So what is necessary to pull this off? 
+Simply, you run more connections between your existing physical devices, and then configure those interfaces to appear as a single interface.
+So you don’t have to buy more equipment, just the cabling. In the world of STP, this new interface looks like only one interface. 
+
+Now in the real world, all of the physical ports are active, forwarding traffic, but due to the algorithms and device behavior, 
+it doesn’t introduce loops when correctly configured. 
+
+From the routing protocols perspective, it looks like one high-speed path between the devices,
+so the routing protocol would choose to use it. In the real world, when the routing protocol sends traffic over the bundle, 
+the traffic is spread across all the physical ports. And here is maybe the best part. In the world of redundancy, 
+if at least one of the physical interfaces is still active, the overall Etherchannel appears to be active.
+So at that 4 a.m. moment (nothing good happens at 4 a.m.) when a cable or interface stops working, the overall path between your switches is still there!
+
+
+==========================02. Explain Methode of EtherChannels with  configuration?=====================================
 
 There are 3 methods to configure EtherChannel in your network: the PAgP and LACP negotiating protocols, or Static mode. 
 The first step is assigning the physical interfaces to the Etherchannel, with different keywords indicating which protocol is to be used. 
