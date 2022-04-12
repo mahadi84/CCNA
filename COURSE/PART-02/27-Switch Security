@@ -27,7 +27,7 @@ SW1(config-if)#ip dhcp snooping trust
 
 
 
-=================================02. What/Shy is DAI (Dynamic ARP Inspection)? ==================================
+=================================02. What/Why is DAI (Dynamic ARP Inspection)? ==================================
 
 ARP Request: I’m looking for 10.10.10.1, what’s your MAC address?
 
