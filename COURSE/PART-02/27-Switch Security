@@ -97,6 +97,7 @@ SW1(config-if)# switchport port-security violation restrict
 
 
 ========================07. ERROR DISABLED INTERFACE and AUTO RECOVARY?============================
+
 If the Violation Action is set to Shutdown and a violation occurs, the port will move to an error-disabled state
 To bring an error-disabled interface back into service:
         >>Physically remove the host with the offending MAC address 
@@ -104,8 +105,7 @@ To bring an error-disabled interface back into service:
 
 AUTO RECOVARY:
 --------------
-You can bring error disabled ports back into service automatically after 
-they have been disabled for a configurable period of time (in seconds)
+You can bring error disabled ports back into service automatically after they have been disabled for a configurable period of time (in seconds)
 SW1(config)#errdisable recovery causepsecure-violation 
 SW1(config)#errdisable recovery interval 600
 
