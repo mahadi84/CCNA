@@ -10,6 +10,10 @@
 
 When DHCP Snooping is enabled, DHCP Server responses are dropped if they don’t arrive on a trusted port.
 
+> When you enable DHCP snooping, the switch inspects the DHCP traffic and keeps track of which IP addresses were assigned to which MAC addresses
+For example, PC1 with MAC address 1.1.1 was assigned IP address 10.10.10
+> If invalid ARP traffic tries to pass through the switch, for example 3.3.3 saying it is 10.10.10, the switch drops the traffic
+
 SW1(config)#ip dhcp snooping 
 SW1(config)#ip dhcp snooping vlan 10 
 SW1(config)#int f0/1 
