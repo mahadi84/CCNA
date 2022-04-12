@@ -1,11 +1,20 @@
+00. How to: A) Check EtherChannel info of any device(Switch/Ruter)/ Verify the EtherChannels comeup. 
+            B)
 
 01. What/Why is EtherChannel?
 02. Explain Methode of EtherChannels with  configuration?
 03. Why 3 Diffrent methods are used? Diffent among STATIC, PAgP and LACP.
+04. Are there any bad effect of STP on Layer 3 devices? 
+05. How to configure interfaces as a Layer 3 Etherchannel with LACP?
+06  Configure Switch1, Switch2 and Switch3 to advertise the IP subnets configured on their Etherchannel interfaces in OSPF Area 0.
+
 
 
 
 Tutorial: https://www.sunsetlearning.com/etherchannel-lacp-pagp-static-protocols/
+
+00: A) SW1# sh etherchannel summary
+
 
 ============================== 01: What/Why is EtherChannel? =======================
 
@@ -70,6 +79,40 @@ SW1(config-if)#switchport mode trunk
 
 The active means 'form an Etherchannel'  passive is only responding to requests, not sending any/FORMING.
 
+
+============================== 04 Are there any bad effect of STP on Layer 3 devices? ==================================
+Spanning Tree only runs on Layer 2 interfaces. It will not run on or shut any of the ports down as they are all Layer 3 ports.
+The Layer 3 switches’ routing tables will handle path selection, redundancy and load balancing.
+
+
+
+===========================05 How to configure interfaces as a Layer 3 Etherchannel with LACP? =========================
+Switch1(config)#interface range GigabitEthernet 1/0/1 - 2 
+Switch1(config-if-range)#no switchport 
+Switch1(config-if-range)#channel-group 1 mode active 
+Switch1(config-if-range)#exit
+
+Switch1(config)#interface port-channel 1 
+Switch1(config-if)#ip address 192.168.0.1 255.255.255.252 
+Switch1(config-if)#no shutdown
+
+Switch2(config)#interface range GigabitEthernet 1/0/1 - 2 
+Switch2(config-if-range)#no switchport 
+Switch2(config-if-range)#channel-group 1 mode active 
+Switch2(config-if-range)#exit
+
+Switch2(config)#interface port-channel 1 
+Switch2(config-if)#ip address 192.168.0.2 255.255.255.252 
+Switch2(config-if)#no shutdown
+
+
+============= 06 Configure Switch1, Switch2 and Switch3 to advertise the IP subnets configured on their Etherchannel interfaces in OSPF Area 0.==========
+
+
+Configure 
+Switch1, Swit
+ch2 and Switch3 to advertise the IP subnets 
+configured on their Etherchannel interfaces in OSPF Area 0.
 
 
 
