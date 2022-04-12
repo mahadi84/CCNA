@@ -1,6 +1,12 @@
 
 
-01. What is DHCP snooping and how to configure it?
+01. What/Why is DHCP snooping and how to configure it?
+02. What/Why is DAI (Dynamic ARP Inspection)?
+03. What/Why is 802.1x Identity Based Networking?
+04. Steps for PORT Security and configuration.
+05. PORT SECURITY DEFAULT BEHAVIOUR?
+06. Security Violation Actions?
+07. ERROR DISABLED INTERFACE and AUTO RECOVARY?
 
 
 
@@ -10,7 +16,7 @@
 
 When DHCP Snooping is enabled, DHCP Server responses are dropped if they don’t arrive on a trusted port.
 
-> When you enable DHCP snooping, the switch inspects the DHCP traffic and keeps track of which IP addresses were assigned to which MAC addresses
+> When you enable DHCP snooping: the switch inspects the DHCP traffic and keeps track of which IP addresses were assigned to which MAC addresses
 For example, PC1 with MAC address 1.1.1 was assigned IP address 10.10.10
 > If invalid ARP traffic tries to pass through the switch, for example 3.3.3 saying it is 10.10.10, the switch drops the traffic
 
@@ -18,3 +24,94 @@ SW1(config)#ip dhcp snooping
 SW1(config)#ip dhcp snooping vlan 10 
 SW1(config)#int f0/1 
 SW1(config-if)#ip dhcp snooping trust
+
+
+
+=================================02. What/Shy is DAI (Dynamic ARP Inspection)? ==================================
+
+ARP Request: I’m looking for 10.10.10.1, what’s your MAC address?
+
+DAI is not performed on trusted ports. 
+Enable this for non DHCP clients.
+SW1(config)#int f0/1
+SW1(config-if)#ip arp inspection trust!
+SW1(config)#ip arp inspection vlan 10
+
+
+
+==============================03. What/Why is 802.1x Identity Based Networking?================================
+
+When 802.1X is enabled:
+only authentication traffic is allowed on switch ports until the host and user are authenticated
+When the user has entered a valid username and password, the switch port transitions to a normal access port in the relevant VLAN.
+
+
+=============================04. Steps for PORT Security ===================================
+>>Best practice is to administratively shut down unused switch ports.
+This stops somebody getting access to the network if they physically connect to the port
+SW1(config)#int f0/2 
+SW1(config-if)#shutdown
+
+>> Port Security enables an administrator to specify which MAC address or addresses can send traffic in to an individual switch port.
+This can be used to lock a port down to a particular host or hosts
+
+>> It is easy to spoof a MAC address, so locking ports down to a specific host is not usually Port Security’s main role in production networks
+Port Security can also configure individual switch ports to allow only a specified number of source MAC addresses to send traffic in to the port
+It can learn connected MAC addresses
+
+>> This is useful to prevent users from adding Wireless Access Points or other shared devices
+
+Configuration:
+--------------
+SW1(config)#int f0/2 
+SW1(config-if)#switchport port-security
+
+
+============================ 05. PORT SECURITY DEFAULT BEHAVIOUR? ============================
+
+> If you configure Port Security with no additional parameters then only one MAC address is allowed to transmit on the port
+> The current MAC address can be disconnected and replaced. The port is not locked down to a particular MAC address
+> If a shared device is connected and multiple hosts try to transmit the port will be shut down
+
+Configuration:
+--------------
+SW1#show port-security interface f0/2
+
+
+============================ 06. Security Violation Actions? ============================
+
+You have 03 options when an unauthorised MAC address sends traffic in to the port:
+
+01> Shutdown (Default): The interface is placed into the error-disabled state, blocking all traffic.
+02> Protect:  Traffic from unauthorised addresses is dropped. Traffic from allowed addresses is forwarded
+03> Restrict: Traffic from unauthorised addresses is dropped, logged and the violation counter incremented. 
+              Traffic from allowed addresses is forwarded.
+
+Configuration:
+-------------
+SW1(config)#int f0/2
+SW1(config-if)# switchport port-security violation protect
+SW1(config-if)# switchport port-security violation restrict
+
+
+
+========================07. ERROR DISABLED INTERFACE and AUTO RECOVARY?============================
+If the Violation Action is set to Shutdown and a violation occurs, the port will move to an error-disabled state
+To bring an error-disabled interface back into service:
+        >>Physically remove the host with the offending MAC address 
+        >>Manually shutdown then no shutdown the interface
+
+AUTO RECOVARY:
+--------------
+You can bring error disabled ports back into service automatically after 
+they have been disabled for a configurable period of time (in seconds)
+SW1(config)#errdisable recovery causepsecure-violation 
+SW1(config)#errdisable recovery interval 600
+
+
+
+
+
+
+
+
