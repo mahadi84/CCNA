@@ -1,0 +1,16 @@
+
+
+01. What is DHCP snooping and how to configure it?
+
+
+
+
+
+======================= 01 What is DHCP snooping and how to configure it? =====================
+
+When DHCP Snooping is enabled, DHCP Server responses are dropped if they don’t arrive on a trusted port.
+
+SW1(config)#ip dhcp snooping 
+SW1(config)#ip dhcp snooping vlan 10 
+SW1(config)#int f0/1 
+SW1(config-if)#ip dhcp snooping trust
