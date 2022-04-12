@@ -1,6 +1,6 @@
 
 ACCESS LAYER SWITCH SECURITY:
-
+00. How to A) Check All Interface info.
 01. What/Why is DHCP snooping and how to configure it?
 02. What/Why is DAI (Dynamic ARP Inspection)?
 03. What/Why is 802.1x Identity Based Networking?
@@ -9,6 +9,11 @@ ACCESS LAYER SWITCH SECURITY:
 06. Security Violation Actions?
 07. ERROR DISABLED INTERFACE and AUTO RECOVARY?
 08. How to ADD more than one MAC address Automaticlly and Manually to a switch port and  HOW to learn/show them?
+
+
+=======0======
+SW1#sh ip int brief
+
 
 
 ======================= 01 What is DHCP snooping and how to configure it? =====================
@@ -62,7 +67,8 @@ It can learn connected MAC addresses
 
 Configuration:
 --------------
-SW1(config)#int f0/2 
+SW1(config)#int f0/2
+SW1(config-if)#switch mode access
 SW1(config-if)#switchport port-security
 
 
@@ -89,6 +95,7 @@ You have 03 options when an unauthorised MAC address sends traffic in to the por
 Configuration:
 -------------
 SW1(config)#int f0/2
+SW1(config-if)#switch mode access
 SW1(config-if)# switchport port-security violation protect
 SW1(config-if)# switchport port-security violation restrict
 
@@ -126,8 +133,9 @@ Manually Adding MAC Addresse:
 You can statically configure allowed MAC addresses if you want to lock the port down to a particular host:
 
 SW1(config)# interface f0/10
+SW1(config-if)# switch mode access
 SW1(config-if)# switchport port-security
-SW1(config-if)#switchport port-security mac-address 1111.2222.3333
+SW1(config-if)# switchport port-security mac-address 1111.2222.3333
 SW1(config-if)# switchport port-security maximum 1
 
 MAC Address Learning:
@@ -139,6 +147,7 @@ configuration. Save to the startup config to make them permanent.
 Configure:
 ----------
 SW1(config)# interface f0/2
+SW1(config-if)#switch mode access
 SW1(config-if)# switchport port-security
 SW1(config-if)# switchport port-security mac-address sticky
 
