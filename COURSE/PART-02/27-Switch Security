@@ -84,7 +84,7 @@ SW1#show port-security interface f0/2
 You have 03 options when an unauthorised MAC address sends traffic in to the port:
 
 01> Shutdown (Default): The interface is placed into the error-disabled state, blocking all traffic.
-02> Protect:  Traffic from unauthorised addresses is dropped. Traffic from allowed addresses is forwarded
+02> Protect:  Traffic from unauthorised addresses is dropped. Traffic from allowed addresses is forwarded.
 03> Restrict: Traffic from unauthorised addresses is dropped, logged and the violation counter incremented. 
               Traffic from allowed addresses is forwarded.
 
