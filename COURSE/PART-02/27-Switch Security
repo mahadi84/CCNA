@@ -8,7 +8,7 @@ ACCESS LAYER SWITCH SECURITY:
 05. PORT SECURITY DEFAULT BEHAVIOUR?
 06. Security Violation Actions?
 07. ERROR DISABLED INTERFACE and AUTO RECOVARY?
-08. How to add mora than one MAC address Automaticlly and Manually to switch port and  HOW to learn/show them?
+08. How to ADD more than one MAC address Automaticlly and Manually to a switch port and  HOW to learn/show them?
 
 
 ======================= 01 What is DHCP snooping and how to configure it? =====================
