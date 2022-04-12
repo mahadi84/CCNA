@@ -12,7 +12,8 @@ ACCESS LAYER SWITCH SECURITY:
 08. How to ADD more than one MAC address Automaticlly and Manually to a switch port and  HOW to learn/show them?
 
 
-=======0======
+======= 00. How to check ======
+
 SW1#sh ip int brief
 
 SW# show port-security int fa 0/1
