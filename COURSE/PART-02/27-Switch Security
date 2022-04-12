@@ -8,6 +8,7 @@ ACCESS LAYER SWITCH SECURITY:
 05. PORT SECURITY DEFAULT BEHAVIOUR?
 06. Security Violation Actions?
 07. ERROR DISABLED INTERFACE and AUTO RECOVARY?
+08. How to add mora than one MAC address Automaticlly and Manually to switch port and  HOW to learn/show them?
 
 
 ======================= 01 What is DHCP snooping and how to configure it? =====================
@@ -92,7 +93,6 @@ SW1(config-if)# switchport port-security violation protect
 SW1(config-if)# switchport port-security violation restrict
 
 
-
 ========================07. ERROR DISABLED INTERFACE and AUTO RECOVARY?============================
 
 If the Violation Action is set to Shutdown and a violation occurs, the port will move to an error-disabled state
@@ -107,9 +107,46 @@ SW1(config)#errdisable recovery causepsecure-violation
 SW1(config)#errdisable recovery interval 600
 
 
+============================ 08. How to add mora than one MAC address to switch port and how to do so?===================================
+
+When Port Security is enabled the maximum number of MAC addresses allowed to send traffic into the interface is one by default.
+This can be increased if multiple hosts share the port, for example an IP phone with a PC plugged into the back of it.
+
+Configure:
+----------
+SW1(config)# interface f0/2
+SW1(config-if)# switchport port-security maximum 2
+
+Show:
+SW1#show port-security int f0/2
 
 
+Manually Adding MAC Addresse:
+-----------------------------
+You can statically configure allowed MAC addresses if you want to lock the port down to a particular host:
 
+SW1(config)# interface f0/10
+SW1(config-if)# switchport port-security
+SW1(config-if)#switchport port-security mac-address 1111.2222.3333
+SW1(config-if)# switchport port-security maximum 1
+
+MAC Address Learning:
+---------------------
+Scenario: You have 1000 authorised hosts connected to the network. You want to lock the ports down to these particular hosts
+Manually adding the MAC addresses is not a scalable solution. Sticky MAC addresses add the learned MAC address to the running 
+configuration. Save to the startup config to make them permanent.
+
+Configure:
+----------
+SW1(config)# interface f0/2
+SW1(config-if)# switchport port-security
+SW1(config-if)# switchport port-security mac-address sticky
+
+SHOW: 
+-----
+SW# show port-security address
+OR
+SW# show port-security
 
 
 
