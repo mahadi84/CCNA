@@ -1,6 +1,6 @@
 
 ACCESS LAYER SWITCH SECURITY:
-00. How to A) Check All Interface info.
+00. How to A) Check All Interface info and Port security info.
 01. What/Why is DHCP snooping and how to configure it?
 02. What/Why is DAI (Dynamic ARP Inspection)?
 03. What/Why is 802.1x Identity Based Networking?
@@ -13,6 +13,13 @@ ACCESS LAYER SWITCH SECURITY:
 
 =======0======
 SW1#sh ip int brief
+
+SW# show port-security int fa 0/1
+
+SW# show port-security
+OR
+SW# show port-security address
+
 
 
 
@@ -151,11 +158,7 @@ SW1(config-if)#switch mode access
 SW1(config-if)# switchport port-security
 SW1(config-if)# switchport port-security mac-address sticky
 
-SHOW: 
------
-SW# show port-security address
-OR
-SW# show port-security
+
 
 
 
