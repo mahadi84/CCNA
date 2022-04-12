@@ -10,9 +10,6 @@ ACCESS LAYER SWITCH SECURITY:
 07. ERROR DISABLED INTERFACE and AUTO RECOVARY?
 
 
-
-
-
 ======================= 01 What is DHCP snooping and how to configure it? =====================
 
 When DHCP Snooping is enabled, DHCP Server responses are dropped if they don’t arrive on a trusted port.
@@ -27,27 +24,27 @@ SW1(config)#int f0/1
 SW1(config-if)#ip dhcp snooping trust
 
 
-
 =================================02. What/Why is DAI (Dynamic ARP Inspection)? ==================================
 
-ARP Request: I’m looking for 10.10.10.1, what’s your MAC address?
+ARP Request: IP address is used to get MAC address. Ex: I’m looking for 10.10.10.1, what’s your MAC address?
+DAI is not performed on trusted ports. Enable this for non DHCP clients.
 
-DAI is not performed on trusted ports. 
-Enable this for non DHCP clients.
+Configuration:
+--------------
 SW1(config)#int f0/1
 SW1(config-if)#ip arp inspection trust!
 SW1(config)#ip arp inspection vlan 10
 
 
-
 ==============================03. What/Why is 802.1x Identity Based Networking?================================
 
 When 802.1X is enabled:
-only authentication traffic is allowed on switch ports until the host and user are authenticated
+only authentication traffic is allowed on switch ports until the host and user are authenticated.
 When the user has entered a valid username and password, the switch port transitions to a normal access port in the relevant VLAN.
 
 
 =============================04. Steps for PORT Security ===================================
+
 >>Best practice is to administratively shut down unused switch ports.
 This stops somebody getting access to the network if they physically connect to the port
 SW1(config)#int f0/2 
