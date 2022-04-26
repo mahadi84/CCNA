@@ -54,8 +54,9 @@ Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by c
 
 Protocols     Ports        Description
 ---------     ------       -------------
-FTP           20/21        File Transfer Protocol. Allows transfer of files between computers/host.
-TFTP           69          Trivial File Transfer Protocol.
+
+FTP           20/21        File Transfer Protocol is used by remote users to download & upload files.
+TFTP           69          Trivial File Transfer Protocol is used to transfer configurations to/from the network devices.
 SSH            22          Secure Shell. Provides a SECURE or unencrypted connection between host systems (for LOGIN/CONFIGURE).
 TELNET         23          Provides INSECURE connection to remote computer/hosts  (for LOGIN/CONFIGURE).
 HTTP           80          HyperText Transfer Protocol. Allows access to web servers.
