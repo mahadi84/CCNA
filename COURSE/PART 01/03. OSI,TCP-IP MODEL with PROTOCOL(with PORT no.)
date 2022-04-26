@@ -25,7 +25,7 @@ OSI                                                                             
 ----                                                                                   --------------                                  ------------
 01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))             --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
 02.PRESENTATION (Encode, encrypt and compress data)                              --------|SSL, TLS                                      | 
-03.SESSION (Creates communication channels, called sessions, between devices)    --------|NetBIOS, PAP, PPTP                            | 01.APPLICATION
+03.SESSION (Creates communication channels between devices)                      --------|NetBIOS, PAP, PPTP                            | 01.APPLICATION
 
 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP                                      | 02.TRANSPORT
 
