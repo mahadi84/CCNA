@@ -127,7 +127,7 @@ Solution:
 1) Subnet Mask:    255.255.240.0
 2) Block Size:   256(Octac Value=2^8)-240=16
 3) Number of Subnetworks: 2^x= 2^4=16    (here x=total 1's value of classless subnet bit)
-4) Number of valid hosts: 2^y-2=2^4-2=14 (here y=total 0's value of classless host bit)
+4) Number of valid hosts: 2^y-2=2^12-2=4094 (here y=total 0's value of classless host bit)
 5,6,7) 
 
 0,1,2,3----9, 10(2-digit), 11(2-digit)
