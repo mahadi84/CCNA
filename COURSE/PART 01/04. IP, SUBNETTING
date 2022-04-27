@@ -7,11 +7,12 @@
 03. PROBLEM 01:  IP: 192.168.10.0 SM: 255.255.255.224
             Find out:
             ---------
-            1) Subnet Mask                    2) Block Size
+            1) Subnet Mask                    2) Block Size (Different IP address between One subnetwork to another)
             3) Number of Subnets              4) Number of hosts(valid)
-            5) What are the subnet ID's       6) First and Last valid host
+            5) What are the subnet ID's       6) First and Last valid host   
             7) What's the Broadcast address   
-            **8) NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS
+            8) NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS
+            9) FIND OUT N'th subnet's NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS.
 
 
 
@@ -85,6 +86,7 @@ Solution:
 3) Number of Subnetworks: 2^x= 2^3=8    (here x=total 1's value of classless subnet bit)
 4) Number of valid hosts: 2^y-2=2^5-2=30 (here y=total 0's value of classless host bit)
 5,6,7) 
+8) 
 
 0--9, 10(2-digit), 11(2-digit)
 
@@ -114,6 +116,7 @@ Find out:
 6) First and Last valid host
 7) What's the Broadcast address
 **8) NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS
+9) FIND OUT 10th subnet's NETWORK ADDRESS, FIRST and LAST VALID HOST, BROADCAST ADDRESS.
 
 Solution:
 ---------
@@ -121,7 +124,7 @@ Solution:
                       22   .   204  .  134   .  249     /20
 0) Binary Value:   11111111.11111111.11110000.00000000
 1) Subnet Mask:    255.255.240.0
-2) Block Size:   256(Octac Value=2^8)-240=16
+2) Block Size:   256(Octac Value=2^8)-240=16  
 3) Number of Subnetworks: 2^x= 2^4=16    (here x=total 1's value of classless subnet bit)
 4) Number of valid hosts: 2^y-2=2^12-2=4094 (here y=total 0's value of classless host bit)
 5,6,7) 
@@ -131,7 +134,7 @@ Solution:
 NETWORK/SUBNET ADDRESS/ID  |  0.0 | 16.0  | 32.0  |---|128.0  |---|240.0
 FIRST VALID ADDRESS        |  0.1 | 16.1  | 32.1  |---|128.1  |---|240.1
 LAST VALID ADDRESS         |15.254| 31.254| 46.254|---|143.254|---|260.254
-BROADCAST ADDRESS          |25.255| 31.255| 47.255|---|143.255|---|260.255
+BROADCAST ADDRESS          |25.255| 31.255| 46.255|---|143.255|---|260.255
 
 8)  
 NETWORK ADDRESS=22.204.128.0
