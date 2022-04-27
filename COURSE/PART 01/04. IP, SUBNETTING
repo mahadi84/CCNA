@@ -81,7 +81,7 @@ Solution:
 ---------
    		           255   .   255  .  255   .  254
 1) Subnet mask(Binary Value):    11111111.11111111.11111111.11100000
-2) Block Size:   256(Octac Value=2^8)-224=32
+2) Block Size:   256(Octac Value=2^8)-224=32  (256
 3) Number of Subnetworks: 2^x= 2^3=8    (here x=total 1's value of classless subnet bit)
 4) Number of valid hosts: 2^y-2=2^5-2=30 (here y=total 0's value of classless host bit)
 5,6,7) 
