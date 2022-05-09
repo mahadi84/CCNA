@@ -19,6 +19,6 @@ QUES#04:
 --------
 Input errors: Total of many counters, including all below
 Frame:        Frames on illegal format. Can be caused by collisions
-Giants:       Frames that exceeded the maximum size (1518 bytes)
 CRC:          Received frames that did not pass the FCS math
+Giants:       Frames that exceeded the maximum size (1518 bytes)
 Runts:        Frames that did not meet the minimum size (64 bytes). Can be caused by collisions
