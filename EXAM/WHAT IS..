@@ -1,7 +1,7 @@
 QUES:01:
 --------
 
-A NETWORK ROUTE is a route that represent a network, not matter if that subnet is /25 or /8, it is still a subnet.
-A DEFAULT ROUTE has a higher mask, and the routing table always prefer the most specific route to the host in the routing table.
-A HOST ROUTE is used to route traffic to a specific host. The subnet mask in the route will always be all 1's. 
-That means the subnet mask for a host route will be /32 for IPv4 and /128 for IPv6.
+A NETWORK ROUTE represents Network, not matter if that subnet is /25 or /8, it is still a subnet.
+A DEFAULT ROUTE has a higher mask(0.0.0.0/0 ), and the routing table always prefer the most specific route to the host in the routing table.
+A HOST ROUTE is used to route traffic to a specific host. The subnet mask in the route will always be all 1's(10.10.10.10/32 for IPv4 and /128 for IPv6.). 
+
