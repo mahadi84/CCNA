@@ -2,37 +2,36 @@
 https://learningnetwork.cisco.com/s/ccna-exam-topics
 
 
+To give you an idea, here are some potential topic areas you could explore:
 
-### Core Topics Covered in CCNA
+01. Networking Fundamentals:
+      * OSI and TCP/IP models
+      * Networking devices (routers, switches, hubs)
+      * Network topologies
+      * Network addressing (IP, subnet masks)
 
-The CCNA curriculum is divided into six main domains:
+02. IP Connectivity:
+      * Routing protocols (RIP, OSPF, EIGRP)
+      * Subnetting and VLSM
+      * NAT
+      * DHCP
 
-1. **Network Fundamentals:**
-   * Understanding networking concepts, models (OSI, TCP/IP), network devices (routers, switches, hubs), and basic network topologies.
-   * Network addressing (IP addressing, subnetting).
+03. Network Access:
+      * LAN technologies (Ethernet, VLANs)
+      * WLAN technologies (802.11 standards)
+      * Network security fundamentals (firewalls, ACLs)
 
-2. **Network Access:**
-   * Ethernet technologies, LAN switching, VLANs, and inter-VLAN routing.
-   * Network security basics (ACLs, DHCP snooping, dynamic ARP inspection, port security).
+04. IP Services:
+      * Network Address Translation (NAT)
+      * Dynamic Host Configuration Protocol (DHCP)
+      * Domain Name System (DNS)
 
-3. **IP Connectivity:**
-   * IP addressing, routing protocols (RIP, OSPF, EIGRP), routing concepts (static, dynamic routing), and route summarization.
+05. Security Fundamentals:
+      * Threats and vulnerabilities
+      * Network security devices (firewalls, IPS)
+      * Access control lists (ACLs)
 
-4. **IP Services:**
-   * Network Address Translation (NAT), DHCP, DNS, and network troubleshooting.
 
-5. **Security Fundamentals:**
-   * Basic security concepts, threats, vulnerabilities, and mitigation techniques.
-   * Access control mechanisms (passwords, ACLs, authentication).
 
-6. **Automation and Programmability:**
-   * Introduction to network automation and programmability concepts.
-   * Understanding the role of APIs and scripting in network management.
 
-### Additional Topics (Depending on Course and Instructor)
-
-While the core topics are standard, some courses might include additional subjects like:
-* **Wireless Networking:** Basic concepts of Wi-Fi, wireless standards, and wireless security.
-* **Network Troubleshooting:** Advanced troubleshooting techniques and tools.
-* **Network Design:** Basic network design principles and considerations.
-
+-
