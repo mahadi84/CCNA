@@ -1,0 +1,37 @@
+
+
+Class A, Class B, and Class C IPv4 addresses 
+Including their total ranges, default subnet masks, 
+and usable IP counts per network:
+
+------------------------------------------------------------------------------------------------------------------------------------------
+| IP Class | First Octet Range             | Default Subnet Mask (CIDR) | Network / Host Split             | Usable Host IPs Per Network |
+| -------- | ----------------------------- | ---------------------------| -------------------------------- | ----------------------------|
+| Class A  | 1.0.0.0 to 126.255.255.255    | 255.0.0.0 (`/8`)           | 1 Octet Network / 3 Octets Host  | 16,777,214 per network      |
+| Class B  | 128.0.0.0 to 191.255.255.255  | 255.255.0.0 (`/16`)        | 2 Octets Network / 2 Octets Host | 65,534 per network          |
+| Class C  | 192.0.0.0 to 223.255.255.255  | 255.255.255.0 (`/24`)      | 3 Octets Network / 1 Octet Host  | 254 per network             |
+------------------------------------------------------------------------------------------------------------------------------------------
+Note: 127.x.x.x is reserved for loopback 
+---
+
+### Usable  Private Range according to  RFC-1918:
+
+ Class A: Designed for massive networks (like large multinational corporations or ISPs).
+ Private Range: `10.0.0.0` to `10.255.255.255` (`/8`)
+
+
+ Class B: Designed for medium-to-large networks (like universities or mid-sized enterprises).
+ Private Range: `172.16.0.0` to `172.31.255.255` (`/12`)
+
+
+ Class C: Designed for small local area networks (LANs) or home/small business environments.
+ Private Range: `192.168.0.0` to `192.168.255.255` (`/16`)
+
+
+
+
+
+
+
+.
+
