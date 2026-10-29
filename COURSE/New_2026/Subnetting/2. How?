@@ -1,0 +1,15 @@
+
+
+
+### Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
+
+ 1. Network Address (Building Entrance Sign)
+ Simple Meaning: Identifies the whole network itself.
+  Analogy: 
+ It is like the main street sign outside a flat ("100 Main Street"). 
+ It tells mail carriers where the building is located, but no resident can live inside the street sign.
+
+ 2. Broadcast Address (Azan Loudspeaker)
+ Simple Meaning: Used to send a message to every device on the network at once.
+ Analogy: 
+ It is like the Azan called over a mosque loudspeaker. When the Azan is called, it is meant for everyone in the entire neighborhood to hear simultaneously.
