@@ -1,22 +1,41 @@
 
 
 
+1. "Always True": What is it?
+2. How can I calculate the Number of Networks?
+3. How can I calculate the Number of Hosts?
+4. 2^2+2^1+2^0 Vs. 2^3 ? Which one should I use and why?
+5. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)?
+6. Math: I want to connect 2 computers/hosts only from a Class A, B, or C IP range
+          Give me all of these for Class A:
+            - Network Address:
+            - Computer 1 IP:
+            - Computer 2 IP:
+            - Broadcast Address:
+            - Subnet Mask:
+            - Default Gateway:
+
+
+
+####################################################
+
+
 Understanding the Mathematics of Subnetting:
 Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
 Total IPv4 Bits = 32 = Network Bits + Host Bits
 
-Always True:
+1. Always True:
 •	The network address line always moves to the right when we subnet 
 •	The further to the right we go, the more subnets we’ll have of that size but less hosts 
 
-Calculating the Number of Networks:
+2. Calculating the Number of Networks:
   •	To calculate the number of available subnets, the formula is (2^subnet_bits-2)
   •	If a Class C network uses a /28 subnet mask then we’ve borrowed 4 bits from the default of /24 
   •	2^4 = 16 available subnets 
   •	If a Class B network uses a /28 subnet mask then we’ve borrowed 12 bits from the default of /16 
   •	2^12 = 4096 available subnets 
 
-Calculating the Number of Hosts:
+3. Calculating the Number of Hosts:
    •	To calculate the number of available hosts, the formula is (2^host_bits - 2)
    •	We subtract 2 because the network address and broadcast address cannot be assigned to hosts 
    •	If a Class C network uses a /28 subnet mask then we have 4 bits left for hosts 
@@ -24,7 +43,7 @@ Calculating the Number of Hosts:
    •	If a Class B network uses a /28 subnet mask then we have 4 bits left for hosts 
    •	2^4 - 2 = 14
 
---------
+---04. -----
 একটি বিট বাড়লে কম্বিনেশন "দ্বিগুণ হওয়া" —এটিই মূলত বাইনারি গণিতের মূল ভিত্তি, যা নেটওয়ার্কের ক্ষমতা দ্রুত বাড়াতে সাহায্য করে।
 সাধারণত বিভ্রান্তিটি তৈরি হয় সংখ্যার মান যোগ (2^2 + 2^1 + 2^0)করা আর সম্ভাব্য কম্বিনেশন বা অপশন গুণ করার মধ্যকার পার্থক্য বুঝতে না পারার কারণে।
 
@@ -36,7 +55,7 @@ Calculating the Number of Hosts:
 কিন্তু এই 000 নিজেও একটি বৈধ প্যাটার্ন (নেটওয়ার্ক আইডি)। তাই মোট কম্বিনেশন ৭টি নয়, ৮টি।
 ---------
 
-### Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
+### 05. Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
 
  1. Network Address (Building Entrance Sign): Front Door/Mailbox(Network Address): identifies the subnet. 
  Analogy: 
@@ -45,7 +64,85 @@ Calculating the Number of Hosts:
 
  2. Broadcast Address (Azan Loudspeaker): Simple Meaning: Used to send a message to every device on the network at once.
  Analogy: 
- It is like the Azan called over a mosque loudspeaker. When the Azan is called, it is meant for everyone in the entire neighborhood to hear simultaneously.
+ It is like the Azan called over a mosque loudspeaker. When the Azan is called, everyone in the neighborhood is meant to hear it at the same time.
 
 >> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
+
+############################# 06. MATH ###################################################
+
+
+I want to connect 2 computers/hosts only from a Class A, B, or C IP range
+
+Give me all of these for Class A:
+        -Network Address:
+        -Computer 1 IP:
+        -Computer 2 IP:
+        -Broadcast Address:
+        -Subnet Mask:
+        -Default Gateway:
+
+
+Answer:
+
+To connect exactly 2 computers in a point-to-point IP network, you need a subnet that provides 2 usable host IP addresses.
+
+### Understanding the Mathematics of Subnetting
+
+Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
+Total IPv4 Bits = 32 = Network Bits + Host Bits
+
+#### The Fundamental Formulas
+
+ Usable Hosts per Subnet: 2^Host Bits - 2 (Subtract 2 for Network & Broadcast IPs)
+ Number of Subnets Created: 2^Borrowed Bits (Assuming `ip subnet-zero` is active, which allows all subnets including subnet 0)
+
+
+#### Subnet Mask?
+
+To connect 2 computers, you need 2 usable addresses:
+2^h - 2 = 2  2^h = 4  h = 2 host bits
+
+If h = 2, then the subnet mask length is:
+32 - 2 = 30 bits  (/30)
+
+Subnet Mask: `255.255.255.252` (`11111111.11111111.11111111.11111100`)
+Block Size (Increment): 2^2 = 4 total IP addresses per subnet.
+
+---
+
+#### Using a Class A Address Range
+
+ Default Class A Mask: `/8` (`255.0.0.0`)
+ Example Range: `10.0.0.0/8`
+ Target Subnet Mask: `/30` (`255.255.255.252`)
+
+##### Step-by-Step Calculation
+
+1. Bits Borrowed: 30 - 8 = 22 bits
+2. Subnets Available: 2^22 = 4,194,304 subnets
+3. Hosts per Subnet: 2^2 - 2 = 2 usable hosts
+
+
+##### Subnet Example (`10.0.0.0/30`)
+
+ Network Address: `10.0.0.0`
+ Computer 1 IP: `10.0.0.1`
+ Computer 2 IP: `10.0.0.2`
+ Broadcast Address: `10.0.0.3`
+ Subnet Mask: `255.255.255.252`
+
+
+
+
+
+
+
+
+
+---
+
+
+
+
+
 
