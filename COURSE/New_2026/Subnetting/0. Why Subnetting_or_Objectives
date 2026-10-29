@@ -1,9 +1,10 @@
 
+Question: If I don't divide any floor in my building, what disadvantages will I face?
 
 
 Here are the main objectives of subnetting in short:
 
-1. Efficient IP Address Utilization Preventing Address Waste: 
+1. Efficient IP Address Utilization(Preventing Address Waste): 
 Under older classful addressing rules, 
 a company needing more than 254 hosts was forced to take an entire Class B network (which allocates up to 65,534 hosts), 
 wasting massive amounts of global address space.   
