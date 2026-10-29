@@ -9,43 +9,31 @@ Always True:
 •	The network address line always moves to the right when we subnet 
 •	The further to the right we go, the more subnets we’ll have of that size but less hosts 
 
+Calculating the Number of Networks:
+  •	To calculate the number of available subnets, the formula is (2^subnet_bits-2)
+  •	If a Class C network uses a /28 subnet mask then we’ve borrowed 4 bits from the default of /24 
+  •	2^4 = 16 available subnets 
+  •	If a Class B network uses a /28 subnet mask then we’ve borrowed 12 bits from the default of /16 
+  •	2^12 = 4096 available subnets 
 
-
-Calculating the Number of Networks 
-
-•	To calculate the number of available subnets, the formula is (2^subnet_bits-2)
-•	If a Class C network uses a /28 subnet mask then we’ve borrowed 4 bits from the default of /24 
-•	2^4 = 16 available subnets 
-•	If a Class B network uses a /28 subnet mask then we’ve borrowed 12 bits from the default of /16 
-•	2^12 = 4096 available subnets 
-
-
-
-
-Calculating the Number of Hosts
-
-•	To calculate the number of available hosts, the formula is (2^host_bits - 2)
-•	We subtract 2 because the network address and broadcast address cannot be assigned to hosts 
-•	If a Class C network uses a /28 subnet mask then we have 4 bits left for hosts 
-•	2^4 - 2 = 14
-•	If a Class B network uses a /28 subnet mask then we have 4 bits left for hosts 
-•	2^4 - 2 = 14
-
-
-
+Calculating the Number of Hosts:
+   •	To calculate the number of available hosts, the formula is (2^host_bits - 2)
+   •	We subtract 2 because the network address and broadcast address cannot be assigned to hosts 
+   •	If a Class C network uses a /28 subnet mask then we have 4 bits left for hosts 
+   •	2^4 - 2 = 14
+   •	If a Class B network uses a /28 subnet mask then we have 4 bits left for hosts 
+   •	2^4 - 2 = 14
 
 
 
 ### Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
 
- 1. Network Address (Building Entrance Sign)
- Front Door/Mailbox(Network Address): identifies the subnet. 
+ 1. Network Address (Building Entrance Sign): Front Door/Mailbox(Network Address): identifies the subnet. 
  Analogy: 
  It is like the main street sign outside a flat ("100 Main Street"). 
  It tells mail carriers where the building is located, but no resident can live inside the street sign.
 
- 2. Broadcast Address (Azan Loudspeaker)
- Simple Meaning: Used to send a message to every device on the network at once.
+ 2. Broadcast Address (Azan Loudspeaker): Simple Meaning: Used to send a message to every device on the network at once.
  Analogy: 
  It is like the Azan called over a mosque loudspeaker. When the Azan is called, it is meant for everyone in the entire neighborhood to hear simultaneously.
 
