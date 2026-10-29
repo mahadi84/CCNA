@@ -2,7 +2,12 @@
 
 
 Understanding the Mathematics of Subnetting:
-Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.Total IPv4 Bits = 32 = Network Bits + Host Bits
+Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
+Total IPv4 Bits = 32 = Network Bits + Host Bits
+
+Always True:
+•	The network address line always moves to the right when we subnet 
+•	The further to the right we go, the more subnets we’ll have of that size but less hosts 
 
 
 
