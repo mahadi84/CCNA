@@ -1,0 +1,58 @@
+
+
+
+Here are the main objectives of subnetting in short:
+
+1. Efficient IP Address Utilization Preventing Address Waste: 
+Under older classful addressing rules, 
+a company needing more than 254 hosts was forced to take an entire Class B network (which allocates up to 65,534 hosts), 
+wasting massive amounts of global address space.   
+
+Custom Sizing: Subnetting allows network administrators to carve out custom-sized address ranges (using Variable Length Subnet Masking or CIDR) 
+that closely match the exact needs of specific networks or departments without wasting IP addresses.   
+
+2. Reduced Network Traffic and Improved PerformanceMinimizing Broadcast Domains: Devices on a local network broadcast messages (like ARP requests) to all other devices. 
+If a network is massive, this broadcast traffic can bog down performance. 
+Subnetting breaks a large network into smaller segments, containing broadcast traffic within its own subnet.
+ 
+ Improve Performance: Reduce network congestion by containing broadcast traffic within smaller segments.
+ Enhance Security: Isolate sensitive departments or devices (like guest Wi-Fi vs. finance) using firewalls and access controls.
+ Easier Troubleshooting: Isolate network issues quickly within smaller, manageable segments without affecting the whole enterprise.
+ Manage Physical Locations: Easily split a single IP range across multiple offices, floors, or departments.
+
+
+
+ ========================
+
+ Here is a breakdown of Class A, Class B, and Class C IPv4 addresses, including their total ranges, default subnet masks, and usable IP counts per network:
+
+------------------------------------------------------------------------------------------------------------------------------------------
+| IP Class | First Octet Range             | Default Subnet Mask (CIDR) | Network / Host Split             | Usable Host IPs Per Network |
+| -------- | ----------------------------- | ---------------------------| -------------------------------- | ----------------------------|
+| Class A  | 1.0.0.0 to 126.255.255.255    | 255.0.0.0 (`/8`)           | 1 Octet Network / 3 Octets Host  | 16,777,214 per network      |
+| Class B  | 128.0.0.0 to 191.255.255.255  | 255.255.0.0 (`/16`)        | 2 Octets Network / 2 Octets Host | 65,534 per network          |
+| Class C  | 192.0.0.0 to 223.255.255.255  | 255.255.255.0 (`/24`)      | 3 Octets Network / 1 Octet Host  | 254 per network             |
+------------------------------------------------------------------------------------------------------------------------------------------
+Note: 127.x.x.x is reserved for loopback 
+---
+
+### Usable  Private Range according to  RFC-1918 Standard:
+
+ Class A: Designed for massive networks (like large multinational corporations or ISPs).
+ Private Range: `10.0.0.0` to `10.255.255.255` (`/8`)
+
+
+ Class B: Designed for medium-to-large networks (like universities or mid-sized enterprises).
+ Private Range: `172.16.0.0` to `172.31.255.255` (`/12`)
+
+
+ Class C: Designed for small local area networks (LANs) or home/small business environments.
+ Private Range: `192.168.0.0` to `192.168.255.255` (`/16`)
+
+
+
+
+
+
+
+.
