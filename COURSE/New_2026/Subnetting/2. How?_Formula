@@ -50,30 +50,28 @@ The decimal value of  11111111  is 255.
           • The network address line always moves to the right when we subnet 
           • The further to the right we go, the more subnets we’ll have of that size but fewer hosts 
 
-### Why the confusion happens?
+### Why does the confusion happen?
 
-        1. What 2^0 to 2^7 actually do (Positional Place Values)
-          They do not count items; they tell you how much each column is worth when you add them up to find a decimal number (like converting 11111111 to 255).
+Keeping these two separate rules in mind clears up the confusion: 
+          1. Column weights (2^0 to 2^7) determine value (used when calculating a subnet mask)
+              - how much each column is worth when you add them up to find a decimal number (like converting 11111111 to 255)., 
+              - BUT NOT TO FIND the next/previous Subnet mask.
+          2. While bit counts (2^h) determine capacity (used when calculating host capacity -you aren't reading columns from right to left.).
+              - If I have 2 host bits (h=2), you can make 4 combinations: 00, 01, 10, and 11 (2^2 = 4).
+              - If I want to calculate the next/previous Subnet mask 
 
-        2. What 2^h actually does (Capacity Calculation)
-          When calculating hosts, you aren't reading columns from right to left. 
-          Instead, you are asking: 
-          How many unique combinations can I make with h bits?
-          If you have 1 host bit (h=1), you can make 2 combinations: 0 and 1 (2^1 = 2).
-          If you have 2 host bits (h=2), you can make 4 combinations: 00, 01, 10, and 11 (2^2 = 4).
-          The exponent h is simply the total count of bits you have left over for hosts, not a starting index like 2^0 or 2^1.
+      
 
-Keeping these three separate rules in mind clears up the confusion: 
-column weights (2^0 dots 2^7) determine value, while bit counts (2^h) determine capacity.
+
 
 
 ---------
 
 ### 03. Calculating the Number of Networks:
             • To calculate the number of available subnets, the formula is (2^subnet_bits-2)
-            • If a Class C network uses a /28 subnet mask then we’ve borrowed 4 bits from the default of /24 
+            • If a Class C network uses a /28 subnet mask, then we’ve borrowed 4 bits from the default of /24 
             • 2^4 = 16 available subnets 
-            • If a Class B network uses a /28 subnet mask then we’ve borrowed 12 bits from the default of /16 
+            • If a Class B network uses a /28 subnet mask, then we’ve borrowed 12 bits from the default of /16 
             • 2^12 = 4096 available subnets 
 
 ---------
