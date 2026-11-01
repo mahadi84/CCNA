@@ -6,7 +6,8 @@
 3. How can I calculate the Number of Hosts?
 4. 2^2+2^1+2^0 Vs. 2^3 ? Which one should I use and why?
 5. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)?
-6. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
+6. Common calculation for calculating the SUBNET mask and HOST bits.
+7. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
           Give me all of these for Class A:
             - Network Address:
             - Computer 1 IP:
@@ -70,8 +71,10 @@ Total IPv4 Bits = 32 = Network Bits + Host Bits
 >> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
 
 
+-----------------
 
-### Step-by-Step Breakdown
+### 06. Common calculation for calculating the SUBNET mask and HOST bits.
+Step-by-Step Breakdown
 
 In binary (base-2), each position represents a power of 2, starting from right (2^0) to left (2^7)
 
@@ -83,7 +86,7 @@ In binary (base-2), each position represents a power of 2, starting from right (
 ----------------------------------------------------------------------------
 
 To convert to decimal, add up all the place values where the bit is 1
-The full decimal number for  11111111  is 255.
+The decimal value of  11111111  is 255.
 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
 
 
