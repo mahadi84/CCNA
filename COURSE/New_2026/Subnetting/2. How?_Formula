@@ -112,85 +112,312 @@ Exception: /31 point-to-point links use both addresses.*
 ############################# 06. MATH ###################################################
 
 
-I want to connect 2 computers/hosts only from a Class  C IP range
 
-Give me all of these for Class C:
-        -Network Address:
-        -Computer 1 IP:
-        -Computer 2 IP:
-        -Broadcast Address:
-        -Subnet Mask:
-        -Default Gateway:
-        -2nd subnet Network, Usable, and Broadcast address
+# CCNA Subnetting: Connect 2 Computers Using a Class C Network
+
+Question: I want to connect 2 computers/hosts using a Class C IP range. Why not Class A or B?
 
 
-Answer:
+Requirements:
 
-To connect exactly 2 computers in a point-to-point IP network, I need a subnet that provides 2 usable host IP addresses.
-
-### Understanding the Mathematics of Subnetting
-
-Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
-Total IPv4 Bits = 32 = Network Bits + Host Bits
-
-#### The Fundamental Formulas
-
- Usable Hosts per Subnet: 2^Host Bits - 2 (Subtract 2 for Network & Broadcast IPs)
- Number of Subnets Created: 2^Borrowed Bits (Assuming `ip subnet-zero` is active, which allows all subnets including subnet 0)
+- 2 computers (PC1 and PC2).
+- 1 default gateway (router interface).
+- Find the first and second subnet details.
 
 
-#### Select the Subnet Mask and Size:
-A standard Class C network uses a /24 mask, but that leaves 254 host addresses.
-
-Computers speak in binary (1s and 0s). 
-Subnet masks are just ways of splitting an IP address into two parts: the network part and the computer (host) part.
-
-To connect 2 computers, you need 2 usable addresses:
-2^h - 2 = 2  2^h = 4  h = 2 host bits
-
-If h = 2, then the subnet mask length is:
-32 - 2 = 30 bits  (/30)
-
-Subnet Mask: `255.255.255.252` (`11111111.11111111.11111111.11111100`)
-Block Size (Increment): 2^2 = 4 total IP addresses per subnet.
-
----
-
-#### Using a Class C Address Range
-
- Default Class C Mask: `/24` (`255.255.255.0`)
- Example Range: `192.168.0.0/24`
- Target Subnet Mask: `/30` (`255.255.255.252`)
-
-##### Step-by-Step Calculation
-
-1. Bits Borrowed: 30 - 24 = 6 bits
-2. Subnets Available: 2^6 = 64 subnets
-3. Hosts per Subnet: 2^2 - 2 = 2 usable hosts
-
-##### Subnet Example (`192.168.0.0/30`)
-
- Network Address: `192.168.0.0`
- Computer 1 IP: `192.168.0.1`
- Computer 2 IP: `192.168.0.2`
- Broadcast Address: `192.168.0.3`
- Subnet Mask: `255.255.255.252`
-
-##### Default Gateway
-A default gateway is the IP address of the router that lets your computer talk to devices on other networks or the internet.
-In a direct two-computer connection with no router, you must leave the default gateway blank. 
-Both laptops only need to talk to each other locally, so no external router forwarding is required.
 
 
-##### Why NOT A or B?
-Class C vs. Class A or B
-You are not strictly forced to use Class C (192.168.x.x).
-You can use a private Class A (10.x.x.x) or Class B (172.16.x.x) range with a /30 mask and the network will work identically.
+## Step 1: Why Class C, Not Class A or B?
+## Step 2: Choose a Class C Network
+## Step 3: Calculate How Many Host IPs We Need
+## Step 4: Calculate the Subnet Mask in Binary
+## Step 5: Calculate Borrowed Bits and Total Subnets
+## Step 6: Calculate Block Size
+## Step 7: Find the First Subnet
+## Step 8: Assign IP Addresses to Computers
+## Step 9: Find the Second Subnet
+## Final Answer: Complete Revision Tables
+### First Subnet — Main Network
+### Second Subnet
+## Important CCNA Concept: What If There Were Only 2 Computers and NO Router?
 
-Network engineers default to Class C for small links for two simple reasons:
-Scope convention: Class C ranges are traditionally reserved for small home networks and local labs.
-Avoiding conflicts: Larger enterprise networks often use Class A and Class B spaces internally, so using Class C prevents accidental routing overlaps.
 
+
+
+
+
+
+
+
+
+
+
+
+## Step 1: Why Class C, Not Class A or B?
+
+First, understand the default network sizes.
+
+| Class | Default CIDR | Default Subnet Mask | Total IPs  |
+| ----- | ------------ | ------------------- | ---------- |
+| A     | /8           | 255.0.0.0           | 16,777,216 |
+| B     | /16          | 255.255.0.0         | 65,536     |
+| C     | /24          | 255.255.255.0       | 256        |
+
+Why Class C?
+
+- Class A provides a very large address space.
+- Class B also provides a large address space.
+- Class C is more suitable for a small LAN like our example.
+
+Important: Class A and B can also be subnetted for two computers. They are not technically prohibited. We choose Class C because it is convenient for this small network.
+
+
+
+
+## Step 2: Choose a Class C Network
+
+Let's take: `192.168.1.0/24`
+
+Why Class C?
+
+- First octet = 192.
+- Class C range = 192–223.
+- Default subnet mask = `255.255.255.0`.
+
+Our original network:
+
+- Network bits = 24
+- Host bits = 8
+
+
+
+
+
+## Step 3: Calculate How Many Host IPs We Need
+
+| Device                   | Required IP |
+| ------------------------ | ----------- |
+| Router (Default Gateway) | 1           |
+| Computer 1               | 1           |
+| Computer 2               | 1           |
+| Total                | 3       |
+
+Why 3? Because the router's interface also requires an IP address.
+
+Formula: `2^h − 2 >= 3`
+
+Try 2 host bits:\
+`2² − 2 = 2` → Not enough!
+
+Try 3 host bits:\
+`2³ − 2 = 6` → Enough!
+
+Result:
+
+- Host bits = 3
+- Network bits = 32 − 3 = 29
+- New CIDR = /29
+
+
+
+
+## Step 4: Calculate the Subnet Mask in Binary
+
+Our new CIDR is `/29`.
+
+It means 29 bits are Network bits and 3 bits are Host bits.
+
+Binary Representation:\
+`11111111.11111111.11111111.11111000`
+
+| Octet | Binary   | Decimal |
+| ----- | -------- | ------- |
+| 1st   | 11111111 | 255     |
+| 2nd   | 11111111 | 255     |
+| 3rd   | 11111111 | 255     |
+| 4th   | 11111000 | 248     |
+
+Why 248?\
+`128 + 64 + 32 + 16 + 8 = 248`
+
+Subnet Mask = 255.255.255.248
+
+
+
+
+## Step 5: Calculate Borrowed Bits and Total Subnets
+
+Original CIDR = `/24`
+
+New CIDR = `/29`
+
+Borrowed Bits:\
+`29 − 24 = 5`
+
+Total Subnets Formula:\
+`2^Borrowed Bits`
+
+`2⁵ = 32`
+
+Therefore, our original Class C `/24` network can be divided into 32 subnets.
+
+
+
+
+## Step 6: Calculate Block Size
+
+Subnet Mask = `255.255.255.248`
+
+Interesting octet = 4th octet (248).
+
+Formula: `Block Size = 256 − Interesting Octet Mask`
+
+`256 − 248 = 8`
+
+Block Size = 8
+
+Subnet starting numbers:\
+`0, 8, 16, 24, 32, 40, 48 ...`
+
+These are the starting addresses of each subnet.
+
+
+
+
+## Step 7: Find the First Subnet
+
+Original network = `192.168.1.0/24`
+
+First subnet starts at `.0`.
+
+Block size = 8.
+
+First Subnet Range:\
+`192.168.1.0 – 192.168.1.7`
+
+| Address Type      | IP Address  |
+| ----------------- | ----------- |
+| Network Address   | 192.168.1.0 |
+| First Usable      | 192.168.1.1 |
+| Second Usable     | 192.168.1.2 |
+| Third Usable      | 192.168.1.3 |
+| Fourth Usable     | 192.168.1.4 |
+| Fifth Usable      | 192.168.1.5 |
+| Sixth Usable      | 192.168.1.6 |
+| Broadcast Address | 192.168.1.7 |
+
+
+
+
+## Step 8: Assign IP Addresses to Computers
+
+We need two computers and one gateway.
+
+First Subnet: `192.168.1.0/29`
+
+| Device                   | Assigned IP |
+| ------------------------ | ----------- |
+| Router / Default Gateway | 192.168.1.1 |
+| Computer 1               | 192.168.1.2 |
+| Computer 2               | 192.168.1.3 |
+
+Both computers use:
+
+- Subnet Mask = `255.255.255.248`
+- Default Gateway = `192.168.1.1`
+
+The router and computers can connect through a Layer 2 switch.
+
+Simple Network Diagram:
+
+```
+           Router
+        192.168.1.1
+              |
+            Switch
+           /      \
+         PC1      PC2
+   192.168.1.2  192.168.1.3
+
+Subnet Mask: 255.255.255.248
+Network:     192.168.1.0/29
+Broadcast:   192.168.1.7
+```
+
+
+
+
+## Step 9: Find the Second Subnet
+
+Our block size = 8.
+
+First subnet starts at `.0`.
+
+Second subnet starts at:\
+`0 + 8 = 8`
+
+Second Subnet = 192.168.1.8/29
+
+Its address range:\
+`192.168.1.8 – 192.168.1.15`
+
+| Address Type      | IP Address   |
+| ----------------- | ------------ |
+| Network Address   | 192.168.1.8  |
+| First Usable      | 192.168.1.9  |
+| Last Usable       | 192.168.1.14 |
+| Broadcast Address | 192.168.1.15 |
+
+## Final Answer: Complete Revision Tables
+
+
+
+### First Subnet — Main Network
+
+Network: `192.168.1.0/29`
+
+| Requirement        | Answer                    |
+| ------------------ | ------------------------- |
+| Network Address    | 192.168.1.0               |
+| Computer 1         | 192.168.1.2               |
+| Computer 2         | 192.168.1.3               |
+| Default Gateway    | 192.168.1.1               |
+| Broadcast Address  | 192.168.1.7               |
+| Subnet Mask        | 255.255.255.248           |
+| Usable Host Range  | 192.168.1.1 – 192.168.1.6 |
+| Total Usable Hosts | 6                         |
+
+### Second Subnet
+
+Network: `192.168.1.8/29`
+
+| Requirement        | Answer          |
+| ------------------ | --------------- |
+| Network Address    | 192.168.1.8     |
+| First Usable       | 192.168.1.9     |
+| Last Usable        | 192.168.1.14    |
+| Broadcast Address  | 192.168.1.15    |
+| Subnet Mask        | 255.255.255.248 |
+| Total Usable Hosts | 6               |
+
+
+
+
+## Important CCNA Concept: What If There Were Only 2 Computers and NO Router?
+
+Then we could use `/30` instead of `/29`.
+
+| CIDR | Total IPs | Usable IPs |
+| ---- | --------- | ---------- |
+| /30  | 4         | 2          |
+| /29  | 8         | 6          |
+
+- `/30` → Exactly 2 usable IPs for two computers.
+- `/29` → Enough for two computers plus a router gateway.
+
+Without a router, two computers on the same LAN can communicate without a default gateway.
+A gateway is needed to reach other networks.
+Remember: Always count the router's interface as a host when planning subnet size.
 
 
 
