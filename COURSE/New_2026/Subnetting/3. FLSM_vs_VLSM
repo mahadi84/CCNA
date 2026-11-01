@@ -27,4 +27,60 @@
 
 ======================= 02. Example of FLSM =======================
 
+Question: What are all network addresses, all broadcast addresses, and all valid host addresses for the IP address 198.22.45.173/26?
+
+To find the network address, broadcast address, and valid host addresses for `198.22.45.173/26`,
+we need to break down the mathematics of a `/26` subnet within a Class C block.
+
+### 1. Key Subnet Parameters for a `/26` Mask
+
+ Subnet Mask: `255.255.255.192` (`/26` means 26 network bits, leaving 6 host bits: 32 - 26 = 6).
+ Block Size (Increment): 2^h = 2^6 = 64 total IP addresses per subnet.
+ Total Subnets in a Class C block: 2^2 = 4 subnets (since a default `/24` borrows 2 bits to reach `/26`).
+
+
+### 2. Finding the Correct Subnet Block for `198.22.45.173`
+
+The fourth octet (`173`) falls into one of the four block ranges created by increments of 64 (`0`, `64`, `128`, `192`):
+
+ Subnet 0: `198.22.45.0` to `198.22.45.63`
+ Subnet 1: `198.22.45.64` to `198.22.45.127`
+ Subnet 2: `198.22.45.128` to `198.22.45.191` \leftarrow (173 falls right in here)
+ Subnet 3: `198.22.45.192` to `198.22.45.255`
+
+
+### 3. Final Address Breakdown for `198.22.45.173/26`
+
+ Network Address: `198.22.45.128` (the very first address of the block)
+ Valid Host Range: `198.22.45.129` to `198.22.45.190` (usable IPs for devices)
+ Broadcast Address: `198.22.45.191` (the very last address of the block)
+
+
+
+---------------
+
+############ Why subnet mask for all subnet here is fixed 255.255.255.192?
+
+
+Because this is an FLSM (Fixed-Length Subnet Masking) scenario, the subnet mask `255.255.255.192` (`/26`) remains fixed and identical for all 4 subnets in that block.
+Every single one of those 4 subnets uses that exact same mask; the only thing that changes between them is their starting network address, usable range, and broadcast address:
+
+ Subnet 0: Mask is `255.255.255.192` (`.0` to `.63`)
+ Subnet 1: Mask is `255.255.255.192` (`.64` to `.127`)
+ Subnet 2: Mask is `255.255.255.192` (`.128` to `.191`)
+ Subnet 3: Mask is `255.255.255.192` (`.192` to `.255`)
+
+That uniformity is what defines "fixed-length" subnetting!
+
+
+
+======================= 02. Example of FLSM =======================
+
+
+
+
+
+
+
+
 
