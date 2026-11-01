@@ -106,7 +106,7 @@ Keeping these two separate rules in mind clears up the confusion:
 
 I want to connect 2 computers/hosts only from a Class  C IP range
 
-Give me all of these for Class A:
+Give me all of these for Class C:
         -Network Address:
         -Computer 1 IP:
         -Computer 2 IP:
