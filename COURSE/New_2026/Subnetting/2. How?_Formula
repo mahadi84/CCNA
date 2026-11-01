@@ -14,6 +14,7 @@
             - Broadcast Address:
             - Subnet Mask:
             - Default Gateway:
+            - 2nd subnet Network, Usable, and Broadcast address
 
 
 
@@ -140,6 +141,23 @@ Block Size (Increment): 2^2 = 4 total IP addresses per subnet.
 
 
 
+
+
+
+##### Default Gateway
+A default gateway is the IP address of the router that lets your computer talk to devices on other networks or the internet.
+In a direct two-computer connection with no router, you must leave the default gateway blank. 
+Both laptops only need to talk to each other locally, so no external router forwarding is required.
+
+
+##### Why NOT A or B?
+Class C vs. Class A or B
+You are not strictly forced to use Class C (192.168.x.x).
+You can use a private Class A (10.x.x.x) or Class B (172.16.x.x) range with a /30 mask and the network will work identically.
+
+Network engineers default to Class C for small links for two simple reasons:
+Scope convention: Class C ranges are traditionally reserved for small home networks and local labs.
+Avoiding conflicts: Larger enterprise networks often use Class A and Class B spaces internally, so using Class C prevents accidental routing overlaps.
 
 
 
