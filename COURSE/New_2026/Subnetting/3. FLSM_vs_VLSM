@@ -238,7 +238,9 @@ Important: The four subnets above assume the parent network is `198.22.45.0/24`.
 
 
 
-======================= 03. Example of VLSM =======================
+===================================================================== 
+                03. Example of VLSM 
+===================================================================== 
 
 Answer the same question for VLSM: 
 These are the required IP addresses for the departments of a Bank: Remittance(10 IPs), Treasury (20 IPs), Trade (10 IPs), and SWIFT (5 IPs). Solve this problem
@@ -630,15 +632,3 @@ The given public IPv4 range is used for this CCNA exercise. For a real bank LAN,
 
 .
 
-
-
-
-
-
-
-
-
-
-
-
-======================= 02. Example of FLSM =======================
