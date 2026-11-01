@@ -26,54 +26,7 @@ Understanding the Mathematics of Subnetting:
 Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
 Total IPv4 Bits = 32 = Network Bits + Host Bits
 
-1. Always True:
-•	The network address line always moves to the right when we subnet 
-•	The further to the right we go, the more subnets we’ll have of that size but less hosts 
-
-2. Calculating the Number of Networks:
-  •	To calculate the number of available subnets, the formula is (2^subnet_bits-2)
-  •	If a Class C network uses a /28 subnet mask then we’ve borrowed 4 bits from the default of /24 
-  •	2^4 = 16 available subnets 
-  •	If a Class B network uses a /28 subnet mask then we’ve borrowed 12 bits from the default of /16 
-  •	2^12 = 4096 available subnets 
-
-3. Calculating the Number of Hosts:
-   •	To calculate the number of available hosts, the formula is (2^host_bits - 2)
-   •	We subtract 2 because the network address and broadcast address cannot be assigned to hosts 
-   •	If a Class C network uses a /28 subnet mask then we have 4 bits left for hosts 
-   •	2^4 - 2 = 14
-   •	If a Class B network uses a /28 subnet mask then we have 4 bits left for hosts 
-   •	2^4 - 2 = 14
-
----04. -----
-একটি বিট বাড়লে কম্বিনেশন "দ্বিগুণ হওয়া" —এটিই মূলত বাইনারি গণিতের মূল ভিত্তি, যা নেটওয়ার্কের ক্ষমতা দ্রুত বাড়াতে সাহায্য করে।
-সাধারণত বিভ্রান্তিটি তৈরি হয় সংখ্যার মান যোগ (2^2 + 2^1 + 2^0)করা আর সম্ভাব্য কম্বিনেশন বা অপশন গুণ করার মধ্যকার পার্থক্য বুঝতে না পারার কারণে।
-
-কলামের মান যোগ করলে কেবল সংখ্যাগুলোর সর্বোচ্চ মান (Decimal Value) পাওয়া যায়, কিন্তু মোট কতগুলো ভিন্ন প্যাটার্ন বা কম্বিনেশন তৈরি হলো তা পাওয়া যায় না।
-৩টি হোস্ট বিটের ক্ষেত্রে:যোগ করার ভুল পদ্ধতি: 2^2 + 2^1 + 2^0 = 4 + 2 + 1 = 7 (এখানে মোট ঘরের সংখ্যা ভুল আসে)
-পাওয়ারের সঠিক পদ্ধতি: 2^3 = ৮ টি মোট কম্বিনেশন (000, 001, 010,..., 111)
-
-যোগ করার পদ্ধতিতে প্রথম অ্যাড্রেস অর্থাৎ অল-জিরো (000) বাদ পড়ে যায়। 
-কিন্তু এই 000 নিজেও একটি বৈধ প্যাটার্ন (নেটওয়ার্ক আইডি)। তাই মোট কম্বিনেশন ৭টি নয়, ৮টি।
----------
-
-### 05. Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
-
- 1. Network Address (Building Entrance Sign): Front Door/Mailbox(Network Address): identifies the subnet. 
- Analogy: 
- It is like the main street sign outside a flat ("100 Main Street"). 
- It tells mail carriers where the building is located, but no resident can live inside the street sign.
-
- 2. Broadcast Address (Azan Loudspeaker): Simple Meaning: Used to send a message to every device on the network at once.
- Analogy: 
- It is like the Azan called over a mosque loudspeaker. When the Azan is called, everyone in the neighborhood is meant to hear it at the same time.
-
->> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
-
-
------------------
-
-### 06. Common calculation for calculating the SUBNET mask and HOST bits.
+### 01. Common calculation for calculating the SUBNET mask and HOST bits.
 Step-by-Step Breakdown
 
 In binary (base-2), each position represents a power of 2, starting from right (2^0) to left (2^7)
@@ -89,6 +42,58 @@ To convert to decimal, add up all the place values where the bit is 1
 The decimal value of  11111111  is 255.
 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
 
+-----------
+
+### 02. Always True:
+          • The network address line always moves to the right when we subnet 
+          • The further to the right we go, the more subnets we’ll have of that size but less hosts 
+
+---------
+
+### 03. Calculating the Number of Networks:
+            • To calculate the number of available subnets, the formula is (2^subnet_bits-2)
+            • If a Class C network uses a /28 subnet mask then we’ve borrowed 4 bits from the default of /24 
+            • 2^4 = 16 available subnets 
+            • If a Class B network uses a /28 subnet mask then we’ve borrowed 12 bits from the default of /16 
+            • 2^12 = 4096 available subnets 
+
+---------
+
+### 04. Calculating the Number of Hosts:
+             • To calculate the number of available hosts, the formula is (2^host_bits - 2)
+             • We subtract 2 because the network address and broadcast address cannot be assigned to hosts 
+             • If a Class C network uses a /28 subnet mask then we have 4 bits left for hosts 
+             • 2^4 - 2 = 14
+             • If a Class B network uses a /28 subnet mask then we have 4 bits left for hosts 
+             • 2^4 - 2 = 14
+
+---------
+
+### 05. 
+          একটি বিট বাড়লে কম্বিনেশন "দ্বিগুণ হওয়া" —এটিই মূলত বাইনারি গণিতের মূল ভিত্তি, যা নেটওয়ার্কের ক্ষমতা দ্রুত বাড়াতে সাহায্য করে।
+          সাধারণত বিভ্রান্তিটি তৈরি হয় সংখ্যার মান যোগ (2^2 + 2^1 + 2^0)করা আর সম্ভাব্য কম্বিনেশন বা অপশন গুণ করার মধ্যকার পার্থক্য বুঝতে না পারার কারণে।
+          
+          কলামের মান যোগ করলে কেবল সংখ্যাগুলোর সর্বোচ্চ মান (Decimal Value) পাওয়া যায়, কিন্তু মোট কতগুলো ভিন্ন প্যাটার্ন বা কম্বিনেশন তৈরি হলো তা পাওয়া যায় না।
+          ৩টি হোস্ট বিটের ক্ষেত্রে:যোগ করার ভুল পদ্ধতি: 2^2 + 2^1 + 2^0 = 4 + 2 + 1 = 7 (এখানে মোট ঘরের সংখ্যা ভুল আসে)
+          পাওয়ারের সঠিক পদ্ধতি: 2^3 = ৮ টি মোট কম্বিনেশন (000, 001, 010,..., 111)
+          
+          যোগ করার পদ্ধতিতে প্রথম অ্যাড্রেস অর্থাৎ অল-জিরো (000) বাদ পড়ে যায়। 
+          কিন্তু এই 000 নিজেও একটি বৈধ প্যাটার্ন (নেটওয়ার্ক আইডি)। তাই মোট কম্বিনেশন ৭টি নয়, ৮টি।
+---------
+
+
+### 06. Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
+
+ 1. Network Address (Building Entrance Sign): Front Door/Mailbox(Network Address): identifies the subnet. 
+ Analogy: 
+ It is like the main street sign outside a flat ("100 Main Street"). 
+ It tells mail carriers where the building is located, but no resident can live inside the street sign.
+
+ 2. Broadcast Address (Azan Loudspeaker): Simple Meaning: Used to send a message to every device on the network at once.
+ Analogy: 
+ It is like the Azan called over a mosque loudspeaker. When the Azan is called, everyone in the neighborhood is meant to hear it at the same time.
+
+>> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
 
 
 
