@@ -16,6 +16,8 @@
             - Default Gateway:
             - 2nd subnet Network, Usable, and Broadcast address
 
+8. \31 vs\ 30
+
 ####################################################
 
 Understanding the Mathematics of Subnetting:
@@ -160,7 +162,6 @@ Block Size (Increment): 2^2 = 4 total IP addresses per subnet.
 2. Subnets Available: 2^6 = 64 subnets
 3. Hosts per Subnet: 2^2 - 2 = 2 usable hosts
 
-
 ##### Subnet Example (`192.168.0.0/30`)
 
  Network Address: `192.168.0.0`
@@ -168,13 +169,6 @@ Block Size (Increment): 2^2 = 4 total IP addresses per subnet.
  Computer 2 IP: `192.168.0.2`
  Broadcast Address: `192.168.0.3`
  Subnet Mask: `255.255.255.252`
-
-
-
-
-
-
-
 
 ##### Default Gateway
 A default gateway is the IP address of the router that lets your computer talk to devices on other networks or the internet.
@@ -196,6 +190,19 @@ Avoiding conflicts: Larger enterprise networks often use Class A and Class B spa
 
 ---
 
+-------------------------
+     08. /31 vs /30
+-------------------------
+Class C /31 Subnet   
+Let’s say we’ve been allocated Class C 200.15.10.0/24.  
+ We subnet using /31. 
+ Valid host addresses:   200.15.10.0 to 200.15.10.1  
+                        200.15.10.2 to 200.15.10.3   
+                        Etc., to:   
+                        200.15.10.254 to 200.15.10.255
+
+>> For the CCNA exam, use /30 when a subnet to support 2 hosts is required, unless told to use /31
+>> Use a /31 subnet for point-to-point connections between 2 hosts when you need to maximize your address space and avoid wasting IP addresses.
 
 
 
