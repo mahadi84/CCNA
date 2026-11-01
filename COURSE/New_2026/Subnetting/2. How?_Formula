@@ -6,7 +6,7 @@
 3. How can I calculate the Number of Hosts?
 4. 2^2+2^1+2^0 Vs. 2^3 ? Which one should I use and why?
 5. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)?
-6. Math: I want to connect 2 computers/hosts only from a Class A, B, or C IP range
+6. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
           Give me all of these for Class A:
             - Network Address:
             - Computer 1 IP:
@@ -71,7 +71,7 @@ Total IPv4 Bits = 32 = Network Bits + Host Bits
 ############################# 06. MATH ###################################################
 
 
-I want to connect 2 computers/hosts only from a Class A, B, or C IP range
+I want to connect 2 computers/hosts only from a Class  C IP range
 
 Give me all of these for Class A:
         -Network Address:
@@ -80,11 +80,12 @@ Give me all of these for Class A:
         -Broadcast Address:
         -Subnet Mask:
         -Default Gateway:
+        -2nd subnet Network, Usable and Broadcast address
 
 
 Answer:
 
-To connect exactly 2 computers in a point-to-point IP network, you need a subnet that provides 2 usable host IP addresses.
+To connect exactly 2 computers in a point-to-point IP network, I need a subnet that provides 2 usable host IP addresses.
 
 ### Understanding the Mathematics of Subnetting
 
@@ -97,7 +98,11 @@ Total IPv4 Bits = 32 = Network Bits + Host Bits
  Number of Subnets Created: 2^Borrowed Bits (Assuming `ip subnet-zero` is active, which allows all subnets including subnet 0)
 
 
-#### Subnet Mask?
+#### Select the Subnet Mask and Size:
+A standard Class C network uses a /24 mask, but that leaves 254 host addresses.
+
+Computers speak in binary (1s and 0s). 
+Subnet masks are just ways of splitting an IP address into two parts: the network part and the computer (host) part.
 
 To connect 2 computers, you need 2 usable addresses:
 2^h - 2 = 2  2^h = 4  h = 2 host bits
@@ -110,25 +115,25 @@ Block Size (Increment): 2^2 = 4 total IP addresses per subnet.
 
 ---
 
-#### Using a Class A Address Range
+#### Using a Class C Address Range
 
- Default Class A Mask: `/8` (`255.0.0.0`)
- Example Range: `10.0.0.0/8`
+ Default Class C Mask: `/24` (`255.255.255.0`)
+ Example Range: `192.168.0.0/24`
  Target Subnet Mask: `/30` (`255.255.255.252`)
 
 ##### Step-by-Step Calculation
 
-1. Bits Borrowed: 30 - 8 = 22 bits
-2. Subnets Available: 2^22 = 4,194,304 subnets
+1. Bits Borrowed: 30 - 24 = 6 bits
+2. Subnets Available: 2^6 = 64 subnets
 3. Hosts per Subnet: 2^2 - 2 = 2 usable hosts
 
 
-##### Subnet Example (`10.0.0.0/30`)
+##### Subnet Example (`192.168.0.0/30`)
 
- Network Address: `10.0.0.0`
- Computer 1 IP: `10.0.0.1`
- Computer 2 IP: `10.0.0.2`
- Broadcast Address: `10.0.0.3`
+ Network Address: `192.168.0.0`
+ Computer 1 IP: `192.168.0.1`
+ Computer 2 IP: `192.168.0.2`
+ Broadcast Address: `192.168.0.3`
  Subnet Mask: `255.255.255.252`
 
 
