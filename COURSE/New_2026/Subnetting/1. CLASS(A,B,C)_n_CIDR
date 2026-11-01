@@ -55,7 +55,7 @@ CIDR	Subnet Mask
 /8	255.0.0.0
 /16	255.255.0.0
 /24	255.255.255.0
-/25	255.255.255.128
+/25	255.255.255.128 
 /26	255.255.255.192
 /27	255.255.255.224
 /28	255.255.255.240
@@ -63,6 +63,11 @@ CIDR	Subnet Mask
 
 Notice that as the CIDR number increases, the number of network bits increases and host bits decrease.
 
+>>Notice something?
+- Class B starts at 128.
+- Class C starts at 192.
+- Class D starts at 224.
+- Class E starts at 240.
 
 • A problem with classful addresses was that if a company had more than 254 hosts(Class C) they would need to be assigned a Class B network
 • They would have much less than the 65,534 hosts allocated, so this wasted a huge amount of the global address space
