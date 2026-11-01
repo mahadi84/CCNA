@@ -3,14 +3,13 @@
 1. TABLE to remove Common calculation and CONFUSION for calculating the SUBNET mask and HOST bits.
 2. "Always True":  why does the confusion happen?
 
-3. How can I calculate the Number of Networks?
-4. How can I calculate the Number of Hosts?
-5. Shortcut formula? 
+3. Golden Subnetting Formulas? 
+4. Important Rules
 
-6. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)
+5. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)
 
 
-7. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
+6. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
           Give me all of these for Class C:
             - Network Address:
             - Computer 1 IP:
@@ -20,7 +19,7 @@
             - Default Gateway:
             - 2nd subnet Network, Usable, and Broadcast address
 
-8. \31 vs \30 (CIDR = Classless Inter-Domain Routing.)
+
 
 ####################################################
 
@@ -63,47 +62,54 @@ Keeping these two separate rules in mind clears up the confusion:
               - If I want to calculate the next/previous Subnet mask 
 ---------
 
-### 03. Calculating the Number of Networks:
-            • To calculate the number of available subnets, the formula is (2^subnet_bits-2)
-            • If a Class C network uses a /28 subnet mask, then we’ve borrowed 4 bits from the default of /24 
-            • 2^4 = 16 available subnets 
-            • If a Class B network uses a /28 subnet mask, then we’ve borrowed 12 bits from the default of /16 
-            • 2^12 = 4096 available subnets 
+## 03. Golden Subnetting Formulas
+
+----------------------------------------
+| Calculation      | Formula           |
+|------------------|-------------------|
+| Total Subnets    | `2^Borrowed Bits` |
+| Total IPs/Subnet | `2^Host Bits`     |
+| Usable Hosts     | `2^Host Bits − 2` |
+| Block Size       | `256 − Interesting Octet Mask` |
+| Network Address  | Range Start       |
+| Broadcast Address | Next Network − 1 |
+| First Host       | Network + 1       |
+| Last Host        | Broadcast − 1     |
+----------------------------------------
+
+Exceptions: `/31` = 2 usable addresses on point-to-point links; `/32` = 1 individual address.
+>> For the CCNA exam, use /30 when a subnet to support 2 hosts is required, unless told to use /31
+
+---
+
+## 04. Important Rules
+>> CIDR = Classless Inter-Domain Routing.
+- CIDR ↑ = More Subnets, Fewer Hosts per Subnet.
+- More Borrowed Bits = More Subnets.
+- More Host Bits = More Hosts.
+- Network Address = Identifies the subnet.
+- Broadcast Address = Reaches all hosts in the subnet.
+- Traditional usable hosts = Total IPs − 2.
+
+Modern subnetting: Use `2^n`, not `2^n − 2`, for total subnets.
 
 ---------
 
-### 04. Calculating the Number of Hosts:
-             • To calculate the number of available hosts, the formula is (2^host_bits - 2)
-             • We subtract 2 because the network address and broadcast address cannot be assigned to hosts 
-             • If a Class C network uses a /28 subnet mask, then we have 4 bits left for hosts 
-             • 2^4 - 2 = 14
-             • If a Class B network uses a /28 subnet mask, then we have 4 bits left for hosts 
-             • 2^4 - 2 = 14
----------
+### 05. Why Do We Subtract 2? (`2^h − 2`)
 
-### 05. 
-          IP Block Size= 256 − Subnet Mask
-          Network = Range Start
-          Broadcast = Next Network − 1
-          First Host = Network + 1
-          Last Host = Broadcast − 1
----------
+Two IPv4 addresses are reserved:
 
-### 06. Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
+1. Network Address: Identifies the subnet.
+   - Analogy: Building address sign. It identifies the building, not a resident.
 
- 1. Network Address (Building Entrance Sign): Front Door/Mailbox(Network Address): identifies the subnet. 
- Analogy: 
- It is like the main street sign outside a flat ("100 Main Street"). 
- It tells mail carriers where the building is located, but no resident can live inside the street sign.
+2. Broadcast Address: Sends messages to all devices in the subnet.
+   - Analogy: Mosque loudspeaker (Azan) — everyone in the neighborhood can hear it.
 
- 2. Broadcast Address (Azan Loudspeaker): Simple Meaning: Used to send a message to every device on the network at once.
- Analogy: 
- It is like the Azan called over a mosque loudspeaker. When the Azan is called, everyone in the neighborhood is meant to hear it at the same time.
-
->> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
+>>Remaining IPs = Usable Host Addresses.**
+Exception: /31 point-to-point links use both addresses.*
 
 
-############################# 07. MATH ###################################################
+############################# 06. MATH ###################################################
 
 
 I want to connect 2 computers/hosts only from a Class  C IP range
@@ -190,19 +196,6 @@ Avoiding conflicts: Larger enterprise networks often use Class A and Class B spa
 
 ---
 
--------------------------
-     08. /31 vs /30
--------------------------
-Class C /31 Subnet   
-Let’s say we’ve been allocated Class C 200.15.10.0/24.  
- We subnet using /31. 
- Valid host addresses:   200.15.10.0 to 200.15.10.1  
-                        200.15.10.2 to 200.15.10.3   
-                        Etc., to:   
-                        200.15.10.254 to 200.15.10.255
-
->> For the CCNA exam, use /30 when a subnet to support 2 hosts is required, unless told to use /31
->> Use a /31 subnet for point-to-point connections between 2 hosts when you need to maximize your address space and avoid wasting IP addresses.
 
 
 
