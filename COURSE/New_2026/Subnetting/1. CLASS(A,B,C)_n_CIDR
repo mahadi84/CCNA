@@ -42,15 +42,31 @@ Note: 127.x.x.x is reserved for loopback
  ## CIDR Classless Inter-Domain Routing
 =============================================== 
 
-• A problem with classful addresses was that if a company had more than 254 hosts(Class C) they would need to be assigned a Class B network
-• They would have much less than the 65,534 hosts allocated, so this wasted a huge amount of the global address space
-• Classless Inter-Domain Routing (CIDR) was introduced in 1993 to alleviate this problem
+CIDR /number = Number of Network Bits.
 
 • CIDR removed the fixed /8, /16 and /24 requirements for the address classes, and allowed them to be split or ‘subnetted’ into smaller networks
  For example 175.10.10.0/20
 • Companies can now be allocated an address range which more closely matches their needs and does not waste addresses
 
+• CIDR and Subnet Mask Relationship
+Look at this table:
 
+CIDR	Subnet Mask
+/8	255.0.0.0
+/16	255.255.0.0
+/24	255.255.255.0
+/25	255.255.255.128
+/26	255.255.255.192
+/27	255.255.255.224
+/28	255.255.255.240
+/30	255.255.255.252
+
+Notice that as the CIDR number increases, the number of network bits increases and host bits decrease.
+
+
+• A problem with classful addresses was that if a company had more than 254 hosts(Class C) they would need to be assigned a Class B network
+• They would have much less than the 65,534 hosts allocated, so this wasted a huge amount of the global address space
+• Classless Inter-Domain Routing (CIDR) was introduced in 1993 to alleviate this problem
 
 
 
