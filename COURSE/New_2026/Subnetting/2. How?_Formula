@@ -1,10 +1,10 @@
 
 
 
-1. "Always True": What is it?
+1. "Always True":  why does the confusion happen?
 2. How can I calculate the Number of Networks?
 3. How can I calculate the Number of Hosts?
-4. 2^2+2^1+2^0 Vs. 2^3 ? Which one should I use and why?
+4. 2^2+2^1+2^0 Vs. 2^3 ? Which one should I use, and why?
 5. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)?
 6. Common calculation for calculating the SUBNET mask and HOST bits.
 7. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
@@ -26,7 +26,7 @@ Understanding the Mathematics of Subnetting:
 Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
 Total IPv4 Bits = 32 = Network Bits + Host Bits
 
-### 01. Common calculation for calculating the SUBNET mask and HOST bits.
+### 01. Common calculation and CONFUSION for calculating the SUBNET mask and HOST bits.
 Step-by-Step Breakdown
 
 In binary (base-2), each position represents a power of 2, starting from right (2^0) to left (2^7)
@@ -36,17 +36,36 @@ In binary (base-2), each position represents a power of 2, starting from right (
 | ------------------------ | --- | --- | --- | --- | --- | --- | --- | --- |
 | Binary Value             |  1  |  1  |  1  |  1  |  1  |  1  |  1  |  1  |
 | Decimal Place Value      | 128 | 64  | 32  | 16  | 8   | 4   | 2   |  1  |
+|                          | 2^7 | 2^6 | 2^5 | 2^4 | 2^3 | 2^2 | 2^1 | 2^0 |
 ----------------------------------------------------------------------------
 
 To convert to decimal, add up all the place values where the bit is 1
 The decimal value of  11111111  is 255.
 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
 
+
 -----------
 
 ### 02. Always True:
           • The network address line always moves to the right when we subnet 
-          • The further to the right we go, the more subnets we’ll have of that size but less hosts 
+          • The further to the right we go, the more subnets we’ll have of that size but fewer hosts 
+
+### Why the confusion happens?
+
+        1. What 2^0 to 2^7 actually do (Positional Place Values)
+          They do not count items; they tell you how much each column is worth when you add them up to find a decimal number (like converting 11111111 to 255).
+
+        2. What 2^h actually does (Capacity Calculation)
+          When calculating hosts, you aren't reading columns from right to left. 
+          Instead, you are asking: 
+          How many unique combinations can I make with h bits?
+          If you have 1 host bit (h=1), you can make 2 combinations: 0 and 1 (2^1 = 2).
+          If you have 2 host bits (h=2), you can make 4 combinations: 00, 01, 10, and 11 (2^2 = 4).
+          The exponent h is simply the total count of bits you have left over for hosts, not a starting index like 2^0 or 2^1.
+
+Keeping these three separate rules in mind clears up the confusion: 
+column weights (2^0 dots 2^7) determine value, while bit counts (2^h) determine capacity.
+
 
 ---------
 
