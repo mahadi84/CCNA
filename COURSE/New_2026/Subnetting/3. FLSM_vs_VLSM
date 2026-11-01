@@ -5,22 +5,52 @@
 
 ======================= 01. FLSM vs VLSM =======================
 
-### FLSM (Fixed Length Subnet Masking)
+Both are subnetting techniques used to divide a network into smaller subnets.
 
- Definition: An older subnetting approach where every subnet within a network must be the exact same size (using the same subnet mask).
- Limitation: Inefficient for address allocation. For example, 
-             if you divide a network to accommodate a large department of 64 hosts, smaller subnets (like a point-to-point link needing only 2 hosts) 
-             are forced to waste the remaining address space.
- Protocol Support: Supported by early, older routing protocols.
+Real-life analogy:
+- FLSM: Building 4 apartments, each with 3 bedrooms.
+- VLSM: Building 4 apartments with 3, 2, 1, and 1 bedrooms according to family needs.
 
+----------------------------------------------------------------------------------
+| বিষয়          | FLSM                        | VLSM                             |
+| ------------- | --------------------------- | -------------------------------- |
+| Full Form     | Fixed Length Subnet Mask    | Variable Length Subnet Mask      |
+| Subnet Size   | All subnets have equal size | Subnets can have different sizes |
+| Host Capacity | Same in every subnet        | Different in each subnet         |
+| IP Usage      | May waste IP addresses      | Saves IP addresses               |
+| Flexibility   | Less flexible               | More flexible                    |
+----------------------------------------------------------------------------------
 
+## 1. FLSM — Fixed Length
 
-### VLSM (Variable Length Subnet Masking)
+All subnets use the same subnet mask.
+Example: You divide a network into 4 subnets, each with `/26`.
 
- Definition: A modern subnetting method that allows you to vary the subnet mask sizes across different subnets within the same network.
- Benefit: Highly efficient. You can size each subnet precisely according to the actual number of hosts required (e.g., allocating a /30 or /31 for a 2-host link 
-          and a /26 for a 62-host department), preventing wasted IP addresses.
- Protocol Support: Supported by all modern routing protocols.
+FLSM Example:
+Subnet 1 /26: 62 usable hosts
+Subnet 2 /26: 62 usable hosts
+Subnet 3 /26: 62 usable hosts
+Subnet 4 /26: 62 usable hosts
+
+Every subnet has the same size.
+
+## 2. VLSM — Variable Length
+
+Different subnets use different subnet masks according to their requirements.
+VLSM Example:
+Subnet 1 — /26: 62 usable hosts
+Subnet 2 — /27: 30 usable hosts
+Subnet 3 — /28: 14 usable hosts
+Subnet 4 — /30: 2 usable hosts
+
+Each subnet gets a different size based on its needs.
+
+## Remember at a glance
+- FLSM = Fixed = Same size.
+- VLSM = Variable = Different sizes.
+
+CCNA Exam Tip: VLSM is more efficient because it reduces IP address wastage.
+
 
 
 
