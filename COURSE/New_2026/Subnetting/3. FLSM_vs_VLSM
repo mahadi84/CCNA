@@ -238,13 +238,407 @@ Important: The four subnets above assume the parent network is `198.22.45.0/24`.
 
 
 
+======================= 03. Example of VLSM =======================
+
+Answer the same question for VLSM: 
+These are the required IP addresses for the departments of a Bank: Remittance(10 IPs), Treasury (20 IPs), Trade (10 IPs), and SWIFT (5 IPs). Solve this problem
+Question: What are all network addresses, all broadcast addresses, and all valid host addresses for the IP address 198.22.45.173/26?
+
+
+
+
+
+# CCNA VLSM Subnetting — Bank Department Network (Step-by-Step)
+
+
+
+## Question
+A bank has four departments requiring the following IP addresses:
+
+| Department | Required IPs |
+|---|---:|
+| Remittance | 10 |
+| Treasury | 20 |
+| Trade | 10 |
+| SWIFT | 5 |
+| Total | 45 |
+
+Given IP: `198.22.45.173/26`
+
+Find:
+1. Network Address of each department.
+2. Broadcast Address of each department.
+3. Valid Host Range of each department.
+4. Subnet Mask and CIDR of each department.
+5. Total and usable IP addresses.
+
+---------------
+
+## Step 1: Identify the Original Network
+## Step 2: Check Whether /26 Is Enough
+## Step 3: Arrange Departments Largest to Smallest
+## Step 4: Calculate Host Bits and CIDR
+### A. Treasury — 20 Hosts
+### B. Remittance — 10 Hosts
+### C. Trade — 10 Hosts
+### D. SWIFT — 5 Hosts
+## Step 5: Calculate Block Size
+## Step 6: Allocate Treasury (20 IPs)
+## Step 7: Allocate Remittance (10 IPs)
+## Step 8: Allocate Trade (10 IPs)
+## Step 9: Allocate SWIFT (5 IPs)
+## Step 10: Final VLSM Answer
+### Remaining Address Space
+## Step 11: FLSM vs VLSM Comparison
+### Original FLSM (/26 Each)
+### New VLSM (Different Sizes)
+## Step 12: What Happens to Original IP 198.22.45.173/26?
+## Quick Revision — Golden VLSM Formulas
+## Final Memory Trick: VLSM in 5 Steps
+
+
+
+
+------------------------
+
+
+## Step 1: Identify the Original Network
+Given IP: `198.22.45.173/26`
+
+- First Octet = 198 (Historically Class C)
+- Default Class C Prefix = `/24`
+- Given Prefix = `/26`
+- Network Bits = 26
+- Host Bits = `32 − 26 = 6`
+- Subnet Mask = `255.255.255.192`
+- Block Size = `256 − 192 = 64`
+
+Original /26 subnet details:
+
+| Property | Value |
+|---|---|
+| Network Address | `198.22.45.128` |
+| First Host | `198.22.45.129` |
+| Last Host | `198.22.45.190` |
+| Broadcast | `198.22.45.191` |
+| Total IPs | 64 |
+| Usable Hosts | 62 |
+
+
+
+
+## Step 2: Check Whether /26 Is Enough
+We need 45 IP addresses across four separate departments.
+
+Although `/26` provides 62 usable hosts, VLSM requires separate network and broadcast addresses for each subnet.
+
+Required subnet sizes:
+- Treasury (20) → 32 addresses
+- Remittance (10) → 16 addresses
+- Trade (10) → 16 addresses
+- SWIFT (5) → 8 addresses
+
+Total required address space:
+
+`32 + 16 + 16 + 8 = 72 Addresses`
+
+Available in /26 = 64 Addresses
+
+`72 > 64` → Not Enough!
+
+Therefore, the original `/26` cannot accommodate all four departments.
+
+Solution: Assuming a larger address block is available and authorized, use the next suitable parent network containing the given IP:
+
+`198.22.45.128/25`
+
+| Property | Value |
+|---|---|
+| Parent Network | `198.22.45.128/25` |
+| Subnet Mask | `255.255.255.128` |
+| Total Addresses | 128 |
+| Address Range | `198.22.45.128 – 198.22.45.255` |
+
+Important: We are expanding the available parent address block from `/26` to `/25`, not merely changing the subnet mask of an existing device.
+
+
+
+
+## Step 3: Arrange Departments Largest to Smallest
+VLSM Golden Rule: Largest Host Requirement First
+
+| Order | Department | Required Hosts |
+|---|---|---:|
+| 1 | Treasury | 20 |
+| 2 | Remittance | 10 |
+| 3 | Trade | 10 |
+| 4 | SWIFT | 5 |
+
+
+
+## Step 4: Calculate Host Bits and CIDR
+Formulas:
+- `Usable Hosts = 2^h − 2`
+- `CIDR = 32 − h`
+- `h = Required Host Bits`
+
+### A. Treasury — 20 Hosts
+- `2⁴ − 2 = 14` → Not Enough
+- `2⁵ − 2 = 30` → Enough
+- Host Bits = 5
+- CIDR = `32 − 5 = /27`
+- Subnet Mask = `255.255.255.224`
+
+### B. Remittance — 10 Hosts
+- `2³ − 2 = 6` → Not Enough
+- `2⁴ − 2 = 14` → Enough
+- Host Bits = 4
+- CIDR = `32 − 4 = /28`
+- Subnet Mask = `255.255.255.240`
+
+### C. Trade — 10 Hosts
+- `2³ − 2 = 6` → Not Enough
+- `2⁴ − 2 = 14` → Enough
+- Host Bits = 4
+- CIDR = `32 − 4 = /28`
+- Subnet Mask = `255.255.255.240`
+
+### D. SWIFT — 5 Hosts
+- `2² − 2 = 2` → Not Enough
+- `2³ − 2 = 6` → Enough
+- Host Bits = 3
+- CIDR = `32 − 3 = /29`
+- Subnet Mask = `255.255.255.248`
+
+Note: The allocated capacities can also accommodate one default gateway per department if the stated requirements refer only to computers.
+
+
+
+
+## Step 5: Calculate Block Size
+Formula: `Block Size = 256 − Interesting Octet Mask`
+
+| Department | CIDR | Subnet Mask | Block Size | Usable Hosts |
+|---|---|---|---:|---:|
+| Treasury | /27 | 255.255.255.224 | 32 | 30 |
+| Remittance | /28 | 255.255.255.240 | 16 | 14 |
+| Trade | /28 | 255.255.255.240 | 16 | 14 |
+| SWIFT | /29 | 255.255.255.248 | 8 | 6 |
+
+
+
+
+## Step 6: Allocate Treasury (20 IPs)
+Parent Network starts at `198.22.45.128`.
+
+- CIDR = `/27`
+- Block Size = 32
+- Network = `.128`
+- Broadcast = `128 + 32 − 1 = .159`
+- First Host = `.128 + 1 = .129`
+- Last Host = `.159 − 1 = .158`
+
+| Property | Address |
+|---|---|
+| Network | `198.22.45.128/27` |
+| First Host | `198.22.45.129` |
+| Last Host | `198.22.45.158` |
+| Broadcast | `198.22.45.159` |
+| Usable Hosts | 30 |
+
+Next Available Network Address = `198.22.45.160`
+
+
+
+
+## Step 7: Allocate Remittance (10 IPs)
+- CIDR = `/28`
+- Block Size = 16
+- Network = `.160`
+- Broadcast = `160 + 16 − 1 = .175`
+- First Host = `.160 + 1 = .161`
+- Last Host = `.175 − 1 = .174`
+
+| Property | Address |
+|---|---|
+| Network | `198.22.45.160/28` |
+| First Host | `198.22.45.161` |
+| Last Host | `198.22.45.174` |
+| Broadcast | `198.22.45.175` |
+| Usable Hosts | 14 |
+
+Important: Original IP `198.22.45.173` belongs to the Remittance subnet when configured with `/28`.
+
+Next Available Network Address = `198.22.45.176`
+
+
+
+
+## Step 8: Allocate Trade (10 IPs)
+- CIDR = `/28`
+- Block Size = 16
+- Network = `.176`
+- Broadcast = `176 + 16 − 1 = .191`
+- First Host = `.176 + 1 = .177`
+- Last Host = `.191 − 1 = .190`
+
+| Property | Address |
+|---|---|
+| Network | `198.22.45.176/28` |
+| First Host | `198.22.45.177` |
+| Last Host | `198.22.45.190` |
+| Broadcast | `198.22.45.191` |
+| Usable Hosts | 14 |
+
+Next Available Network Address = `198.22.45.192`
+
+
+
+
+## Step 9: Allocate SWIFT (5 IPs)
+- CIDR = `/29`
+- Block Size = 8
+- Network = `.192`
+- Broadcast = `192 + 8 − 1 = .199`
+- First Host = `.192 + 1 = .193`
+- Last Host = `.199 − 1 = .198`
+
+| Property | Address |
+|---|---|
+| Network | `198.22.45.192/29` |
+| First Host | `198.22.45.193` |
+| Last Host | `198.22.45.198` |
+| Broadcast | `198.22.45.199` |
+| Usable Hosts | 6 |
+
+Next Available Address = `198.22.45.200`
+
+
+
+
+## Step 10: Final VLSM Answer
+
+| Department | CIDR | Network Address | First Host | Last Host | Broadcast Address |
+|---|---|---|---|---|---|
+| Treasury | /27 | `198.22.45.128` | `198.22.45.129` | `198.22.45.158` | `198.22.45.159` |
+| Remittance | /28 | `198.22.45.160` | `198.22.45.161` | `198.22.45.174` | `198.22.45.175` |
+| Trade | /28 | `198.22.45.176` | `198.22.45.177` | `198.22.45.190` | `198.22.45.191` |
+| SWIFT | /29 | `198.22.45.192` | `198.22.45.193` | `198.22.45.198` | `198.22.45.199` |
+
+### Remaining Address Space
+- Parent Network = `198.22.45.128/25`
+- Total Addresses = 128
+- Allocated Addresses = 72
+- Remaining Addresses = `128 − 72 = 56`
+- Unallocated Range = `198.22.45.200 – 198.22.45.255`
+
+The remaining range is available for future subnet allocation, but it is not one single CIDR-aligned subnet.
+
+
+
+
+## Step 11: FLSM vs VLSM Comparison
+
+### Original FLSM (/26 Each)
+Assuming parent network `198.22.45.0/24`:
+
+| Subnet | CIDR | Network | Broadcast | Usable Hosts |
+|---|---|---|---|---:|
+| 1 | /26 | .0 | .63 | 62 |
+| 2 | /26 | .64 | .127 | 62 |
+| 3 | /26 | .128 | .191 | 62 |
+| 4 | /26 | .192 | .255 | 62 |
+
+FLSM: All subnet sizes are equal.
+
+### New VLSM (Different Sizes)
+
+| Department | Required IPs | CIDR | Usable Hosts |
+|---|---:|---|---:|
+| Treasury | 20 | /27 | 30 |
+| Remittance | 10 | /28 | 14 |
+| Trade | 10 | /28 | 14 |
+| SWIFT | 5 | /29 | 6 |
+
+VLSM: Different subnet sizes are allocated according to department needs.
+
+
+
+
+## Step 12: What Happens to Original IP 198.22.45.173/26?
+
+| Property | Original /26 | New VLSM /28 |
+|---|---|---|
+| Host IP | 198.22.45.173 | 198.22.45.173 |
+| CIDR | /26 | /28 |
+| Subnet Mask | 255.255.255.192 | 255.255.255.240 |
+| Network Address | 198.22.45.128 | 198.22.45.160 |
+| Broadcast Address | 198.22.45.191 | 198.22.45.175 |
+| Valid Host Range | .129 – .190 | .161 – .174 |
+| Usable Hosts | 62 | 14 |
+
+Explanation: The host IP remains `.173`, but its subnet mask changes from `/26` to `/28` under the new VLSM plan. Therefore, its Network Address and Broadcast Address also change.
+
+Important: The original `198.22.45.173/26` and the planned `198.22.45.173/28` are different IP/prefix configurations.
+
+---
+
+## Quick Revision — Golden VLSM Formulas
+
+| Calculation | Formula |
+|---|---|
+| Host Bits | `32 − CIDR` |
+| Required Host Bits | Smallest h where `2^h − 2 >= Required Hosts` |
+| CIDR | `32 − Host Bits` |
+| Total IPs | `2^Host Bits` |
+| Usable Hosts | `2^Host Bits − 2` |
+| Block Size | `256 − Interesting Octet Mask` |
+| Network Address | Aligned Block Start |
+| Broadcast Address | Network + Block Size − 1 |
+| First Host | Network + 1 |
+| Last Host | Broadcast − 1 |
+
+## Final Memory Trick: VLSM in 5 Steps
+
+1. SORT: Largest Hosts → Smallest Hosts
+2. HOST BITS: `2^h − 2 >= Required Hosts`
+3. CIDR: `32 − h`
+4. BLOCK SIZE: `2^h`
+5. ALLOCATE: Network → Broadcast → Valid Hosts → Next Aligned Subnet
+
+Golden Rule:
+- FLSM = Fixed Subnet Sizes
+- VLSM = Variable Subnet Sizes
+- VLSM saves address space by matching subnet size to actual requirements.
+
+Final Result for IP 198.22.45.173 with VLSM /28:
+- Department = Remittance
+- Network = `198.22.45.160`
+- Broadcast = `198.22.45.175`
+- First Host = `198.22.45.161`
+- Last Host = `198.22.45.174`
+- Usable Hosts = 14
+
+Practical note: 
+The given public IPv4 range is used for this CCNA exercise. For a real bank LAN, use properly authorized address space (usually private RFC 1918 ranges) and apply suitable VLAN, firewall, and access-control policies.
+
+
+
+
+
+
+
+.
+
+
+
+
+
+
+
+
+
+
+
+
 ======================= 02. Example of FLSM =======================
-
-
-
-
-
-
-
-
-
