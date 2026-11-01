@@ -1,11 +1,15 @@
 
 
-1. "Always True":  why does the confusion happen?
-2. How can I calculate the Number of Networks?
-3. How can I calculate the Number of Hosts?
-4. 2^2+2^1+2^0 Vs. 2^3 ? Which one should I use, and why?
-5. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)?
-6. Common calculation for calculating the SUBNET mask and HOST bits.
+1. TABLE to remove Common calculation and CONFUSION for calculating the SUBNET mask and HOST bits.
+2. "Always True":  why does the confusion happen?
+
+3. How can I calculate the Number of Networks?
+4. How can I calculate the Number of Hosts?
+5. Shortcut formula? 
+
+6. Why are 2 Addresses Are Always Subtracted (2^host-bits - 2)
+
+
 7. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
           Give me all of these for Class C:
             - Network Address:
@@ -78,15 +82,11 @@ Keeping these two separate rules in mind clears up the confusion:
 ---------
 
 ### 05. 
-          একটি বিট বাড়লে কম্বিনেশন "দ্বিগুণ হওয়া" —এটিই মূলত বাইনারি গণিতের মূল ভিত্তি, যা নেটওয়ার্কের ক্ষমতা দ্রুত বাড়াতে সাহায্য করে।
-          সাধারণত বিভ্রান্তিটি তৈরি হয় সংখ্যার মান যোগ (2^2 + 2^1 + 2^0)করা আর সম্ভাব্য কম্বিনেশন বা অপশন গুণ করার মধ্যকার পার্থক্য বুঝতে না পারার কারণে।
-          
-          কলামের মান যোগ করলে কেবল সংখ্যাগুলোর সর্বোচ্চ মান (Decimal Value) পাওয়া যায়, কিন্তু মোট কতগুলো ভিন্ন প্যাটার্ন বা কম্বিনেশন তৈরি হলো তা পাওয়া যায় না।
-          ৩টি হোস্ট বিটের ক্ষেত্রে:যোগ করার ভুল পদ্ধতি: 2^2 + 2^1 + 2^0 = 4 + 2 + 1 = 7 (এখানে মোট ঘরের সংখ্যা ভুল আসে)
-          পাওয়ারের সঠিক পদ্ধতি: 2^3 = ৮ টি মোট কম্বিনেশন (000, 001, 010,..., 111)
-          
-          যোগ করার পদ্ধতিতে প্রথম অ্যাড্রেস অর্থাৎ অল-জিরো (000) বাদ পড়ে যায়। 
-          কিন্তু এই 000 নিজেও একটি বৈধ প্যাটার্ন (নেটওয়ার্ক আইডি)। তাই মোট কম্বিনেশন ৭টি নয়, ৮টি।
+          IP Block Size= 256 − Subnet Mask
+          Network = Range Start
+          Broadcast = Next Network − 1
+          First Host = Network + 1
+          Last Host = Broadcast − 1
 ---------
 
 ### 06. Why 2 Addresses Are Always Subtracted (2^host-bits - 2)
@@ -103,7 +103,7 @@ Keeping these two separate rules in mind clears up the confusion:
 >> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
 
 
-############################# 06. MATH ###################################################
+############################# 07. MATH ###################################################
 
 
 I want to connect 2 computers/hosts only from a Class  C IP range
