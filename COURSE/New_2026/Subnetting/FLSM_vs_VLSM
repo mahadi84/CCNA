@@ -1,0 +1,30 @@
+
+01. FLSM vs VLSM
+02. Example of FLSM
+02. Example of VLSM
+
+======================= 01. FLSM vs VLSM =======================
+
+### FLSM (Fixed Length Subnet Masking)
+
+ Definition: An older subnetting approach where every subnet within a network must be the exact same size (using the same subnet mask).
+ Limitation: Inefficient for address allocation. For example, 
+             if you divide a network to accommodate a large department of 64 hosts, smaller subnets (like a point-to-point link needing only 2 hosts) 
+             are forced to waste the remaining address space.
+ Protocol Support: Supported by early, older routing protocols.
+
+
+
+### VLSM (Variable Length Subnet Masking)
+
+ Definition: A modern subnetting method that allows you to vary the subnet mask sizes across different subnets within the same network.
+ Benefit: Highly efficient. You can size each subnet precisely according to the actual number of hosts required (e.g., allocating a /30 or /31 for a 2-host link 
+          and a /26 for a 62-host department), preventing wasted IP addresses.
+ Protocol Support: Supported by all modern routing protocols.
+
+
+
+
+======================= 02. Example of FLSM =======================
+
+
