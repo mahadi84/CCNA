@@ -69,6 +69,27 @@ Total IPv4 Bits = 32 = Network Bits + Host Bits
 
 >> Whatever space is left inside the room can be used for desks (usable host IPs for computers).
 
+
+
+### Step-by-Step Breakdown
+
+In binary (base-2), each position represents a power of 2, starting from right (2^0) to left (2^7)
+
+----------------------------------------------------------------------------
+| Bit Position (from left) | 1st | 2nd | 3rd | 4th | 5th | 6th | 7th | 8th |
+| ------------------------ | --- | --- | --- | --- | --- | --- | --- | --- |
+| Binary Value             |  1  |  1  |  1  |  1  |  1  |  1  |  1  |  1  |
+| Decimal Place Value      | 128 | 64  | 32  | 16  | 8   | 4   | 2   |  1  |
+----------------------------------------------------------------------------
+
+To convert to decimal, add up all the place values where the bit is 1
+The full decimal number for  11111111  is 255.
+128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+
+
+
+
+
 ############################# 06. MATH ###################################################
 
 
