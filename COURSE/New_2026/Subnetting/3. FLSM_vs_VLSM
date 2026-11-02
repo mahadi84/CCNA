@@ -242,12 +242,19 @@ Important: The four subnets above assume the parent network is `198.22.45.0/24`.
 
 
 
-===================================================================== 
+
+
+
+
+
+
+#############################################################################
                 03. Example of VLSM 
-===================================================================== 
+#############################################################################
+
 
 Answer the same question for VLSM: 
-These are the required IP addresses for the departments of a Bank: Remittance(10 IPs), Treasury (20 IPs), Trade (10 IPs), and SWIFT (5 IPs). Solve this problem
+The required IP addresses for the departments of a bank are: Remittance (10 IPs), Treasury (20 IPs), Trade (10 IPs), and SWIFT (5 IPs). Solve this problem
 Question: What are all network addresses, all broadcast addresses, and all valid host addresses for the IP address 198.22.45.173/26?
 
 #VLSM Subnetting — Bank Department Network (Step-by-Step)
@@ -256,12 +263,12 @@ Question: What are all network addresses, all broadcast addresses, and all valid
 -----------------------------
 | Department | Required IPs |
 |------------|--------------|
-| Remittance | 10 |
 | Treasury   | 20 |
+| Remittance | 10 |
 | Trade      | 10 |
 | SWIFT      | 5  |
-| Total      | 45 |
 -------------------
+| Total      | 45 |
 
 Given IP: `198.22.45.173/26`
 
