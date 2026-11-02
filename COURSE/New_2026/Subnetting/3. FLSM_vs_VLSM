@@ -345,11 +345,8 @@ Required subnet sizes:
 - SWIFT (5) → 8 addresses
 
 Total required address space:
-
 `32 + 16 + 16 + 8 = 72 Addresses`
-
 Available in /26 = 64 Addresses
-
 `72 > 64` → Not Enough!
 
 Therefore, the original `/26` cannot accommodate all four departments.
@@ -357,13 +354,14 @@ Therefore, the original `/26` cannot accommodate all four departments.
 Solution: Assuming a larger address block is available and authorized, use the next suitable parent network containing the given IP:
 
 `198.22.45.128/25`
-
-| Property | Value |
-|---|---|
-| Parent Network | `198.22.45.128/25` |
-| Subnet Mask | `255.255.255.128` |
-| Total Addresses | 128 |
-| Address Range | `198.22.45.128 – 198.22.45.255` |
+----------------------------------------
+| Property        | Value              |
+|-----------------|--------------------|
+| Parent Network  | `198.22.45.128/25` |
+| Subnet Mask     | `255.255.255.128`  |
+| Total Addresses | 128                |
+| Address Range   | `198.22.45.128 – 198.22.45.255` |
+-----------------------------------------------------
 
 Important: We are expanding the available parent address block from `/26` to `/25`, not merely changing the subnet mask of an existing device.
 
