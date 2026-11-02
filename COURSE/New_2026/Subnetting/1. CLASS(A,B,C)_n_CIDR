@@ -59,6 +59,7 @@ CIDR	Subnet Mask
 /26	255.255.255.192
 /27	255.255.255.224
 /28	255.255.255.240
+/29	255.255.255.248
 /30	255.255.255.252
 
 Notice that as the CIDR number increases, the number of network bits increases and host bits decrease.
@@ -72,6 +73,9 @@ Notice that as the CIDR number increases, the number of network bits increases a
 • A problem with classful addresses was that if a company had more than 254 hosts(Class C) they would need to be assigned a Class B network
 • They would have much less than the 65,534 hosts allocated, so this wasted a huge amount of the global address space
 • Classless Inter-Domain Routing (CIDR) was introduced in 1993 to alleviate this problem
+
+
+
 
 
 
