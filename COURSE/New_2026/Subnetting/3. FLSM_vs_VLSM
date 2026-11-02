@@ -250,16 +250,9 @@ Answer the same question for VLSM:
 These are the required IP addresses for the departments of a Bank: Remittance(10 IPs), Treasury (20 IPs), Trade (10 IPs), and SWIFT (5 IPs). Solve this problem
 Question: What are all network addresses, all broadcast addresses, and all valid host addresses for the IP address 198.22.45.173/26?
 
+#VLSM Subnetting — Bank Department Network (Step-by-Step)
 
-
-
-
-# CCNA VLSM Subnetting — Bank Department Network (Step-by-Step)
-
-
-
-## Question
-A bank has four departments requiring the following IP addresses:
+## Question: A bank has four departments requiring the following IP addresses:
 -----------------------------
 | Department | Required IPs |
 |------------|--------------|
@@ -284,24 +277,29 @@ Find:
 ## Step 1: Identify the Original Network
 ## Step 2: Check Whether /26 Is Enough
 ## Step 3: Arrange Departments Largest to Smallest
+
 ## Step 4: Calculate Host Bits and CIDR
-### A. Treasury — 20 Hosts
-### B. Remittance — 10 Hosts
-### C. Trade — 10 Hosts
-### D. SWIFT — 5 Hosts
+            ### A. Treasury — 20 Hosts
+            ### B. Remittance — 10 Hosts
+            ### C. Trade — 10 Hosts
+            ### D. SWIFT — 5 Hosts
+
 ## Step 5: Calculate Block Size
 ## Step 6: Allocate Treasury (20 IPs)
 ## Step 7: Allocate Remittance (10 IPs)
 ## Step 8: Allocate Trade (10 IPs)
 ## Step 9: Allocate SWIFT (5 IPs)
+
 ## Step 10: Final VLSM Answer
-### Remaining Address Space
+            ### Remaining Address Space
+
 ## Step 11: FLSM vs VLSM Comparison
-### Original FLSM (/26 Each)
-### New VLSM (Different Sizes)
+            ### Original FLSM (/26 Each)
+            ### New VLSM (Different Sizes)
+
 ## Step 12: What Happens to Original IP 198.22.45.173/26?
-## Quick Revision — Golden VLSM Formulas
-## Final Memory Trick: VLSM in 5 Steps
+            ## Quick Revision — Golden VLSM Formulas
+            ## Final Memory Trick: VLSM in 5 Steps
 
 
 
