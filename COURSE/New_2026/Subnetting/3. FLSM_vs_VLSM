@@ -253,12 +253,6 @@ Important: The four subnets above assume the parent network is `198.22.45.0/24`.
 #############################################################################
 
 
-Answer the same question for VLSM: 
-The required IP addresses for the departments of a bank are: Remittance (10 IPs), Treasury (20 IPs), Trade (10 IPs), and SWIFT (5 IPs). Solve this problem
-Question: What are all network addresses, all broadcast addresses, and all valid host addresses for the IP address 198.22.45.173/26?
-
-#VLSM Subnetting — Bank Department Network (Step-by-Step)
-
 ## Question: A bank has four departments requiring the following IP addresses:
 -----------------------------
 | Department | Required IPs |
@@ -279,7 +273,7 @@ Find:
 4. Subnet Mask and CIDR of each department.
 5. Total and usable IP addresses.
 
----------------
+-------- ANSWER-------
 
 ## Step 1: Identify the Original Network
 ## Step 2: Check Whether /26 Is Enough
