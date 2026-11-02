@@ -425,12 +425,14 @@ Note: The allocated capacities can also accommodate one default gateway per depa
 ## Step 5: Calculate Block Size
 Formula: `Block Size = 256 − Interesting Octet Mask`
 
-| Department | CIDR | Subnet Mask | Block Size | Usable Hosts |
-|---|---|---|---:|---:|
-| Treasury | /27 | 255.255.255.224 | 32 | 30 |
-| Remittance | /28 | 255.255.255.240 | 16 | 14 |
-| Trade | /28 | 255.255.255.240 | 16 | 14 |
-| SWIFT | /29 | 255.255.255.248 | 8 | 6 |
+-------------------------------------------------------------------
+| Department | CIDR | Subnet Mask     | Block Size | Usable Hosts |
+|------------|------|-----------------|------------|--------------|
+| Treasury   | /27  | 255.255.255.224 | 32         | 30 |
+| Remittance | /28  | 255.255.255.240 | 16         | 14 |
+| Trade      | /28  | 255.255.255.240 | 16         | 14 |
+| SWIFT      | /29  | 255.255.255.248 | 8          | 6  |
+-------------------------------------------------------------------
 
 
 
@@ -445,13 +447,15 @@ Parent Network starts at `198.22.45.128`.
 - First Host = `.128 + 1 = .129`
 - Last Host = `.159 − 1 = .158`
 
-| Property | Address |
-|---|---|
-| Network | `198.22.45.128/27` |
+------------------------------------
+| Property   | Address            |
+|------------|--------------------|
+| Network    | `198.22.45.128/27` |
 | First Host | `198.22.45.129` |
-| Last Host | `198.22.45.158` |
-| Broadcast | `198.22.45.159` |
+| Last Host  | `198.22.45.158` |
+| Broadcast  | `198.22.45.159` |
 | Usable Hosts | 30 |
+---------------------
 
 Next Available Network Address = `198.22.45.160`
 
@@ -466,13 +470,15 @@ Next Available Network Address = `198.22.45.160`
 - First Host = `.160 + 1 = .161`
 - Last Host = `.175 − 1 = .174`
 
-| Property | Address |
-|---|---|
-| Network | `198.22.45.160/28` |
+----------------------------------
+| Property   | Address            |
+|------------|--------------------|
+| Network    | `198.22.45.160/28` |
 | First Host | `198.22.45.161` |
-| Last Host | `198.22.45.174` |
-| Broadcast | `198.22.45.175` |
+| Last Host  | `198.22.45.174` |
+| Broadcast  | `198.22.45.175` |
 | Usable Hosts | 14 |
+---------------------
 
 Important: Original IP `198.22.45.173` belongs to the Remittance subnet when configured with `/28`.
 
@@ -524,13 +530,14 @@ Next Available Address = `198.22.45.200`
 
 
 ## Step 10: Final VLSM Answer
-
-| Department | CIDR | Network Address | First Host | Last Host | Broadcast Address |
-|---|---|---|---|---|---|
-| Treasury | /27 | `198.22.45.128` | `198.22.45.129` | `198.22.45.158` | `198.22.45.159` |
-| Remittance | /28 | `198.22.45.160` | `198.22.45.161` | `198.22.45.174` | `198.22.45.175` |
-| Trade | /28 | `198.22.45.176` | `198.22.45.177` | `198.22.45.190` | `198.22.45.191` |
-| SWIFT | /29 | `198.22.45.192` | `198.22.45.193` | `198.22.45.198` | `198.22.45.199` |
+---------------------------------------------------------------------------------------------
+| Department | CIDR | Network Address | First Host      | Last Host | Broadcast Address     |
+|------------|------|-----------------|-----------------|-----------------|-----------------|
+| Treasury   | /27  | `198.22.45.128` | `198.22.45.129` | `198.22.45.158` | `198.22.45.159` |
+| Remittance | /28  | `198.22.45.160` | `198.22.45.161` | `198.22.45.174` | `198.22.45.175` |
+| Trade      | /28  | `198.22.45.176` | `198.22.45.177` | `198.22.45.190` | `198.22.45.191` |
+| SWIFT      | /29  | `198.22.45.192` | `198.22.45.193` | `198.22.45.198` | `198.22.45.199` |
+---------------------------------------------------------------------------------------------
 
 ### Remaining Address Space
 - Parent Network = `198.22.45.128/25`
@@ -549,12 +556,14 @@ The remaining range is available for future subnet allocation, but it is not one
 ### Original FLSM (/26 Each)
 Assuming parent network `198.22.45.0/24`:
 
-| Subnet | CIDR | Network | Broadcast | Usable Hosts |
-|---|---|---|---|---:|
-| 1 | /26 | .0 | .63 | 62 |
-| 2 | /26 | .64 | .127 | 62 |
-| 3 | /26 | .128 | .191 | 62 |
-| 4 | /26 | .192 | .255 | 62 |
+-----------------------------------------------
+| Subnet | CIDR|Network|Broadcast|Usable Hosts|
+|--------|-----|-------|---------|------------|
+| 1      | /26 | .0    | .63     | 62 |
+| 2      | /26 | .64   | .127    | 62 |
+| 3      | /26 | .128  | .191    | 62 |
+| 4      | /26 | .192  | .255    | 62 |
+---------------------------------------
 
 FLSM: All subnet sizes are equal.
 
@@ -574,15 +583,17 @@ VLSM: Different subnet sizes are allocated according to department needs.
 
 ## Step 12: What Happens to Original IP 198.22.45.173/26?
 
-| Property | Original /26 | New VLSM /28 |
-|---|---|---|
-| Host IP | 198.22.45.173 | 198.22.45.173 |
-| CIDR | /26 | /28 |
-| Subnet Mask | 255.255.255.192 | 255.255.255.240 |
-| Network Address | 198.22.45.128 | 198.22.45.160 |
+----------------------------------------------
+| Property   | Original /26  | New VLSM /28  |
+|------------|---------------|---------------|
+| Host IP    | 198.22.45.173 | 198.22.45.173 |
+| CIDR       | /26           | /28           |
+| Subnet Mask| 255.255.255.192 | 255.255.255.240 |
+| Network Address   | 198.22.45.128 | 198.22.45.160 |
 | Broadcast Address | 198.22.45.191 | 198.22.45.175 |
-| Valid Host Range | .129 – .190 | .161 – .174 |
-| Usable Hosts | 62 | 14 |
+| Valid Host Range  | .129 – .190   | .161 – .174 |
+| Usable Hosts      | 62            | 14          | 
+--------------------------------------------------
 
 Explanation: The host IP remains `.173`, but its subnet mask changes from `/26` to `/28` under the new VLSM plan. Therefore, its Network Address and Broadcast Address also change.
 
@@ -592,18 +603,20 @@ Important: The original `198.22.45.173/26` and the planned `198.22.45.173/28` ar
 
 ## Quick Revision — Golden VLSM Formulas
 
-| Calculation | Formula |
-|---|---|
-| Host Bits | `32 − CIDR` |
+---------------------------
+| Calculation | Formula    |
+|-------------|------------|
+| Host Bits   | `32 − CIDR` |
 | Required Host Bits | Smallest h where `2^h − 2 >= Required Hosts` |
-| CIDR | `32 − Host Bits` |
-| Total IPs | `2^Host Bits` |
-| Usable Hosts | `2^Host Bits − 2` |
-| Block Size | `256 − Interesting Octet Mask` |
-| Network Address | Aligned Block Start |
+| CIDR        | `32 − Host Bits` |
+| Total IPs   | `2^Host Bits` |
+| Usable Hosts| `2^Host Bits − 2` |
+| Block Size  | `256 − Interesting Octet Mask` |
+| Network Address   | Aligned Block Start |
 | Broadcast Address | Network + Block Size − 1 |
-| First Host | Network + 1 |
-| Last Host | Broadcast − 1 |
+| First Host | Network + 1   |
+| Last Host  | Broadcast − 1 |
+-------------------------------
 
 ## Final Memory Trick: VLSM in 5 Steps
 
