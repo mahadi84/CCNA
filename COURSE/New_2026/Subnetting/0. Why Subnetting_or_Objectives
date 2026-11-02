@@ -7,7 +7,7 @@
 Main Objectives of Subnetting:
 
 1. Efficient IP Usage: Prevents IP address wastage by allocating only the required number of addresses (using VLSM/CIDR). Historically, classful addressing could waste thousands of IPs.
-2. Reduce Broadcast Traffic: Divides large networks into smaller broadcast domains, reducing unnecessary traffic like ARP broadcasts.
+2. >>Reduce Broadcast Traffic: Divides large networks into smaller broadcast domains, reducing unnecessary traffic like ARP broadcasts.
 3. Improve Performance: Reduces broadcast congestion and improves network efficiency.
 
 4. Enhance Security: Separates departments (e.g., Finance and Guest Wi-Fi) using VLANs, firewalls and ACLs.
@@ -20,6 +20,31 @@ Memory Trick: Building Analogy
 - With Subnetting: Separate floors/rooms → Less noise, better security, easier management.
 
 Remember: Subnetting organizes IP networks; VLANs and routing boundaries provide actual traffic separation, while firewalls/ACLs enforce security.
+
+
+
+>> Address Resolution Protocol (ARP) Broadcasts:
+Question: When my computer already knows a printer's IP address on the local network, how does it find the exact physical hardware address (MAC address) to send the print job?
+
+Broadcast Query: 
+My computer sends out a local ARP broadcast query to every device on the subnet asking: "Who has the IP address 192.168.1.50? Tell me your physical MAC address."
+The Host Responds: 
+The printer with that specific IP address hears the broadcast and replies directly: "I have that IP address! My physical MAC address is 00:1A:2B:3C:4D:5E."
+
+
+>> Network Discovery Traffic (mDNS / WS-Discovery):
+Question: When I click the "Add Printer" button on my computer, it shows many available printers. How does my computer find and display them?
+
+Broadcast / Network Discovery: 
+When I click "Add Printer," my computer sends out a local discovery message across the subnet asking: "Are there any printers or shared resources available?"
+The Host Responds: 
+The printer hears this message and replies directly to my computer: "Yes, I am a printer, and my name is 'Office-Printer'!"
+
+
+
+
+
+
 
 
 
