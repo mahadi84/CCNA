@@ -41,6 +41,26 @@ Why It Is Mandatory:
      Without that Broadcast IP destination label, the network switch would treat the packet as a normal one-to-one message (unicast) 
      and send it to only one port, completely breaking protocols like ARP.
 
+
+
+>> Why the Router Must Know the Subnet Boundaries and Broadcast IP:
+Question: Why does the router need to know exactly where a subnet ends and what its broadcast IP is?
+
+Traffic Routing Decisions (Local vs. Remote):
+     The router is the traffic cop of the network. When my computer sends a packet, the router looks at the destination IP. 
+     By knowing the subnet boundaries (defined by the network ID and the broadcast IP), the router instantly knows: 
+     "Is this device right next to me on the local porch, or do I need to ship this packet out to the internet?"
+
+Preventing Traffic Leaks:
+     Broadcast traffic (like ARP or network discovery shouts) should never leave the local subnet. 
+     If the router did not know the exact boundary or the broadcast IP address, it might accidentally forward local broadcast traffic out to the public internet 
+     or into another corporate department, causing massive security risks and wasting network bandwidth.
+
+Virtual Subnetting (VLANs):
+     On modern networks, a single physical router often handles multiple virtual networks (subnets) at once. 
+     The router relies on the network boundaries to completely isolate these subnets from each other, 
+     ensuring that a broadcast sent in the "Guest Wi-Fi" subnet cannot cross over into the "Secure Finance" subnet.
+
 ---
 
 >> Address Resolution Protocol (ARP) Broadcasts:
