@@ -116,7 +116,7 @@ Exception: /31 point-to-point links use both addresses.*
 
 # CCNA Subnetting: Connect 2 Computers Using a Class C Network
 
-Question: I want to connect 2 computers/hosts using a Class C IP range. Why not Class A or B?
+Question: I want to connect 2 computers/hosts with a default gateway using a Class C IP range. Why not Class A or B?
 
 
 Requirements:
