@@ -54,12 +54,12 @@ The decimal value of  11111111  is 255.
 ### Why does the confusion happen?
 
 Keeping these two separate rules in mind clears up the confusion: 
-          1. Column weights (2^0 to 2^7) determine value (used when calculating a subnet mask)
-              - how much each column is worth when you add them up to find a decimal number (like converting 11111111 to 255)., 
+          1. Column weights (2^0(1) to 2^7(255)) determine value (used when calculating a subnet mask)
+              - how much each column is worth when you add them up to find a decimal number (like converting 11111111 to 255). 
               - BUT NOT TO FIND the next/previous Subnet mask.
-          2. While bit counts (2^h) determine capacity (used when calculating host capacity -you aren't reading columns from right to left.).
+          2. While bit counts (2^h) determine capacity (used when calculating host/subnet capacity -you aren't reading columns from right to left).
               - If I have 2 host bits (h=2), you can make 4 combinations: 00, 01, 10, and 11 (2^2 = 4).
-              - If I want to calculate the next/previous Subnet mask 
+              - If I want to calculate the next/previous block of a subnet 
 ---------
 
 ## 03. Golden Subnetting Formulas
