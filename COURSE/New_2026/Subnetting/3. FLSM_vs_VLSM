@@ -150,12 +150,14 @@ Rules:
 - Network Address = Range Start
 - Broadcast Address = Next Network − 1
 
+------------------------------------------------
 | Subnet | Network Address | Broadcast Address |
-|---|---|---|
-| 1 | `198.22.45.0` | `198.22.45.63` |
-| 2 | `198.22.45.64` | `198.22.45.127` |
-| 3 | `198.22.45.128` | `198.22.45.191` |
-| 4 | `198.22.45.192` | `198.22.45.255` |
+|--------|-----------------|-------------------|
+| 1      | `198.22.45.0`   | `198.22.45.63`    |
+| 2      | `198.22.45.64`  | `198.22.45.127`   |
+| 3      | `198.22.45.128` | `198.22.45.191`   |
+| 4      | `198.22.45.192` | `198.22.45.255`   |
+------------------------------------------------
 
 Note: The fourth subnet ends at `.255`, the last address of the parent `/24` network.
 
@@ -205,16 +207,18 @@ Therefore: `198.22.45.173` belongs to Subnet 3.
 
 ### Given IP: `198.22.45.173/26`
 
-| Requirement | Answer |
-|---|---|
-| Network Address | `198.22.45.128` |
+--------------------------------------
+| Requirement      | Answer          |
+|------------------|-----------------|
+| Network Address  | `198.22.45.128` |
 | First Valid Host | `198.22.45.129` |
-| Last Valid Host | `198.22.45.190` |
+| Last Valid Host  | `198.22.45.190` |
 | Broadcast Address | `198.22.45.191` |
-| Subnet Mask | `255.255.255.192` |
-| Total Subnets (within /24) | 4 |
-| Total IPs per Subnet | 64 |
-| Usable Hosts per Subnet | 62 |
+| Subnet Mask      | `255.255.255.192` |
+| Total Subnets (within /24) | 4     |
+| Total IPs per Subnet | 64          |
+| Usable Hosts per Subnet | 62       |
+--------------------------------------
 
 ## Quick Revision — Golden Formulas
 
@@ -256,14 +260,15 @@ Question: What are all network addresses, all broadcast addresses, and all valid
 
 ## Question
 A bank has four departments requiring the following IP addresses:
-
+-----------------------------
 | Department | Required IPs |
-|---|---:|
+|------------|--------------|
 | Remittance | 10 |
-| Treasury | 20 |
-| Trade | 10 |
-| SWIFT | 5 |
-| Total | 45 |
+| Treasury   | 20 |
+| Trade      | 10 |
+| SWIFT      | 5  |
+| Total      | 45 |
+-------------------
 
 Given IP: `198.22.45.173/26`
 
@@ -318,7 +323,7 @@ Given IP: `198.22.45.173/26`
 Original /26 subnet details:
 
 | Property | Value |
-|---|---|
+|----------|-------|
 | Network Address | `198.22.45.128` |
 | First Host | `198.22.45.129` |
 | Last Host | `198.22.45.190` |
