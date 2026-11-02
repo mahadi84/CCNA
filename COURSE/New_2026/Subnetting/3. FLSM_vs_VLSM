@@ -495,13 +495,15 @@ Next Available Network Address = `198.22.45.176`
 - First Host = `.176 + 1 = .177`
 - Last Host = `.191 − 1 = .190`
 
-| Property | Address |
-|---|---|
-| Network | `198.22.45.176/28` |
+-----------------------------------
+| Property   | Address            |
+|------------|--------------------|
+| Network    | `198.22.45.176/28` |
 | First Host | `198.22.45.177` |
-| Last Host | `198.22.45.190` |
-| Broadcast | `198.22.45.191` |
+| Last Host  | `198.22.45.190` |
+| Broadcast  | `198.22.45.191` |
 | Usable Hosts | 14 |
+---------------------
 
 Next Available Network Address = `198.22.45.192`
 
@@ -569,12 +571,14 @@ FLSM: All subnet sizes are equal.
 
 ### New VLSM (Different Sizes)
 
+---------------------------------------------------
 | Department | Required IPs | CIDR | Usable Hosts |
-|---|---:|---|---:|
-| Treasury | 20 | /27 | 30 |
-| Remittance | 10 | /28 | 14 |
-| Trade | 10 | /28 | 14 |
-| SWIFT | 5 | /29 | 6 |
+|------------|--------------|------|--------------|
+| Treasury   | 20           | /27  | 30 |
+| Remittance | 10           | /28  | 14 |
+| Trade      | 10           | /28  | 14 |
+| SWIFT      | 5            | /29  | 6  |
+-----------------------------------------
 
 VLSM: Different subnet sizes are allocated according to department needs.
 
@@ -640,7 +644,13 @@ Final Result for IP 198.22.45.173 with VLSM /28:
 - Usable Hosts = 14
 
 Practical note: 
-The given public IPv4 range is used for this CCNA exercise. For a real bank LAN, use properly authorized address space (usually private RFC 1918 ranges) and apply suitable VLAN, firewall, and access-control policies.
+The given public IPv4 range is used for this CCNA exercise. For a real bank LAN, 
+use properly authorized address space (usually private RFC 1918 ranges) and apply suitable VLAN, firewall, and access-control policies.
+
+
+
+
+
 
 
 
