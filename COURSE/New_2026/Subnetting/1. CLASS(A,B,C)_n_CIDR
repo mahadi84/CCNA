@@ -68,7 +68,7 @@ Look at this table:
 | /30  | `255.255.255.252` | 2   |
 | /31  | `255.255.255.254` | 2 (Point-to-Point per RFC 3021) / 0 Standard |
 ---------------------------------------------------------------------------
-
+(Note: The "Max Usable Hosts" subtracts 2 from the total IP addresses because the very first IP is reserved for the Network ID and the very last IP is reserved for the Broadcast IP).
 Notice that as the CIDR number increases, the number of network bits increases and host bits decrease.
 
 >>Notice something?
