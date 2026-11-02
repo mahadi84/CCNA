@@ -320,15 +320,16 @@ Given IP: `198.22.45.173/26`
 - Block Size = `256 − 192 = 64`
 
 Original /26 subnet details:
-
-| Property | Value |
-|----------|-------|
+-------------------------------------
+| Property        | Value           |
+|-----------------|-----------------|
 | Network Address | `198.22.45.128` |
-| First Host | `198.22.45.129` |
-| Last Host | `198.22.45.190` |
-| Broadcast | `198.22.45.191` |
-| Total IPs | 64 |
-| Usable Hosts | 62 |
+| First Host      | `198.22.45.129` |
+| Last Host       | `198.22.45.190` |
+| Broadcast       | `198.22.45.191` |
+| Total IPs       | 64              |
+| Usable Hosts    | 62              |
+-------------------------------------
 
 
 
@@ -371,12 +372,14 @@ Important: We are expanding the available parent address block from `/26` to `/2
 ## Step 3: Arrange Departments Largest to Smallest
 VLSM Golden Rule: Largest Host Requirement First
 
+--------------------------------------
 | Order | Department | Required Hosts |
-|---|---|---:|
-| 1 | Treasury | 20 |
-| 2 | Remittance | 10 |
-| 3 | Trade | 10 |
-| 4 | SWIFT | 5 |
+|-------|------------|----------------|
+| 1     | Treasury   | 20 |
+| 2     | Remittance | 10 |
+| 3     | Trade      | 10 |
+| 4     | SWIFT      | 5  |
+--------------------------
 
 
 
