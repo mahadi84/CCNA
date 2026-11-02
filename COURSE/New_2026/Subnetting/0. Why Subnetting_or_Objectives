@@ -22,14 +22,32 @@ Memory Trick: Building Analogy
 Remember: Subnetting organizes IP networks; VLANs and routing boundaries provide actual traffic separation, while firewalls/ACLs enforce security.
 
 
+---------------------
 
 >> Address Resolution Protocol (ARP) Broadcasts:
 Question: When my computer already knows a printer's IP address on the local network, how does it find the exact physical hardware address (MAC address) to send the print job?
 
 Broadcast Query: 
 My computer sends out a local ARP broadcast query to every device on the subnet asking: "Who has the IP address 192.168.1.50? Tell me your physical MAC address."
+
 The Host Responds: 
 The printer with that specific IP address hears the broadcast and replies directly: "I have that IP address! My physical MAC address is 00:1A:2B:3C:4D:5E."
+
+The ARP Cache and Query: 
+My computer checks its temporary memory (called the ARP Cache) first. If the printer's MAC address is already saved there, it sends the print job instantly without broadcasting. 
+
+If the cache entry has expired or is empty, my computer then sends out a local ARP broadcast query asking: "Who has the IP address 192.168.1.50? Tell me your physical MAC address."
+
+The Host Responds: 
+The printer hears the broadcast, replies directly with its MAC address, and my computer saves it in the cache for future print commands.
+
+Cache Expiration:
+These saved mappings do not last forever. 
+Depending on the operating system, an unused ARP cache entry typically expires 
+and clears out automatically after 2 to 20 minutes to keep the network map accurate.
+
+
+----
 
 
 >> Network Discovery Traffic (mDNS / WS-Discovery):
