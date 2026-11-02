@@ -47,6 +47,14 @@ Depending on the operating system, an unused ARP cache entry typically expires
 and clears out automatically after 2 to 20 minutes to keep the network map accurate.
 
 
+>> How to view my live ARP Cache Table on Windows:
+Command: Open Command Prompt (cmd) or PowerShell and type:
+arp -a
+
+What it shows: 
+This displays a list of all IP addresses and their matching physical MAC addresses currently saved in my computer's temporary memory.
+
+
 ----
 
 
