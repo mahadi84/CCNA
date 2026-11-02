@@ -650,7 +650,12 @@ use properly authorized address space (usually private RFC 1918 ranges) and appl
 
 
 
+Final Memory Trick
+Host IP → Identify Subnet → Check Capacity → Select Available Parent → Divide by VLSM → Assign Departments
 
+Remember: The parent network provides the address space, VLSM divides it, and host IPs belong to those smaller subnets.
+
+One critical distinction: You cannot automatically expand an assigned /26 into a /25. The larger address block must actually be available and authorized.
 
 
 
