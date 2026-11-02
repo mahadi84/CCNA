@@ -77,7 +77,8 @@ Keeping these two separate rules in mind clears up the confusion:
 | Last Host        | Broadcast − 1     |
 ----------------------------------------
 
-Exceptions: `/31` = 2 usable addresses on point-to-point links; `/32` = 1 individual address.
+Exceptions: 
+>> `/31` = 2 usable addresses on Point-to-point links per RFC 3021 /0 standard; `/32` = 1 individual address.
 >> For the CCNA exam, use /30 when a subnet to support 2 hosts is required, unless told to use /31
 
 ---
