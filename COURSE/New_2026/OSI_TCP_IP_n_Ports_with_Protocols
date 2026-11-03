@@ -40,7 +40,7 @@ TCP/IP model was created in the 1970s by the Defense Advance Research Project Ag
 >> Mnemonic: Please Do Not Throw Sausage Pizza Away
 
 REAL EXAMPLE:
-When you open my mobile banking app to check my balance, my request travels down through all 7 OSI layers before hitting the internet.
+When I open my mobile banking app to check my balance, my request travels down through all 7 OSI layers before hitting the internet.
 
 Here is how each layer handles my request step-by-step:
 
@@ -53,7 +53,8 @@ Here is how each layer handles my request step-by-step:
 7. Physical: my phone's antenna converts the data into raw electrical or radio wave bits (0s and 1s) and transmits them through the air.
 
 
-When the bank's back-end servers receive my balance request, the data travels upward through the OSI layers in reverse. Here is how the server processes my incoming request:
+When the bank's back-end servers receive my balance request, the data travels upward through the OSI layers in reverse. 
+Here is how the server processes my incoming request:
 
 1. Physical (Layer 7 in reverse / Layer 1): The bank’s fiber-optic cables or network interface card (NIC) pick up the incoming electrical or light signals from the internet.
 2. Data Link (Layer 2): The server's network card strips the MAC framing and verifies that the incoming packet is explicitly meant for this server.
@@ -61,7 +62,8 @@ When the bank's back-end servers receive my balance request, the data travels up
 4. Transport (Layer 4): TCP reassembles the incoming data chunks into a complete stream and checks that nothing was corrupted during transit.
 5. Session (Layer 5): The server matches the incoming request to my active login session using tokens or session identifiers.
 6. Presentation (Layer 6): TLS decrypts the encrypted payload, translating the secure code back into readable web traffic.
-7. Application (Layer 7): The bank's web server application processes the HTTPS request, securely queries the core database for my balance, and prepares the response to send back down to my phone.
+7. Application (Layer 7): The bank's web server application processes the HTTPS request, securely queries the core database for my balance, 
+                          and prepares the response to send back down to my phone.
 
 
 
