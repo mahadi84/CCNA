@@ -1,0 +1,144 @@
+
+
+
+
+01. What is ISO and TCP/IP?
+02. What does and name of protocols they use:
+              A. Application Layer  B. Presentation Layer
+              C. Session Layer      D. Transport Layer
+              E. Network Layer      F. Datalink Layer  
+                        G. Physical Layer
+03. What are: A) Encapsulation & PDU
+                 SNMP, NetBIOS, ARP, ICMP, PAP, PPTP
+                 PING, TCP, UDP, SSL, TLS, HDLC 
+              
+---------------------------------------------------------------------------------------------
+
+
+
+Tut: https://www.imperva.com/learn/application-security/osi-model/
+
+OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
+TCP/IP model was created in the 1970s by the Defense Advance Research Project Agency (DARPA) as an open, vendor-neutral, public networking model.
+
+>>FORMALLY and numerically, the OSI model starts at Layer 1 (Physical) and counts up to Layer 7 (Application).
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+|                        OSI                                                                |            USED PROTOCOL                            |    TCP/IP
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+| 01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                 ----| HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP |
+| 02. PRESENTATION (Encode, encrypt and compress data)                              --------| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
+| 03. SESSION (Creates communication channels between devices)                      --------| NetBIOS, PAP, PPTP                                   | 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)          | TCP, UDP                                             | 02.TRANSPORT
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| 05. NETWORK (Breaks up segments into network packets and discovers the best path)         | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| 06. DATALINK (Establishes physical node connection, 01.LLC- IDEN. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
+| 07. PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+>> Mnemonic: Please Do Not Throw Sausage Pizza Away
+
+REAL EXAMPLE:
+When you open my mobile banking app to check my balance, my request travels down through all 7 OSI layers before hitting the internet.
+
+Here is how each layer handles my request step-by-step:
+
+1. Application: my bank app generates the request to view my account balance using HTTPS.
+2. Presentation: The app uses TLS to encrypt my login credentials and balance request so hackers can't read it.
+3. Session: A secure communication channel is opened and maintained between my phone and the bank's server.
+4. Transport: TCP breaks my encrypted request into smaller chunks (segments) and ensures none of them get lost along the way.
+5. Network: IP wraps those segments into packets, attaches the bank's destination IP address, and finds the best route across the internet.
+6. Data Link: my local Wi-Fi or cellular router adds MAC addresses to frame the data for local physical transmission.
+7. Physical: my phone's antenna converts the data into raw electrical or radio wave bits (0s and 1s) and transmits them through the air.
+
+
+When the bank's back-end servers receive my balance request, the data travels upward through the OSI layers in reverse. Here is how the server processes my incoming request:
+
+1. Physical (Layer 7 in reverse / Layer 1): The bank’s fiber-optic cables or network interface card (NIC) pick up the incoming electrical or light signals from the internet.
+2. Data Link (Layer 2): The server's network card strips the MAC framing and verifies that the incoming packet is explicitly meant for this server.
+3. Network (Layer 3): The server checks the IP packet header to confirm it arrived at the correct destination address within the bank's data center.
+4. Transport (Layer 4): TCP reassembles the incoming data chunks into a complete stream and checks that nothing was corrupted during transit.
+5. Session (Layer 5): The server matches the incoming request to my active login session using tokens or session identifiers.
+6. Presentation (Layer 6): TLS decrypts the encrypted payload, translating the secure code back into readable web traffic.
+7. Application (Layer 7): The bank's web server application processes the HTTPS request, securely queries the core database for my balance, and prepares the response to send back down to my phone.
+
+
+
+ENCAPSULATION:
+==============
+A process of adding headers and trailers to raw data for sending.
+
+Encapsulation is like packing a nested shipping box as my bank balance request moves down the OSI stack:
+
+ Layers 7–5 (App/Pres/Session): my "check balance" request is created, encrypted, and tagged with my session token.
+ Layer 4 (Transport): Wrapped in a TCP header for reliable end-to-end delivery.
+ Layer 3 (Network): Wrapped in an IP header for global internet routing.
+ Layer 2 (Data Link): Wrapped in a MAC header for local device-to-router delivery.
+ Layer 1 (Physical): Converted into raw bits (electrical or radio signals) for transmission.
+
+The bank's server then unwraps each layer in reverse (decapsulation) to process my request.
+
+
+
+
+
+===================  PORT and PROTOCOL  =================================
+
+PORT:
+-----
+A port is a 16-bit number used to identify specific applications and services.
+Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by certain privileged services:
+
+
+Protocols     Ports        Description
+---------     ------       -------------
+
+FTP           20/21        File Transfer Protocol is used by remote users to download & upload files. Use TCP, Require User Authentication.
+TFTP           69          Trivial File Transfer Protocol is used to transfer configurations to/from the network devices. Use UDP.
+
+SSH            22          Secure Shell. Provides a SECURE or unencrypted connection between host systems (for LOGIN/CONFIGURE).
+TELNET         23          Provides INSECURE connection to remote computer/hosts  (for LOGIN/CONFIGURE).
+
+HTTP           80          HyperText Transfer Protocol. Allows access to web servers.
+HTTPS         443          This is the secure or encrypted version of HTTP. Provides secure access to web servers.
+
+SMTP/SMTPS   25/465        Simple Mail Transfer Protocol. Facilitates delivery of mail. S=Secure
+POP3          110          Post Office Protocol. Allows the download of mail from mail servers.
+IMAP          143          Internet Message Access Protocol. It Allows access to mail stored on a mail server.
+
+DNS            53          Domain Name System. Resolves domain names to IP addresses.
+DHCP         67,68         Dynamic Host Configuration Protocol (DHCP), provide automatic IP to host.
+
+NetBIOS    137,138,139     Allow applications on separate computers to communicate and establish sessions to access shared resources. Ex:files and printers ovar a LAN.
+SNMP          161          Simple Network Management Protocol. Allows you to monitor network devices.
+
+SSL           443          SSL encrypts the HTTP traffic at the transport layer, coming from the application layer.
+TLS           443          TLS(Transport Layer Security) is a cryptographic protocol that provides end-to-end security of data sent between applications over the Internet.
+
+
+
+ARP(Address Resolution Protocol) is a network protocol used to find out the hardware (MAC) address of a device from an IP address. 
+                          broadcasts a request packet to all the machines on the LAN and asks if any of the machines are using that particular IP address. 
+                          When a machine recognizes the IP address as its own, it sends a reply so ARP can update the cache for future reference and proceed with the communication.
+ICMP(Internet Control Message Protocol) – used to detects and reports network error conditions. Used while ping.
+TCP (Transmission Control Protocol) – a connection-oriented protocol that enables reliable data transfer between two computers.
+UDP (User Datagram Protocol) – a connectionless protocol for data transfer. Since a session is not created before the data transfer, there is no guarantee of data delivery.
+PAP Password Authentication Protocol
+PPTP Point-to-Point Tunneling Protocol
+HDLC (High-Level Data Link Control) is a bit-oriented protocol that is used for communication over the point-to-point and multipoint links.
+
+Ping (Packet Internet Groper) is the most commonly used tool to troubleshoot a network. 
+Ping works by sending an ICMP echo request message to the specified IP address. If the computer with the destination IP address is reachable, 
+it responds with an ICMP echo reply message.
+It outputs some other information about a network performance, e.g. a round-trip time, a time to send an ICMP request packetand receive an ICMP reply packet.
+
+
+
+
+
+
+
+
+
+
