@@ -21,28 +21,28 @@ TCP/IP model was created in the 1970s by the Defense Advance Research Project Ag
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-OSI                                                                                      |  USED PROTOCOL                                       |    TCP/IP
+                       OSI                                                                |            USED PROTOCOL                            |    TCP/IP
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                 ----| HTTP, HTTPS, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
-02.PRESENTATION (Encode, encrypt and compress data)                              --------| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
-03.SESSION (Creates communication channels between devices)                      --------| NetBIOS, PAP, PPTP                                   | 
+01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                 ----| HTTP, HTTPS, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
+02. PRESENTATION (Encode, encrypt and compress data)                              --------| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
+03. SESSION (Creates communication channels between devices)                      --------| NetBIOS, PAP, PPTP                                   | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)         | TCP, UDP                                             | 02.TRANSPORT
+04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)          | TCP, UDP                                             | 02.TRANSPORT
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-05.NETWORK (Breaks up segments into network packets and discover best path)              | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
+05. NETWORK (Breaks up segments into network packets and discovers the best path)         | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-06.DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
-07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
+06. DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
+07. PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
->> Please Do Not Throw Sausage Pizza Away
+>> Mnemonic: Please Do Not Throw Sausage Pizza Away
 
 
 ENCAPSULATION:
 --------------
-A process of adding headers and trailers to a raw data for sending.
+A process of adding headers and trailers to raw data for sending.
 
-A PDU (protocol data unit) in OSI Model represent a unit of data with headers and trailers for the particular layer, as well as the encapsulated data.
-Whereas  TCP/IP model uses terms like segment, packet and frame to refer to a data packet defined by a particular layer. 
+A PDU (protocol data unit) in the OSI model represents a unit of data with headers and trailers for the particular layer, as well as the encapsulated data.
+Whereas the  TCP/IP model uses terms like segment, packet, and frame to refer to a data packet defined by a particular layer. 
 
 
 
