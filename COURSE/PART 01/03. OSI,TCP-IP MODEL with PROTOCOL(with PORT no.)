@@ -31,10 +31,25 @@ TCP/IP model was created in the 1970s by the Defense Advance Research Project Ag
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 05. NETWORK (Breaks up segments into network packets and discovers the best path)         | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-06. DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
+06. DATALINK (Establishes physical node connection, 01.LLC- IDEN. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
 07. PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 >> Mnemonic: Please Do Not Throw Sausage Pizza Away
+
+REAL EXAMPLE:
+When I open your mobile banking app to check my balance, my request travels down through all 7 OSI layers before hitting the internet.
+
+Here is how each layer handles your request step-by-step:
+1. Application: Your bank app generates the request to view your account balance using HTTPS.
+2. Presentation: The app uses TLS to encrypt your login credentials and balance request so hackers can't read it.
+3. Session: A secure communication channel is opened and maintained between your phone and the bank's server.
+4. Transport: TCP breaks your encrypted request into smaller chunks (segments) and ensures none of them get lost along the way.
+5. Network: IP wraps those segments into packets, attaches the bank's destination IP address, and finds the best route across the internet.
+6. Data Link: Your local Wi-Fi or cellular router adds MAC addresses to frame the data for local physical transmission.
+7. Physical: Your phone's antenna converts the data into raw electrical or radio wave bits (0s and 1s) and transmits them through the air.
+
+
+
 
 
 ENCAPSULATION:
