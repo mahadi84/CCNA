@@ -14,25 +14,27 @@
 
 
 
-
-
 Tut: https://www.imperva.com/learn/application-security/osi-model/
 
 OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
 TCP/IP model was created in the 1970s by the Defense Advance Research Project Agency (DARPA) as an open, vendor-neutral, public networking model.
 
-OSI                                                                                     USED PROTOCOL                                     TCP/IP
-----                                                                                   --------------                                  ------------
-01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))             --------|HTTP, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
-02.PRESENTATION (Encode, encrypt and compress data)                              --------|SSL, TLS                                      | 
-03.SESSION (Creates communication channels between devices)                      --------|NetBIOS, PAP, PPTP                            | 01.APPLICATION
 
-04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly) --------|TCP, UDP                                      | 02.TRANSPORT
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+OSI                                                                                      |  USED PROTOCOL                                       |    TCP/IP
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+01.APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                 ----| HTTP, HTTPS, FTP, SMTP, TELNET, SSH, DNS, DHCP, SNMP |
+02.PRESENTATION (Encode, encrypt and compress data)                              --------| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
+03.SESSION (Creates communication channels between devices)                      --------| NetBIOS, PAP, PPTP                                   | 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)         | TCP, UDP                                             | 02.TRANSPORT
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+05.NETWORK (Breaks up segments into network packets and discover best path)              | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+06.DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
+07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-05.NETWORK (Breaks up segments into network packets and discover best path)      --------|IPv4, IPv6, ARP, ICMP  (IP)                   | 03.INTERNET
-
-06.DATALINK (Establishes physical node connection, 01.LLC- iden. protocol 02.MAC) -------|PPP, HDLC (MAC)                               | 
-07.PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)--|ETHERNET                                      | 04.NETWORK ACCESS
 
 
 ENCAPSULATION:
