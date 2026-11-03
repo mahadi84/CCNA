@@ -37,42 +37,47 @@ TCP/IP model was created in the 1970s by the Defense Advance Research Project Ag
 
 >> Mnemonic: Please Do Not Throw Sausage Pizza Away
 
-
-
 REAL EXAMPLE:
+When you open my mobile banking app to check my balance, my request travels down through all 7 OSI layers before hitting the internet.
 
-When you open your mobile banking app to check your balance, your request travels down through all 7 OSI layers before hitting the internet.
-Here is how each layer handles your request step-by-step:
+Here is how each layer handles my request step-by-step:
 
-1. Application: Your bank app generates the request to view your account balance using HTTPS.
-2. Presentation: The app uses TLS to encrypt your login credentials and balance request so hackers can't read it.
-3. Session: A secure communication channel is opened and maintained between your phone and the bank's server.
-4. Transport: TCP breaks your encrypted request into smaller chunks (segments) and ensures none of them get lost along the way.
+1. Application: my bank app generates the request to view my account balance using HTTPS.
+2. Presentation: The app uses TLS to encrypt my login credentials and balance request so hackers can't read it.
+3. Session: A secure communication channel is opened and maintained between my phone and the bank's server.
+4. Transport: TCP breaks my encrypted request into smaller chunks (segments) and ensures none of them get lost along the way.
 5. Network: IP wraps those segments into packets, attaches the bank's destination IP address, and finds the best route across the internet.
-6. Data Link: Your local Wi-Fi or cellular router adds MAC addresses to frame the data for local physical transmission.
-7. Physical: Your phone's antenna converts the data into raw electrical or radio wave bits (0s and 1s) and transmits them through the air.
+6. Data Link: my local Wi-Fi or cellular router adds MAC addresses to frame the data for local physical transmission.
+7. Physical: my phone's antenna converts the data into raw electrical or radio wave bits (0s and 1s) and transmits them through the air.
 
 
-When the bank's back-end servers receive your balance request, the data travels upward through the OSI layers in reverse. Here is how the server processes your incoming request:
+When the bank's back-end servers receive my balance request, the data travels upward through the OSI layers in reverse. Here is how the server processes my incoming request:
 
 1. Physical (Layer 7 in reverse / Layer 1): The bank’s fiber-optic cables or network interface card (NIC) pick up the incoming electrical or light signals from the internet.
 2. Data Link (Layer 2): The server's network card strips the MAC framing and verifies that the incoming packet is explicitly meant for this server.
 3. Network (Layer 3): The server checks the IP packet header to confirm it arrived at the correct destination address within the bank's data center.
 4. Transport (Layer 4): TCP reassembles the incoming data chunks into a complete stream and checks that nothing was corrupted during transit.
-5. Session (Layer 5): The server matches the incoming request to your active login session using tokens or session identifiers.
+5. Session (Layer 5): The server matches the incoming request to my active login session using tokens or session identifiers.
 6. Presentation (Layer 6): TLS decrypts the encrypted payload, translating the secure code back into readable web traffic.
-7. Application (Layer 7): The bank's web server application processes the HTTPS request, securely queries the core database for your balance, and prepares the response to send back down to your phone.
-
-
+7. Application (Layer 7): The bank's web server application processes the HTTPS request, securely queries the core database for my balance, and prepares the response to send back down to my phone.
 
 
 
 ENCAPSULATION:
---------------
+==============
 A process of adding headers and trailers to raw data for sending.
 
-A PDU (protocol data unit) in the OSI model represents a unit of data with headers and trailers for the particular layer, as well as the encapsulated data.
-Whereas the  TCP/IP model uses terms like segment, packet, and frame to refer to a data packet defined by a particular layer. 
+Encapsulation is like packing a nested shipping box as my bank balance request moves down the OSI stack:
+
+ Layers 7–5 (App/Pres/Session): my "check balance" request is created, encrypted, and tagged with my session token.
+ Layer 4 (Transport): Wrapped in a TCP header for reliable end-to-end delivery.
+ Layer 3 (Network): Wrapped in an IP header for global internet routing.
+ Layer 2 (Data Link): Wrapped in a MAC header for local device-to-router delivery.
+ Layer 1 (Physical): Converted into raw bits (electrical or radio signals) for transmission.
+
+The bank's server then unwraps each layer in reverse (decapsulation) to process my request.
+
+
 
 
 
