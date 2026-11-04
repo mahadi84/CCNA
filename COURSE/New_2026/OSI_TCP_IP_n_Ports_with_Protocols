@@ -1,9 +1,12 @@
 
 
 01. What are ISO and TCP/IP? What are these? Explain each layer and its duty.
-03. What are: A) Encapsulation & PDU, PING
-              
----------------------------------------------------------------------------------------------
+03. What are: A) Encapsulation, PORT, PDU, & PING?
+
+
+------------------------------------------------------------------------------------------ 
+      01. What are ISO and TCP/IP? What are these? Explain each layer and its duty. 
+-------------------------------------------------------------------------------------------
 
 
 OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
@@ -72,7 +75,9 @@ The bank's server then unwraps each layer in reverse (decapsulation) to process 
 
 
 
-===================  PORT and PROTOCOL  =================================
+=====================================  
+        PORT and PROTOCOL  
+=====================================
 
 PORT:
 -----
