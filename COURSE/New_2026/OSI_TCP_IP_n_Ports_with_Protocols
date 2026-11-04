@@ -1,7 +1,5 @@
 
 
-
-
 01. What is ISO and TCP/IP?
 02. What does and name of protocols they use:
               A. Application Layer  B. Presentation Layer
@@ -15,18 +13,16 @@
 ---------------------------------------------------------------------------------------------
 
 
-
-Tut: https://www.imperva.com/learn/application-security/osi-model/
-
 OSI (Open Systems Interconnection) model was created by the International Organization for Standardization (ISO), an international standard-setting body. 
-TCP/IP model was created in the 1970s by the Defense Advance Research Project Agency (DARPA) as an open, vendor-neutral, public networking model.
+TCP/IP model was created in the 1970s by the Defense Advanced Research Projects Agency (DARPA) as an open, vendor-neutral, public networking model.
 
 >>FORMALLY and numerically, the OSI model starts at Layer 1 (Physical) and counts up to Layer 7 (Application).
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 |                        OSI                                                                |            USED PROTOCOL                            |    TCP/IP
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                 ----| HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP |
-| 02. PRESENTATION (Encode, encrypt and compress data)                              --------| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
+| 02. PRESENTATION (Encode, encrypt, and compress data)                             --------| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
 | 03. SESSION (Creates communication channels between devices)                      --------| NetBIOS, PAP, PPTP                                   | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)          | TCP, UDP                                             | 02.TRANSPORT
@@ -38,6 +34,7 @@ TCP/IP model was created in the 1970s by the Defense Advance Research Project Ag
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 >> Mnemonic: Please Do Not Throw Sausage Pizza Away
+
 
 REAL EXAMPLE:
 When I open my mobile banking app to check my balance, my request travels down through all 7 OSI layers before hitting the internet.
