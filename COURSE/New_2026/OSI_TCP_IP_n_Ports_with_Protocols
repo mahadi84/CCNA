@@ -81,12 +81,18 @@ The bank's server then unwraps each layer in reverse (decapsulation) to process 
 
 PORT:
 -----
-A port is a 16-bit number used to identify specific applications and services.
-Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by certain privileged services:
+A network port is a virtual number 
+that routes/handles incoming (internet and local network) data to the correct application. 
 
-------------------------
+Think of an IP address as an apartment building's address 
+and the port number as the specific apartment door.
 
-HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP
+It is vital because it lets your device handle multiple tasks—
+like web browsing and checking email—at the same time without mixing up the data.
+
+
+
+------------------------ HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP ----------------
 
 • HTTP (Hypertext Transfer Protocol) (Port 80)
     • Definition: The basic, unencrypted rule for loading standard web pages.
