@@ -93,94 +93,108 @@ A port is a 16-bit number used to identify specific applications and services.
 Port numbers are from 0 to 65535. The first 1024 ports are reserved for use by certain privileged services:
 
 
-Here is the list with the shortest possible definitions and examples written in basic English.
 
-Application & Transport Protocols (with Ports)
 
-• FTP (Ports 20/21)
-	• Definition: A reliable way to upload and download files between a user and a server. Requires a login.
-	• Example: Uploading website files from a laptop to a web hosting company.
-• TFTP (Port 69)
-	• Definition: A fast, simple way to send files without a password. Uses UDP.
-	• Example: Sending a basic update file to a network router.
+• FTP (File Transfer Protocol) (Ports 20/21)
+    • Definition: A reliable way to upload and download files between a user and a server. Requires a login.
+    • Example: Uploading website files from a laptop to a web hosting company.
 
-• SSH (Port 22)
-	• Definition: A highly secure, encrypted connection to control a remote computer.
-	• Example: Logging into a distant cloud server to type system commands safely.
-• TELNET (Port 23)
-	• Definition: An old, unencrypted connection to control a remote computer. Sends passwords in plain text.
-	• Example: Managing a legacy switch inside an isolated lab network.
-• HTTP (Port 80)
-	• Definition: The basic, unencrypted rule for loading standard web pages.
-	• Example: Reading a public, unprotected news blog where security does not matter.
-• HTTPS (Port 443)
-	• Definition: The modern, encrypted version of HTTP that keeps web browsing safe.
-	• Example: Typing a credit card number into an online store like Amazon.
+• TFTP (Trivial File Transfer Protocol) (Port 69)
+    • Definition: A fast, simple way to send files without a password. Uses UDP.
+    • Example: Sending a basic update file to a network router.
 
-• SMTP / SMTPS (Ports 25, 587, 465)
-	• Definition: The network protocol used for sending emails.
-	• Example: Clicking the "Send" button inside an app like Outlook or Gmail.
-• POP3 / POP3S (Ports 110 / 995)
-	• Definition: Downloads emails to one single device and deletes them from the server.
-	• Example: Downloading emails to an offline laptop so they disappear from your phone.
-• IMAP / IMAPS (Ports 143 / 993)
-	• Definition: Keeps emails on the server so they stay synchronized across multiple devices.
-	• Example: Reading an email on a phone, and seeing it marked as read on a laptop.
+• SSH (Secure Shell) (Port 22)
+    • Definition: A highly secure, encrypted connection to control a remote computer.
+    • Example: Logging into a distant cloud server to type system commands safely.
 
-• DNS (Port 53)
-	• Definition: Matches human-friendly website names with computer-friendly IP addresses.
-	• Example: Translating google.com into the number 142.250.190.46.
-• DHCP (Ports 67 / 68)
-	• Definition: Automatically gives a temporary IP address to a device when it connects to a network.
-	• Example: Getting internet access instantly on your phone when joining a coffee shop's Wi-Fi.
-• NetBIOS (Ports 137, 138, 139)
-	• Definition: A legacy system that helps older computers share files and printers on a local network.
-	• Example: Finding and using a shared office printer using its computer name.
-• SNMP (Ports 161 / 162)
-	• Definition: Used by IT managers to monitor the health and performance of network devices.
-	• Example: Sending a warning alert to a dashboard when a server gets too hot.
-• SSL / TLS (Variable Ports / 443)
-	• Definition: Security layers that encrypt data traffic for other apps. TLS is the modern standard.
-	• Example: The invisible encryption that protects data inside a mobile banking app.
+• TELNET (Telecommunication Network) (Port 23)
+    • Definition: An old, unencrypted connection to control a remote computer. Sends passwords in plain text.
+    • Example: Managing a legacy switch inside an isolated lab network.
 
-• PAP
-	• Definition: An obsolete login method that sends usernames and passwords without encryption.
-	• Example: An old dial-up modem sending a password over standard telephone wires.
-• PPTP
-	• Definition: An old, outdated protocol used to create simple virtual private networks (VPNs).
-	• Example: An employee connecting to a corporate office network from home in the year 2000.
+• HTTP (Hypertext Transfer Protocol) (Port 80)
+    • Definition: The basic, unencrypted rule for loading standard web pages.
+    • Example: Reading a public, unprotected news blog where security does not matter.
+
+• HTTPS (Hypertext Transfer Protocol Secure) (Port 443)
+    • Definition: The modern, encrypted version of HTTP that keeps web browsing safe.
+    • Example: Typing a credit card number into an online store like Amazon.
+
+• SMTP / SMTPS (Simple Mail Transfer Protocol / Simple Mail Transfer Protocol Secure) (Ports 25, 587, 465)
+    • Definition: The network protocol used for sending emails.
+    • Example: Clicking the "Send" button inside an app like Outlook or Gmail.
+
+• POP3 / POP3S (Post Office Protocol version 3 / Post Office Protocol version 3 Secure) (Ports 110 / 995)
+    • Definition: Downloads emails to one single device and deletes them from the server.
+    • Example: Downloading emails to an offline laptop so they disappear from your phone.
+
+• IMAP / IMAPS (Internet Message Access Protocol / Internet Message Access Protocol Secure) (Ports 143 / 993)
+    • Definition: Keeps emails on the server so they stay synchronized across multiple devices.
+    • Example: Reading an email on a phone, and seeing it marked as read on a laptop.
+
+• DNS (Domain Name System) (Port 53)
+    • Definition: Matches human-friendly website names with computer-friendly IP addresses.
+    • Example: Translating google.com into the number 142.250.190.46.
+
+• DHCP (Dynamic Host Configuration Protocol) (Ports 67 / 68)
+    • Definition: Automatically gives a temporary IP address to a device when it connects to a network.
+    • Example: Getting internet access instantly on your phone when joining a coffee shop's Wi-Fi.
+
+• NetBIOS (Network Basic Input/Output System) (Ports 137, 138, 139)
+    • Definition: A legacy system that helps older computers share files and printers on a local network.
+    • Example: Finding and using a shared office printer using its computer name.
+
+• SNMP (Simple Network Management Protocol) (Ports 161 / 162)
+    • Definition: Used by IT managers to monitor the health and performance of network devices.
+    • Example: Sending a warning alert to a dashboard when a server gets too hot.
+
+• SSL / TLS (Secure Sockets Layer / Transport Layer Security) (Variable Ports / 443)
+    • Definition: Security layers that encrypt data traffic for other apps. TLS is the modern standard.
+    • Example: The invisible encryption that protects data inside a mobile banking app.
+
+• PAP (Password Authentication Protocol)
+    • Definition: An obsolete login method that sends usernames and passwords without encryption.
+    • Example: An old dial-up modem sending a password over standard telephone wires.
+
+• PPTP (Point-to-Point Tunneling Protocol)
+    • Definition: An old, outdated protocol used to create simple virtual private networks (VPNs).
+    • Example: An employee connecting to a corporate office network from home in the year 2000.
+
 
 
 
 Core Network & Transport Concepts
 
-• ARP
-	• Definition: Asks a local network to match a known IP address to a hardware MAC address.
-	• Example: A computer shouting: "Who has IP 192.168.1.50? Give me your physical hardware address."
-• ICMP
-	• Definition: A network protocol that sends error messages and status updates between machines.
-	• Example: A router telling your PC that a website you want to visit cannot be reached.
-• TCP
-	• Definition: A smart, reliable connection that guarantees all data arrives perfectly without errors.
-	• Example: Downloading a software update where missing a single file piece would break it.
-• UDP
-	• Definition: A fast, connectionless transmission that sends data quickly without checking for errors.
-	• Example: Streaming a live football match or playing a fast-paced online video game.
-• PAP
-	• Definition: An obsolete login method that sends usernames and passwords without encryption.
-	• Example: An old dial-up modem sending a password over standard telephone wires.
-• PPTP
-	• Definition: An old, outdated protocol used to create simple virtual private networks (VPNs).
-	• Example: An employee connecting to a corporate office network from home in the year 2000.
-• HDLC
-	• Definition: A direct rule for organizing data frames sent over a single physical link.
-	• Example: Sending continuous network data between two dedicated office routers using a private line.
-• Ping
-	• Definition: A quick test tool that measures the response time between two network devices.
-	• Example: Checking if your home internet is working by testing the speed to Google's servers.
+• ARP (Address Resolution Protocol)
+    • Definition: Asks a local network to match a known IP address to a hardware MAC address.
+    • Example: A computer shouting: "Who has IP 192.168.1.50? Give me your physical hardware address."
 
+• ICMP (Internet Control Message Protocol)
+    • Definition: A network protocol that sends error messages and status updates between machines.
+    • Example: A router telling your PC that a website you want to visit cannot be reached.
 
+• TCP (Transmission Control Protocol)
+    • Definition: A smart, reliable connection that guarantees all data arrives perfectly without errors.
+    • Example: Downloading a software update where missing a single file piece would break it.
 
+• UDP (User Datagram Protocol)
+    • Definition: A fast, connectionless transmission that sends data quickly without checking for errors.
+    • Example: Streaming a live football match or playing a fast-paced online video game.
+
+• PAP (Password Authentication Protocol)
+    • Definition: An obsolete login method that sends usernames and passwords without encryption.
+    • Example: An old dial-up modem sending a password over standard telephone wires.
+
+• PPTP (Point-to-Point Tunneling Protocol)
+    • Definition: An old, outdated protocol used to create simple virtual private networks (VPNs).
+    • Example: An employee connecting to a corporate office network from home in the year 2000.
+
+• HDLC (High-Level Data Link Control)
+    • Definition: A direct rule for organizing data frames sent over a single physical link.
+    • Example: Sending continuous network data between two dedicated office routers using a private line.
+
+• Ping (Packet Internet Groper)
+    • Definition: A quick test tool that measures the response time between two network devices.
+    • Example: Checking if your home internet is working by testing the speed to Google's servers.
 
 
 
