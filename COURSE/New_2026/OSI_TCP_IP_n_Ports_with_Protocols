@@ -6,9 +6,7 @@
               C. Session Layer      D. Transport Layer
               E. Network Layer      F. Datalink Layer  
                         G. Physical Layer
-03. What are: A) Encapsulation & PDU
-                 SNMP, NetBIOS, ARP, ICMP, PAP, PPTP
-                 PING, TCP, UDP, SSL, TLS, HDLC 
+03. What are: A) Encapsulation & PDU, PING
               
 ---------------------------------------------------------------------------------------------
 
@@ -195,10 +193,16 @@ HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP
     • Example: Getting home internet access through a traditional telephone wall jack.
 
 
+• PDU (Protocol Data Unit)
+    • Definition: A basic unit of data exchanged between layers in a network architecture.
+    • Example: Encapsulating data into packets or frames as it moves down the OSI model.
+
 
 • Ping (Packet Internet Groper)
     • Definition: A quick test tool that measures the response time between two network devices.
     • Example: Checking if your home internet is working by testing the speed to Google's servers.
+
+
 
 
 
