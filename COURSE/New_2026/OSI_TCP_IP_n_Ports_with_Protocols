@@ -195,7 +195,7 @@ like web browsing and checking email—at the same time without mixing up the da
 ------------- IPv4, IPv6, ICMP, IPsec --------------
 
 • ICMP (Internet Control Message Protocol)
-    • Definition: A network protocol that sends error messages and status updates between machines.
+    • Definition: It sends error messages and status updates between machines.
     • Example: A router telling your PC that a website you want to visit cannot be reached.
 
 • IPsec (Internet Protocol Security): Modern version of PPTP
