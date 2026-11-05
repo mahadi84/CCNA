@@ -104,14 +104,9 @@ like web browsing and checking email—at the same time without mixing up the da
     • Example: Typing a credit card number into an online store like Amazon.
 
 • SNMP (Simple Network Management Protocol) (Ports 161 / 162)
-    • Definition: Used by IT managers to monitor the health and performance of network devices 
-      (such as switches, routers, servers, firewalls, and printers) from a single, centralized location. 
-      > SNMP is just the language (the protocol) that devices use to talk about their health. 
-      To actually hear them, look at dashboards, and collect data, you must have application software running on a computer or server.
-
-    • Example: 
-      Network Management System (NMS) or Monitoring Tool like SolarWinds or Zabbix: Sending a warning alert 
-      to a dashboard when a server gets too hot/CPU Utilization/Memory (RAM) Usage/Device Uptime/Bandwidth Utilization etc.
+      Definition: A standard protocol that network devices use to report their health, performance, and status to a centralized manager.
+      How It's Read: Queried via command-line tools (`snmpwalk`), custom scripts, or full Network Management Systems (NMS) like Zabbix or SolarWinds for automated dashboards and alerts.
+      Example: A network switch uses SNMP to automatically alert my NETWORK monitoring software if its CPU overloads, RAM runs out, or temperature spikes.
 
 • SSH (Secure Shell) (Port 22)
     • Definition: A highly secure, encrypted connection to control a remote computer.
