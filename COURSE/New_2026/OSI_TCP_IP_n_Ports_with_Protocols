@@ -14,6 +14,7 @@ TCP/IP model was created in the 1970s by the Defense Advanced Research Projects 
 
 >>FORMALLY and numerically, the OSI model starts at Layer 1 (Physical) and counts up to Layer 7 (Application).
 
+>>Service->Encode->Create(2)->Break(2)->Transmit
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 |                        OSI                                                                |            USED PROTOCOL                            |    TCP/IP
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -23,7 +24,7 @@ TCP/IP model was created in the 1970s by the Defense Advanced Research Projects 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)          | TCP, UDP                                             | 02.TRANSPORT
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| 05. NETWORK (Breaks up segments into network packets and discovers the best path)         | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
+| 05. NETWORK (Breaks segments into network packets and discovers the best path)            | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 06. DATALINK (Creates connection between physical nodes/hops)                             | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
 | 07. PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
