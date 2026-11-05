@@ -16,11 +16,11 @@ TCP/IP model was created in the 1970s by the Defense Advanced Research Projects 
 
 >>Service->Encode->Create(2)->Break(2)->Transmit
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-|                        OSI                                                                |            USED PROTOCOL                            |    TCP/IP
+|                        OSI                                                                |            USED PROTOCOL                                   |    TCP/IP
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-| 01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                     | HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP |
-| 02. PRESENTATION (Encode-system compatibility, encrypt, and compress data)                | SSL, TLS, ASCII, Unicode, MPEG, JPEG                 | 01.APPLICATION
-| 03. SESSION (Creates communication channels between devices)                              | NetBIOS, PAP, PPTP                                   | 
+| 01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                     | HTTP, HTTPS, SNMP, SSH, TELNET, FTP, TFTP, SMTP, DNS, DHCP |
+| 02. PRESENTATION (Encode-system compatibility, encrypt, and compress data)                | SSL, TLS, ASCII, Unicode, MPEG, JPEG                       | 01.APPLICATION
+| 03. SESSION (Creates communication channels between devices)                              | NetBIOS, PAP, PPTP                                         | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)          | TCP, UDP                                             | 02.TRANSPORT
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -93,7 +93,7 @@ like web browsing and checking email—at the same time without mixing up the da
 
 
 
------------------------- HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP ----------------
+------------------------ HTTP, HTTPS, SNMP, SSH, TELNET, FTP, TFTP, SMTP, DNS, DHCP ----------------
 
 • HTTP (Hypertext Transfer Protocol) (Port 80)
     • Definition: The basic, unencrypted rule for loading standard web pages.
@@ -105,12 +105,12 @@ like web browsing and checking email—at the same time without mixing up the da
 
 • SNMP (Simple Network Management Protocol) (Ports 161 / 162)
       Definition: A standard protocol that network devices use to report their health, performance, and status to a centralized manager.
-      How It's Read: Queried via command-line tools (`snmpwalk`), custom scripts, or full Network Management Systems (NMS) like Zabbix or SolarWinds for automated dashboards and alerts.
+      Tool Used: Queried via command-line tools (`snmpwalk`), custom scripts, or full Network Management Systems (NMS) like Zabbix or SolarWinds for automated dashboards and alerts.
       Example: A network switch uses SNMP to automatically alert my NETWORK monitoring software if its CPU overloads, RAM runs out, or temperature spikes.
 
 • SSH (Secure Shell) (Port 22)
     • Definition: A highly secure, encrypted connection to control a remote computer.
-    • Example: PuTTY: A lightweight, free utility for Windows. You simply type in the IP address, select the SSH radio button (which auto-selects Port 22), and click Open.
+    • Tool used: PuTTY: A lightweight, free utility for Windows. You simply type in the IP address, select the SSH radio button (which auto-selects Port 22), and click Open.
 
 • TELNET (Telecommunication Network) (Port 23)
     • Definition: An old, unencrypted connection to control a remote computer/whether a port is open. Sends passwords in plain text.
@@ -119,11 +119,23 @@ like web browsing and checking email—at the same time without mixing up the da
 
 • FTP (File Transfer Protocol) (Ports 20/21)
     • Definition: A reliable way to upload and download files between a user and a server. Requires a login.
+    • Tool Used: FileZilla, WinSCP
     • Example: Uploading website files from a laptop to a web hosting company.
 
 • TFTP (Trivial File Transfer Protocol) (Port 69)
-    • Definition: A fast, simple way to send files without a password. Uses UDP.
-    • Example: Sending a basic update file to a network router.
+    • Definition: A fast, simple way to back up Cisco configurations or upgrade IOS firmware images, or send files without a password. Uses UDP.
+    • Modern tools: SolarWinds TFTP Server and Tftpd32 / Tftpd64
+    • Command: 
+            ! Backing up running config to a TFTP Server
+            Switch# copy running-config tftp:
+            Address or remote host []? 192.168.1.50   <-- My laptop running Tftpd64
+            Destination filename [Switch-confg]? 
+            
+            ! Upgrading/Restoring a Cisco IOS Image
+            Switch# copy tftp: flash:
+            Address or remote host []? 192.168.1.50
+            Source filename []? c2960x-universalk9-tar.152-2.E8.tar
+            Destination filename [c2960x-universalk9-tar.152-2.E8.tar]? 
 
 • SMTP / SMTPS (Simple Mail Transfer Protocol / Simple Mail Transfer Protocol Secure) (Ports 25, 587, 465)
     • Definition: The network protocol used for sending emails.
