@@ -160,8 +160,11 @@ like web browsing and checking email—at the same time without mixing up the da
 -------------- SSL, TLS, ASCII ---------
 
 • SSL / TLS (Secure Sockets Layer / Transport Layer Security) (Variable Ports / 443)
-    • Definition: Security layers that encrypt data traffic for other apps. TLS is the modern standard.
-    • Example: The invisible encryption that protects data inside a mobile banking app.
+    • Security: SSL is deprecated and insecure (vulnerable to major attacks like POODLE and BEAST).
+                TLS is currently/mordern secure and actively updated.
+    • Handshake: TLS establishes secure connections using faster, more secure cryptographic algorithm suites than SSL.
+    • Usage: Browsers run on TLS (specifically TLS 1.2 or TLS 1.3).
+    • Example: TLS encrypts sensitive data (like your username and password) before it leaves your device 
 
 ------------- NetBIOS, PAP, PPTP -------------
 
