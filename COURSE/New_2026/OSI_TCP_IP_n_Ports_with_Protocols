@@ -17,9 +17,9 @@ TCP/IP model was created in the 1970s by the Defense Advanced Research Projects 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 |                        OSI                                                                |            USED PROTOCOL                            |    TCP/IP
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-| 01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                 ----| HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP |
-| 02. PRESENTATION (Encode(system compatibility-ASCII, Unicode), encrypt, and compress data)| SSL, TLS, JPEG, ASCII, MPEG                          | 01.APPLICATION
-| 03. SESSION (Creates communication channels between devices)                      --------| NetBIOS, PAP, PPTP                                   | 
+| 01. APPLICATION  (Service to the User: Ex: Data Access(SEND/RECEIVE))                     | HTTP, HTTPS, SNMP, SSH, SMTP, TELNET, DNS, DHCP, FTP |
+| 02. PRESENTATION (Encode(system compatibility), encrypt, and compress data)               | SSL, TLS, ASCII, Unicode, MPEG, JPEG                 | 01.APPLICATION
+| 03. SESSION (Creates communication channels between devices)                              | NetBIOS, PAP, PPTP                                   | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 04.TRANSPORT(Breaks data into “segments”,check if data was received incorrectly)          | TCP, UDP                                             | 02.TRANSPORT
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
