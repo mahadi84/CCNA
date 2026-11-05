@@ -177,7 +177,7 @@ like web browsing and checking email—at the same time without mixing up the da
     • Example: An old dial-up modem sending a password over standard telephone wires.
     • Modern Alternatives: MS-CHAPv2, EAP-TLS, OAuth 2.0 / OIDC
 
-• PPTP (Point-to-Point Tunneling Protocol)
+• PPTP (Point-to-Point Tunneling Protocol): Old version of IPSec
     • Definition: An old, outdated protocol used to create simple virtual private networks (VPNs).
     • Example: An employee connecting to a corporate office network from home in the year 2000.
       Today, it has been completely replaced by secure modern alternatives like WireGuard, OpenVPN, and IPsec.
