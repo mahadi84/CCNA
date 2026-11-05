@@ -112,6 +112,19 @@ like web browsing and checking email—at the same time without mixing up the da
     • Definition: A highly secure, encrypted connection to control a remote computer.
     • Example: PuTTY: A lightweight, free utility for Windows. You simply type in the IP address, select the SSH radio button (which auto-selects Port 22), and click Open.
 
+• TELNET (Telecommunication Network) (Port 23)
+    • Definition: An old, unencrypted connection to control a remote computer/whether a port is open. Sends passwords in plain text.
+    • Modern Replacement: PuTTY (or native SSH clients like OpenSSH) is used instead for secure, encrypted remote access.
+    • Example: Managing a legacy switch inside an isolated lab network.
+
+• FTP (File Transfer Protocol) (Ports 20/21)
+    • Definition: A reliable way to upload and download files between a user and a server. Requires a login.
+    • Example: Uploading website files from a laptop to a web hosting company.
+
+• TFTP (Trivial File Transfer Protocol) (Port 69)
+    • Definition: A fast, simple way to send files without a password. Uses UDP.
+    • Example: Sending a basic update file to a network router.
+
 • SMTP / SMTPS (Simple Mail Transfer Protocol / Simple Mail Transfer Protocol Secure) (Ports 25, 587, 465)
     • Definition: The network protocol used for sending emails.
     • Example: Clicking the "Send" button inside an app like Outlook or Gmail.
@@ -122,19 +135,7 @@ like web browsing and checking email—at the same time without mixing up the da
 
 • IMAP / IMAPS (Internet Message Access Protocol / Internet Message Access Protocol Secure) (Ports 143 / 993)
     • Definition: Keeps emails on the server so they stay synchronized across multiple devices.
-    • Example: Reading an email on a phone, and seeing it marked as read on a laptop.
-
-• TELNET (Telecommunication Network) (Port 23)
-    • Definition: An old, unencrypted connection to control a remote computer. Sends passwords in plain text.
-    • Example: Managing a legacy switch inside an isolated lab network.
-
-• FTP (File Transfer Protocol) (Ports 20/21)
-    • Definition: A reliable way to upload and download files between a user and a server. Requires a login.
-    • Example: Uploading website files from a laptop to a web hosting company.
-
-• TFTP (Trivial File Transfer Protocol) (Port 69)
-    • Definition: A fast, simple way to send files without a password. Uses UDP.
-    • Example: Sending a basic update file to a network router.
+    • Example: Reading an email on a phone and seeing it marked as read on a laptop.
 
 • DNS (Domain Name System) (Port 53)
     • Definition: Matches human-friendly website names with computer-friendly IP addresses.
