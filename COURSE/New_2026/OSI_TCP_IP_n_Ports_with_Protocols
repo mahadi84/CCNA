@@ -25,7 +25,7 @@ TCP/IP model was created in the 1970s by the Defense Advanced Research Projects 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | 05. NETWORK (Breaks up segments into network packets and discovers the best path)         | IPv4, IPv6, ICMP, IPsec                              | 03.INTERNET
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
-| 06. DATALINK (Establishes physical node connection, 01.LLC- IDEN. protocol 02.MAC)        | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
+| 06. DATALINK (Creates physical node connection)                                           | PPP, HDLC, ARP, Ethernet (MAC / LLC sublayers)       | 04.NETWORK ACCESS
 | 07. PHYSICAL (Transmit raw data bit(0,1), through physical cable or wireless connection)  | Ethernet (Physical spec), Wi-Fi (802.11), Fiber, DSL | 
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
