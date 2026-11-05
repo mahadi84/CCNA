@@ -172,13 +172,15 @@ like web browsing and checking email—at the same time without mixing up the da
     • Definition: A legacy system that helps older computers share files and printers on a local network.
     • Example: Finding and using a shared office printer using its computer name.
 
-• PAP (Password Authentication Protocol)
-    • Definition: An obsolete login method that sends usernames and passwords without encryption.
+• PAP (Password Authentication Protocol): 
+    • Definition: An obsolete login method (Still Used Inside Secure Tunnels) that sends usernames and passwords without encryption.
     • Example: An old dial-up modem sending a password over standard telephone wires.
+    • Modern Alternatives: MS-CHAPv2, EAP-TLS, OAuth 2.0 / OIDC
 
 • PPTP (Point-to-Point Tunneling Protocol)
     • Definition: An old, outdated protocol used to create simple virtual private networks (VPNs).
     • Example: An employee connecting to a corporate office network from home in the year 2000.
+      Today, it has been completely replaced by secure modern alternatives like WireGuard, OpenVPN, and IPsec.
 
 --------------- TCP, UDP -----------------------
 • TCP (Transmission Control Protocol)
@@ -196,7 +198,7 @@ like web browsing and checking email—at the same time without mixing up the da
     • Definition: A network protocol that sends error messages and status updates between machines.
     • Example: A router telling your PC that a website you want to visit cannot be reached.
 
-• IPsec (Internet Protocol Security)
+• IPsec (Internet Protocol Security): Modern version of PPTP
     • Definition: A protocol suite that encrypts and secures data packets across a network.
     • Example: Creating a secure Virtual Private Network (VPN) tunnel over the public internet.
 
