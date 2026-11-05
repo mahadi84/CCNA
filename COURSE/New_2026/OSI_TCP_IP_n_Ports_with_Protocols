@@ -104,12 +104,18 @@ like web browsing and checking email—at the same time without mixing up the da
     • Example: Typing a credit card number into an online store like Amazon.
 
 • SNMP (Simple Network Management Protocol) (Ports 161 / 162)
-    • Definition: Used by IT managers to monitor the health and performance of network devices.
-    • Example: Sending a warning alert to a dashboard when a server gets too hot.
+    • Definition: Used by IT managers to monitor the health and performance of network devices 
+      (such as switches, routers, servers, firewalls, and printers) from a single, centralized location. 
+      > SNMP is just the language (the protocol) that devices use to talk about their health. 
+      To actually hear them, look at dashboards, and collect data, you must have application software running on a computer or server.
+
+    • Example: 
+      Network Management System (NMS) or Monitoring Tool like SolarWinds or Zabbix: Sending a warning alert 
+      to a dashboard when a server gets too hot/CPU Utilization/Memory (RAM) Usage/Device Uptime/Bandwidth Utilization etc.
 
 • SSH (Secure Shell) (Port 22)
     • Definition: A highly secure, encrypted connection to control a remote computer.
-    • Example: Logging into a distant cloud server to type system commands safely.
+    • Example: PuTTY: A lightweight, free utility for Windows. You simply type in the IP address, select the SSH radio button (which auto-selects Port 22), and click Open.
 
 • SMTP / SMTPS (Simple Mail Transfer Protocol / Simple Mail Transfer Protocol Secure) (Ports 25, 587, 465)
     • Definition: The network protocol used for sending emails.
