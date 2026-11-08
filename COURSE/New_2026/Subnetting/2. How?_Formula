@@ -1,6 +1,6 @@
 
 
-1. TABLE to remove Common calculation and CONFUSION for calculating the SUBNET mask and HOST bits.
+1. TABLE to remove common confusion when calculating the SUBNET mask and HOST bits.
 2. "Always True":  why does the confusion happen?
 
 3. Golden Subnetting Formulas? 
@@ -11,8 +11,8 @@
 
 6. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
           Give me all of these for Class C:
-            - Block Size
             - Subnet Mask:
+            - Block Size
             - Network Address:
             - Broadcast Address:
             - Computer 1 IP:
@@ -28,7 +28,7 @@ Understanding the Mathematics of Subnetting:
 Every IPv4 address contains 32 bits divided into a Network Portion and a Host Portion.
 Total IPv4 Bits = 32 = Network Bits + Host Bits
 
-### 01. Common calculation and CONFUSION for calculating the SUBNET mask and HOST bits.
+#### 1. TABLE to remove common confusion when calculating the SUBNET mask and HOST bits.
 Step-by-Step Breakdown
 
 In binary (base-2), each position represents a power of 2, starting from the right (2^0) to the left (2^7)
