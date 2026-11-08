@@ -1,0 +1,723 @@
+
+
+
+
+
+
+
+
+
+
+
+2.0 Network Access (20%)
+- VLANs
+- Trunking and 802.1Q
+- CDP and LLDP
+- EtherChannel (LACP)
+- Rapid PVST+ and the STP protection features (PortFast, BPDU guard, root guard, loop guard)
+- Cisco wireless architectures and AP modes
+- WLC and AP management access
+- Wireless LAN GUI configuration
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Practical Case Study: Network Access Layer Overhaul at Pubali Bank PLC
+Executive Summary & Background
+Pubali Bank PLC, headquartered in Motijheel, Dhaka, Bangladesh, is executing an end-to-end modernization of its campus, data center, and branch network access infrastructure. To safeguard high-volume transactions, real-time core banking operations, and mobile banking APIs across hundreds of branches, the bank's IT & Infrastructure team—led by Senior Analyst Alex—has designed and implemented a unified Layer 2 Network Access & Wireless Framework.
+
+This case study demonstrates the practical application of CCNA Domain 2.0 principles (VLANs, 802.1Q trunking, neighbor discovery, EtherChannel link aggregation, Rapid PVST+ loop prevention with protection features, split-MAC wireless architecture, and centralized WLC management) within a financial enterprise environment.
+
+
+Section 1: Logical Segmentation & Trunking Infrastructure
+To prevent broadcast storms from impacting core banking servers and enforce strict isolation between operational units, Pubali Bank PLC replaced its legacy flat network with a multi-VLAN structure.--------------------------------------------------------------------+
+ (noneg)    ---------------------------------------------------------------------+
+VLAN Architecture
+
+•	VLAN 10 (Operations & Teller Workstations): Dedicated data VLAN for corporate endpoints.
+•	VLAN 20 (IP Telephony): Voice VLAN configured on access ports using switchport voice vlan 20 to guarantee high priority and isolation for VoIP handsets.
+•	VLAN 30 (Guest & Corporate Wireless): Assigned to wireless user segments.
+•	VLAN 99 (Native VLAN): Configured specifically for untagged trunk traffic. VLAN 1 was explicitly removed from operational use, and all unused ports were administrative shut down and assigned to an isolated blackhole VLAN (VLAN 999). Reserved legacy VLANs (1002–1005) were left untouched as they cannot be deleted.
+
+802.1Q Trunking & DTP Hardening
+Inter-switch links between access and distribution switches run static IEEE 802.1Q trunking. Every frame crossing the trunk carries a 4-byte header insert containing:
+
+•	TPID (0x8100): Identifies the frame as 802.1Q tagged.
+•	PCP/CoS (3 bits): Priority markings for QoS routing.
+•	VLAN ID (12 bits): Defines the destination VLAN (supporting VLAN IDs 1–4094).
+
+To eliminate security vulnerabilities associated with Dynamic Trunking Protocol (DTP)—such as unauthorized trunk negotiation—DTP was disabled on all trunk links using switchport nonegotiate. Native VLANs were aligned to VLAN 99 on both ends of every trunk to prevent native VLAN mismatch alerts and cross-VLAN traffic leakage.
+
+
+Section 2: Layer 2 Neighbor Discovery Protocols (CDP & LLDP)
+For infrastructure visibility, network management, and VoIP power allocation, neighbor discovery protocols were deployed selectively across the bank's switching matrix.
+
+Parameter / Feature	Cisco Discovery Protocol (CDP)	Link Layer Discovery Protocol (LLDP)
+Standard	Cisco Proprietary	IEEE 802.1AB (Open Standard)
+Default State	Enabled Globally (cdp run)	Disabled Globally (lldp run)
+Transmit / Hold Timers	60 seconds / 180 seconds	30 seconds / 120 seconds
+Destination MAC	01:00:0C:CC:CC:CC	01:80:C2:00:00:0E
+Primary Use Case	Automatic discovery of Cisco IP Phones and Catalyst Switches	Discovery of multi-vendor APs, IP cameras, and non-Cisco appliances
+Security Enforcement: Both CDP and LLDP disclose sensitive topology information (device IDs, software versions, and IP management addresses). Consequently, Alex issued no cdp enable and no lldp transmit on all edge access ports facing non-infrastructure host devices.
+
+Section 3: High-Availability Link Aggregation (EtherChannel / LACP)
+To eliminate bandwidth bottlenecks between distribution switches and the central data center without introducing switching loops, Pubali Bank PLC implemented multi-link EtherChannels governed by the open-standard Link Aggregation Control Protocol (LACP / IEEE 802.3ad).
+
+ - Gi0/2)    |    (Port-Channel 1)     | (Ports Gi0/1 - Gi0/2)    |
++--------------------------+                         +--------------------------+
+Protocol Modes & Operational Rules
+•	LACP Negotiation: Configured using active mode on both ends (channel-group 1 mode active), ensuring active LACP packet exchange. (The bank avoided passive + passive combinations, which fail to establish a link).
+
+•	Configuration Consistency: All physical member interfaces were set to identical speeds, duplex modes, switchport trunking modes, native VLANs, and allowed VLAN lists before bundling into port-channel 1.
+
+•	Traffic Load Balancing: Traffic across the bundled physical links is distributed per-flow using a source/destination IP and port frame header hash, guaranteeing that packet ordering within a single session is strictly maintained without exceeding individual member link speeds.
+
+Section 4: Loop Prevention via Rapid PVST+ and STP Protections
+To maintain physical hardware redundancy while eliminating switching loops, broadcast storms, and MAC table instability, Pubali Bank PLC deployed Rapid Per-VLAN Spanning Tree Plus (Rapid PVST+ / IEEE 802.1w).
+ Altern P   (Root Port)                         (BLOCKED)
+Root Bridge Election & Port Roles
+•	Bridge ID (BID): Formed by Priority (default 32768) + System ID Extension (VLAN ID) + Switch MAC Address.
+
+•	Determinism: Alex explicitly forced the Primary Core Switch to become the Root Bridge for VLAN 10 using spanning-tree vlan 10 root primary (setting priority to 24576).
+
+•	Convergence: Rapid PVST+ achieves sub-3-second convergence using direct Proposal/Agreement handshakes across three states (Discarding, Learning, and Forwarding).
+
+Spanning Tree Protection Toolkit
+
+Section 5: Split-MAC Architecture & Enterprise Wireless (WLC)
+For corporate Wi-Fi across Motijheel HQ and regional branch lobbies, Pubali Bank PLC deployed a Split-MAC Lightweight AP Architecture utilizing CAPWAP (Control and Provisioning of Wireless Access Points) tunnels.
++--------------------+
+Lightweight AP Modes
+1.	Local Mode (Default): The AP bridges wireless frames, executes real-time 802.11 functions, and tunnels all user data over CAPWAP to the central WLC.
+
+2.	FlexConnect Mode: Deployed at remote branch offices across Bangladesh. If the WAN connection to the central WLC drops, the AP continues switching client traffic locally at the branch level without outage.
+
+3.	Monitor / Rogue Detector Modes: Specialized non-client-serving modes dedicated to scanning RF space, capturing packets for security inspection, and identifying unauthorized rogue APs connected to the wired network.
+
+Section 6: WLC Administration, AAA, and WLAN GUI Workflow
+Administrative access and user authentication on the Cisco Wireless LAN Controller are governed by centralized AAA services.
+
+Device Management vs. Network Access Authentication
+•	Device Administration (TACACS+): Used exclusively for network engineers logging into the WLC GUI/CLI. Operates over TCP Port 49 and encrypts the entire packet payload.
+
+•	User Authentication (RADIUS / 802.1X): Used for authenticating corporate Wi-Fi users. Operates over UDP Ports 1812 (Authentication) and 1813 (Accounting), encrypting only the user password field within the access request.
+
+WLC Configuration Sequence
+1 (-> Check "Status: Enabled" and Apply settings
+Verification Questions & Answers
+Q1: VLAN Fundamentals
+Question: What is a Virtual Local Area Network (VLAN), and what primary layer of the OSI model does it segment?
+
+Answer:
+A VLAN is a logical broadcast domain created within one or more physical switches. It operates at Layer 2 (Data Link Layer) to isolate broadcast domains without requiring physical device separation.
+
+
+Q2: Default VLAN Assignment
+Question: Which VLAN ID is configured by default on all unconfigured ports of a Cisco Catalyst switch?
+
+Answer:
+VLAN 1.
+
+
+Q3: VLAN 1 Properties
+Question: Why is it recommended to migrate corporate end-user traffic away from VLAN 1?
+
+Answer:
+VLAN 1 is the default management/factory VLAN used for Layer 2 control traffic (such as CDP, DTP, and STP). It cannot be deleted or renamed, making it a primary target for VLAN hopping attacks if left unhardened.
+
+
+Q4: IEEE 802.1Q Frame Tagging
+Question: How does an 802.1Q trunk link distinguish which VLAN a specific Ethernet frame belongs to?
+
+Answer:
+It inserts a 4-byte tag into the Ethernet frame header containing a 12-bit VLAN Identifier (VLAN ID) and 3-bit Class of Service (CoS) priority bits.
+
+
+Q5: Native VLAN Operations
+Question: What happens to frames belonging to the Native VLAN when they cross an 802.1Q trunk link?
+
+Answer:
+They are transmitted untagged (without an 802.1Q header insert). Both ends of the trunk must agree on the Native VLAN ID to prevent Native VLAN mismatch logs and frame leakage.
+
+
+Q6: Static Trunking Command
+Question: Which command explicitly configures a Cisco switch interface to operate as an 802.1Q trunk?
+
+Answer:
+switchport mode trunk
+
+
+Q7: Spanning Tree Purpose
+Question: What network instability issue does Spanning Tree Protocol (STP) prevent?
+
+Answer:
+It prevents Layer 2 switching loops, which cause catastrophic broadcast storms, duplicate frame deliveries, and MAC address table instability.
+
+
+Q8: PortFast Application
+Question: Why should PortFast be configured on host-facing ports, and why is it unsafe for switch-to-switch links?
+
+Answer:
+PortFast allows end-user devices (PCs, printers) to bypass STP Listening and Learning states and transition immediately to Forwarding. Configuring it on switch-to-switch links can introduce switching loops before STP detects the topology.
+
+
+Q9: Rapid PVST+ Root Port Election
+Question: What criteria does a non-root switch use to select its single Root Port under Rapid PVST+?
+
+Answer:
+It selects the port offering the lowest cumulative Root Path Cost to the Root Bridge.
+
+
+Q10: BPDU Guard Operation
+Question: What state does BPDU Guard place a port into if an unauthorized switch sending BPDUs is connected to it?
+
+Answer:
+It transitions the interface into an err-disabled state, shutting down traffic forwarding on that port.
+
+
+Q11: LACP Protocol Negotiation
+Question: Will an EtherChannel form if Switch A is configured in LACP active mode and Switch B is configured in LACP passive mode?
+
+Answer:
+Yes. Active mode actively initiates LACP negotiation, while Passive mode responds to received LACP packets. (Only passive + passive fails to form).
+
+
+Q12: LACP Standards
+Question: Is LACP a proprietary Cisco protocol or an open standard? Identify its governing IEEE standard.
+
+Answer:
+LACP is an open-standard protocol governed by IEEE 802.3ad (and IEEE 802.1AX).
+
+
+Q13: Cisco Discovery Protocol (CDP)
+Question: Which protocol is enabled by default on Cisco hardware to discover directly connected neighbor platform types and management IP addresses?
+
+Answer:
+Cisco Discovery Protocol (CDP).
+
+
+Q14: Link Layer Discovery Protocol (LLDP)
+Question: Which open-standard, vendor-neutral protocol provides neighbor discovery services for non-Cisco devices?
+
+Answer:
+Link Layer Discovery Protocol (LLDP / IEEE 802.1AB).
+
+
+Q15: EtherChannel Benefits
+Question: What is the main bandwidth and topology benefit of creating an EtherChannel bundle?
+
+Answer:
+It aggregates bandwidth across multiple physical links into a single logical Port-Channel, allowing STP to treat the bundle as one link without blocking individual member ports.
+
+
+Q16: Default Lightweight AP Mode
+Question: What is the default operating mode of a lightweight access point connected to a Cisco WLC?
+
+Answer:
+Local Mode.
+
+
+Q17: Split-MAC Control Device
+Question: In a split-MAC architecture, which central appliance handles management functions such as 802.1X authentication, client roaming, and QoS enforcement?
+
+Answer:
+The Wireless LAN Controller (WLC).
+
+
+Q18: Enterprise Wireless Encryption
+Question: What encryption cipher and authentication mechanism combination represents current best practice for secure enterprise Wi-Fi?
+
+Answer:
+WPA2 (or WPA3) Enterprise with AES encryption combined with 802.1X RADIUS authentication.
+
+
+Q19: WLC Policy & Profile Role
+Question: What is the purpose of a WLAN Profile on a Cisco Wireless LAN Controller?
+
+Answer:
+It defines specific wireless network attributes, including the SSID, security parameters (WPA2/WPA3), mapped dynamic VLAN interface, and QoS prioritization levels.
+
+
+Q20: AAA Architecture in Wireless Networks
+Question: Which protocol is primarily utilized by enterprise wireless controllers to forward 802.1X client authentication credentials to an identity server?
+
+Answer:
+RADIUS (Remote Authentication Dial-In User Service) over UDP ports 1812/1813.
+
+
+
+
+
+
+
+
+==================================================
+
+
+Here are CCNA-style questions for Chapter 2: Network Access.
+
+1. Which of the following best describes a VLAN?
+A. A physical separation of devices across different switches
+B. A logical broadcast domain created within the same switch
+C. A Layer 3 routing segment
+D. A protocol that forwards frames between routers
+
+2. Which VLAN is the default VLAN on most Cisco switches?
+A. VLAN 10
+B. VLAN 100
+C. VLAN 1
+D. VLAN 99
+
+3. Which statement about VLAN 1 is correct?
+A. It can be deleted freely
+B. It is reserved for management traffic only
+C. It is the default VLAN and cannot be deleted
+D. It is used only for trunk ports
+
+4. What is the purpose of IEEE 802.1Q trunking?
+A. To carry traffic between routers
+B. To tag Ethernet frames so switches know the VLAN
+C. To reduce broadcast traffic
+D. To encrypt network traffic
+
+5. A native VLAN mismatch occurs when:
+A. Both switches use the same trunk mode
+B. The same VLAN number is used on both ends of a trunk
+C. The configured native VLAN differs between two trunk ends
+D. The port is configured as access mode
+
+6. Which command is used to enable trunking on a switch port?
+A. switchport access vlan 10
+B. switchport mode access
+C. switchport mode trunk
+D. ip routing
+
+7. What is the main purpose of STP?
+A. Increase bandwidth
+B. Prevent switching loops
+C. Assign IP addresses
+D. Secure wireless traffic
+
+8. Which port type is best suited for end-user devices and should not be used with a switch-to-switch trunk?
+A. Root port
+B. Designated port
+C. PortFast
+D. EtherChannel
+
+9. In Rapid PVST+, the root port is selected based on:
+A. Lowest MAC address
+B. Lowest root path cost
+C. Highest VLAN ID
+D. Lowest port number
+
+10. What happens when a port configured with BPDU Guard receives a BPDU?
+A. The port automatically becomes a trunk
+B. The port is shut down
+C. The port becomes a root bridge
+D. The port starts forwarding frames immediately
+
+11. Which EtherChannel mode combination is valid and commonly used?
+A. On + On
+B. Active + Passive
+C. Auto + Auto
+D. Dynamic + Access
+
+12. Which statement is true about LACP?
+A. It is a Cisco proprietary protocol
+B. It is an open standard protocol
+C. It can only run on access ports
+D. It replaces STP
+
+13. Which protocol is used to discover directly connected neighbors and their platform information?
+A. SNMP
+B. CDP
+C. DHCP
+D. NTP
+
+14. Which protocol is vendor-neutral and provides LLDP information between devices?
+A. CDP
+B. STP
+C. LLDP
+D. DNS
+
+15. In an EtherChannel, what is the main benefit?
+A. It creates separate broadcast domains
+B. It increases bandwidth by combining multiple physical links
+C. It disables trunking
+D. It allows only one VLAN at a time
+
+16. Which wireless AP mode is the default operating mode for a lightweight AP?
+A. Monitor
+B. Local
+C. Sniffer
+D. Bridge
+
+17. In a Cisco WLC setup, a lightweight AP typically communicates with:
+A. A router
+B. A firewall
+C. A wireless LAN controller
+D. A DHCP server
+
+18. Which security method is commonly used for secure wireless access?
+A. Telnet
+B. WPA2 with AES
+C. FTP
+D. HTTP
+
+19. Which of the following is the primary purpose of a WLAN policy profile in Cisco WLC?
+A. To assign IP addresses
+B. To define SSID behavior, security, and QoS
+C. To create VLANs
+D. To configure routing protocols
+
+20. Which Cisco Wireless feature uses 802.1X and RADIUS for user authentication?
+A. PortFast
+B. AAA
+C. BPDU Guard
+D. VLAN pruning
+
+Answer key:
+1-B, 2-C, 3-C, 4-B, 5-C, 6-C, 7-B, 8-C, 9-B, 10-B, 11-B, 12-B, 13-B, 14-C, 15-B, 16-B, 17-C, 18-B, 19-B, 20-B
+
+
+
+
+
+
+========================================================
+2.0 Network Access (20%)
+- VLANs
+- Trunking and 802.1Q
+- CDP and LLDP
+- EtherChannel (LACP)
+- Rapid PVST+ and the STP protection features (PortFast, BPDU guard, root guard, loop guard)
+- Cisco wireless architectures and AP modes
+- WLC and AP management access
+- Wireless LAN GUI configuration
+
+#####################################################
+
+
+# Domain 2.0 Network Access: Study Notes (20%)
+
+## 1. VLANs
+
+What: A VLAN is a separate Layer 2 broadcast domain inside the same physical switches. Normally 1 VLAN = 1 IP subnet.
+- Analogy: departments sharing one office floor, with soundproof partitions. Finance can't hear Sales, even though they share the same building.
+
+Data:
+- Normal range: 1-1005. Extended range: 1006-4094.
+- VLAN 1 is the default and can't be deleted. 1002-1005 are reserved legacy VLANs and can't be deleted.
+- An access port belongs to one data VLAN, plus optionally one voice VLAN.
+- Traffic between VLANs needs Layer 3: router-on-a-stick (subinterfaces) or an L3 switch (SVIs).
+
+```
+vlan 10
+ name SALES
+interface g0/1
+ switchport mode access
+ switchport access vlan 10
+ switchport voice vlan 20
+```
+
+Verify: `show vlan brief`, `show interfaces g0/1 switchport`
+
+Best practice: don't use VLAN 1. Shut unused ports and park them in an unused VLAN.
+
+---
+
+## 2. Trunking and 802.1Q
+
+What: A trunk carries multiple VLANs over one link. 802.1Q inserts a 4-byte tag into the Ethernet frame.
+
+Tag fields: TPID 0x8100 (16 bits), PCP/CoS (3 bits), DEI (1 bit), VLAN ID (12 bits).
+
+Native VLAN: frames in this VLAN are sent *untagged*. The default is VLAN 1, and it must match on both ends.
+- A mismatch causes a CDP native-VLAN mismatch log and VLAN leakage.
+
+- Analogy: a shared corridor between two buildings where every parcel carries a colored department label (tag). Unlabeled parcels are assumed to belong to the "native" department, so both buildings must agree who that is.
+
+```
+interface g0/24
+ switchport trunk encapsulation dot1q   ! only on platforms that also support ISL
+ switchport mode trunk
+ switchport trunk native vlan 99
+ switchport trunk allowed vlan 10,20,99
+ switchport nonegotiate
+```
+
+DTP results (Cisco-proprietary negotiation):
+
+| Side A / Side B | Result |
+|---|---|
+| trunk / auto, desirable, or trunk | Trunk |
+| desirable / auto or desirable | Trunk |
+| auto / auto | Access |
+| access / anything | Access |
+
+Verify: `show interfaces trunk`, `show interfaces g0/24 switchport`
+
+Trap: auto + auto never forms a trunk. Best practice is to set the mode manually and add `switchport nonegotiate`.
+
+---
+
+## 3. CDP and LLDP
+
+What: Layer 2 neighbor discovery. They show only directly connected devices, because frames aren't forwarded.
+
+-----------------------------------------------------------------
+|                  | CDP               | LLDP                |
+|------------------|-------------------|---------------------|
+| Standard         | Cisco proprietary | IEEE 802.1AB (open) |
+| Default on Cisco | Enabled           | Disabled |
+| Timer / holdtime | 60 s / 180 s      | 30 s / 120 s |
+| Dest. MAC        | 01:00:0C:CC:CC:CC | 01:80:C2:00:00:0E |
+| Enable globally  | `cdp run`         | `lldp run` |
+| Per interface    | `no cdp enable`   | `lldp transmit` / `lldp receive` |
+| Verify           | `show cdp neighbors [detail]` | `show lldp neighbors [detail]` |
+-------------------------------------------------------------------------------------
+
+Shows: device ID, local and remote port, platform, capabilities, and management IP in `detail`.
+
+- Analogy: swapping business cards with the person next to you. CDP is a card only Cisco people understand. LLDP is a universal card.
+
+Security: disable both on untrusted or edge ports, since they leak device and IP information.
+
+---
+
+## 4. EtherChannel (LACP)
+
+What: Bundles physical links into one logical Port-channel. STP sees one link, so no links are blocked.
+
+Facts:
+- Up to 8 active links per bundle (LACP also allows 8 standby).
+- Load balancing is per flow by hash (MAC, IP, ports). One flow never exceeds one member's speed.
+- The remaining links keep carrying traffic if one fails.
+
+- Analogy: several lanes merged into one wide road. Each car stays in one lane (flow), and the road keeps running if one lane closes.
+
+Protocols and modes:
+
+---------------------------------------------------------------------------------------
+| Protocol | Standard               | Modes           | Forms when                    |
+|----------|------------------------|-----------------|-------------------------------|
+| LACP     | IEEE 802.3ad / 802.1AX | active, passive | active+active, active+passive |
+| PAgP     | Cisco | desirable, auto | desirable+desirable, desirable+auto            |
+| Static   | None  | on              | on+on only                                     |
+---------------------------------------------------------------------------------------
+
+Trap: passive + passive and auto + auto never form a channel. Never mix `on` with a protocol mode.
+
+Rule: member ports must match in speed, duplex, switchport mode, native VLAN and allowed VLANs.
+
+```
+interface range g0/1-2
+ channel-group 1 mode active
+interface port-channel 1
+ switchport mode trunk
+```
+
+Verify: `show etherchannel summary`. Flags: SU = Layer 2 and in use, P = bundled, D = down, I = stand-alone, s = suspended.
+
+---
+
+## 5. Rapid PVST+ and STP protection
+
+### Why STP exists
+Redundant Layer 2 links cause broadcast storms, MAC table instability and duplicate frames. STP builds a loop-free tree.
+- Analogy: a city with ring roads. Police close some roads (blocked ports) to leave one loop-free route to city hall (the root bridge). A loop in L2 is like an announcement echoing forever, because Ethernet frames have no TTL.
+
+### Rapid PVST+
+It runs RSTP (802.1w) per VLAN. Enable it with `spanning-tree mode rapid-pvst`.
+
+Root election: the lowest Bridge ID wins. Bridge ID = priority (default 32768, steps of 4096) + VLAN ID + MAC. For VLAN 10 the default priority is 32778.
+
+```
+spanning-tree vlan 10 root primary     ! sets 24576 (or lower if needed)
+spanning-tree vlan 10 root secondary   ! sets 28672
+spanning-tree vlan 10 priority 4096
+```
+
+Root port is chosen per non-root switch by the lowest root path cost. Ties go to lowest sender BID, then lowest sender port ID.
+
+Port costs (IEEE short): 10 Mbps = 100, 100 Mbps = 19, 1 Gbps = 4, 10 Gbps = 2.
+
+Port roles: root, designated, alternate (backup path to the root), backup (redundant path on the same segment), disabled.
+
+RSTP states: discarding, learning, forwarding.
+-----------------------------------------------------------------------------------------
+|        | STP (802.1D)                              | RSTP (802.1w)                    |
+|---     |-------------------------------------------|----------------------------------|
+| States | Blocking, Listening, Learning, Forwarding | Discarding, Learning, Forwarding |
+| Convergence | 30-50 s (20 max age + 15 + 15)       | About 1-6 s (proposal/agreement) |
+-----------------------------------------------------------------------------------------
+
+Verify: `show spanning-tree vlan 10`
+
+### Protection features
+
+| Feature | Applied on | Behavior | Command |
+|---|---|---|---|
+| PortFast | Access ports to hosts | Port goes straight to forwarding | `spanning-tree portfast` |
+| BPDU Guard | PortFast ports | Receives a BPDU → err-disabled | `spanning-tree bpduguard enable` |
+| BPDU Filter | Edge ports | Stops sending and receiving BPDUs | `spanning-tree bpdufilter enable` |
+| Root Guard | Designated ports toward switches that must not become root | Superior BPDU → root-inconsistent (blocking); recovers automatically | `spanning-tree guard root` |
+| Loop Guard | Root and alternate ports | BPDUs stop arriving → loop-inconsistent instead of forwarding | `spanning-tree guard loop` |
+
+Analogies:
+- PortFast: a staff-only express gate for people known not to bring loops.
+- BPDU Guard: that gate locks and sounds an alarm if someone carrying a switch's BPDU walks through.
+- BPDU Filter: earplugs. The port neither speaks nor listens, so it is risky and can create loops.
+- Root Guard: a bouncer who refuses a new self-declared "mayor". The door reopens when the claim stops.
+- Loop Guard: if the heartbeat from head office stops, the guard keeps the gates closed instead of assuming he is in charge.
+
+Traps:
+- BPDU Guard = *err-disable*. Root Guard = *auto-recovers*.
+- Root Guard and Loop Guard can't be on the same port.
+- Never use PortFast on switch-to-switch links.
+- Recover an err-disabled port with `shutdown` then `no shutdown`, or `errdisable recovery cause bpduguard`.
+
+---
+
+## 6. Cisco wireless architectures and AP modes
+
+Architectures:
+
+----------------------------------------------------------------------------------------------------------
+| Architecture  | How it works                                 | Analogy                                 |
+|---------------|----------------------------------------------|-----------------------------------------|
+| Autonomous AP | Each AP is configured and managed on its own | A franchise shop setting its own policy |
+| Cloud-based (Meraki) | AP managed from a cloud dashboard; user data stays local | Shops following policy pushed from a web HQ |
+| Split-MAC (lightweight AP + WLC) | AP handles real-time work (RF, beacons, frame transmission, encryption); WLC handles management (authentication, roaming, RF management, security policy, QoS) | Cashier handles customers; head office approves policy |
+----------------------------------------------------------------------------------------------------------
+
+CAPWAP tunnels: UDP 5246 (control) and UDP 5247 (data) between lightweight AP and WLC.
+
+WLC deployments:
+- Unified: a dedicated on-prem controller.
+- Embedded: WLC runs on a Catalyst switch.
+- Cloud-based: WLC hosted in cloud or private cloud.
+- Mobility Express: WLC runs on an AP, for small sites.
+
+AP modes:
+
+-------------------------------------------------------------------------------------------
+| Mode        | Function |
+|-------------|---------------------------------------------------------------------------|
+| Local       | Default. Serves clients and scans channels; CAPWAP to WLC                 |
+| FlexConnect | Switches client traffic locally at the branch, even if the WLC link fails |
+| Monitor     | Doesn't serve clients; scans for attacks and rogues                       |
+| Rogue Detector | Listens on the wired side for rogue MAC addresses                      |
+| Sniffer     | Captures packets and forwards them to an analyzer                         |
+| Bridge/Mesh | Links buildings, point-to-point or point-to-multipoint                    |
+| SE-Connect  | Acts as a spectrum analyzer                                               |
+-------------------------------------------------------------------------------------------
+
+---
+
+## 7. WLC and AP management access
+
+Methods:
+- Console (physical)
+- Telnet and HTTP (insecure)
+- SSH and HTTPS (secure)
+- SNMP
+- Cloud dashboard (Meraki)
+
+Authentication for admins: local users, RADIUS or TACACS+.
+
+---------------------------------------------------------------------
+|           | RADIUS        | TACACS+                                |
+|-----------|---------------|----------------------------------------|
+| Transport | UDP 1812/1813 | TCP 49                                 |
+| Encrypts  | Password only | Entire payload                         |
+| AAA       | Authentication and authorization combined | Separated  |
+| Best for  | Network access (users, 802.1X) | Device administration |
+---------------------------------------------------------------------
+
+Physical connections:
+- AP → switch access port in Local mode, in the AP management VLAN.
+- FlexConnect AP → trunk port, because it switches multiple VLANs locally.
+- WLC → switch trunk port, carrying all client VLANs.
+- LAG bundles WLC ports. An AireOS WLC needs the switch side set to EtherChannel mode `on`, with no LACP or PAgP.
+
+---
+
+## 8. Wireless LAN GUI configuration (WLC)
+
+Sequence (AireOS GUI):
+
+1. Controller > Interfaces: create a dynamic interface for the client VLAN (VLAN ID, IP).
+2. WLANs > Create New: WLAN type, profile name, SSID, ID.
+3. General tab: status enabled, map the interface/VLAN, broadcast SSID.
+4. Security tab:
+   - Layer 2: WPA2 + AES with PSK, or 802.1X (RADIUS).
+   - Layer 3: web authentication, if needed.
+5. QoS tab: choose a profile.
+6. Advanced tab: AAA override, session timeout, client load balancing, band select.
+7. Apply.
+
+QoS profiles:
+
+------------------------------------
+| Profile  | Use                   |
+|----------|-----------------------|
+| Platinum | Voice                 |
+| Gold     | Video                 |
+| Silver   | Best effort (default) |
+| Bronze   | Background            |
+------------------------------------
+
+Cisco Catalyst 9800 GUI: Configuration > Tags & Profiles. Create a WLAN profile, a policy profile, then a policy tag, and apply it to APs.
+
+- Analogy: opening a new shop. Pick the signboard (SSID), which corridor the door opens onto (VLAN/interface), the lock type (security), and the priority lane (QoS).
+
+---
+
+## Quick-recall sheet
+
+------------------------------------------------------------------------------
+| Topic  | Remember                                                          |
+|--------|-------------------------------------------------------------------|
+| VLAN   | Separate broadcast domain; 1-1005 normal; VLAN 1 can't be deleted |
+| 802.1Q | 4-byte tag; native VLAN untagged; must match both ends            |
+| DTP    | auto+auto = access                                                |
+| CDP / LLDP | 60 s / 30 s; CDP default on, LLDP default off                 |
+| EtherChannel | LACP active/passive; max 8 active; per-flow hashing         |
+| Root bridge | Lowest priority, then lowest MAC; steps of 4096              |
+| RSTP   | Discarding / Learning / Forwarding; converges in seconds          |
+| PortFast + BPDU Guard | Together on every host-facing port                 |
+| Root Guard / Loop Guard | Protect against a bad root / a silent link       |
+| CAPWAP | UDP 5246 control, 5247 data                                       |
+| Local / FlexConnect | Default mode / branch survives WLC loss              |
+| RADIUS / TACACS+ | UDP 1812/1813 / TCP 49                                  |
+| QoS | Platinum voice, Gold video, Silver best effort, Bronze background    |
+------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.
