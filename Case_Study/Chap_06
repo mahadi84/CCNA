@@ -1,0 +1,819 @@
+
+
+
+Here is a complete multiple-choice quiz for Chapter 6: Automation and Programmability, covering all major topics in the chapter.
+
+1. Which plane is responsible for forwarding traffic?
+A) Management plane
+B) Data plane
+C) Control plane
+D) Application plane
+
+2. The control plane is mainly responsible for:
+A) Monitoring device health
+B) Building and maintaining forwarding tables
+C) Configuring SSH access
+D) Encrypting application traffic
+
+3. Which statement best describes traditional networking?
+A) A centralized controller manages all devices
+B) Each device is configured individually
+C) All policy is pushed from a single template
+D) Devices are automatically provisioned over the cloud
+
+4. What is a major benefit of controller-based networking?
+A) More manual configuration
+B) Reduced drift and increased consistency
+C) Slower troubleshooting
+D) No need for management protocols
+
+5. Which model means “I want the network to do X; the controller decides how”?
+A) SDN
+B) IBN
+C) REST
+D) NetFlow
+
+6. Northbound APIs are used between:
+A) Controller and devices
+B) User applications and controller
+C) Router and switch
+D) Underlay and overlay
+
+7. Southbound APIs are used between:
+A) Apps and controller
+B) User and controller
+C) Controller and network devices
+D) VM and cloud platform
+
+8. Which protocol is commonly used for northbound APIs?
+A) SNMP
+B) SSH
+C) REST over HTTPS
+D) STP
+
+9. Which protocol is commonly used for southbound device configuration?
+A) DNS
+B) NETCONF
+C) DHCP
+D) BGP
+
+10. NETCONF typically uses:
+A) HTTPS and JSON
+B) SSH and XML
+C) Telnet and YAML
+D) HTTP and CSV
+
+11. RESTCONF uses:
+A) SSH/XML
+B) HTTPS/JSON or XML
+C) FTP/TCP
+D) UDP/JSON
+
+12. YANG is used to:
+A) Forward frames
+B) Describe device configuration and state data models
+C) Encrypt VPN tunnels
+D) Build routing tables
+
+13. Which Cisco product is used for intent-based automation and assurance in campus networks?
+A) Catalyst SD-WAN
+B) Catalyst Center
+C) Meraki Dashboard
+D) ACI APIC
+
+14. Catalyst Center is primarily:
+A) In the data path
+B) In the forwarding path
+C) A management and automation controller
+D) A Layer 2 switching protocol
+
+15. If Catalyst Center goes down, what usually happens to traffic?
+A) Traffic stops forwarding
+B) Traffic continues to flow while management is lost
+C) All devices reboot
+D) Controllers elect a new underlay
+
+16. Which layer of SDN architecture is the physical routed network?
+A) Overlay
+B) Underlay
+C) Control plane
+D) Service plane
+
+17. The overlay network is:
+A) The physical network of cables and switches
+B) A logical virtual network built over the underlay
+C) A single routing protocol
+D) A management VLAN
+
+18. Which is the main reason the underlay and overlay are separated?
+A) To reduce routing performance
+B) To allow the underlay to change without disturbing user traffic
+C) To eliminate VLANs
+D) To disable tunnels
+
+19. Which tunnel technology commonly uses UDP port 4789?
+A) GRE
+B) IPsec
+C) VXLAN
+D) LISP
+
+20. VXLAN provides approximately how many unique VNIs?
+A) 4094
+B) 65535
+C) 16 million
+D) 32 thousand
+
+21. In Cisco SD-Access, which technology is used for the control plane?
+A) VXLAN
+B) LISP
+C) OSPF
+D) STP
+
+22. In Cisco SD-Access, which technology is used for the data plane?
+A) Ethernet over GRE
+B) VXLAN
+C) MPLS
+D) IPsec
+
+23. Which fabric role connects endpoints to the fabric?
+A) Border node
+B) Intermediate node
+C) Edge node
+D) Control plane node
+
+24. Which role connects the fabric to outside networks?
+A) Edge node
+B) Border node
+C) Fabric WLC
+D) Intermediate node
+
+25. Which controller is used in Cisco ACI?
+A) Catalyst Center
+B) APIC
+C) WLC
+D) Meraki Cloud
+
+26. Which is the broadest category?
+A) Deep learning
+B) Machine learning
+C) Artificial intelligence
+D) Neural network
+
+27. Predictive AI is used for:
+A) Writing essays and code
+B) Forecasting, classification, and anomaly detection
+C) Building hardware
+D) VLAN design
+
+28. Generative AI is mainly used for:
+A) Forwarding frames
+B) Creating text, code, and summaries
+C) Routing packets
+D) Building tunnels
+
+29. A major risk of generative AI is:
+A) It can shut down network devices
+B) Hallucination
+C) It removes all need for human review
+D) It cannot process logs
+
+30. In machine learning, supervised learning uses:
+A) No labels
+B) Unlabeled data only
+C) Labeled data
+D) Random policies
+
+31. Unsupervised learning is helpful for:
+A) Normalizing VLAN IDs
+B) Finding unusual or suspicious behavior
+C) Configuring AAA
+D) Creating static routes
+
+32. Reinforcement learning is often used for:
+A) WPA handshake validation
+B) Tuning wireless channel and power settings
+C) Router ACL creation
+D) Generating BGP routes
+
+33. Which of the following is a common data source for AI/ML in network operations?
+A) DNS cache
+B) Streaming telemetry
+C) RIP updates
+D) Access-list logs only
+
+34. What is the best practice before deploying AI-generated network configuration?
+A) Delete all old configs
+B) Have a human validate it
+C) Run it in production immediately
+D) Ignore warnings
+
+35. Which of the following should not be shared with public AI tools?
+A) Device model numbers
+B) Passwords, credentials, and confidential configs
+C) General troubleshooting steps
+D) SNMP community names only
+
+36. REST is:
+A) A network protocol
+B) An architectural style for APIs over HTTP
+C) A routing protocol
+D) A switch management tool
+
+37. Which HTTP method is used to read a resource?
+A) POST
+B) PUT
+C) GET
+D) DELETE
+
+38. Which HTTP method creates a new resource?
+A) GET
+B) POST
+C) PATCH
+D) HEAD
+
+39. Which HTTP method is idempotent and replaces the entire resource?
+A) PATCH
+B) POST
+C) PUT
+D) GET
+
+40. Which HTTP method is used to update only part of a resource?
+A) POST
+B) PUT
+C) PATCH
+D) DELETE
+
+41. Which response code means unauthorized?
+A) 403
+B) 404
+C) 401
+D) 500
+
+42. Which response code means authenticated but not allowed?
+A) 401
+B) 403
+C) 405
+D) 503
+
+43. Which response code is used for “resource not found”?
+A) 400
+B) 401
+C) 404
+D) 429
+
+44. Basic authentication sends credentials as:
+A) Encrypted SSH
+B) Base64 encoding
+C) JWT token
+D) XML payload
+
+45. A bearer token is typically:
+A) Sent as part of the URL
+B) Included in an Authorization header
+C) Added to a VLAN
+D) Used only in SNMP
+
+46. In REST, the resource path usually includes:
+A) Only the port number
+B) A URI and optional query string
+C) A MAC address only
+D) A BGP AS number
+
+47. Which tool is commonly used to send REST API requests from the command line?
+A) ping
+B) curl
+C) show ip route
+D) tracert
+
+48. Which statement best describes configuration management?
+A) It only creates devices
+B) It defines desired state and applies it consistently
+C) It replaces all routing protocols
+D) It does not track version control
+
+49. The key concept of idempotency means:
+A) Running the task creates new changes each time
+B) Running the task again leaves the system unchanged if already compliant
+C) It must always involve Terraform
+D) It disables automation
+
+50. Ansible is best described as:
+A) Agent-based pull
+B) Agentless push
+C) Declarative cloud-only
+D) A routing protocol
+
+51. Terraform is primarily used for:
+A) User authentication
+B) Infrastructure provisioning
+C) Fragmenting VLANs
+D) Port security
+
+52. Which of the following is a Terraform command?
+A) ansible-playbook
+B) terraform apply
+C) netconf
+D) show running-config
+
+53. Ansible uses which primary language for playbooks?
+A) HCL
+B) Ruby
+C) YAML
+D) XML
+
+54. Terraform uses which language?
+A) YAML
+B) HCL
+C) JSON
+D) Python
+
+55. Puppet and Chef are:
+A) Agentless and push
+B) Agent-based, pull systems
+C) CLI-only tools
+D) Tunnel protocols
+
+56. Which of these is correct?
+A) Ansible is mainly for provisioning; Terraform is for configuration
+B) Terraform is mainly for provisioning; Ansible is mainly for configuration
+C) Both are only for DNS
+D) Neither is used in networking
+
+57. JSON is:
+A) A programming language
+B) A lightweight data interchange format
+C) A routing protocol
+D) A segmentation tool
+
+58. Which symbol is used for a JSON object?
+A) []
+B) <>
+C) {}
+D) ()
+
+59. Which symbol is used for a JSON array?
+A) []
+B) {}
+C) <>
+D) ()
+
+60. In JSON, keys must be:
+A) Numbers
+B) Strings in double quotes
+C) Single quotes
+D) Unquoted variables
+
+61. Which of the following is valid JSON?
+A) { "hostname": "SW1", "vlan": 10 }
+B) { 'hostname': 'SW1' }
+C) { "hostname": "SW1", }
+D) { hostname: "SW1" }
+
+62. Which value is valid in JSON?
+A) NaN
+B) undefined
+C) null
+D) None
+
+63. In the example JSON object, which path gives the first interface name?
+A) interfaces.name
+B) interfaces[0].name
+C) interfaces[1].name
+D) interfaces[0].status
+
+64. Which of the following is true about arrays in JSON?
+A) They start at 1
+B) They start at 0
+C) They cannot contain objects
+D) They must be sorted
+
+65. Which of these is not a valid JSON syntax rule?
+A) No trailing comma
+B) No comments
+C) Keys can be unquoted
+D) Booleans must be lowercase
+
+66. Which format uses indentation and key: value pairs?
+A) JSON
+B) XML
+C) YAML
+D) HTML
+
+67. Which pair correctly matches the data type?
+A) "SW1" = number
+B) true = boolean
+C) [10,20] = object
+D) null = string
+
+68. In JSON, the value of “owner” being null means:
+A) The key is absent
+B) The value is intentionally empty or unknown
+C) The object is invalid
+D) The value is a string
+
+69. Which statement best distinguishes JSON from XML?
+A) JSON uses tags; XML uses braces
+B) JSON uses braces and brackets; XML uses tags
+C) XML is always lowercase
+D) JSON cannot represent objects
+
+70. Which of the following is not a core difference between traditional and controller-based networking?
+A) Centralized policy
+B) Human error and drift
+C) Device-by-device CLI
+D) Single-source management visibility
+
+Answer Key:
+1-B, 2-B, 3-B, 4-B, 5-B, 6-B, 7-C, 8-C, 9-B, 10-B, 11-B, 12-B, 13-B, 14-C, 15-B, 16-B, 17-B, 18-B, 19-C, 20-C, 21-B, 22-B, 23-C, 24-B, 25-B, 
+26-C, 27-B, 28-B, 29-B, 30-C, 31-B, 32-B, 33-B, 34-B, 35-B, 36-B, 37-C, 38-B, 39-C, 40-C, 41-C, 42-B, 43-C, 44-B, 45-B, 46-B, 47-B, 48-B, 49-B, 
+50-B, 51-B, 52-B, 53-C, 54-B, 55-B, 56-B, 57-B, 58-C, 59-A, 60-B, 61-A, 62-C, 63-B, 64-B, 65-C, 66-C, 67-B, 68-B, 69-B, 70-D
+
+
+
+
+====================================================
+
+6.0 Automation and Programmability (10%)
+- Automation and controller-based networking
+- SDN overlay, underlay and fabric
+- AI and machine learning in network operations
+- REST APIs
+- Ansible and Terraform
+- JSON
+
+
+===============================================
+
+
+# Domain 6.0 Automation and Programmability: Study Notes (10%)
+
+## 1. Automation and controller-based networking
+
+### The three planes
+
+| Plane | Job | Examples |
+|---|---|---|
+| Data | Forwards traffic | Switching frames, routing packets, NAT, ACL checks |
+| Control | Builds the forwarding tables | OSPF, ARP, STP, MAC learning |
+| Management | Configures and monitors the device | SSH, SNMP, syslog, NTP, NETCONF |
+
+Analogy: a road system. The data plane is the cars moving, the control plane is the traffic signs and route maps, and the management plane is the city office that changes the signs.
+
+### Traditional vs controller-based
+
+| | Traditional | Controller-based |
+|---|---|---|
+| Configuration | Box by box (CLI) | Central, using templates and intent |
+| Control plane | Distributed on every device | Logic centralized in a controller (fully or partly) |
+| Consistency | Prone to human error and drift | Policy applied uniformly |
+| Scale | Slow, manual | Fast, programmable |
+| Visibility | Per device | Network-wide view |
+| Risk | No single point of failure for management | Controller is a management dependency |
+
+Analogy: every traffic cop deciding alone (traditional) vs a traffic control center directing all signals (controller-based).
+
+Benefits of automation: speed, consistency, fewer human errors, easy scale, lower config drift, faster troubleshooting, easier compliance checks.
+
+Intent-based networking (IBN): you state *what* you want (for example "isolate guest traffic"), and the controller works out *how* and pushes the config.
+
+### Northbound and southbound APIs
+
+```
+   [ Apps / scripts / dashboards ]
+                 |
+        Northbound API (REST)
+                 |
+          [ Controller ]
+                 |
+        Southbound API
+                 |
+   [ Routers / switches / APs ]
+```
+
+| | Northbound | Southbound |
+|---|---|---|
+| Between | Apps ↔ controller | Controller ↔ devices |
+| Typical protocol | REST (HTTPS, JSON) | NETCONF, RESTCONF, OpenFlow, SSH/CLI, SNMP, OpFlex |
+
+Memory hook: north is toward the human (apps), south is toward the hardware.
+
+### Device APIs and data models
+
+| | NETCONF | RESTCONF |
+|---|---|---|
+| Transport | SSH, TCP 830 | HTTPS |
+| Encoding | XML | JSON or XML |
+| Data model | YANG | YANG |
+
+YANG is the language that describes the structure of device configuration and state data. A data model is the blueprint, and NETCONF and RESTCONF are the delivery methods.
+
+### Cisco controllers
+- Catalyst Center (formerly DNA Center): intent-based automation and assurance for campus wired and wireless, and the controller for SD-Access.
+- Meraki: cloud-managed.
+- Catalyst SD-WAN: WAN controller architecture.
+
+Trap: Catalyst Center is *not* in the data path. If it goes down, traffic keeps flowing and you only lose management and automation.
+
+---
+
+## 2. SDN overlay, underlay and fabric
+
+| Layer | What it is | Analogy |
+|---|---|---|
+| Underlay | The physical network and its IP routing; provides reachability between fabric nodes | Roads and railway tracks |
+| Overlay | A virtual network built on top using tunnels; carries user traffic with segmentation | Bus routes drawn on top of the roads; the sealed parcel carried inside |
+| Fabric | Underlay + overlay together, managed as one logical network | The whole transport system run as one service |
+
+Underlay facts:
+- Simple, stable and routed. It runs a routing protocol (IS-IS, OSPF or BGP).
+- It knows nothing about users or tenants. It only moves tunnel packets between endpoints.
+
+Overlay facts:
+- Tunnel types: VXLAN, LISP, GRE, IPsec.
+- Edge devices encapsulate on entry and decapsulate on exit.
+- The underlay can change without disturbing the overlay.
+
+VXLAN:
+- Wraps a Layer 2 frame in UDP, port 4789.
+- 24-bit VNI gives about 16 million segments, compared with 4094 VLANs.
+
+Cisco SD-Access (campus fabric):
+
+| Plane | Technology |
+|---|---|
+| Control plane | LISP |
+| Data plane | VXLAN |
+| Policy plane | Cisco TrustSec (security group tags, SGT) |
+
+| Fabric role | Function |
+|---|---|
+| Edge node | Connects endpoints, like an access switch |
+| Border node | Connects the fabric to outside networks |
+| Control plane node | Tracks where each endpoint is, via the LISP map-server |
+| Intermediate node | Underlay-only transit |
+| Fabric WLC | Wireless integration |
+
+Catalyst Center is the controller, and ISE provides policy and identity.
+
+Data center version: Cisco ACI uses the APIC controller, a spine-leaf underlay and a VXLAN overlay.
+
+---
+
+## 3. AI and machine learning in network operations
+
+Hierarchy: AI ⊃ machine learning ⊃ deep learning.
+
+| | Predictive AI | Generative AI |
+|---|---|---|
+| Does | Forecasts or classifies from data | Creates new content (text, code, config) |
+| Network uses | Failure prediction, capacity planning, anomaly detection, threat detection | Natural-language queries, config and script drafts, log and incident summaries, documentation |
+| Analogy | Weather forecast from past patterns | A junior assistant who drafts; you must review |
+| Main risk | Wrong predictions from poor data | Hallucination (confident but wrong output) |
+
+ML types:
+
+| Type | Learns from | Network example |
+|---|---|---|
+| Supervised | Labeled data | Classify traffic as normal or attack |
+| Unsupervised | Unlabeled data | Find unusual behavior without prior examples |
+| Reinforcement | Rewards and penalties | Tune wireless channel and power settings |
+
+Typical uses:
+- Anomaly detection: the system learns what normal looks like, then flags deviations. Analogy: a bank fraud alert that learns your usual spending.
+- Root-cause analysis: correlating thousands of events into one cause.
+- Closed-loop automation: detect, decide, fix, verify.
+- Wireless optimization: automatic channel and power adjustment.
+
+Data sources: streaming telemetry, syslog, SNMP, NetFlow. Good models need good data.
+
+Cautions:
+- Always have a human validate AI-generated configs before deployment.
+- Never paste confidential configs, credentials or customer data into public AI tools.
+- Watch for bias, drift and limited explainability.
+
+Chapters 14.1-14.3 of the Bangladesh Bank guideline cover AI/ML security risks and management.
+
+---
+
+## 4. REST APIs
+
+What: REST is an architectural style for APIs over HTTP.
+
+Analogy: a restaurant. The menu is the API documentation, the waiter is the API, and the kitchen is the server. The waiter doesn't remember your last visit, so every order includes your table number (stateless).
+
+REST characteristics: client-server, stateless, cacheable, uniform interface, layered system, resources identified by URIs.
+
+### CRUD to HTTP verbs
+
+| CRUD | HTTP verb | Use |
+|---|---|---|
+| Create | POST | Add a new resource |
+| Read | GET | Retrieve (safe, no changes) |
+| Update | PUT / PATCH | PUT replaces the whole resource; PATCH changes part of it |
+| Delete | DELETE | Remove |
+
+GET, PUT and DELETE are idempotent (repeating them gives the same result). POST is not.
+
+### URI structure
+```
+https://api.example.com:443/v1/devices/sw1?status=up
+ scheme   host           port path          query
+```
+
+### Request and response
+- Request: method, URI, headers (`Authorization`, `Content-Type`, `Accept`), optional body.
+- Response: status code, headers, body (usually JSON).
+
+### Status codes
+
+| Class | Meaning | Common codes |
+|---|---|---|
+| 1xx | Informational | |
+| 2xx | Success | 200 OK, 201 Created, 204 No Content |
+| 3xx | Redirect | 301, 302 |
+| 4xx | Client error | 400 Bad Request, 401 Unauthorized (not authenticated), 403 Forbidden (authenticated but not permitted), 404 Not Found, 405 Method Not Allowed, 429 Too Many Requests |
+| 5xx | Server error | 500 Internal Server Error, 503 Service Unavailable |
+
+### Authentication
+
+| Method | Note |
+|---|---|
+| Basic | Base64 `user:password`. Encoded, not encrypted, so use HTTPS |
+| Token (Bearer) | Obtained once, sent with each request |
+| API key | Static key in a header or query |
+| OAuth | Delegated, scoped access |
+
+### Example
+```
+curl -X GET "https://controller.example.com/api/v1/devices?status=up" \
+  -H "Authorization: Bearer <TOKEN>" \
+  -H "Accept: application/json"
+```
+
+Data encodings: JSON (most common), XML, YAML.
+
+Traps:
+- 401 means *who are you*, and 403 means *you may not*.
+- POST creates, PUT replaces, PATCH changes part.
+- Basic auth over plain HTTP exposes the password.
+
+---
+
+## 5. Ansible and Terraform
+
+Configuration management: define the desired state in files, apply it to many devices, and keep the files in version control. The key term is idempotent: running it again changes nothing if the state is already correct.
+
+Analogy: Ansible is a checklist handed to workers who each do the same steps. Terraform is a blueprint of the finished building. It compares the blueprint with what exists and builds only the difference.
+
+| | Ansible | Terraform | Puppet | Chef |
+|---|---|---|---|---|
+| Purpose | Configuration management and orchestration | Provisioning infrastructure (IaC) | Configuration management | Configuration management |
+| Agent | Agentless (SSH, NETCONF or API) | Agentless (uses provider APIs) | Agent required | Agent required |
+| Model | Push | Push | Pull | Pull |
+| Language | YAML playbooks | HCL (HashiCorp Configuration Language) | Puppet DSL | Ruby-based DSL |
+| Style | Ordered tasks with idempotent modules | Declarative | Declarative | Procedural |
+| Unit of work | Playbook, play, task | Resource, module | Manifest | Recipe, cookbook |
+
+### Ansible components
+- Inventory: list of managed hosts.
+- Playbook: YAML file with plays that contain tasks.
+- Module: the unit that does the work (for example `cisco.ios.ios_config`).
+- Variables and Jinja2 templates: reusable data and config templates.
+
+```ini
+# inventory
+[switches]
+sw1 ansible_host=10.1.1.11
+sw2 ansible_host=10.1.1.12
+[switches:vars]
+ansible_network_os=cisco.ios.ios
+ansible_connection=ansible.netcommon.network_cli
+```
+
+```yaml
+# playbook.yml
+- name: Configure NTP on switches
+  hosts: switches
+  gather_facts: no
+  tasks:
+    - name: Set NTP server
+      cisco.ios.ios_config:
+        lines:
+          - ntp server 10.1.1.100
+```
+Run it with `ansible-playbook -i inventory playbook.yml`.
+
+### Terraform workflow
+```hcl
+resource "aws_vpc" "main" {
+  cidr_block = "10.0.0.0/16"
+}
+```
+
+| Command | Action |
+|---|---|
+| `terraform init` | Download providers |
+| `terraform plan` | Preview the changes |
+| `terraform apply` | Create or change resources |
+| `terraform destroy` | Remove resources |
+
+State file: records what Terraform has built, to detect drift from the desired state.
+
+Traps:
+- Ansible is agentless and push. Puppet and Chef are agent-based and pull.
+- Terraform is declarative.
+- Terraform is mainly for provisioning, and Ansible is mainly for configuring.
+
+---
+
+## 6. JSON
+
+What: JavaScript Object Notation, a lightweight text format for key-value data.
+
+Analogy: a form. The key is the printed field label, and the value is what was filled in.
+
+Syntax rules:
+- `{ }` = object (a set of key:value pairs).
+- `[ ]` = array (an ordered list).
+- Keys are strings in double quotes.
+- Key and value are separated by `:`, pairs by `,`.
+- No trailing comma, no comments, no single quotes.
+- Booleans (`true`, `false`) and `null` are lowercase and unquoted.
+
+Data types:
+
+| Type | Example |
+|---|---|
+| String | `"SW1"` |
+| Number | `10`, `3.5` |
+| Boolean | `true`, `false` |
+| Null | `null` |
+| Object | `{"name": "Gi0/1"}` |
+| Array | `[10, 20, 30]` |
+
+Example:
+```json
+{
+  "hostname": "SW1",
+  "managementIP": "10.1.1.11",
+  "up": true,
+  "owner": null,
+  "interfaces": [
+    { "name": "Gi0/1", "vlan": 10, "status": "up" },
+    { "name": "Gi0/2", "vlan": 20, "status": "down" }
+  ]
+}
+```
+
+Reading it:
+
+| Question | Answer |
+|---|---|
+| `hostname` | `"SW1"` |
+| `interfaces[0].name` | `"Gi0/1"` (arrays start at 0) |
+| `interfaces[1].status` | `"down"` |
+| Number of interfaces | 2 |
+| `owner` | `null` |
+
+Spot the error:
+```json
+{
+  'hostname': "SW1",      // single quotes on key, and a comment
+  "vlan": 10,
+}                          // trailing comma before the brace
+```
+Three errors: single quotes, a comment, and a trailing comma.
+
+Same data in three formats:
+
+| Format | Example |
+|---|---|
+| JSON | `{"hostname": "SW1"}` |
+| XML | `<hostname>SW1</hostname>` |
+| YAML | `hostname: SW1` |
+
+JSON uses braces and brackets, XML uses tags, and YAML uses indentation.
+
+Python mapping: a JSON object becomes a dictionary and a JSON array becomes a list.
+
+---
+
+## Quick-recall sheet
+
+| Topic | Remember |
+|---|---|
+| Planes | Data forwards, control builds tables, management configures |
+| Controller | Northbound = REST to apps; southbound = NETCONF, RESTCONF, SSH to devices |
+| NETCONF / RESTCONF | TCP 830 over SSH, XML / HTTPS, JSON or XML; both use YANG |
+| Catalyst Center | Not in the data path; network keeps forwarding if it fails |
+| Underlay / overlay / fabric | Physical routed network / tunnels on top / both managed as one |
+| VXLAN | UDP 4789, 24-bit VNI |
+| SD-Access | LISP control, VXLAN data, TrustSec policy |
+| Predictive vs generative AI | Forecasts from data / creates content, may hallucinate |
+| REST verbs | POST create, GET read, PUT/PATCH update, DELETE delete |
+| Status codes | 2xx OK, 401 not authenticated, 403 not permitted, 404 not found, 5xx server |
+| Stateless | Every request carries everything the server needs |
+| Ansible | Agentless, push, YAML, SSH |
+| Terraform | Declarative, HCL, provisioning, `init/plan/apply` |
+| Puppet / Chef | Agent-based, pull |
+| JSON | `{}` object, `[]` array, double quotes, no trailing comma, index starts at 0 |
