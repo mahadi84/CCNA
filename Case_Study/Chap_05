@@ -1,0 +1,567 @@
+
+
+
+
+1. Which element of the CIA triad ensures data has not been altered?
+A) Confidentiality
+B) Integrity
+C) Availability
+D) Authentication
+
+2. Which malware self‑replicates and spreads across a network without user action?
+A) Virus
+B) Trojan
+C) Worm
+D) Ransomware
+
+3. Which social‑engineering term describes attacks that target high‑level executives?
+A) Phishing
+B) Spear phishing
+C) Smishing
+D) Whaling
+
+4. Which Layer‑2 countermeasure protects against ARP‑poisoning (MITM) by validating ARP packets against a binding table?
+A) Port security
+B) DHCP snooping
+C) Dynamic ARP Inspection (DAI)
+D) BPDU Guard
+
+5. What type of control is a firewall that blocks known bad traffic?
+A) Detective
+B) Corrective
+C) Preventive
+D) Administrative
+
+6. Which set correctly lists the three authentication factor categories used in MFA?
+A) Know, own, location
+B) Know, have, are
+C) Possess, inherit, know
+D) Token, password, biometric
+
+7. On a Cisco device, which command entry is hashed and overrides enable password?
+A) enable password
+B) enable secret
+C) service password-encryption
+D) username admin secret
+
+8. Which Cisco password type is weak and reversible (meant only to obscure text)?
+A) Type 5
+B) Type 7
+C) Type 8
+D) Type 9
+
+9. Which IP protocol number is used by ESP in IPsec?
+A) UDP 500
+B) TCP 50
+C) IP protocol 50
+D) IP protocol 51
+
+10. Which UDP ports are commonly used by IKE and NAT‑Traversal for IPsec?
+A) UDP 500 and UDP 4500
+B) UDP 1701 and UDP 4500
+C) TCP 500 and TCP 4500
+D) UDP 50 and UDP 51
+
+11. Which IPsec mode encapsulates the entire original IP packet inside a new IP header and is typically used for site‑to‑site VPNs?
+A) Transport mode
+B) Tunnel mode
+C) Hybrid mode
+D) Host mode
+
+12. In IKE negotiations, which phase establishes the secure management channel (IKE SA)?
+A) Phase 0
+B) Phase 1
+C) Phase 2
+D) Quick mode
+
+13. Where should a standard IP ACL (matches source only) typically be applied?
+A) Close to the source of traffic
+B) Close to the destination of traffic
+C) On any interface regardless of purpose
+D) Only on routers, not switches
+
+14. What is the wildcard mask for a /26 network?
+A) 0.0.0.255
+B) 0.0.0.63
+C) 0.0.0.127
+D) 255.255.255.192
+
+15. Which statement about ACL processing is true?
+A) ACLs are processed bottom‑to‑top and last match wins
+B) ACLs are processed top‑to‑bottom and first match wins
+C) ACLs have no implicit rules; every packet is explicitly permitted
+D) Applied ACLs affect only traffic originated by the router
+
+16. By default, what is the maximum number of MAC addresses and the default violation mode on a Cisco access port when port security is first enabled?
+A) Maximum 1 MAC; violation = shutdown
+B) Maximum 2 MACs; violation = restrict
+C) Maximum 1 MAC; violation = protect
+D) Maximum 5 MACs; violation = shutdown
+
+17. What does "sticky" do when configured with switchport port‑security mac‑address sticky?
+A) Permanently disables port security on the interface
+B) Learns MAC addresses and adds them to the running configuration
+C) Forces the port to accept only DHCP traffic
+D) Changes the port to trunk mode
+
+18. Which DHCP snooping statement is correct?
+A) All ports are trusted by default
+B) Trust uplink ports toward the legitimate DHCP server
+C) DHCP Offer and ACK messages are allowed on untrusted ports
+D) DHCP snooping does not record MAC/IP bindings
+
+19. Dynamic ARP Inspection (DAI) requires which other feature to validate dynamically assigned hosts?
+A) Port security
+B) DHCP snooping
+C) BPDU Guard
+D) 802.1X
+
+20. Which of the following correctly pairs RADIUS vs TACACS+?
+A) RADIUS uses TCP 49 and encrypts the entire payload; TACACS+ uses UDP 1812
+B) RADIUS uses UDP and typically encrypts only the password; TACACS+ uses TCP and encrypts the entire payload
+C) RADIUS is Cisco proprietary; TACACS+ is an IETF standard
+D) Both use UDP and both encrypt the entire payload
+
+21. In 802.1X terminology, which device is the "authenticator"?
+A) The user device (supplicant)
+B) The switch or wireless AP
+C) The RADIUS server
+D) The EAP method
+
+22. Which WPA3 enhancement specifically defends against offline passphrase‑guessing attacks for personal networks?
+A) TKIP
+B) PSK
+C) SAE
+D) WEP
+
+Answer key (number: choice — brief explanation)
+1: B — Integrity means data is unaltered.
+2: C — Worms self‑replicate across networks without user action.
+3: D — Whaling targets executives.
+4: C — DAI validates ARP using the DHCP snooping binding table.
+5: C — Firewalls are preventive controls.
+6: B — MFA factors are know (password), have (token), are (biometric).
+7: B — enable secret is hashed and overrides enable password.
+8: B — Type 7 is weak, reversible encryption.
+9: C — ESP is IP protocol number 50.
+10: A — IKE uses UDP 500; NAT‑T uses UDP 4500.
+11: B — Tunnel mode encapsulates the full packet for site‑to‑site.
+12: B — Phase 1 establishes the IKE SA (management channel).
+13: B — Standard ACLs match source only and should be placed close to the destination.
+14: B — /26 wildcard = 0.0.0.63.
+15: B — ACLs are evaluated top‑down; first match wins; implicit deny exists.
+16: A — Default max 1 MAC; default violation = shutdown.
+17: B — Sticky learns MACs and writes them into running‑config.
+18: B — You must trust uplink/server ports; untrusted ports are blocked for offers/acks.
+19: B — DAI uses the DHCP snooping binding table for validation.
+20: B — RADIUS uses UDP (1812/1813) and typically encrypts only passwords; TACACS+ uses TCP (49) and encrypts full payload.
+21: B — The switch or AP acts as the authenticator between supplicant and server.
+22: C — SAE (Simultaneous Authentication of Equals) resists offline guessing and provides forward secrecy.
+
+If you want more questions, shuffle variants, or a printable quiz with randomized choices, tell me how many total questions you'd like.
+
+
+
+
+
+
+
+
+=========================================
+5.0 Security Fundamentals (15%)
+- Threats, vulnerabilities and mitigation
+- Security programs and password policies (MFA)
+- VPNs (IPsec)
+- ACLs
+- Layer 2 security (port security, DHCP snooping, DAI)
+- AAA
+- WPA2/WPA3
+
+
+
+###################################################
+
+
+# Domain 5.0 Security Fundamentals: Study Notes (15%)
+
+## 1. Threats, vulnerabilities and mitigation
+
+Key terms:
+
+| Term | Meaning | House analogy |
+|---|---|---|
+| Asset | Anything of value (data, devices, reputation) | Valuables inside |
+| Vulnerability | A weakness | Unlocked window |
+| Threat | Potential danger that could use a weakness | Burglar |
+| Exploit | The method or tool that uses a vulnerability | Crowbar, or the act of climbing in |
+| Risk | Likelihood × impact | Chance of burglary × cost of loss |
+| Mitigation | Control that reduces risk | Lock, alarm, guard |
+
+CIA triad: Confidentiality (only authorized people read it), Integrity (it isn't altered), Availability (it works when needed).
+
+Common threats:
+
+| Threat | What it is |
+|---|---|
+| Virus | Needs a host file and user action |
+| Worm | Self-replicates across the network |
+| Trojan | Malware disguised as legitimate software |
+| Ransomware | Encrypts data and demands payment |
+| Spyware / rootkit | Steals data / hides deep in the OS |
+| Phishing | Fake emails; spear = targeted, whaling = executives, vishing = voice, smishing = SMS |
+| Social engineering | Manipulating people: pretexting, tailgating, baiting |
+| Reconnaissance | Ping sweeps and port scans before an attack |
+| DoS / DDoS | Overloads a service; DDoS uses many sources (botnet) |
+| Spoofing | Faking an identity (IP, MAC, ARP, DNS) |
+| MITM | Attacker sits between two parties |
+| Password attacks | Brute force, dictionary |
+| Zero-day | Exploit for a flaw with no patch yet |
+
+Layer 2 attacks (covered in section 5): MAC flooding, DHCP starvation and rogue DHCP server, ARP poisoning, VLAN hopping.
+
+Mitigation layers (defense in depth): patching, antivirus/EDR, firewall and IPS, segmentation (VLANs, ACLs), least privilege, backups, MFA, user training, logging and monitoring.
+
+Analogy: a bank vault. The street, the lobby, the counter, the vault door and the safe deposit box each have their own lock, so beating one layer doesn't open everything.
+
+Control categories: preventive (stop), detective (notice), corrective (fix). By type: administrative (policy), technical (firewall), physical (lock).
+
+---
+
+## 2. Security programs and password policies
+
+### Program elements
+- User awareness: one-way information (posters, emails, simulated phishing).
+- Training: formal skill-building, role-based.
+- Physical access control: badges, locks, biometrics, mantraps, CCTV, guards.
+
+Analogy: awareness is the fire-exit sign, training is the fire drill, and physical access control is the locked door to the server room.
+
+### Password policy elements
+- Management: how passwords are stored, reset, rotated and recovered.
+- Complexity: minimum length, character mix, no dictionary words, no reuse.
+- Lockout: lock the account after repeated failures.
+
+Bangladesh Bank's guideline sets a minimum of 11 characters (without MFA) with 3 of 4 character types and a 90-day maximum for internal users. The CCNA tests the concept, and the guideline is stricter.
+
+### Alternatives to passwords
+
+| Method | Idea | Analogy |
+|---|---|---|
+| MFA | 2 or more factors: know (password), have (token, phone), are (fingerprint) | ATM card plus PIN |
+| Certificates | Digital identity issued by a trusted CA | Government-issued ID |
+| Biometrics | Fingerprint, face, iris. Measured by FAR (false accept) and FRR (false reject) | Your body as the key |
+
+### Device access with local passwords
+```
+enable secret StrongPass                  ! hashed; overrides "enable password"
+username admin secret AdminPass
+service password-encryption               ! type 7, weak and reversible; for casual snooping only
+security passwords min-length 10
+login block-for 120 attempts 3 within 60  ! block logins for 120 s after 3 failures in 60 s
+line console 0
+ login local
+ exec-timeout 5 0
+line vty 0 15
+ login local
+ transport input ssh
+banner motd # Authorized access only #
+```
+
+Password hash types: type 0 clear, type 5 MD5, type 7 weak reversible, type 8 PBKDF2-SHA-256, type 9 scrypt (strongest).
+
+Traps:
+- `enable secret` beats `enable password`.
+- `service password-encryption` only obscures; it is not real protection.
+- Console and VTY lines need `login local`, or the username is ignored.
+
+---
+
+## 3. VPNs (IPsec)
+
+Types:
+- Site-to-site: gateway to gateway, with users unaware. Analogy: a private armored tunnel between two offices.
+- Remote access: client to gateway (Cisco Secure Client/AnyConnect, using TLS or IPsec). Analogy: a personal armored car from home to the office.
+
+IPsec provides: confidentiality (encryption), integrity (hash/HMAC), authentication (pre-shared key or certificate), anti-replay.
+
+Protocols:
+
+| Protocol | Number | Function |
+|---|---|---|
+| IKE | UDP 500 (NAT-T: UDP 4500) | Negotiates keys and security associations |
+| ESP | IP protocol 50 | Encryption + integrity + authentication |
+| AH | IP protocol 51 | Integrity and authentication only; no encryption; breaks under NAT |
+
+Modes:
+- Transport: keeps the original IP header; host-to-host.
+- Tunnel: encapsulates the whole original packet in a new IP header; used for site-to-site.
+
+IKE phases:
+1. Phase 1: builds a secure management channel (the IKE SA). Negotiates encryption, hash, authentication method, DH group and lifetime. IKEv1 main mode uses 6 messages and aggressive mode uses 3.
+2. Phase 2: builds the IPsec SAs that carry the data (quick mode, 3 messages).
+
+IKEv2 simplifies this to 4 messages for the initial exchange.
+
+Analogy: phase 1 is two diplomats agreeing on a secure phone line. Phase 2 is agreeing the courier rules for the parcels. ESP is a sealed, signed armored truck. AH is a tamper-proof clear box (signed but visible).
+
+Algorithm choices:
+- Encryption: AES (3DES is legacy).
+- Hash: SHA-256 or stronger (MD5 and SHA-1 are weak).
+- Key exchange: Diffie-Hellman, group 14 or higher.
+- Authentication: pre-shared key or RSA certificates.
+
+GRE is different: it carries multicast and routing protocols but has no encryption, so it is often wrapped in IPsec.
+
+The CCNA tests the concepts only, not IPsec configuration.
+
+---
+
+## 4. ACLs
+
+Rules:
+- Processed top-down, first match wins.
+- Every ACL ends with an implicit deny any.
+- One ACL per protocol, per direction, per interface.
+- Inbound filters before routing. Outbound filters after routing.
+- ACLs don't filter traffic that the router itself originates.
+
+Analogy: a gate guard with a guest list checked line by line. The first matching line decides, and anyone not on the list is turned away.
+
+| Type | Number ranges | Matches | Place |
+|---|---|---|---|
+| Standard | 1-99, 1300-1999 | Source IP only | Close to destination |
+| Extended | 100-199, 2000-2699 | Protocol, source, destination, ports | Close to source |
+| Named | Name | Either type, editable by sequence number | Same as above |
+
+Wildcard mask: 0 = must match, 1 = ignore. Wildcard = 255.255.255.255 minus the subnet mask.
+
+| Network | Wildcard |
+|---|---|
+| /24 | 0.0.0.255 |
+| /26 | 0.0.0.63 |
+| Single host | `host` or 0.0.0.0 |
+| Any | `any` or 255.255.255.255 |
+
+Configuration:
+```
+! Standard
+ip access-list standard ADMIN-ONLY
+ permit 192.168.1.0 0.0.0.255
+
+! Extended: block one host from a web server, permit everything else
+ip access-list extended BLOCK-WEB
+ 10 deny tcp host 10.1.1.10 host 10.2.2.20 eq 80
+ 20 permit ip any any
+interface g0/0
+ ip access-group BLOCK-WEB in
+
+! Restrict VTY access
+line vty 0 15
+ access-class ADMIN-ONLY in
+```
+
+Edit: insert with a sequence number (`15 deny ...`), remove with `no 20`.
+
+Verify: `show access-lists` (shows hit counters), `show ip interface g0/0` (shows the applied ACL), `show running-config | section access`.
+
+IPv6: `ipv6 access-list NAME` and `ipv6 traffic-filter NAME in`. Implicit rules permit neighbor discovery before the final deny.
+
+Traps:
+- A missing `permit ip any any` blocks everything else.
+- Specific entries go before general ones.
+- An ACL that is created but not applied does nothing.
+
+---
+
+## 5. Layer 2 security
+
+### Port security
+Limits which MAC addresses can use a switch port.
+
+Analogy: a bouncer who only lets in a set number of known guests.
+
+```
+interface g0/1
+ switchport mode access               ! must be access or trunk, not dynamic
+ switchport port-security
+ switchport port-security maximum 2
+ switchport port-security mac-address sticky
+ switchport port-security violation restrict
+```
+
+Defaults: disabled on every port. When enabled, maximum is 1 MAC and violation mode is shutdown.
+
+Sticky: learned MACs are added to the running-config, so save with `copy run start`.
+
+Violation modes:
+
+| Mode | Drops violating traffic | Syslog | Counter | Port err-disabled |
+|---|---|---|---|---|
+| Protect | Yes | No | No | No |
+| Restrict | Yes | Yes | Yes | No |
+| Shutdown (default) | Yes | Yes | Yes | Yes |
+
+Recover: `shutdown` then `no shutdown`, or `errdisable recovery cause psecure-violation` (default 300 s).
+
+Verify: `show port-security`, `show port-security interface g0/1`, `show port-security address`.
+
+### DHCP snooping
+Blocks rogue DHCP servers and builds a binding table (MAC, IP, VLAN, port, lease).
+
+Analogy: only HR's front desk may issue badges. Fake desks are ignored, and the register records who got which badge.
+
+```
+ip dhcp snooping
+ip dhcp snooping vlan 10
+interface g0/24                        ! uplink toward the real DHCP server
+ ip dhcp snooping trust
+interface g0/5                         ! untrusted client port
+ ip dhcp snooping limit rate 15
+```
+
+Rules:
+- All ports are untrusted by default.
+- Trust uplinks and the port toward the legitimate server.
+- On untrusted ports, DHCP Offer and ACK messages are dropped.
+- Exceeding the rate limit puts the port in err-disabled.
+- Option 82 insertion is on by default and can break relay designs.
+
+Verify: `show ip dhcp snooping`, `show ip dhcp snooping binding`.
+
+### Dynamic ARP Inspection (DAI)
+Checks ARP packets against the DHCP snooping binding table, which stops ARP poisoning (MITM).
+
+Analogy: every "I am Alice" claim is checked against the badge register.
+
+```
+ip arp inspection vlan 10
+ip arp inspection validate src-mac dst-mac ip
+interface g0/24
+ ip arp inspection trust
+```
+
+Rules:
+- Untrusted by default. Default rate limit is 15 packets per second on untrusted ports, and exceeding it err-disables the port.
+- Needs DHCP snooping for dynamic hosts. Hosts with static IPs need ARP ACLs.
+- Trust uplinks.
+
+Verify: `show ip arp inspection`.
+
+Extra Layer 2 hardening: disable DTP, avoid VLAN 1 and native VLAN 1, shut unused ports and put them in an unused VLAN, and use BPDU Guard on edge ports.
+
+---
+
+## 6. AAA
+
+| Function | Question | Analogy at an airport |
+|---|---|---|
+| Authentication | Who are you? | Passport check |
+| Authorization | What can you do? | Boarding pass decides your gate and lounge |
+| Accounting | What did you do? | CCTV and logbook |
+
+| | RADIUS | TACACS+ |
+|---|---|---|
+| Standard | Open (IETF) | Cisco proprietary |
+| Transport | UDP 1812 (auth), 1813 (acct) | TCP 49 |
+| Encryption | Password only | Entire payload |
+| AAA design | Authentication and authorization combined | Separated |
+| Best for | Network access (802.1X, VPN, Wi-Fi) | Device administration, per-command authorization |
+
+Configuration (RADIUS):
+```
+aaa new-model
+username admin secret AdminPass          ! local fallback
+radius server RAD1
+ address ipv4 10.1.1.50 auth-port 1812 acct-port 1813
+ key SharedSecret
+aaa authentication login default group radius local
+aaa authorization exec default group radius local
+aaa accounting exec default start-stop group radius
+```
+
+TACACS+ uses `tacacs server TAC1`, `address ipv4 ...` and `key ...`, with `group tacacs+` in the method lists.
+
+Method lists: methods are tried in order. The router falls to `local` only if the server does not respond, not if the server rejects the login.
+
+802.1X roles:
+- Supplicant is the client.
+- Authenticator is the switch, AP or WLC.
+- Authentication server is RADIUS (for example Cisco ISE).
+- EAP carries the credentials.
+
+Traps:
+- `aaa new-model` takes effect immediately, so create a local user first or you can lock yourself out.
+- Keep `local` as a fallback method.
+- Use TACACS+ for command-level control of admins.
+
+---
+
+## 7. WPA2 and WPA3
+
+| | WEP | WPA | WPA2 | WPA3 |
+|---|---|---|---|---|
+| Cipher | RC4 | TKIP (RC4) | AES-CCMP | AES-CCMP; GCMP-256 in Enterprise 192-bit |
+| Personal auth | Static key | PSK | PSK | SAE |
+| Status | Broken | Deprecated | Current baseline | Current best |
+
+Modes:
+- Personal: one shared passphrase (WPA2 uses 8-63 ASCII characters or 64 hex).
+- Enterprise: 802.1X/EAP with RADIUS, with a unique login per user.
+
+WPA2 weakness: an attacker can capture the 4-way handshake and guess the passphrase offline.
+
+WPA3 improvements:
+- SAE replaces the PSK exchange, resists offline guessing and gives forward secrecy.
+- Protected management frames (PMF) are mandatory. They block deauth attacks.
+- Enhanced Open (OWE) encrypts open networks.
+- Enterprise 192-bit mode uses GCMP-256.
+
+Analogy: WPA2-PSK is one office key copied for everyone, and if a copy leaks the thief can try guessing the pattern at home. WPA3-SAE is a fresh one-time key negotiated per visitor. Enterprise is a personal ID badge for each employee.
+
+### WLC GUI: WLAN with WPA2-PSK
+1. WLANs > Create New: profile name, SSID, ID, then Apply.
+2. General tab: enable the WLAN and pick the interface/VLAN.
+3. Security > Layer 2: Layer 2 Security = WPA+WPA2.
+4. Tick WPA2 Policy and WPA2 Encryption = AES. Leave TKIP unchecked.
+5. Auth Key Mgmt = PSK, format ASCII, enter the passphrase (8-63 characters).
+6. Apply, then confirm the WLAN status shows Enabled.
+
+For Enterprise, choose 802.1X as the auth key management and point the WLAN to a RADIUS server.
+
+Traps:
+- WPA2 means AES-CCMP. TKIP belongs to the old WPA.
+- WPA3-Personal is SAE.
+- Enterprise modes always need a RADIUS server.
+
+---
+
+## Quick-recall sheet
+
+| Topic | Remember |
+|---|---|
+| Vulnerability / threat / exploit | Weakness / danger / method |
+| CIA | Confidentiality, Integrity, Availability |
+| Password hashes | Type 5 MD5, type 7 weak, type 8 PBKDF2, type 9 scrypt |
+| MFA | Know, have, are |
+| IPsec protocols | ESP = 50 (encrypts), AH = 51 (no encryption), IKE = UDP 500 |
+| IKE phases | Phase 1 = management channel; phase 2 = data SAs |
+| Tunnel vs transport | Tunnel = new IP header (site-to-site) |
+| ACL ranges | Standard 1-99, extended 100-199 |
+| ACL rules | Top-down, first match, implicit deny |
+| ACL placement | Standard near destination, extended near source |
+| Wildcard | 0 = match, 1 = ignore |
+| Port security | Default max 1, violation shutdown; restrict logs, protect is silent |
+| DHCP snooping | Untrusted by default; trust uplinks |
+| DAI | Uses snooping binding table; 15 pps default on untrusted ports |
+| RADIUS / TACACS+ | UDP 1812/1813 / TCP 49 |
+| AAA fallback | Only if the server does not respond |
+| WPA2 / WPA3 | AES-CCMP + PSK / SAE + mandatory PMF |
+
+
+
+
+
+
+
+
+.
