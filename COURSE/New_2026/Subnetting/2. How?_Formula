@@ -11,13 +11,14 @@
 
 6. Math: I want to connect 2 computers/hosts only from a Class C IP range. Why NOT A or B?
           Give me all of these for Class C:
+            - Block Size
+            - Subnet Mask:
             - Network Address:
+            - Broadcast Address:
             - Computer 1 IP:
             - Computer 2 IP:
-            - Broadcast Address:
-            - Subnet Mask:
             - Default Gateway:
-            - 2nd subnet Network, Usable, and Broadcast address
+            - All subnet Network, Usable, and broadcast addresses
 
 
 
