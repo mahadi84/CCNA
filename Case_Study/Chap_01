@@ -1,0 +1,606 @@
+
+
+
+
+
+
+
+
+
+1.0 Network Fundamentals (20%)
+- Network components: routers, L2/L3 switches, firewalls and IPS, access points, controllers, PoE
+- Topologies: 2-tier, 3-tier, spine-leaf, WAN, SOHO, on-prem and cloud
+- Cabling (copper, fiber), interface errors, duplex and speed mismatches
+- TCP vs UDP
+- IPv4 addressing and subnetting, private addresses
+- IPv6 addressing and address types
+- Client IP settings verification
+- Wireless principles
+- Virtualization (VMs, containers, VRFs)
+- Switching concepts (MAC learning, flooding)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Case Study: Modernizing the Infrastructure at Pubali Bank PLC
+
+Executive Summary & Background
+Pubali Bank PLC is one of the largest and oldest private commercial banks in Bangladesh, headquartered in Motijheel, Dhaka. To support growing digital banking operations, real-time core banking services (CBS), and expanded online transaction processing across countrywide branches, the bank recently migrated its core infrastructure into a modern hybrid framework. The network connects hundreds of corporate workstations, on-premises data center servers, regional branch offices, and cloud-based financial management services.
+
+Senior IT & Infrastructure Analyst Alex has been tasked with auditing, troubleshooting, and documenting the network architecture to ensure strict compliance, security, high performance, and continuous uptime across all banking operations.
+
+Section 1: Campus Architecture, Data Center, and Hardware Layout
+At the corporate headquarters in Dhaka, Pubali Bank PLC employs a 3-Tier Campus Topology comprising Access, Distribution, and Core layers:
+
+•	Access Layer: Workstations, IP phones, and Wireless Access Points (APs) plug directly into Access Switches delivering Power over Ethernet (PoE / 802.3at) to supply up to 30W per port for APs and high-end IP phones.
+•	Distribution Layer: Applies security policies, aggregates traffic, and handles inter-VLAN routing using high-performance Layer 3 Switches.
+•	Core Layer: Designed strictly for high-speed packet switching between distribution blocks, operating without packet-filtering overhead to ensure maximum throughput.
+
+In contrast, the bank’s central Data Center utilizes a modern Spine-Leaf Topology. Every leaf switch connects directly to every spine switch, ensuring that any server-to-server traffic path across leaves is predictable and capped at exactly two hops (Leaf → Spine → Leaf).
+
+To connect branch offices across Bangladesh, Pubali Bank PLC relies on a secure WAN environment, utilizing leased line / MPLS circuits alongside redundant IPSec VPN tunnels over commercial service provider links.
+
+For local office connectivity, devices serve specialized operational roles:
+•	Routers: Route packets between distinct networks (e.g., LAN to WAN/Internet) using routing tables based on destination IP addresses.
+•	Layer 2 Switches: Connect local endpoints inside the same network segment by switching Ethernet frames using MAC address tables.
+•	Next-Generation Firewalls (NGFW): Enforce stateful access control lists (ACLs) and application-level security policies.
+•	Intrusion Prevention Systems (IPS): Inspect live traffic inline against known attack signatures to actively block malicious traffic.
+•	Wireless Access Points (APs): Act as physical bridges between 802.11 wireless signals and the 802.3 wired Ethernet backbone.
+•	Wireless LAN Controllers (WLC): Provide centralized management, RF tuning, and security policies across all lightweight APs.
+
+Section 2: Physical Cabling, Physical Layer Errors, and Speed/Duplex Issues
+The physical infrastructure connects endpoints and network hardware through targeted media choices:
+•	Copper Cables (Category 6 UTP): Used for host-to-switch links within 100 meters.
+•	Fiber Optic Cables:
+o	Multimode Fiber (MMF): Connects switches within the same headquarters building over a few hundred meters using LED/VCSEL light sources.
+o	Single-Mode Fiber (SMF): Connects the primary headquarters to the primary/disaster recovery data center miles away using narrow-core laser optics, eliminating electromagnetic interference (EMI) and supporting long-distance optical transmission.
+
+During a routine audit of the desktop segment, Alex noticed a server port exhibiting severe throughput degradation. Running diagnostic commands revealed high counts of CRC errors and late collisions.
+•	CRC errors indicated frame corruption caused by electromagnetic noise or a damaged patch cable.
+•	Late collisions (collisions occurring after the first 64 bytes of a frame) pointed to a duplex mismatch, where the switch port was manually set to Full-Duplex while the server NIC auto-negotiated down to Half-Duplex.
+
+Section 3: Switching Fundamentals & MAC Table Behavior
+When an unmanaged workstation (PC-A) boots up on the network and sends an initial frame to PC-B:
+1.	The Access Switch receives the Ethernet frame on Port 1.
+2.	MAC Learning: The switch inspects the source MAC address of PC-A and records it in its MAC Address Table (CAM Table) alongside Port 1.
+3.	Flooding: If PC-B's destination MAC address is not yet present in the MAC Address Table, the switch floods the frame out of all active ports except Port 1 (the ingress port).
+4.	Aging: To maintain accuracy, switch MAC table entries expire after a default aging timer (typically 300 seconds) if no further frames are received from that source MAC.
+
+Section 4: L4 Protocols, Virtualization, and Segmentation
+Pubali Bank PLC runs diverse application protocols across its transport layer:
+•	TCP (Transmission Control Protocol): Connection-oriented protocol utilizing a 3-way handshake (SYN, SYN-ACK, ACK), sequence numbers, and windowing to deliver guaranteed, ordered byte streams for HTTPS (443), SSH (22), and database access.
+•	UDP (User Datagram Protocol): Connectionless, low-overhead protocol without delivery acknowledgments, optimized for real-time traffic like VoIP (SIP/RTP) and DNS (53), where low latency is critical and dropped packets are preferred over retransmission delays.
+
+To maximize server utility while maintaining strict data isolation, Pubali Bank PLC uses three distinct levels of virtualization:
+1.	Virtual Machines (VMs): Powered by Type-1 Bare-Metal Hypervisors (e.g., VMware ESXi), giving each VM a complete, isolated operating system for hosting legacy banking core software.
+2.	Containers: Powered by Docker/Kubernetes engines sharing the host OS kernel, allowing lightweight microservices (such as mobile banking API endpoints) to boot in seconds.
+3.	Virtual Routing and Forwarding (VRF): Provides separate virtual routing tables on a single physical router, enabling the bank to isolate guest/vendor traffic from core banking traffic even if both networks use identical or overlapping private IP ranges.
+
+Section 5: IP Addressing (IPv4 & IPv6), Subnetting, and Client Configuration
+Pubali Bank PLC uses standard RFC 1918 Private IPv4 address space (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16) inside its local networks. Because private IPv4 addresses cannot be routed over the public Internet, boundary firewalls execute Network Address Translation (NAT) to translate internal private IPs into public IPv4 addresses.
+
+To segment the Accounts & Finance Department, Alex allocated the subnet 192.168.10.0/26:
+•	Subnet Mask: 255.255.255.192
+•	Total IP Addresses: 2^32-26 = 64
+•	Usable Host IPs: $64 - 2 = 62$ hosts
+•	Network Address: 192.168.10.0
+•	First Usable IP: 192.168.10.1
+•	Last Usable IP: 192.168.10.62
+•	Broadcast Address: 192.168.10.63
+
+To prepare for long-term scalability and global compliance, Pubali Bank PLC also deployed dual-stack IPv6 (128-bit addresses).
+
+•	Global Unicast Addresses (2000::/3): Globally routable Internet addresses.
+•	Unique Local Addresses (FC00::/7): Internal private addresses (similar to RFC 1918 IPv4).
+•	Link-Local Addresses (FE80::/10): Automatically configured on every IPv6 interface for single-link communication and router discovery (NDP).
+•	Multicast Addresses (FF00::/8): Replaces IPv4 broadcast; FF02::1 reaches all local nodes, while FF02::2 reaches all local routers.
+•	Loopback Address (::1): Refers to the local host machine.
+
+Troubleshooting Scenario
+A newly onboarded banking officer reported loss of network access. Running diagnostic commands revealed:
+•	IP Address: 192.168.10.20
+•	Subnet Mask: 255.255.255.0
+•	Default Gateway: 192.168.10.1
+•	DNS Server: 8.8.8.8
+
+Alex applied a systematic troubleshooting approach starting with local loopback (127.0.0.1), followed by pinging the default gateway (192.168.10.1). When pings to the gateway succeeded but external IP pings failed, Alex verified firewall NAT policies and upstream ISP connections. (If the PC had shown an address in the 169.254.0.0/16 range, it would have indicated an APIPA auto-configuration due to a DHCP failure).
+
+Section 6: Wireless Operations (Wi-Fi)
+Pubali Bank PLC’s wireless network runs across multiple radio bands managed by centralized WLCs (strictly segregated from corporate banking segments per Bangladesh Bank guidance):
+
+•	2.4 GHz Band: Offers greater physical range and wall penetration, but suffers from high interference and limited capacity (only channels 1, 6, and 11 are non-overlapping).
+•	5 GHz Band: Provides faster data rates and significantly less congestion over more non-overlapping channels, though with shorter transmission range.
+•	6 GHz Band (Wi-Fi 6E/7): Offers pristine, ultra-wide channels for high-density office spaces.
+
+The network broadcasts an enterprise SSID (Service Set Identifier, the user-friendly network name, such as "Pubali-Corporate"), while each access point's radio interface is uniquely identified by its BSSID (Basic Service Set Identifier, which corresponds to the AP's physical MAC address).
+
+
+
+
+
+Case Study Review & Verification Questions
+Below is the consolidated set of questions and answers derived directly from the case study above, covering all 20 network fundamental topics.
+
+Q1: Network Fundamentals
+Question: In a branch office of Pubali Bank PLC containing a router, switch, firewall, and several PCs, which device connects different networks, and which device connects endpoints inside the same local area network (LAN)?
+
+Answer:
+•	The Router connects different networks (e.g., LAN to WAN/Internet).
+•	The Switch connects devices inside the same LAN segment.
+
+Q2: Network Components
+Question: Why does Pubali Bank PLC utilize routers, switches, firewalls, and access points? State one practical purpose for each.
+
+Answer:
+•	Router: Forwards packets between different IP networks using routing tables.
+•	Switch: Connects local endpoint devices within a single network using MAC addresses.
+•	Firewall: Filters inbound and outbound traffic based on defined security rules.
+•	Access Point: Connects wireless Wi-Fi clients to the wired network infrastructure.
+
+Q3: Topologies
+Question: Which topology design is best suited for a small-to-medium office campus, and which is preferred for a high-performance Data Center? Explain briefly.
+
+Answer:
+•	2-Tier (Collapsed Core): Best for small-to-medium campuses because it combines the core and distribution functions into one layer to reduce costs and complexity.
+•	Spine-Leaf: Best for Data Centers because every leaf switch connects to every spine switch, offering low-latency, predictable, multi-path server-to-server (east-west) traffic.
+
+Q4: Cabling & Interface Errors
+Question: A copper Ethernet link between two switches at Pubali Bank PLC experiences extremely slow traffic speeds, accompanied by high CRC error counters and late collisions. What is the root cause?
+
+
+Answer:
+•	Late Collisions indicate a duplex mismatch (e.g., one side hardcoded to Full-Duplex while the other operates in Half-Duplex).
+•	CRC Errors indicate corrupted frames caused by physical layer issues such as damaged copper cabling, bad terminations, or severe electromagnetic interference (EMI).
+
+Q5: Fiber vs. Copper
+Question: Why is fiber optic cabling preferred over twisted-pair copper cabling for long-distance connectivity between facilities?
+
+Answer:
+Fiber uses light pulses instead of electrical signals, making it completely immune to electromagnetic interference (EMI) and capable of carrying data over significantly longer distances without signal degradation.
+
+Q6: TCP vs. UDP
+Question: Why is UDP preferred for voice (VoIP) applications, whereas TCP is used for web browsing (HTTP/HTTPS)?
+
+Answer:
+•	UDP: Connectionless and lightweight with zero transmission delay/acknowledgment overhead, making it ideal for real-time voice where low latency is critical.
+•	TCP: Connection-oriented and reliable, using acknowledgments and retransmissions to guarantee error-free, ordered delivery of web pages and files.
+
+Q7: IPv4 Addressing
+Question: For the network subnet 192.168.10.0/26 at Pubali Bank PLC, identify the default subnet mask, total address space, total usable host addresses, and the first usable IP address.
+
+Answer:
+•	Subnet Mask: 255.255.255.192
+•	Total Addresses: $64$
+•	Usable Host Addresses: $62$ ($64 - 2$)
+•	First Usable IP: 192.168.10.1
+
+Q8: Subnetting
+Question: What is the broadcast address for the subnet 192.168.1.0/26?
+
+
+Answer:
+192.168.1.63
+
+Q9: Private IP Addresses
+Question: List the three private IPv4 address ranges defined by RFC 1918 that are used inside corporate networks.
+
+Answer:
+•	10.0.0.0 /8 (10.0.0.0 – 10.255.255.255)
+•	172.16.0.0 /12 (172.16.0.0 – 172.31.255.255)
+•	192.168.0.0 /16 (192.168.0.0 – 192.168.255.255)
+
+Q10: NAT (Network Address Translation)
+Question: Why must private IPv4 addresses undergo NAT before communicating over the public Internet?
+
+Answer:
+RFC 1918 private IP addresses are non-routable over the public Internet. NAT translates internal private IP addresses into one or more globally unique public IP addresses to allow internet connectivity.
+
+
+Q11: IPv6 Addressing
+Question: Compare IPv4 and IPv6 addressing in terms of bit length, structure, and broadcast mechanisms.
+
+Answer:
+•	Bit Length: IPv4 uses 32-bit addresses; IPv6 uses 128-bit addresses.
+•	Structure: IPv4 uses dotted-decimal notation; IPv6 uses eight groups of hexadecimal digits separated by colons.
+•	Broadcast: IPv6 has no broadcast addresses; it relies on multicast and anycast instead.
+
+Q12: IPv6 Address Types
+Question: Define the functional roles of Global Unicast, Unique Local, Link-Local, Multicast, and Loopback IPv6 addresses.
+
+Answer:
+•	Global Unicast (2000::/3): Publicly routable internet address.
+•	Unique Local (FC00::/7): Private internal address (equivalent to RFC 1918 IPv4).
+•	Link-Local (FE80::/10): Non-routable address automatically used on a single local network segment.
+•	Multicast (FF00::/8): One-to-many address delivered to all subscribed group members.
+•	Loopback (::1): Address used by the local host to test its own internal network stack.
+
+Q13: Client IP Configuration & Troubleshooting
+Question: A client workstation configured with IP 192.168.10.20/24, Default Gateway 192.168.10.1, and DNS 8.8.8.8 cannot reach the Internet. What is the systematic testing procedure?
+
+Answer:
+1.	Ping 127.0.0.1 to verify local TCP/IP stack functionality.
+2.	Ping default gateway 192.168.10.1 to verify local LAN physical/datalink connectivity.
+3.	Ping a public IP (8.8.8.8) to verify upstream routing and NAT.
+4.	Ping a public domain name (google.com) to verify DNS resolution.
+
+Q14: Wireless Principles
+Question: Why does the 2.4 GHz Wi-Fi frequency band provide wider coverage than 5 GHz, yet deliver lower throughput?
+
+Answer:
+Lower frequency waves (2.4 GHz) attenuate slower over distance and penetrate solid obstacles (walls) better than higher frequency waves (5 GHz). However, 2.4 GHz offers smaller channel bandwidths and suffers from heavy interference across its few non-overlapping channels (1, 6, and 11).
+
+Q15: SSID vs. BSSID
+Question: Distinguish between an SSID and a BSSID in a Wi-Fi network.
+
+Answer:
+•	SSID (Service Set Identifier): The human-readable name assigned to the wireless network.
+•	BSSID (Basic Service Set Identifier): The hardware MAC address of the access point's radio broadcasting that specific SSID.
+
+Q16: Virtualization
+Question: What is the technical difference between a Virtual Machine (VM) and a Container?
+
+Answer:
+•	Virtual Machine (VM): Runs a complete guest operating system on top of a hypervisor, providing high isolation but higher resource overhead.
+•	Container: Shares the host system's OS kernel and isolates only the application and its dependencies, making it lightweight and fast to boot.
+
+Q17: VRF (Virtual Routing and Forwarding)
+Question: What primary problem does Virtual Routing and Forwarding (VRF) solve in network routing?
+
+Answer:
+VRF allows a single physical router to run multiple isolated virtual routing tables simultaneously, enabling separate routing paths and permitting overlapping IP address space across different segments or tenants.
+
+
+Q18: Switching Concepts
+Question: When an Ethernet switch receives a frame from Host A destined for Host B, and Host B's MAC address is NOT in the switch's MAC table, what actions does the switch perform?
+
+Answer:
+1.	Learns: Maps Host A's source MAC address to the ingress switch port.
+2.	Floods: Transmits the frame out of all active ports except the ingress port where the frame arrived.
+
+Q19: MAC Learning
+Question: What is MAC learning, and why is it essential for efficient network operation?
+
+Answer:
+MAC learning is the process by which an Ethernet switch dynamically inspects incoming frames to map source MAC addresses to their physical ingress ports. It prevents unnecessary frame flooding across the network, reducing traffic congestion and improving privacy and bandwidth efficiency.
+
+Q20: Speed, Duplex, and Errors
+Question: What triggers a duplex mismatch on an Ethernet link, and what symptoms indicate its presence?
+
+Answer:
+•	Trigger: Occurs when one end of an Ethernet link is manually hardcoded (e.g., Full-Duplex) while the opposing end uses auto-negotiation or is hardcoded differently (Half-Duplex).
+•	Symptoms: Extremely slow network speeds, high late-collision counters, excessive CRC errors, and degraded application performance despite the link state remaining "Up/Up".
+
+
+==============================================
+
+
+1.0 Network Fundamentals (20%)
+- Network components: routers, L2/L3 switches, firewalls and IPS, access points, controllers, PoE
+- Topologies: 2-tier, 3-tier, spine-leaf, WAN, SOHO, on-prem and cloud
+- Cabling (copper, fiber), interface errors, duplex and speed mismatches
+- TCP vs UDP
+- IPv4 addressing and subnetting, private addresses
+- IPv6 addressing and address types
+- Client IP settings verification
+- Wireless principles
+- Virtualization (VMs, containers, VRFs)
+- Switching concepts (MAC learning, flooding)
+
+
+==================================================
+
+
+# Domain 1.0 Network Fundamentals: Detailed Notes with Analogies
+
+Each topic has the idea, the facts the exam tests, and an analogy to hold it in memory. Weight: 20% of the exam.
+
+---
+
+## 1. Network components
+
+Router connects *different* networks and forwards packets by destination IP address using its routing table.
+- Analogy: the sorting hub of a courier company. It reads the destination address on each parcel and picks the next road toward it.
+
+L2 switch connects devices inside *one* LAN and forwards frames by MAC address.
+- Analogy: the receptionist of a single building. She knows which desk (port) each employee (MAC) sits at, but she can't send mail to another city.
+
+L3 switch is a switch that can also route between VLANs, at hardware speed.
+- Analogy: the same receptionist, now able to carry mail between floors (VLANs) without calling the post office.
+
+Firewall / NGFW allows or blocks traffic using rules. A *stateful* firewall remembers connections, so return traffic is allowed automatically. A *next-generation* firewall also understands applications and users.
+- Analogy: a gate guard with a guest list who remembers who went out, so the visitor can come back in.
+
+IPS (intrusion prevention system) inspects traffic for attack patterns and blocks it *inline*. An IDS only alerts.
+- Analogy: the airport scanner that stops the passenger (IPS), versus a CCTV camera that only rings an alarm (IDS).
+
+Access point (AP) bridges wireless clients onto the wired LAN.
+- Analogy: a doorway between the air and the cable.
+
+Controllers manage many devices from one place.
+- A WLC (wireless LAN controller) manages lightweight APs.
+- Cisco Catalyst Center (formerly DNA Center) automates and monitors wired and wireless networks.
+- Analogy: head office pushing one policy to every branch, or an orchestra conductor.
+
+Endpoints and servers: endpoints are PCs, phones and IoT devices that use the network. Servers provide services.
+- Analogy: customers and the kitchen.
+
+PoE (Power over Ethernet) carries power and data on one cable.
+- 802.3af: 15.4 W. 802.3at (PoE+): 30 W. 802.3bt: up to 60 W or 100 W.
+- Analogy: a single cable on a CCTV pole that brings both the internet and the electricity.
+
+Memory hook: Router = *between* networks. Switch = *inside* a network. Firewall = *rules*. IPS = *rules plus attack patterns, blocking*.
+
+---
+
+## 2. Topologies
+
+2-tier (collapsed core) has an access layer and a combined distribution/core layer. It suits small and medium campuses.
+- Analogy: a small bank branch where the tellers' counters report straight to one regional manager.
+
+3-tier has access, distribution and core layers. It suits large campuses.
+- Access connects users.
+- Distribution applies policy and aggregates.
+- Core moves traffic fast and does nothing else.
+- Analogy: a city's roads. Local streets lead to district roads, which lead to highways. Highways just move traffic fast.
+
+Spine-leaf is the data center design. Every leaf switch connects to every spine switch. Leaves never connect to each other, and neither do spines.
+- Any server-to-server path is predictable: leaf, spine, leaf.
+- Analogy: a metro system where every neighborhood station connects to every central interchange. Any two neighborhoods are always exactly two hops apart.
+
+WAN connects sites in different locations. Options include leased line, MPLS, metro Ethernet and Internet VPN.
+- Analogy: highways and airline routes between cities that you rent from a carrier, because you don't own the roads.
+
+SOHO (small office/home office) usually has one box that acts as router, switch, firewall and AP.
+- Analogy: a studio apartment where the kitchen, bedroom and living room are all one room.
+
+On-prem vs cloud
+- On-prem: you own and run everything. Analogy: owning a house, where repairs are your problem.
+- Cloud: you rent capacity from a provider and pay as you use it. Analogy: renting a hotel room, where the hotel handles maintenance.
+- Hybrid combines both.
+- Cloud service models: IaaS is renting the land and building, PaaS is a furnished flat, SaaS is a hotel stay where you just use it.
+
+---
+
+## 3. Cabling, interface errors, duplex and speed
+
+Copper (UTP): Cat5e or Cat6 with an RJ-45 connector, up to 100 m. It can pick up electrical interference.
+- Analogy: a water pipe. It is cheap and works well, but it leaks (interference) over distance.
+
+Fiber: carries light and is immune to electrical interference.
+- Single-mode: thin core, laser, very long distance (kilometers), more expensive. Analogy: a laser pointer down a narrow straw. There is one clean path, so it travels far.
+- Multimode: wider core, LED or VCSEL, hundreds of meters, cheaper. Analogy: a flashlight in a wide pipe. The light bounces along many paths and spreads, so the distance is shorter.
+
+Shared media vs point-to-point
+- Old hubs shared one wire, so devices took turns.
+- Switch ports are dedicated links.
+- Analogy: a party-line phone versus a private line.
+
+Interface errors (check with `show interfaces`):
+
+| Error | Meaning | Usual cause |
+|---|---|---|
+| Collisions | Frames crashed on a shared link | Half-duplex only |
+| Late collisions | Collision after the first 64 bytes | Duplex mismatch or cable too long |
+| CRC errors | Corrupted frames | Bad cable, interference, mismatch |
+| Runts | Frames under 64 bytes | Collisions, faulty NIC |
+| Giants | Frames over 1518 bytes | Misconfigured MTU, faulty NIC |
+
+Duplex: full-duplex means both sides send and receive at the same time. Half-duplex means one at a time.
+- Analogy: full duplex is a phone call. Half duplex is a walkie-talkie where you say "over".
+- Duplex mismatch: one side thinks phone call and the other thinks walkie-talkie. The result is late collisions and a link that works but is very slow.
+
+Speed mismatch: the link usually stays down.
+- Analogy: two people who speak different languages.
+
+Fix: use auto-negotiation on both ends, or set both ends manually to the same values.
+
+---
+
+## 4. TCP vs UDP
+
+---------------------------------------------------------------------
+|       | TCP                | UDP                                   |
+|-------|--------------------|---------------------------------------|
+| Type  | Connection-oriented | Connectionless |
+| Setup | 3-way handshake (SYN, SYN-ACK, ACK) | None |
+| Reliability | Sequencing, acknowledgments, retransmission, flow control | None |
+| Header | 20 bytes minimum | 8 bytes |
+| Used for | HTTP/HTTPS, SSH, Telnet, FTP, SMTP | DNS, DHCP, TFTP, SNMP, syslog, NTP, voice, video |
+---------------------------------------------------------------------
+
+- TCP analogy: registered courier with signature. First you confirm someone is home ("Are you there? Yes. OK, delivering"), then each parcel is acknowledged, and lost ones are re-sent.
+- UDP analogy: dropping a flyer in a letterbox, or a live radio broadcast. It is fast and has no confirmation, so a lost flyer is simply lost.
+- Ports: the IP address is the building, and the port is the apartment number.
+
+Ports to memorize: FTP 20/21, TFTP 69 (UDP), SSH 22, Telnet 23, SMTP 25, DNS 53, DHCP 67/68 (UDP), syslog 514 (UDP)  HTTP 80, HTTPS 443, NTP 123 (UDP), SNMP 161/162 (UDP).
+
+---
+
+## 5. IPv4 addressing, subnetting, private addresses
+
+Structure: 32 bits, written as four octets (e.g. 192.168.1.10). Part is the network and part is the host. The mask shows where one ends and the other begins.
+- Analogy: a phone number has an area code (network) and a local number (host). The mask tells you where the area code stops.
+
+Classes (for recognition): A 1-126 (/8), B 128-191 (/16), C 192-223 (/24), D 224-239 (multicast), E 240-255.
+
+Subnetting splits one network into smaller ones.
+- Hosts per subnet = 2^h − 2.
+- Block size = 256 − the interesting octet of the mask.
+- Worked example: 192.168.1.0/26
+  - Mask 255.255.255.192, block size 64.
+  - Subnets start at .0, .64, .128, .192.
+  - First subnet: network .0, usable .1 to .62, broadcast .63. That is 62 hosts.
+- Analogy: a 256-seat cinema hall split into four 64-seat sections. In each section the first seat number is the section's *label* (network address) and the last is the *loudspeaker* (broadcast address), so 62 seats are usable.
+
+Private addresses (RFC 1918):
+- 10.0.0.0/8
+- 172.16.0.0/12 (172.16.x.x to 172.31.x.x)
+- 192.168.0.0/16
+
+They are not routed on the Internet, so NAT translates them.
+- Analogy: extension numbers inside a company. Ext. 101 works only inside the building, and the switchboard (NAT) uses the company's main number for outside calls.
+
+Special ranges: 127.0.0.0/8 is loopback. 169.254.0.0/16 is APIPA, self-assigned when DHCP fails.
+
+---
+
+## 6. IPv6 addressing and address types
+
+Structure: 128 bits, written as eight groups of four hex digits separated by colons.
+
+Shortening rules:
+1. Drop leading zeros in each group.
+2. Replace one run of all-zero groups with `::`, and only once per address.
+- Example: `2001:0DB8:0000:0000:0000:0000:0000:0001` becomes `2001:DB8::1`.
+
+Other facts:
+- LAN prefix is normally /64, so the last 64 bits are the interface ID.
+- EUI-64 builds the interface ID from the MAC address: split the MAC, insert FFFE in the middle, and flip the 7th bit.
+- IPv6 has no broadcast. It uses multicast, and NDP replaces ARP.
+- Analogy for the size: IPv4 is a phone system that ran out of numbers. IPv6 has so many that every grain of sand could get one.
+
+Address types:
+
+| Type | Prefix | Analogy |
+|---|---|---|
+| Global unicast | 2000::/3 | Your public postal address; anyone can reach you |
+| Unique local | FC00::/7 | Internal company extension, private |
+| Link-local | FE80::/10 | Your neighbors in the same lane; you can shout to them but not beyond |
+| Multicast | FF00::/8 | A group chat; only members receive |
+| Anycast | (a unicast address shared by many) | A hotline to the *nearest* pizza outlet; the closest branch answers |
+| Loopback | ::1 | Talking to yourself |
+
+Key multicast addresses: FF02::1 is all nodes, FF02::2 is all routers.
+
+Memory hook: every IPv6 interface *automatically* gets a link-local address (FE80::), and routers use it as the next hop.
+
+---
+
+## 7. Client IP settings verification
+
+Four things to check: IP address, subnet mask, default gateway, DNS server.
+
+Commands:
+- Windows: `ipconfig /all`, `ipconfig /release`, `ipconfig /renew`
+- Linux/macOS: `ip addr`, `ifconfig`, `ip route`
+- Everywhere: `ping`, `nslookup`, `tracert` or `traceroute`, `arp -a`
+
+Troubleshooting ladder (ping outward in rings):
+1. `127.0.0.1` tests the TCP/IP stack.
+2. Your own IP tests the NIC.
+3. The default gateway tests the local LAN.
+4. A remote IP tests routing.
+5. A hostname tests DNS.
+
+- Analogy: ripples in a pond. You test yourself, then the neighbor, then the gateway, then the Internet, then the name lookup. The first ring that fails is where the problem is.
+- 169.254.x.x means DHCP failed. It is a temporary visitor badge: you can talk to people in the lobby, but nowhere else.
+
+---
+
+## 8. Wireless principles
+
+Bands:
+- 2.4 GHz: longer range, better through walls, crowded. Only channels 1, 6 and 11 do not overlap.
+- 5 GHz: shorter range, faster, many non-overlapping channels.
+- 6 GHz: Wi-Fi 6E and later, the cleanest.
+- Analogy: a deep bass voice carries through walls but is crowded (2.4 GHz). A high-pitched voice is clearer and faster but doesn't pass walls well (5 GHz).
+
+Channels: non-overlapping channels are separate radio stations in the same city. Overlapping ones bleed into each other and cause interference.
+
+Shared medium: Wi-Fi is half-duplex, using CSMA/CA (listen before talking).
+- Analogy: a room where only one person can speak at a time, and everyone waits for silence.
+
+Names:
+- SSID is the network name, like a shop's signboard.
+- BSSID is the AP's MAC address, like the shop's registration number.
+
+Standards: 802.11n = Wi-Fi 4, 802.11ac = Wi-Fi 5, 802.11ax = Wi-Fi 6.
+
+Security: WPA2 uses AES-CCMP. WPA3 uses SAE.
+
+Terms: attenuation is signal loss over distance or through walls. Interference comes from microwaves, Bluetooth and neighboring APs. Signal strength is measured in dBm, where less negative is better.
+
+Link to your guideline: the Bangladesh Bank guideline (5.6.3.2) requires Wi-Fi to be segregated from the corporate network.
+
+---
+
+## 9. Virtualization (VMs, containers, VRFs)
+
+Hypervisor is the software that splits one physical machine into many virtual ones.
+- Type 1 (bare metal): runs directly on hardware (ESXi, Hyper-V, KVM).
+- Type 2 (hosted): runs on top of an OS (VirtualBox, VMware Workstation).
+
+Virtual machine (VM) has its own full operating system.
+- Analogy: a full separate flat in an apartment building, with its own kitchen and bathroom (its own OS). It is heavy but strongly isolated.
+
+Container shares the host's OS kernel and packages only the app and its libraries.
+- Analogy: a private room in a shared flat. It has its own bed and locker but shares the kitchen. It is light and starts in seconds.
+- Docker builds and runs containers. Kubernetes manages many of them.
+
+VRF (Virtual Routing and Forwarding) gives one router *multiple independent routing tables*.
+- Analogy: one shopping mall with separate wings. Two shops can both be "Shop 101" in different wings, which means overlapping IP ranges are possible.
+- Used for multi-tenant and segmented networks.
+
+---
+
+## 10. Switching concepts (MAC learning and flooding)
+
+MAC address: 48 bits, 12 hex digits. The first half is the vendor's OUI and the second half is device-specific.
+
+What a switch does with each frame:
+1. Learn: it records the *source* MAC against the port the frame came in on.
+2. Forward: if the *destination* MAC is known, it sends out only that port.
+3. Flood: if the destination is unknown, or it is a broadcast, it sends out *all* ports except the one it came from.
+4. Filter: if the destination is on the same port the frame arrived on, it drops it.
+
+Aging: unused entries are removed after 300 seconds by default. Check with `show mac address-table`.
+
+Analogy: a receptionist.
+- A letter arrives from "Ravi, seat 3". She writes that in her notebook (learn).
+- If the letter is for someone in her notebook, she delivers it straight to them (forward).
+- If she doesn't know the name, she shouts down every corridor, "Anyone named Anika?" (flood). When Anika replies, she learns where Anika sits.
+- She erases names that have been silent for five minutes, because people may have moved (aging).
+
+Domains: each switch port is its own collision domain, and a VLAN is one broadcast domain.
+
+---
+
+## Quick-recall sheet
+
+-----------------------------------------------------------------------
+| Topic   | One-line analogy                                          |
+|---------|-----------------------------------------------------------|
+| Router  | Courier sorting hub between cities |
+| Switch  | Receptionist inside one building |
+| Firewall / IPS | Gate guard / airport scanner that stops the person |
+| 3-tier  | Local streets, district roads, highways |
+| Spine-leaf | Every station connects to every interchange |
+| Single-mode / multimode fiber | Laser down a straw / flashlight in a pipe |
+| Duplex  | Phone call / walkie-talkie |
+| TCP / UDP | Signed courier / flyer in the letterbox |
+| Subnetting | Cutting a cinema hall into sections |
+| Private IPs + NAT | Internal extensions + company switchboard |
+| IPv6 link-local | Neighbors in the same lane |
+| 169.254.x.x | Temporary visitor badge |
+| 2.4 / 5 GHz | Bass voice / high-pitched voice |
+| VM / container / VRF | Full flat / room in a shared flat / separate mall wings |
+| MAC learning | Receptionist's notebook |
+-----------------------------------------------------------------------
+
+
+
+
+
+
+
+.
