@@ -24,8 +24,8 @@ This exam tests a candidate's knowledge and skills related to -
           2: Network Access: VLANs (Virtual Local Area Networks), trunking, and wireless principles.
           3: IP Connectivity: How routing protocols like OSPF work.
           4: IP Services: DHCP, DNS, and NAT
-          5: Security Fundamentals: Access control lists (ACLs), port security, and basic firewall concepts.
-          6: Automation and Programmability: Basic understanding of APIs, JSON, and network automation tools like Puppet, Chef, or Ansible.
+          5: Security Fundamentals: basic firewall concepts, access control lists (ACLs), and port security.
+          6: Automation and Programmability: Network automation tools like Ansible or Puppet, Chef, and Basic understanding of APIs and JSON.
 
 The course, Implementing and Administering Cisco Solutions (CCNA), helps candidates prepare for this exam.
 
