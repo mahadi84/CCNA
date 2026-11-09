@@ -5,21 +5,26 @@ https://learningcontent.cisco.com/documents/marketing/exam-topics/200-301-CCNA-v
 Valid Till February_2027
 
 
+
+Exam Details
+
 Cisco Certified Network Associate
-CCNA Exam v1.1 (200-301) 
-Time:  120-minute exam
+• Exam Code: 200-301 CCNA
+• Duration: 120 minutes
+• Cost: $300 (plus local taxes)
+• Objectives: Earning a CCNA helps qualify me for various entry-level and support-oriented IT positions:
+• Validity: 3 years (after which you must recertify).
 
 ----------------------------
 
 Topics: 
 
 This exam tests a candidate's knowledge and skills related to - 
-          01. Network fundamentals, 
-          02. Network access, 
-          03. IP connectivity, 
-          04. IP services, 
-          05. Security fundamentals, and 
-          06. Automation and programmability. 
+          1: Network Fundamentals: Routers, switches, cabling, and TCP/IP or OSI models.
+          2: Network Access: VLANs (Virtual Local Area Networks), trunking, and wireless principles.
+          3-4: IP Connectivity & Services: How routing protocols like OSPF work, plus DHCP, DNS, and NAT.
+          5: Security Fundamentals: Access control lists (ACLs), port security, and basic firewall concepts.
+          6: Automation and Programmability: Basic understanding of APIs, JSON, and network automation tools like Puppet, Chef, or Ansible.
 
 The course, Implementing and Administering Cisco Solutions (CCNA), helps candidates prepare for this exam.
 
