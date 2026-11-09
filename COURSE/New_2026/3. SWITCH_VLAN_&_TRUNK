@@ -114,26 +114,25 @@ Protocol Types (ট্যাগিং প্রোটোকল)
 
 ### DTP (Dynamic Trunking Protocol)
 
- কী ও কেন: দুই সিসকো সুইচের পোর্টের মধ্যে স্বয়ংক্রিয়ভাবে Trunk (বহু VLAN চলাচলের পথ) তৈরি করার প্রোটোকল।
-> 💡 Analogy: দুটি সুইচের বর্ডার গার্ডদের মধ্যে হাত মিলিয়ে ঠিক করা—তারা সাধারণ গলি (Access) বানাবে নাকি হাইওয়ে (Trunk)।
+কী ও কেন: দুই সিসকো সুইচের পোর্টের মধ্যে স্বয়ংক্রিয়ভাবে Trunk (বহু VLAN চলাচলের পথ) তৈরি করার প্রোটোকল।
+💡Real-World Example:
+ধরা যাক, আপনার অফিসে Switch-A এবং Switch-B-এর মধ্যে একটি ফিজিক্যাল ক্যাবল সংযোগ দেওয়া হলো। 
+DTP অন থাকলে Switch-A অপর প্রান্তের Switch-B-কে সিগন্যাল পাঠিয়ে জিজ্ঞাসা করে, "তুমি কি ট্রাঙ্ক হতে চাও?" 
+Switch-B সম্মতি দিলে ম্যানুয়ালি কোনো কমান্ড দেওয়া ছাড়াই দুই সুইচের লিঙ্কটি স্বয়ংক্রিয়ভাবে Trunk Mode-এ চলে যায় এবং সব VLAN-এর ডাটা চলাচল শুরু করে।
+Check: show interfaces [interface-id] switchport
+Configure: switchport mode dynamic desirable (DTP চালু করতে) / switchport mode trunk + switchport nonegotiate (নিরাপত্তার জন্য DTP বন্ধ করে ম্যানুয়াল Trunk করতে)।
 
-Check: `show interfaces [interface-id] switchport`
-Configure: `switchport mode dynamic desirable` (DTP চালু করতে) / `switchport mode trunk` + `switchport nonegotiate` (নিরাপত্তার জন্য DTP বন্ধ করে Trunk করতে)।
 
 ### VTP (VLAN Trunking Protocol)
 
- কী ও কেন: নেটওয়ার্কের একটি সুইচ থেকে সব সুইচে VLAN-এর নাম ও ID স্বয়ংক্রিয়ভাবে শেয়ার/সিঙ্ক করার প্রোটোকল।
-> 💡 Analogy: হেডমাস্টার (Server) নোটিশ বোর্ডে রুটিন দিলে সব ক্লাসের মনিটররা (Clients) তা দেখে দেখে খাতায় লিখে নেওয়ার মতো।
+কী ও কেন: নেটওয়ার্কের একটি সুইচ থেকে সব সুইচে VLAN-এর নাম ও ID স্বয়ংক্রিয়ভাবে শেয়ার/সিঙ্ক করার প্রোটোকল।
+💡Real-World Example:
+একটি ১০ তলা ভবনের প্রতিটি ফ্লোরে একটি করে মোট ১০টি সুইচ রয়েছে। 
+আপনাকে বলা হলো নতুন একটি VLAN 50 (HR-Dept) তৈরি করতে। VTP ব্যবহার করলে আপনি শুধু ১ম তলার Core Switch (VTP Server)-এ গিয়ে একবার vlan 50 তৈরি করবেন। 
+VTP প্রোটোকল Trunk লিঙ্কের মাধ্যমে বাকি ৯টি সুইচে (VTP Clients) স্বয়ংক্রিয়ভাবে VLAN 50 ডাটাবেস আপডেট করে দেবে; 
+আপনাকে আলাদাভাবে ৯টি সুইচে লগইন করে ম্যানুয়ালি VLAN তৈরি করতে হবে না।
 
 
- Check: `show vtp status` এবং `show vtp password`
- Configure:
-```text
-Switch(config)# vtp domain [ডোমেইন_নাম]
-Switch(config)# vtp mode server ! (অথবা client / transparent)
-Switch(config)# vtp password [পাসওয়ার্ড]
-
-```
 =========================================================================================================
   ### 04.  এক VLAN থেকে অন্য VLAN-এ ডাটা কীভাবে পাঠাবেন? Inter-VLAN Routing কী? কনফিগারেশনের ৩টি পদ্ধতি
 =========================================================================================================
