@@ -4,7 +4,7 @@
       - their total ranges, 
       - default subnet masks, and 
       - usable IP counts per network?
-2. Usable  private ranges according to RFC-1918?
+2. Usable private ranges according to RFC-1918?
 3. What and Why CIDR?
 
 
