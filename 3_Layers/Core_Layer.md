@@ -5,7 +5,7 @@
 
 
  <p align="center">
-  <img src="https://images.openai.com/static-rsc-4/HYflBjSJQt7S_a6Ntc1Z4bCW3kx96atPKD8YlALjilJEYw_axbYJue9IMDy10pMpeYjSJFy8VaWApEIUk7O7EFMIUCKNpnbXGjLhuJh52b9ky5IZSIcc42lXFnMlort9Y4DUuKloOvZD1HFzW1A73Ra6XvZGd_TiAgnThtSzb2ZcKQu2RNirzBuPZTZV2Jsh?purpose=fullsize" width="800" alt="Nvidia Roadmap">
+  <img src="https://images.openai.com/static-rsc-4/HYflBjSJQt7S_a6Ntc1Z4bCW3kx96atPKD8YlALjilJEYw_axbYJue9IMDy10pMpeYjSJFy8VaWApEIUk7O7EFMIUCKNpnbXGjLhuJh52b9ky5IZSIcc42lXFnMlort9Y4DUuKloOvZD1HFzW1A73Ra6XvZGd_TiAgnThtSzb2ZcKQu2RNirzBuPZTZV2Jsh?purpose=fullsize" width="800" height= "600" alt="Nvidia Roadmap">
 </p>
 
 ১. Core Network Monitoring
