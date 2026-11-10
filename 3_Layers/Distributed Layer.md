@@ -9,7 +9,7 @@
 
 
  <p align="center">
-  <img src="https://images.openai.com/static-rsc-4/h2xhN73xNyazeeIDoukUd96zlGz3iGTxGs_X7wJ-NQpP0uwcTFTX4CI9nWimAl8EFOxJ0q_kq_z5MWNn8Xk507A3y_5Qv2kwHbl9ObnZcFHZ-zfMS9vcSvuixjlpBBR6Tr6TzbtaWSTffAL3FevSPMdaGIBGhOW4-fVtQEuSpKquZlQb5q08m7oDC1U6QZzc?purpose=fullsize" width="600" height= "300" alt="Nvidia Roadmap">
+  <img src="https://images.openai.com/static-rsc-4/h2xhN73xNyazeeIDoukUd96zlGz3iGTxGs_X7wJ-NQpP0uwcTFTX4CI9nWimAl8EFOxJ0q_kq_z5MWNn8Xk507A3y_5Qv2kwHbl9ObnZcFHZ-zfMS9vcSvuixjlpBBR6Tr6TzbtaWSTffAL3FevSPMdaGIBGhOW4-fVtQEuSpKquZlQb5q08m7oDC1U6QZzc?purpose=fullsize" width="500" height= "300" alt="Nvidia Roadmap">
 </p>
 
 কাজ ১: সকালে Network Health Check
