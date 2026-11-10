@@ -12,7 +12,11 @@
 
 ### ১. Core Layer — নেটওয়ার্কের মূল স্তর
 
-![HPE's first big Juniper test: The ‘self-driving network’ behind the 2026 Winter Olympics - SDxCentral](https://images.openai.com/static-rsc-4/ZaTYt8lDSMS-jHGG7DlD5LySDzGP9zWEk24wnDev6V16HhtWJAYHxJCMnK6LdKLJ9etp08ugxmbtEJO7YzeGRdKSxDa0LUJYrg6o9QuZq7n1QwPFD8wJdwkh9Qb79e4XJfZcVb7OPE-Z9jycORWhrcpSs4uix1sbk-EVcPi-q12N5M_AliZUJY38R05C-EZv?purpose=fullsize)
+ <p align="center">
+  <img src="https://images.openai.com/static-rsc-4/ZaTYt8lDSMS-jHGG7DlD5LySDzGP9zWEk24wnDev6V16HhtWJAYHxJCMnK6LdKLJ9etp08ugxmbtEJO7YzeGRdKSxDa0LUJYrg6o9QuZq7n1QwPFD8wJdwkh9Qb79e4XJfZcVb7OPE-Z9jycORWhrcpSs4uix1sbk-EVcPi-q12N5M_AliZUJY38R05C-EZv?purpose=fullsize" width="500" height= "300" alt="Core Layer">
+</p>
+
+
 
 মূল কাজ: নেটওয়ার্কের বিভিন্ন অংশের মধ্যে দ্রুত ও নির্ভরযোগ্যভাবে বিপুল পরিমাণ ডেটা আদান-প্রদান করা।
 
