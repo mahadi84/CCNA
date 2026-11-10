@@ -84,7 +84,7 @@
 
 বাস্তব উপমা: একটি সেতু বন্ধ হলে বিকল্প সেতু দিয়ে যানবাহন চলাচলের ব্যবস্থা থাকা।
 
-(https://images.openai.com/static-rsc-4/OmlOoCD3Rn45MXDByDyA7j4eIl3xzRN_tU0ZMokixyxBQYBl1UpEomNAnC1AyMdhLrvucjf12rhQNs6dpsfKykNm9sBEJwZwMQPEeW-RFg7WCzyPsY8fuD-AXDdslXepHTJ7BZaLdgj8A3ameSaej9azd-LM0GqsBoxOwlE8munwE0cm7B0fEOG8Ph81OpLE?purpose=fullsize)
+![Cisco Learning Network](https://images.openai.com/static-rsc-4/OmlOoCD3Rn45MXDByDyA7j4eIl3xzRN_tU0ZMokixyxBQYBl1UpEomNAnC1AyMdhLrvucjf12rhQNs6dpsfKykNm9sBEJwZwMQPEeW-RFg7WCzyPsY8fuD-AXDdslXepHTJ7BZaLdgj8A3ameSaej9azd-LM0GqsBoxOwlE8munwE0cm7B0fEOG8Ph81OpLE?purpose=fullsize)
 
 কাজ ৬: Change Management ও Documentation
 
