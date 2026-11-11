@@ -1,6 +1,5 @@
 # CCNA 200-301: Domain 3.0 IP Connectivity (25%)
 
-## Table of Contents (Clickable GitHub Menu)
 
 - [3.1 Interpret the Components of a Routing Table](#31-interpret-the-components-of-a-routing-table)
   - [3.1.a Routing Protocol Code](#routing-protocol-code)
