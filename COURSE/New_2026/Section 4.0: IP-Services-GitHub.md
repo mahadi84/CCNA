@@ -1,8 +1,8 @@
-# CCNA 200-301: Domain 4.0 IP Services (10%)
+
 
 All IPs below come from documentation ranges (192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24). Replace passwords and keys with your own.
 
-## 📚 Table of Contents (GitHub Quick Menu)
+
 
 1. [4.1 Inside Source NAT — Static NAT, Dynamic NAT and PAT](#41-inside-source-nat-static-and-pools)
 2. [4.2 NTP — Client and Server Mode](#42-ntp-client-and-server-mode)
