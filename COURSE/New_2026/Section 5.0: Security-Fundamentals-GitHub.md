@@ -2,9 +2,7 @@
 
 All IPs come from documentation ranges (192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24). Replace every `<PLACEHOLDER>` with your own secret. IOS syntax varies slightly by platform and version, so check yours.
 
----
 
-## 📚 Table of Contents (Clickable GitHub Menu)
 
 - [5.1 Key Security Concepts](#51-key-security-concepts)
   - [Technical explanation](#technical-explanation)
